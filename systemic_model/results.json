@@ -1,0 +1,8535 @@
+{
+ "as_of": "2026-06-05",
+ "macro": {
+  "sp500_forward_pe": 21.9,
+  "sp500_trailing_pe": 28.6,
+  "shiller_cape": 39.4,
+  "buffett_indicator_pct": 238.0,
+  "equity_risk_premium": -1.4,
+  "ust_10y": 4.7,
+  "ust_10y_real": 2.25,
+  "fed_funds_mid": 3.625,
+  "fed_next_move_bias": "hike",
+  "core_pce_yoy": 3.3,
+  "vix": 24.0,
+  "move": 95.0,
+  "brent_usd": 96.0,
+  "hormuz_status": "subdued; today's shock was jobs->rates, not oil",
+  "margin_debt_tn": 1.304,
+  "hyperscaler_capex_bn": 700,
+  "hy_oas_bps": 312,
+  "ig_oas_bps": 85,
+  "household_debt_gdp": 60.3,
+  "corp_debt_gdp": 47.0,
+  "margin_debt_yoy": 0.45,
+  "short_interest_pct": 2.0,
+  "fed_net_liq_3m_pct": -1.5,
+  "mmf_dry_powder_gdp": 25.5
+ },
+ "regime_probs": {
+  "benign": [
+   0.48,
+   0.38,
+   0.31
+  ],
+  "correction": [
+   0.38,
+   0.4,
+   0.4
+  ],
+  "bear": [
+   0.11,
+   0.16,
+   0.2
+  ],
+  "systemic": [
+   0.03,
+   0.06,
+   0.09
+  ]
+ },
+ "exposures": {
+  "S&P 500": {
+   "6m": {
+    "exceedance": [
+     0.17,
+     0.06375,
+     0.03875,
+     0.02,
+     0.0075,
+     0.00375
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.19875,
+      "median_months": 5.666666666666667,
+      "p_recover": 0.779874213836478,
+      "n": 159
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.10625,
+      "median_months": 10.333333333333334,
+      "p_recover": 0.5882352941176471,
+      "n": 85
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.025,
+      "median_months": null,
+      "p_recover": null,
+      "n": 20
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.01875,
+      "median_months": null,
+      "p_recover": null,
+      "n": 15
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.0125,
+      "median_months": null,
+      "p_recover": null,
+      "n": 10
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.0075,
+      "median_months": null,
+      "p_recover": null,
+      "n": 6
+     }
+    ]
+   },
+   "12m": {
+    "exceedance": [
+     0.385,
+     0.215,
+     0.13375,
+     0.07375,
+     0.0325,
+     0.0125
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.2925,
+      "median_months": 4.333333333333333,
+      "p_recover": 0.7991452991452992,
+      "n": 234
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.17,
+      "median_months": 9.452380952380953,
+      "p_recover": 0.6985294117647058,
+      "n": 136
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.08125,
+      "median_months": 17.714285714285715,
+      "p_recover": 0.36923076923076925,
+      "n": 65
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.06,
+      "median_months": 24.523809523809526,
+      "p_recover": 0.3333333333333333,
+      "n": 48
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.04125,
+      "median_months": 29.238095238095237,
+      "p_recover": 0.09090909090909091,
+      "n": 33
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.0325,
+      "median_months": null,
+      "p_recover": null,
+      "n": 26
+     }
+    ]
+   },
+   "18m": {
+    "exceedance": [
+     0.56875,
+     0.3575,
+     0.2425,
+     0.14875,
+     0.07625,
+     0.0325
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.27875,
+      "median_months": 4.0,
+      "p_recover": 0.8968609865470852,
+      "n": 223
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.21125,
+      "median_months": 8.80952380952381,
+      "p_recover": 0.7396449704142012,
+      "n": 169
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.115,
+      "median_months": 15.285714285714286,
+      "p_recover": 0.40217391304347827,
+      "n": 92
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.09375,
+      "median_months": 17.666666666666668,
+      "p_recover": 0.36,
+      "n": 75
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.0725,
+      "median_months": 30.11904761904762,
+      "p_recover": 0.13793103448275862,
+      "n": 58
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.07625,
+      "median_months": 41.61904761904762,
+      "p_recover": 0.01639344262295082,
+      "n": 61
+     }
+    ]
+   }
+  },
+  "Equal-weight S&P": {
+   "6m": {
+    "exceedance": [
+     0.14,
+     0.0575,
+     0.03,
+     0.01375,
+     0.005,
+     0.0025
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.19625,
+      "median_months": 6.333333333333333,
+      "p_recover": 0.7197452229299363,
+      "n": 157
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.0825,
+      "median_months": 11.619047619047619,
+      "p_recover": 0.6515151515151515,
+      "n": 66
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.0275,
+      "median_months": null,
+      "p_recover": null,
+      "n": 22
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.01625,
+      "median_months": null,
+      "p_recover": null,
+      "n": 13
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.00875,
+      "median_months": null,
+      "p_recover": null,
+      "n": 7
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.005,
+      "median_months": null,
+      "p_recover": null,
+      "n": 4
+     }
+    ]
+   },
+   "12m": {
+    "exceedance": [
+     0.355,
+     0.19125,
+     0.11125,
+     0.06375,
+     0.025,
+     0.00875
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.3075,
+      "median_months": 5.380952380952381,
+      "p_recover": 0.7764227642276422,
+      "n": 246
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.16375,
+      "median_months": 9.238095238095237,
+      "p_recover": 0.6641221374045801,
+      "n": 131
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.08,
+      "median_months": 22.88095238095238,
+      "p_recover": 0.28125,
+      "n": 64
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.0475,
+      "median_months": 33.023809523809526,
+      "p_recover": 0.21052631578947367,
+      "n": 38
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.03875,
+      "median_months": 37.38095238095238,
+      "p_recover": 0.06451612903225806,
+      "n": 31
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.025,
+      "median_months": null,
+      "p_recover": null,
+      "n": 20
+     }
+    ]
+   },
+   "18m": {
+    "exceedance": [
+     0.55,
+     0.32625,
+     0.2225,
+     0.13375,
+     0.05625,
+     0.02875
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.27,
+      "median_months": 4.666666666666667,
+      "p_recover": 0.8194444444444444,
+      "n": 216
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.22375,
+      "median_months": 9.238095238095237,
+      "p_recover": 0.6983240223463687,
+      "n": 179
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.10375,
+      "median_months": 15.19047619047619,
+      "p_recover": 0.3855421686746988,
+      "n": 83
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.08875,
+      "median_months": 23.61904761904762,
+      "p_recover": 0.22535211267605634,
+      "n": 71
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.0775,
+      "median_months": 34.38095238095238,
+      "p_recover": 0.11290322580645161,
+      "n": 62
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.05625,
+      "median_months": 50.76190476190476,
+      "p_recover": 0.0,
+      "n": 45
+     }
+    ]
+   }
+  },
+  "Mega-cap tech": {
+   "6m": {
+    "exceedance": [
+     0.23625,
+     0.1125,
+     0.06,
+     0.03875,
+     0.0125,
+     0.005
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.26875,
+      "median_months": 3.619047619047619,
+      "p_recover": 0.827906976744186,
+      "n": 215
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.12375,
+      "median_months": 9.738095238095237,
+      "p_recover": 0.7070707070707071,
+      "n": 99
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.0525,
+      "median_months": 10.642857142857142,
+      "p_recover": 0.5238095238095238,
+      "n": 42
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.02125,
+      "median_months": null,
+      "p_recover": null,
+      "n": 17
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.02625,
+      "median_months": null,
+      "p_recover": null,
+      "n": 21
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.0125,
+      "median_months": null,
+      "p_recover": null,
+      "n": 10
+     }
+    ]
+   },
+   "12m": {
+    "exceedance": [
+     0.50875,
+     0.30375,
+     0.2,
+     0.11375,
+     0.05375,
+     0.02
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.32625,
+      "median_months": 2.857142857142857,
+      "p_recover": 0.8888888888888888,
+      "n": 261
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.205,
+      "median_months": 6.214285714285714,
+      "p_recover": 0.7560975609756098,
+      "n": 164
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.10375,
+      "median_months": 8.904761904761905,
+      "p_recover": 0.6385542168674698,
+      "n": 83
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.08625,
+      "median_months": 18.904761904761905,
+      "p_recover": 0.36231884057971014,
+      "n": 69
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.06,
+      "median_months": 15.30952380952381,
+      "p_recover": 0.3958333333333333,
+      "n": 48
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.05375,
+      "median_months": 47.214285714285715,
+      "p_recover": 0.046511627906976744,
+      "n": 43
+     }
+    ]
+   },
+   "18m": {
+    "exceedance": [
+     0.71125,
+     0.485,
+     0.32875,
+     0.2275,
+     0.10625,
+     0.0525
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.21625,
+      "median_months": 3.380952380952381,
+      "p_recover": 0.930635838150289,
+      "n": 173
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.22625,
+      "median_months": 5.571428571428571,
+      "p_recover": 0.8397790055248618,
+      "n": 181
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.15625,
+      "median_months": 9.523809523809524,
+      "p_recover": 0.672,
+      "n": 125
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.10125,
+      "median_months": 14.0,
+      "p_recover": 0.4567901234567901,
+      "n": 81
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.12125,
+      "median_months": 21.857142857142858,
+      "p_recover": 0.35051546391752575,
+      "n": 97
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.10625,
+      "median_months": 40.38095238095238,
+      "p_recover": 0.08235294117647059,
+      "n": 85
+     }
+    ]
+   }
+  },
+  "Nasdaq-100": {
+   "6m": {
+    "exceedance": [
+     0.22875,
+     0.1175,
+     0.05625,
+     0.0325,
+     0.01125,
+     0.005
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.27625,
+      "median_months": 3.9523809523809526,
+      "p_recover": 0.8597285067873304,
+      "n": 221
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.11125,
+      "median_months": 10.714285714285714,
+      "p_recover": 0.6966292134831461,
+      "n": 89
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.06125,
+      "median_months": 13.238095238095237,
+      "p_recover": 0.5102040816326531,
+      "n": 49
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.02375,
+      "median_months": null,
+      "p_recover": null,
+      "n": 19
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.02125,
+      "median_months": null,
+      "p_recover": null,
+      "n": 17
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.01125,
+      "median_months": null,
+      "p_recover": null,
+      "n": 9
+     }
+    ]
+   },
+   "12m": {
+    "exceedance": [
+     0.50125,
+     0.315,
+     0.19125,
+     0.11375,
+     0.05,
+     0.02125
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.33625,
+      "median_months": 3.238095238095238,
+      "p_recover": 0.8996282527881041,
+      "n": 269
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.18625,
+      "median_months": 6.809523809523809,
+      "p_recover": 0.7046979865771812,
+      "n": 149
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.12375,
+      "median_months": 11.380952380952381,
+      "p_recover": 0.5858585858585859,
+      "n": 99
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.0775,
+      "median_months": 14.047619047619047,
+      "p_recover": 0.3870967741935484,
+      "n": 62
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.06375,
+      "median_months": 27.61904761904762,
+      "p_recover": 0.2549019607843137,
+      "n": 51
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.05,
+      "median_months": 49.857142857142854,
+      "p_recover": 0.05,
+      "n": 40
+     }
+    ]
+   },
+   "18m": {
+    "exceedance": [
+     0.69375,
+     0.47875,
+     0.32375,
+     0.22625,
+     0.1,
+     0.0525
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.2425,
+      "median_months": 3.119047619047619,
+      "p_recover": 0.9329896907216495,
+      "n": 194
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.215,
+      "median_months": 5.9523809523809526,
+      "p_recover": 0.8197674418604651,
+      "n": 172
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.155,
+      "median_months": 10.404761904761905,
+      "p_recover": 0.6129032258064516,
+      "n": 124
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.0975,
+      "median_months": 15.19047619047619,
+      "p_recover": 0.44871794871794873,
+      "n": 78
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.12625,
+      "median_months": 21.642857142857142,
+      "p_recover": 0.32673267326732675,
+      "n": 101
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.1,
+      "median_months": 44.63409523809524,
+      "p_recover": 0.0625,
+      "n": 80
+     }
+    ]
+   }
+  },
+  "Semis (SOXX)": {
+   "6m": {
+    "exceedance": [
+     0.41125,
+     0.21625,
+     0.105,
+     0.0575,
+     0.02375,
+     0.0075
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.30125,
+      "median_months": 2.3095238095238093,
+      "p_recover": 0.91701244813278,
+      "n": 241
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.195,
+      "median_months": 4.142857142857143,
+      "p_recover": 0.8525641025641025,
+      "n": 156
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.11125,
+      "median_months": 8.095238095238095,
+      "p_recover": 0.7303370786516854,
+      "n": 89
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.0475,
+      "median_months": 14.904761904761905,
+      "p_recover": 0.5263157894736842,
+      "n": 38
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.03375,
+      "median_months": null,
+      "p_recover": null,
+      "n": 27
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.02375,
+      "median_months": null,
+      "p_recover": null,
+      "n": 19
+     }
+    ]
+   },
+   "12m": {
+    "exceedance": [
+     0.72625,
+     0.4725,
+     0.2875,
+     0.175,
+     0.08125,
+     0.0375
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.21125,
+      "median_months": 2.0476190476190474,
+      "p_recover": 0.9763313609467456,
+      "n": 169
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.25375,
+      "median_months": 3.5,
+      "p_recover": 0.9014778325123153,
+      "n": 203
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.185,
+      "median_months": 6.238095238095238,
+      "p_recover": 0.7432432432432432,
+      "n": 148
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.1125,
+      "median_months": 9.857142857142858,
+      "p_recover": 0.6444444444444445,
+      "n": 90
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.09375,
+      "median_months": 14.904761904761905,
+      "p_recover": 0.44,
+      "n": 75
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.08125,
+      "median_months": 42.476190476190474,
+      "p_recover": 0.13846153846153847,
+      "n": 65
+     }
+    ]
+   },
+   "18m": {
+    "exceedance": [
+     0.87375,
+     0.65125,
+     0.465,
+     0.32125,
+     0.16375,
+     0.07875
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.12,
+      "median_months": 2.3333333333333335,
+      "p_recover": 0.96875,
+      "n": 96
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.2225,
+      "median_months": 3.5952380952380953,
+      "p_recover": 0.9438202247191011,
+      "n": 178
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.18625,
+      "median_months": 5.761904761904762,
+      "p_recover": 0.8053691275167785,
+      "n": 149
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.14375,
+      "median_months": 9.0,
+      "p_recover": 0.7130434782608696,
+      "n": 115
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.1575,
+      "median_months": 14.619047619047619,
+      "p_recover": 0.5,
+      "n": 126
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.16375,
+      "median_months": 31.095238095238095,
+      "p_recover": 0.15267175572519084,
+      "n": 131
+     }
+    ]
+   }
+  },
+  "Russell 2000": {
+   "6m": {
+    "exceedance": [
+     0.3225,
+     0.16375,
+     0.07125,
+     0.04125,
+     0.01375,
+     0.00625
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.32,
+      "median_months": 3.0952380952380953,
+      "p_recover": 0.80859375,
+      "n": 256
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.15875,
+      "median_months": 6.261904761904762,
+      "p_recover": 0.6456692913385826,
+      "n": 127
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.0925,
+      "median_months": 11.428571428571429,
+      "p_recover": 0.5405405405405406,
+      "n": 74
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.03,
+      "median_months": null,
+      "p_recover": null,
+      "n": 24
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.0275,
+      "median_months": null,
+      "p_recover": null,
+      "n": 22
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.01375,
+      "median_months": null,
+      "p_recover": null,
+      "n": 11
+     }
+    ]
+   },
+   "12m": {
+    "exceedance": [
+     0.64,
+     0.39,
+     0.25125,
+     0.1575,
+     0.0575,
+     0.0225
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.29,
+      "median_months": 2.9761904761904763,
+      "p_recover": 0.8793103448275862,
+      "n": 232
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.25,
+      "median_months": 4.714285714285714,
+      "p_recover": 0.755,
+      "n": 200
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.13875,
+      "median_months": 9.952380952380953,
+      "p_recover": 0.5225225225225225,
+      "n": 111
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.09375,
+      "median_months": 13.047619047619047,
+      "p_recover": 0.44,
+      "n": 75
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.1,
+      "median_months": 15.952380952380953,
+      "p_recover": 0.3,
+      "n": 80
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.0575,
+      "median_months": 43.76190476190476,
+      "p_recover": 0.021739130434782608,
+      "n": 46
+     }
+    ]
+   },
+   "18m": {
+    "exceedance": [
+     0.8025,
+     0.59125,
+     0.41375,
+     0.28625,
+     0.1325,
+     0.06
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.17625,
+      "median_months": 3.0952380952380953,
+      "p_recover": 0.9432624113475178,
+      "n": 141
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.21125,
+      "median_months": 5.166666666666667,
+      "p_recover": 0.757396449704142,
+      "n": 169
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.1775,
+      "median_months": 7.404761904761905,
+      "p_recover": 0.6619718309859155,
+      "n": 142
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.1275,
+      "median_months": 11.952380952380953,
+      "p_recover": 0.45098039215686275,
+      "n": 102
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.15375,
+      "median_months": 19.285714285714285,
+      "p_recover": 0.3170731707317073,
+      "n": 123
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.1325,
+      "median_months": 34.666666666666664,
+      "p_recover": 0.03773584905660377,
+      "n": 106
+     }
+    ]
+   }
+  },
+  "HY credit proxy": {
+   "6m": {
+    "exceedance": [
+     0.01625,
+     0.00875,
+     0.00375,
+     0.00125,
+     0.0,
+     0.0
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.0375,
+      "median_months": 18.285714285714285,
+      "p_recover": 0.3333333333333333,
+      "n": 30
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.0075,
+      "median_months": null,
+      "p_recover": null,
+      "n": 6
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.005,
+      "median_months": null,
+      "p_recover": null,
+      "n": 4
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.0025,
+      "median_months": null,
+      "p_recover": null,
+      "n": 2
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.00125,
+      "median_months": null,
+      "p_recover": null,
+      "n": 1
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.0,
+      "median_months": null,
+      "p_recover": null,
+      "n": 0
+     }
+    ]
+   },
+   "12m": {
+    "exceedance": [
+     0.06,
+     0.0275,
+     0.01,
+     0.005,
+     0.00125,
+     0.0
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.1225,
+      "median_months": 15.714285714285714,
+      "p_recover": 0.42857142857142855,
+      "n": 98
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.0325,
+      "median_months": null,
+      "p_recover": null,
+      "n": 26
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.0175,
+      "median_months": null,
+      "p_recover": null,
+      "n": 14
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.005,
+      "median_months": null,
+      "p_recover": null,
+      "n": 4
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.00375,
+      "median_months": null,
+      "p_recover": null,
+      "n": 3
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.00125,
+      "median_months": null,
+      "p_recover": null,
+      "n": 1
+     }
+    ]
+   },
+   "18m": {
+    "exceedance": [
+     0.125,
+     0.05875,
+     0.03375,
+     0.01875,
+     0.0025,
+     0.0
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.19875,
+      "median_months": 16.095238095238095,
+      "p_recover": 0.44654088050314467,
+      "n": 159
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.06625,
+      "median_months": 29.523809523809526,
+      "p_recover": 0.16981132075471697,
+      "n": 53
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.025,
+      "median_months": null,
+      "p_recover": null,
+      "n": 20
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.015,
+      "median_months": null,
+      "p_recover": null,
+      "n": 12
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.01625,
+      "median_months": null,
+      "p_recover": null,
+      "n": 13
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.0025,
+      "median_months": null,
+      "p_recover": null,
+      "n": 2
+     }
+    ]
+   }
+  },
+  "SOXL (3x semis)": {
+   "6m": {
+    "exceedance": [
+     0.9825,
+     0.92625,
+     0.81875,
+     0.675,
+     0.41875,
+     0.23125
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.0175,
+      "median_months": null,
+      "p_recover": null,
+      "n": 14
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.05625,
+      "median_months": 0.5476190476190477,
+      "p_recover": 0.9555555555555556,
+      "n": 45
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.1075,
+      "median_months": 1.1666666666666667,
+      "p_recover": 0.9767441860465116,
+      "n": 86
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.14375,
+      "median_months": 1.619047619047619,
+      "p_recover": 0.8608695652173913,
+      "n": 115
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.25625,
+      "median_months": 2.619047619047619,
+      "p_recover": 0.8097560975609757,
+      "n": 205
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.41625,
+      "median_months": 8.333333333333334,
+      "p_recover": 0.5585585585585585,
+      "n": 333
+     }
+    ]
+   },
+   "12m": {
+    "exceedance": [
+     1.0,
+     0.9975,
+     0.98375,
+     0.9425,
+     0.7725,
+     0.51875
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.0,
+      "median_months": null,
+      "p_recover": null,
+      "n": 0
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.0025,
+      "median_months": null,
+      "p_recover": null,
+      "n": 2
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.01375,
+      "median_months": null,
+      "p_recover": null,
+      "n": 11
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.04125,
+      "median_months": 1.3333333333333333,
+      "p_recover": 0.9696969696969697,
+      "n": 33
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.17,
+      "median_months": 2.4285714285714284,
+      "p_recover": 0.9044117647058824,
+      "n": 136
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.765,
+      "median_months": 7.809523809523809,
+      "p_recover": 0.5326797385620915,
+      "n": 612
+     }
+    ]
+   },
+   "18m": {
+    "exceedance": [
+     1.0,
+     1.0,
+     0.99625,
+     0.985,
+     0.89625,
+     0.725
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.0,
+      "median_months": null,
+      "p_recover": null,
+      "n": 0
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.0,
+      "median_months": null,
+      "p_recover": null,
+      "n": 0
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.00375,
+      "median_months": null,
+      "p_recover": null,
+      "n": 3
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.01125,
+      "median_months": null,
+      "p_recover": null,
+      "n": 9
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.08875,
+      "median_months": 2.4285714285714284,
+      "p_recover": 0.8591549295774648,
+      "n": 71
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.88,
+      "median_months": 9.619047619047619,
+      "p_recover": 0.48863636363636365,
+      "n": 704
+     }
+    ]
+   }
+  },
+  "TQQQ (3x NDX)": {
+   "6m": {
+    "exceedance": [
+     0.925,
+     0.7675,
+     0.6175,
+     0.47625,
+     0.245,
+     0.12125
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.07,
+      "median_months": 0.7380952380952381,
+      "p_recover": 0.9642857142857143,
+      "n": 56
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.1575,
+      "median_months": 0.9523809523809523,
+      "p_recover": 0.9444444444444444,
+      "n": 126
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.15,
+      "median_months": 1.4761904761904763,
+      "p_recover": 0.9083333333333333,
+      "n": 120
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.14125,
+      "median_months": 2.9047619047619047,
+      "p_recover": 0.8141592920353983,
+      "n": 113
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.23125,
+      "median_months": 4.095238095238095,
+      "p_recover": 0.7945945945945946,
+      "n": 185
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.24375,
+      "median_months": 11.571428571428571,
+      "p_recover": 0.4564102564102564,
+      "n": 195
+     }
+    ]
+   },
+   "12m": {
+    "exceedance": [
+     0.99875,
+     0.97625,
+     0.905,
+     0.80875,
+     0.54875,
+     0.33375
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.00125,
+      "median_months": null,
+      "p_recover": null,
+      "n": 1
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.0225,
+      "median_months": null,
+      "p_recover": null,
+      "n": 18
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.07125,
+      "median_months": 1.5714285714285714,
+      "p_recover": 1.0,
+      "n": 57
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.09625,
+      "median_months": 2.4285714285714284,
+      "p_recover": 0.961038961038961,
+      "n": 77
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.26,
+      "median_months": 3.619047619047619,
+      "p_recover": 0.8269230769230769,
+      "n": 208
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.54375,
+      "median_months": 10.238095238095237,
+      "p_recover": 0.432183908045977,
+      "n": 435
+     }
+    ]
+   },
+   "18m": {
+    "exceedance": [
+     1.0,
+     0.99875,
+     0.9725,
+     0.92125,
+     0.73875,
+     0.53375
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.0,
+      "median_months": null,
+      "p_recover": null,
+      "n": 0
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.00125,
+      "median_months": null,
+      "p_recover": null,
+      "n": 1
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.02625,
+      "median_months": null,
+      "p_recover": null,
+      "n": 21
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.05125,
+      "median_months": 2.0952380952380953,
+      "p_recover": 0.975609756097561,
+      "n": 41
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.1825,
+      "median_months": 3.7142857142857144,
+      "p_recover": 0.863013698630137,
+      "n": 146
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.72875,
+      "median_months": 10.761904761904763,
+      "p_recover": 0.4391080617495712,
+      "n": 583
+     }
+    ]
+   }
+  },
+  "TECL (3x tech)": {
+   "6m": {
+    "exceedance": [
+     0.9125,
+     0.7675,
+     0.5975,
+     0.4675,
+     0.25375,
+     0.1275
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.07875,
+      "median_months": 0.7857142857142857,
+      "p_recover": 0.8888888888888888,
+      "n": 63
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.145,
+      "median_months": 0.9523809523809523,
+      "p_recover": 0.9913793103448276,
+      "n": 116
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.17,
+      "median_months": 1.8571428571428572,
+      "p_recover": 0.8382352941176471,
+      "n": 136
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.13,
+      "median_months": 2.619047619047619,
+      "p_recover": 0.8942307692307693,
+      "n": 104
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.21375,
+      "median_months": 5.0,
+      "p_recover": 0.7602339181286549,
+      "n": 171
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.2525,
+      "median_months": 11.80952380952381,
+      "p_recover": 0.400990099009901,
+      "n": 202
+     }
+    ]
+   },
+   "12m": {
+    "exceedance": [
+     1.0,
+     0.9675,
+     0.91375,
+     0.81875,
+     0.54125,
+     0.33
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.0,
+      "median_months": null,
+      "p_recover": null,
+      "n": 0
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.0325,
+      "median_months": null,
+      "p_recover": null,
+      "n": 26
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.05375,
+      "median_months": 2.238095238095238,
+      "p_recover": 0.9767441860465116,
+      "n": 43
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.095,
+      "median_months": 2.5238095238095237,
+      "p_recover": 0.8947368421052632,
+      "n": 76
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.2775,
+      "median_months": 3.8095238095238093,
+      "p_recover": 0.8288288288288288,
+      "n": 222
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.53625,
+      "median_months": 12.071428571428571,
+      "p_recover": 0.3916083916083916,
+      "n": 429
+     }
+    ]
+   },
+   "18m": {
+    "exceedance": [
+     1.0,
+     0.99375,
+     0.97125,
+     0.915,
+     0.73875,
+     0.52125
+    ],
+    "recovery": [
+     {
+      "bucket": [
+       0.1,
+       0.15
+      ],
+      "freq": 0.0,
+      "median_months": null,
+      "p_recover": null,
+      "n": 0
+     },
+     {
+      "bucket": [
+       0.15,
+       0.2
+      ],
+      "freq": 0.00625,
+      "median_months": null,
+      "p_recover": null,
+      "n": 5
+     },
+     {
+      "bucket": [
+       0.2,
+       0.25
+      ],
+      "freq": 0.0225,
+      "median_months": null,
+      "p_recover": null,
+      "n": 18
+     },
+     {
+      "bucket": [
+       0.25,
+       0.3
+      ],
+      "freq": 0.05625,
+      "median_months": 2.380952380952381,
+      "p_recover": 1.0,
+      "n": 45
+     },
+     {
+      "bucket": [
+       0.3,
+       0.4
+      ],
+      "freq": 0.17625,
+      "median_months": 3.8095238095238093,
+      "p_recover": 0.8936170212765957,
+      "n": 141
+     },
+     {
+      "bucket": [
+       0.4,
+       0.99
+      ],
+      "freq": 0.72875,
+      "median_months": 12.666666666666666,
+      "p_recover": 0.3979416809605489,
+      "n": 583
+     }
+    ]
+   }
+  }
+ },
+ "companies": {
+  "decomposition": {
+   "NVIDIA": {
+    "pen": 0.38739999999999997,
+    "runway_raw": 0.21088755,
+    "rev_bn": 193.7,
+    "tam_bn": 500,
+    "tam_cagr": 0.45,
+    "fwd_pe": 30,
+    "beta": 1.45,
+    "quality": 0.9,
+    "earn_quality": 0.85,
+    "dominance": 0.85,
+    "capex_elastic": 0.55,
+    "role": "DC accelerator leader; ~80-85% share",
+    "runway_norm": 0.4303827551020408,
+    "premium_pts": 14.2,
+    "justified_pts": 6.111435122448979,
+    "unsupported_pts": 8.08856487755102,
+    "unsupported_frac": 0.26961882925170066,
+    "eq_fragility": 0.15000000000000002,
+    "fragility": 0.22177129755102043,
+    "recovery_quality": 0.38594928824149655
+   },
+   "Broadcom": {
+    "pen": 0.26666666666666666,
+    "runway_raw": 0.17453333333333335,
+    "rev_bn": 20.0,
+    "tam_bn": 75,
+    "tam_cagr": 0.4,
+    "fwd_pe": 29,
+    "beta": 1.3,
+    "quality": 0.85,
+    "earn_quality": 0.85,
+    "dominance": 0.7,
+    "capex_elastic": 0.7,
+    "role": "custom ASIC + networking; ~70% custom-AI design",
+    "runway_norm": 0.3561904761904762,
+    "premium_pts": 13.2,
+    "justified_pts": 4.701714285714286,
+    "unsupported_pts": 8.498285714285714,
+    "unsupported_frac": 0.29304433497536947,
+    "eq_fragility": 0.15000000000000002,
+    "fragility": 0.23582660098522168,
+    "recovery_quality": 0.38870200328407223
+   },
+   "Micron": {
+    "pen": 0.22857142857142856,
+    "runway_raw": 0.06017142857142858,
+    "rev_bn": 8.0,
+    "tam_bn": 35,
+    "tam_cagr": 0.4,
+    "fwd_pe": 12,
+    "beta": 1.35,
+    "quality": 0.65,
+    "earn_quality": 0.45,
+    "dominance": 0.3,
+    "capex_elastic": 0.5,
+    "role": "HBM; revenue ASP-inflated, cyclical",
+    "runway_norm": 0.12279883381924199,
+    "premium_pts": 0,
+    "justified_pts": 0.0,
+    "unsupported_pts": 0.0,
+    "unsupported_frac": 0.0,
+    "eq_fragility": 0.55,
+    "fragility": 0.22000000000000003,
+    "recovery_quality": 0.04047959183673469
+   },
+   "Kioxia": {
+    "pen": 0.10068027210884355,
+    "runway_raw": 0.0022482993197278913,
+    "rev_bn": 14.8,
+    "tam_bn": 147,
+    "tam_cagr": 0.05,
+    "fwd_pe": 10,
+    "beta": 1.3,
+    "quality": 0.25,
+    "earn_quality": 0.3,
+    "dominance": 0.2,
+    "capex_elastic": 0.4,
+    "role": "NAND; commodity cycle, price-spike revenue",
+    "runway_norm": 0.00458836595862835,
+    "premium_pts": 0,
+    "justified_pts": 0.0,
+    "unsupported_pts": 0.0,
+    "unsupported_frac": 0.0,
+    "eq_fragility": 0.7,
+    "fragility": 0.27999999999999997,
+    "recovery_quality": 0.0
+   },
+   "Marvell": {
+    "pen": 0.06382978723404255,
+    "runway_raw": 0.09174468085106383,
+    "rev_bn": 6.0,
+    "tam_bn": 94,
+    "tam_cagr": 0.35,
+    "fwd_pe": 24,
+    "beta": 1.4,
+    "quality": 0.7,
+    "earn_quality": 0.8,
+    "dominance": 0.4,
+    "capex_elastic": 0.7,
+    "role": "DC custom silicon + optics; contested vs AVGO",
+    "runway_norm": 0.18723404255319148,
+    "premium_pts": 8.2,
+    "justified_pts": 1.53531914893617,
+    "unsupported_pts": 6.66468085106383,
+    "unsupported_frac": 0.2776950354609929,
+    "eq_fragility": 0.19999999999999996,
+    "fragility": 0.2466170212765957,
+    "recovery_quality": 0.30603120567375885
+   },
+   "Qualcomm": {
+    "pen": 0.049222222222222216,
+    "runway_raw": 0.0299495,
+    "rev_bn": 44.3,
+    "tam_bn": 900,
+    "tam_cagr": 0.2,
+    "fwd_pe": 14,
+    "beta": 1.15,
+    "quality": 0.35,
+    "earn_quality": 0.7,
+    "dominance": 0.45,
+    "capex_elastic": 0.5,
+    "role": "edge-AI leader; soft aggregate TAM, mature handset base",
+    "runway_norm": 0.06112142857142858,
+    "premium_pts": 0,
+    "justified_pts": 0.0,
+    "unsupported_pts": 0.0,
+    "unsupported_frac": 0.0,
+    "eq_fragility": 0.30000000000000004,
+    "fragility": 0.12000000000000002,
+    "recovery_quality": 0.2663925
+   },
+   "AMD": {
+    "pen": 0.0332,
+    "runway_raw": 0.0906375,
+    "rev_bn": 16.6,
+    "tam_bn": 500,
+    "tam_cagr": 0.5,
+    "fwd_pe": 27,
+    "beta": 1.4,
+    "quality": 0.75,
+    "earn_quality": 0.8,
+    "dominance": 0.25,
+    "capex_elastic": 0.55,
+    "role": "DC #2 + edge secondary; share-taker vs NVDA",
+    "runway_norm": 0.18497448979591835,
+    "premium_pts": 11.2,
+    "justified_pts": 2.0717142857142856,
+    "unsupported_pts": 9.128285714285713,
+    "unsupported_frac": 0.33808465608465604,
+    "eq_fragility": 0.19999999999999996,
+    "fragility": 0.2828507936507936,
+    "recovery_quality": 0.25900870228647016
+   },
+   "ARM": {
+    "pen": 0.5,
+    "runway_raw": 0.108,
+    "rev_bn": 4.0,
+    "tam_bn": 8,
+    "tam_cagr": 0.3,
+    "fwd_pe": 70,
+    "beta": 1.3,
+    "quality": 0.8,
+    "earn_quality": 0.9,
+    "dominance": 0.9,
+    "capex_elastic": 0.7,
+    "role": "licensing/royalty; near-universal penetration, thin per-unit",
+    "runway_norm": 0.22040816326530613,
+    "premium_pts": 54.2,
+    "justified_pts": 11.946122448979592,
+    "unsupported_pts": 42.25387755102041,
+    "unsupported_frac": 0.6036268221574345,
+    "eq_fragility": 0.09999999999999998,
+    "fragility": 0.40217609329446063,
+    "recovery_quality": 0.2550026822157434
+   },
+   "Samsung": {
+    "pen": 1.05,
+    "runway_raw": -0.0027000000000000027,
+    "rev_bn": 210.0,
+    "tam_bn": 200,
+    "tam_cagr": 0.18,
+    "fwd_pe": 13,
+    "beta": 1.1,
+    "quality": 0.75,
+    "earn_quality": 0.55,
+    "dominance": 0.4,
+    "capex_elastic": 0.45,
+    "role": "diversified memory+foundry+devices; fortress B/S; cyclical DRAM/NAND",
+    "runway_norm": -0.005510204081632658,
+    "premium_pts": 0,
+    "justified_pts": -0.0,
+    "unsupported_pts": 0.0,
+    "unsupported_frac": 0.0,
+    "eq_fragility": 0.44999999999999996,
+    "fragility": 0.18,
+    "recovery_quality": 0.159765306122449
+   },
+   "SK Hynix": {
+    "pen": 0.5,
+    "runway_raw": 0.02145,
+    "rev_bn": 45.0,
+    "tam_bn": 90,
+    "tam_cagr": 0.22,
+    "fwd_pe": 11,
+    "beta": 1.4,
+    "quality": 0.65,
+    "earn_quality": 0.45,
+    "dominance": 0.3,
+    "capex_elastic": 0.4,
+    "role": "memory pure-play, HBM leader; moderate debt; deeply cyclical",
+    "runway_norm": 0.04377551020408164,
+    "premium_pts": 0,
+    "justified_pts": 0.0,
+    "unsupported_pts": 0.0,
+    "unsupported_frac": 0.0,
+    "eq_fragility": 0.55,
+    "fragility": 0.22000000000000003,
+    "recovery_quality": 0.0804770408163265
+   },
+   "Lumentum": {
+    "pen": 0.12,
+    "runway_raw": 0.09266400000000001,
+    "rev_bn": 3.0,
+    "tam_bn": 25,
+    "tam_cagr": 0.3,
+    "fwd_pe": 50,
+    "beta": 1.5,
+    "quality": 0.78,
+    "earn_quality": 0.65,
+    "dominance": 0.45,
+    "capex_elastic": 0.65,
+    "role": "AI optical interconnect + lasers; FY25 $1.65B, FY26 run-rate inflecting to ~$3B (+85% YoY guide); datacom-driven",
+    "runway_norm": 0.18911020408163268,
+    "premium_pts": 34.2,
+    "justified_pts": 6.467568979591838,
+    "unsupported_pts": 27.732431020408164,
+    "unsupported_frac": 0.5546486204081633,
+    "eq_fragility": 0.35,
+    "fragility": 0.4727891722448979,
+    "recovery_quality": 0.15321413175510204
+   },
+   "Coherent": {
+    "pen": 0.14444444444444443,
+    "runway_raw": 0.09342666666666669,
+    "rev_bn": 6.5,
+    "tam_bn": 45,
+    "tam_cagr": 0.28,
+    "fwd_pe": 49,
+    "beta": 1.55,
+    "quality": 0.78,
+    "earn_quality": 0.7,
+    "dominance": 0.5,
+    "capex_elastic": 0.65,
+    "role": "datacom optics + lasers + materials; FY25 $5.81B (+23% YoY); broadest optical franchise",
+    "runway_norm": 0.1906666666666667,
+    "premium_pts": 33.2,
+    "justified_pts": 6.330133333333335,
+    "unsupported_pts": 26.869866666666667,
+    "unsupported_frac": 0.5483646258503402,
+    "eq_fragility": 0.30000000000000004,
+    "fragility": 0.4490187755102041,
+    "recovery_quality": 0.17514029931972785
+   },
+   "Applied Optoelectronics": {
+    "pen": 0.023,
+    "runway_raw": 0.032241,
+    "rev_bn": 0.46,
+    "tam_bn": 20,
+    "tam_cagr": 0.3,
+    "fwd_pe": 40,
+    "beta": 1.7,
+    "quality": 0.55,
+    "earn_quality": 0.4,
+    "dominance": 0.2,
+    "capex_elastic": 0.6,
+    "role": "800G/1.6T transceivers; FY25 $456M (+83% YoY); small, single-customer-sensitive, volatile",
+    "runway_norm": 0.06579795918367347,
+    "premium_pts": 24.2,
+    "justified_pts": 1.5923106122448978,
+    "unsupported_pts": 22.6076893877551,
+    "unsupported_frac": 0.5651922346938776,
+    "eq_fragility": 0.6,
+    "fragility": 0.5791153408163265,
+    "recovery_quality": 0.0051165642857142896
+   },
+   "IonQ": {
+    "pen": 0.015666666666666666,
+    "runway_raw": 0.0909524,
+    "rev_bn": 0.235,
+    "tam_bn": 15,
+    "tam_cagr": 0.42,
+    "fwd_pe": 200,
+    "beta": 1.9,
+    "quality": 0.4,
+    "earn_quality": 0.15,
+    "dominance": 0.55,
+    "capex_elastic": 0.3,
+    "role": "trapped-ion quantum; 2026 guide $225-245M but deeply pre-earnings. fwd_pe=200 is a SENTINEL for 'no real earnings yet' -> premium is almost entirely floating. This is the red-team's exhibit A: a high discovery score that is arithmetic on a tiny base, not substance.",
+    "runway_norm": 0.18561714285714287,
+    "premium_pts": 184.2,
+    "justified_pts": 34.19067771428571,
+    "unsupported_pts": 150.0093222857143,
+    "unsupported_frac": 0.7500466114285714,
+    "eq_fragility": 0.85,
+    "fragility": 0.7900279668571428,
+    "recovery_quality": 0.0
+   },
+   "Palantir": {
+    "pen": 0.018,
+    "runway_raw": 0.19333124999999998,
+    "rev_bn": 4.5,
+    "tam_bn": 250,
+    "tam_cagr": 0.35,
+    "fwd_pe": 95,
+    "beta": 1.52,
+    "quality": 0.75,
+    "earn_quality": 0.6,
+    "dominance": 0.75,
+    "capex_elastic": 0.55,
+    "role": "AI/data-analytics software; FY25 $4.48B (+56%), FY26 guide +61%. Real gov+commercial moat (AIP), but fwd_pe ~95 = premium largely floating; durable demand but rich multiple is the fragility.",
+    "runway_norm": 0.3945535714285714,
+    "premium_pts": 79.2,
+    "justified_pts": 31.248642857142855,
+    "unsupported_pts": 47.95135714285715,
+    "unsupported_frac": 0.5047511278195489,
+    "eq_fragility": 0.4,
+    "fragility": 0.46285067669172936,
+    "recovery_quality": 0.21414784257518793
+   },
+   "AppLovin": {
+    "pen": 0.06875,
+    "runway_raw": 0.07869062500000001,
+    "rev_bn": 5.5,
+    "tam_bn": 80,
+    "tam_cagr": 0.2,
+    "fwd_pe": 29,
+    "beta": 2.37,
+    "quality": 0.65,
+    "earn_quality": 0.55,
+    "dominance": 0.65,
+    "capex_elastic": 0.3,
+    "role": "ad-tech / AXON engine; FY25 $5.48B (+70%). Cheaper multiple but beta 2.37 (deepest falls) and ad spend is DISCRETIONARY (freezes in a credit crash) -> low capex_elastic, weak recovery floor.",
+    "runway_norm": 0.160593112244898,
+    "premium_pts": 13.2,
+    "justified_pts": 2.1198290816326537,
+    "unsupported_pts": 11.080170918367346,
+    "unsupported_frac": 0.3820748592540464,
+    "eq_fragility": 0.44999999999999996,
+    "fragility": 0.4092449155524278,
+    "recovery_quality": 0.12147996745249828
+   },
+   "Meta": {
+    "pen": 0.20555555555555555,
+    "runway_raw": 0.08609791666666666,
+    "rev_bn": 185,
+    "tam_bn": 900,
+    "tam_cagr": 0.15,
+    "fwd_pe": 18,
+    "beta": 1.23,
+    "quality": 0.85,
+    "earn_quality": 0.85,
+    "dominance": 0.85,
+    "capex_elastic": 0.55,
+    "role": "digital advertising + AI; fwd_pe 18 is modest for the growth, so little floating premium; durable earnings, strong moat.",
+    "runway_norm": 0.17571003401360544,
+    "premium_pts": 2.1999999999999993,
+    "justified_pts": 0.3865620748299318,
+    "unsupported_pts": 1.8134379251700674,
+    "unsupported_frac": 0.10074655139833708,
+    "eq_fragility": 0.15000000000000002,
+    "fragility": 0.12044793083900225,
+    "recovery_quality": 0.27060338742441414
+   },
+   "Microsoft": {
+    "pen": 0.19333333333333333,
+    "runway_raw": 0.11107799999999998,
+    "rev_bn": 290,
+    "tam_bn": 1500,
+    "tam_cagr": 0.18,
+    "fwd_pe": 23,
+    "beta": 1.1,
+    "quality": 0.9,
+    "earn_quality": 0.9,
+    "dominance": 0.85,
+    "capex_elastic": 0.75,
+    "role": "cloud + enterprise software + AI; lowest beta of the set, sticky inelastic enterprise demand -> the strongest recovery floor.",
+    "runway_norm": 0.22668979591836733,
+    "premium_pts": 7.199999999999999,
+    "justified_pts": 1.6321665306122446,
+    "unsupported_pts": 5.567833469387755,
+    "unsupported_frac": 0.24207971606033715,
+    "eq_fragility": 0.09999999999999998,
+    "fragility": 0.1852478296362023,
+    "recovery_quality": 0.3368732345164152
+   },
+   "Amazon": {
+    "pen": 0.22666666666666666,
+    "runway_raw": 0.07888,
+    "rev_bn": 680,
+    "tam_bn": 3000,
+    "tam_cagr": 0.15,
+    "fwd_pe": 29,
+    "beta": 1.47,
+    "quality": 0.85,
+    "earn_quality": 0.8,
+    "dominance": 0.8,
+    "capex_elastic": 0.65,
+    "role": "retail + AWS cloud + ads; fwd_pe 29 mostly justified by AWS runway; durable, diversified, defensible.",
+    "runway_norm": 0.16097959183673471,
+    "premium_pts": 13.2,
+    "justified_pts": 2.1249306122448983,
+    "unsupported_pts": 11.0750693877551,
+    "unsupported_frac": 0.3818989444053483,
+    "eq_fragility": 0.19999999999999996,
+    "fragility": 0.30913936664320896,
+    "recovery_quality": 0.2539909190710767
+   },
+   "Tesla": {
+    "pen": 0.03166666666666667,
+    "runway_raw": 0.043938125,
+    "rev_bn": 95,
+    "tam_bn": 3000,
+    "tam_cagr": 0.15,
+    "fwd_pe": 215,
+    "beta": 2.2,
+    "quality": 0.55,
+    "earn_quality": 0.45,
+    "dominance": 0.55,
+    "capex_elastic": 0.4,
+    "role": "EV + robotaxi/AI + energy; FY25 rev $94.8B (-3%), Q1'26 +16% rebound; fwd P/E ~215 = premium almost entirely floating, very high beta. ARKK's top holding (~10%).",
+    "runway_norm": 0.08966964285714286,
+    "premium_pts": 199.2,
+    "justified_pts": 17.86219285714286,
+    "unsupported_pts": 181.33780714285712,
+    "unsupported_frac": 0.843431661129568,
+    "eq_fragility": 0.55,
+    "fragility": 0.7260589966777409,
+    "recovery_quality": 0.0
+   },
+   "Apple": {
+    "pen": 0.2255,
+    "runway_raw": 0.044766099999999996,
+    "rev_bn": 451,
+    "tam_bn": 2000,
+    "tam_cagr": 0.08,
+    "fwd_pe": 35,
+    "beta": 1.09,
+    "quality": 0.85,
+    "earn_quality": 0.9,
+    "dominance": 0.85,
+    "capex_elastic": 0.55,
+    "role": "devices + services; LTM ~$451B, low-single-digit growth; sticky ecosystem, durable earnings \u2014 safe but slow.",
+    "runway_norm": 0.09135938775510204,
+    "premium_pts": 19.2,
+    "justified_pts": 1.754100244897959,
+    "unsupported_pts": 17.44589975510204,
+    "unsupported_frac": 0.49845427871720116,
+    "eq_fragility": 0.09999999999999998,
+    "fragility": 0.33907256723032064,
+    "recovery_quality": 0.2148160372332361
+   },
+   "Alphabet": {
+    "pen": 0.152,
+    "runway_raw": 0.0796484,
+    "rev_bn": 380,
+    "tam_bn": 2500,
+    "tam_cagr": 0.13,
+    "fwd_pe": 29,
+    "beta": 1.05,
+    "quality": 0.85,
+    "earn_quality": 0.88,
+    "dominance": 0.85,
+    "capex_elastic": 0.55,
+    "role": "search/ads + Google Cloud + AI; ~12% growth, dominant ads moat.",
+    "runway_norm": 0.1625477551020408,
+    "premium_pts": 13.2,
+    "justified_pts": 2.1456303673469383,
+    "unsupported_pts": 11.05436963265306,
+    "unsupported_frac": 0.38118515974665723,
+    "eq_fragility": 0.12,
+    "fragility": 0.2767110958479943,
+    "recovery_quality": 0.21137986489795918
+   },
+   "Oracle": {
+    "pen": 0.114,
+    "runway_raw": 0.0765504,
+    "rev_bn": 57,
+    "tam_bn": 500,
+    "tam_cagr": 0.18,
+    "fwd_pe": 23,
+    "beta": 1.05,
+    "quality": 0.8,
+    "earn_quality": 0.8,
+    "dominance": 0.6,
+    "capex_elastic": 0.7,
+    "role": "enterprise DB + OCI cloud; FY25 $57B, OCI re-accelerating growth.",
+    "runway_norm": 0.156225306122449,
+    "premium_pts": 7.199999999999999,
+    "justified_pts": 1.1248222040816327,
+    "unsupported_pts": 6.075177795918367,
+    "unsupported_frac": 0.264138165039929,
+    "eq_fragility": 0.19999999999999996,
+    "fragility": 0.23848289902395736,
+    "recovery_quality": 0.2739659096362023
+   },
+   "Texas Instruments": {
+    "pen": 0.092,
+    "runway_raw": 0.057885,
+    "rev_bn": 18.4,
+    "tam_bn": 200,
+    "tam_cagr": 0.1,
+    "fwd_pe": 33,
+    "beta": 1.0,
+    "quality": 0.85,
+    "earn_quality": 0.85,
+    "dominance": 0.75,
+    "capex_elastic": 0.6,
+    "role": "analog/embedded; LTM $18.4B (+15% YoY), industrial+DC led; rich multiple for the growth.",
+    "runway_norm": 0.11813265306122449,
+    "premium_pts": 17.2,
+    "justified_pts": 2.0318816326530613,
+    "unsupported_pts": 15.168118367346938,
+    "unsupported_frac": 0.4596399505256648,
+    "eq_fragility": 0.15000000000000002,
+    "fragility": 0.33578397031539886,
+    "recovery_quality": 0.1851577597402597
+   },
+   "Cisco": {
+    "pen": 0.14,
+    "runway_raw": 0.027089999999999996,
+    "rev_bn": 56,
+    "tam_bn": 400,
+    "tam_cagr": 0.06,
+    "fwd_pe": 16,
+    "beta": 0.9,
+    "quality": 0.75,
+    "earn_quality": 0.85,
+    "dominance": 0.7,
+    "capex_elastic": 0.65,
+    "role": "networking + security; ~$56B, low growth, cheap multiple, durable.",
+    "runway_norm": 0.05528571428571428,
+    "premium_pts": 0.1999999999999993,
+    "justified_pts": 0.011057142857142816,
+    "unsupported_pts": 0.18894285714285647,
+    "unsupported_frac": 0.01180892857142853,
+    "eq_fragility": 0.15000000000000002,
+    "fragility": 0.06708535714285713,
+    "recovery_quality": 0.34713744642857136
+   },
+   "IBM": {
+    "pen": 0.10666666666666667,
+    "runway_raw": 0.015968333333333334,
+    "rev_bn": 64,
+    "tam_bn": 600,
+    "tam_cagr": 0.05,
+    "fwd_pe": 21,
+    "beta": 0.7,
+    "quality": 0.65,
+    "earn_quality": 0.8,
+    "dominance": 0.55,
+    "capex_elastic": 0.7,
+    "role": "hybrid cloud + consulting + AI; ~$64B, slow growth, low beta.",
+    "runway_norm": 0.03258843537414966,
+    "premium_pts": 5.199999999999999,
+    "justified_pts": 0.16945986394557822,
+    "unsupported_pts": 5.030540136054421,
+    "unsupported_frac": 0.23954953028830578,
+    "eq_fragility": 0.19999999999999996,
+    "fragility": 0.22372971817298345,
+    "recovery_quality": 0.25637952445740203
+   },
+   "Astera Labs": {
+    "pen": 0.028333333333333332,
+    "runway_raw": 0.180365625,
+    "rev_bn": 0.85,
+    "tam_bn": 30,
+    "tam_cagr": 0.45,
+    "fwd_pe": 90,
+    "beta": 2.0,
+    "quality": 0.75,
+    "earn_quality": 0.55,
+    "dominance": 0.55,
+    "capex_elastic": 0.55,
+    "role": "AI connectivity (retimers/CXL); FY25 ~$0.72B (+115% YoY); very high beta, rich multiple \u2014 high growth, fragile.",
+    "runway_norm": 0.368093112244898,
+    "premium_pts": 74.2,
+    "justified_pts": 27.312508928571432,
+    "unsupported_pts": 46.88749107142857,
+    "unsupported_frac": 0.520972123015873,
+    "eq_fragility": 0.44999999999999996,
+    "fragility": 0.4925832738095238,
+    "recovery_quality": 0.18172683751417235
+   },
+   "Vertiv": {
+    "pen": 0.15,
+    "runway_raw": 0.070125,
+    "rev_bn": 9.0,
+    "tam_bn": 60,
+    "tam_cagr": 0.2,
+    "fwd_pe": 30,
+    "beta": 1.5,
+    "quality": 0.75,
+    "earn_quality": 0.7,
+    "dominance": 0.55,
+    "capex_elastic": 0.55,
+    "role": "AI data-center power & cooling; ~$9B, ~28% growth; physical infra picks-and-shovels.",
+    "runway_norm": 0.1431122448979592,
+    "premium_pts": 14.2,
+    "justified_pts": 2.0321938775510207,
+    "unsupported_pts": 12.16780612244898,
+    "unsupported_frac": 0.405593537414966,
+    "eq_fragility": 0.30000000000000004,
+    "fragility": 0.36335612244897963,
+    "recovery_quality": 0.18800606292517
+   },
+   "CoreWeave": {
+    "pen": 0.020399999999999998,
+    "runway_raw": 0.08620480000000003,
+    "rev_bn": 5.1,
+    "tam_bn": 250,
+    "tam_cagr": 0.4,
+    "fwd_pe": 120,
+    "beta": 2.4,
+    "quality": 0.55,
+    "earn_quality": 0.3,
+    "dominance": 0.4,
+    "capex_elastic": 0.4,
+    "role": "AI GPU cloud; FY25 $5.1B (from $1.9B), explosive but debt-heavy, barely profitable, very high beta. fwd_pe=120 ~ sentinel; premium largely floating \u2014 the high-growth/high-fragility archetype.",
+    "runway_norm": 0.1759281632653062,
+    "premium_pts": 104.2,
+    "justified_pts": 18.331714612244905,
+    "unsupported_pts": 85.8682853877551,
+    "unsupported_frac": 0.7155690448979591,
+    "eq_fragility": 0.7,
+    "fragility": 0.7093414269387754,
+    "recovery_quality": 0.0
+   },
+   "ARKK (ARK Innovation)": {
+    "pen": 0.05,
+    "runway_raw": 0.0608,
+    "rev_bn": 5,
+    "tam_bn": 100,
+    "tam_cagr": 0.32,
+    "fwd_pe": 55,
+    "beta": 1.95,
+    "quality": 0.5,
+    "earn_quality": 0.4,
+    "dominance": 0.4,
+    "capex_elastic": 0.4,
+    "role": "disruptive-innovation basket LED BY TESLA (~10%), then AMD, CRISPR, Tempus AI, Robinhood. High beta, rich multiples, Tesla-driven idiosyncratic swings \u2014 NOT a semis basket.",
+    "runway_norm": 0.12408163265306123,
+    "premium_pts": 39.2,
+    "justified_pts": 4.864000000000001,
+    "unsupported_pts": 34.336,
+    "unsupported_frac": 0.6242909090909091,
+    "eq_fragility": 0.6,
+    "fragility": 0.6145745454545455,
+    "recovery_quality": 0.008010894248608545
+   },
+   "QQQ (Nasdaq-100)": {
+    "pen": 0.22,
+    "runway_raw": 0.059904000000000006,
+    "rev_bn": 22,
+    "tam_bn": 100,
+    "tam_cagr": 0.12,
+    "fwd_pe": 28,
+    "beta": 1.15,
+    "quality": 0.8,
+    "earn_quality": 0.82,
+    "dominance": 0.8,
+    "capex_elastic": 0.65,
+    "role": "Nasdaq-100 mega-cap tech; quality, but rich and tech-tilted.",
+    "runway_norm": 0.12225306122448981,
+    "premium_pts": 12.2,
+    "justified_pts": 1.4914873469387757,
+    "unsupported_pts": 10.708512653061224,
+    "unsupported_frac": 0.3824468804664723,
+    "eq_fragility": 0.18000000000000005,
+    "fragility": 0.3014681282798834,
+    "recovery_quality": 0.2465645282798833
+   },
+   "VOO (S&P 500)": {
+    "pen": 0.25,
+    "runway_raw": 0.036899999999999995,
+    "rev_bn": 25,
+    "tam_bn": 100,
+    "tam_cagr": 0.08,
+    "fwd_pe": 22,
+    "beta": 1.0,
+    "quality": 0.82,
+    "earn_quality": 0.85,
+    "dominance": 0.75,
+    "capex_elastic": 0.7,
+    "role": "broad US large-cap; the market itself \u2014 durable, diversified.",
+    "runway_norm": 0.07530612244897958,
+    "premium_pts": 6.199999999999999,
+    "justified_pts": 0.46689795918367333,
+    "unsupported_pts": 5.733102040816326,
+    "unsupported_frac": 0.260595547309833,
+    "eq_fragility": 0.15000000000000002,
+    "fragility": 0.21635732838589977,
+    "recovery_quality": 0.28673187384044524
+   },
+   "SCHD (Dividend)": {
+    "pen": 0.3,
+    "runway_raw": 0.01911,
+    "rev_bn": 30,
+    "tam_bn": 100,
+    "tam_cagr": 0.05,
+    "fwd_pe": 16,
+    "beta": 0.85,
+    "quality": 0.78,
+    "earn_quality": 0.9,
+    "dominance": 0.7,
+    "capex_elastic": 0.8,
+    "role": "quality-dividend value basket; low beta, cheap, durable earnings.",
+    "runway_norm": 0.039,
+    "premium_pts": 0.1999999999999993,
+    "justified_pts": 0.007799999999999972,
+    "unsupported_pts": 0.19219999999999932,
+    "unsupported_frac": 0.012012499999999957,
+    "eq_fragility": 0.09999999999999998,
+    "fragility": 0.04720749999999997,
+    "recovery_quality": 0.39499075
+   },
+   "DTCR (Data Ctr Infra)": {
+    "pen": 0.2,
+    "runway_raw": 0.06115200000000001,
+    "rev_bn": 20,
+    "tam_bn": 100,
+    "tam_cagr": 0.14,
+    "fwd_pe": 30,
+    "beta": 0.95,
+    "quality": 0.78,
+    "earn_quality": 0.8,
+    "dominance": 0.7,
+    "capex_elastic": 0.78,
+    "role": "data-center REITs & digital infra (Equinix, Digital Realty, American Tower); physical, contracted, durable \u2014 low beta.",
+    "runway_norm": 0.12480000000000002,
+    "premium_pts": 14.2,
+    "justified_pts": 1.7721600000000002,
+    "unsupported_pts": 12.42784,
+    "unsupported_frac": 0.4142613333333333,
+    "eq_fragility": 0.19999999999999996,
+    "fragility": 0.3285568,
+    "recovery_quality": 0.249224192
+   },
+   "GRID (Smart Grid)": {
+    "pen": 0.15,
+    "runway_raw": 0.06885,
+    "rev_bn": 18,
+    "tam_bn": 120,
+    "tam_cagr": 0.18,
+    "fwd_pe": 27,
+    "beta": 1.1,
+    "quality": 0.75,
+    "earn_quality": 0.75,
+    "dominance": 0.6,
+    "capex_elastic": 0.7,
+    "role": "grid/power equipment for the AI electricity demand (Eaton, Quanta, GE Vernova); inelastic infra spend.",
+    "runway_norm": 0.14051020408163264,
+    "premium_pts": 11.2,
+    "justified_pts": 1.5737142857142856,
+    "unsupported_pts": 9.626285714285714,
+    "unsupported_frac": 0.35652910052910053,
+    "eq_fragility": 0.25,
+    "fragility": 0.3139174603174603,
+    "recovery_quality": 0.24211476946334087
+   },
+   "NUKE (Nuclear/Uranium)": {
+    "pen": 0.11666666666666667,
+    "runway_raw": 0.06947416666666667,
+    "rev_bn": 14,
+    "tam_bn": 120,
+    "tam_cagr": 0.22,
+    "fwd_pe": 28,
+    "beta": 1.4,
+    "quality": 0.65,
+    "earn_quality": 0.6,
+    "dominance": 0.55,
+    "capex_elastic": 0.6,
+    "role": "nuclear/uranium for data-center baseload (Constellation, Vistra, Cameco, BWX); high-growth but cyclical/volatile.",
+    "runway_norm": 0.14178401360544218,
+    "premium_pts": 12.2,
+    "justified_pts": 1.7297649659863945,
+    "unsupported_pts": 10.470235034013605,
+    "unsupported_frac": 0.3739369655004859,
+    "eq_fragility": 0.4,
+    "fragility": 0.3843621793002916,
+    "recovery_quality": 0.16598791545189504
+   },
+   "VGT (Info Tech)": {
+    "pen": 0.2,
+    "runway_raw": 0.07872,
+    "rev_bn": 24,
+    "tam_bn": 120,
+    "tam_cagr": 0.15,
+    "fwd_pe": 30,
+    "beta": 1.15,
+    "quality": 0.82,
+    "earn_quality": 0.85,
+    "dominance": 0.8,
+    "capex_elastic": 0.65,
+    "role": "broad US information-technology sector; mega-cap heavy, durable.",
+    "runway_norm": 0.1606530612244898,
+    "premium_pts": 14.2,
+    "justified_pts": 2.281273469387755,
+    "unsupported_pts": 11.918726530612243,
+    "unsupported_frac": 0.39729088435374144,
+    "eq_fragility": 0.15000000000000002,
+    "fragility": 0.29837453061224484,
+    "recovery_quality": 0.2684678870748299
+   },
+   "IGV (Software)": {
+    "pen": 0.13333333333333333,
+    "runway_raw": 0.08788000000000001,
+    "rev_bn": 16,
+    "tam_bn": 120,
+    "tam_cagr": 0.2,
+    "fwd_pe": 40,
+    "beta": 1.25,
+    "quality": 0.78,
+    "earn_quality": 0.78,
+    "dominance": 0.65,
+    "capex_elastic": 0.6,
+    "role": "application & infrastructure software basket; higher multiple, subscription-durable.",
+    "runway_norm": 0.17934693877551022,
+    "premium_pts": 24.2,
+    "justified_pts": 4.340195918367347,
+    "unsupported_pts": 19.859804081632653,
+    "unsupported_frac": 0.4964951020408163,
+    "eq_fragility": 0.21999999999999997,
+    "fragility": 0.38589706122448975,
+    "recovery_quality": 0.21080657142857145
+   },
+   "SMH (VanEck Semis)": {
+    "pen": 0.21547103657578748,
+    "runway_raw": 0.13897212838064876,
+    "rev_bn": 76.37416481069044,
+    "tam_bn": 354.45211581291767,
+    "tam_cagr": 0.4064587973273942,
+    "fwd_pe": 21.96635739918979,
+    "beta": 1.3697104677060135,
+    "role": "ETF (holdings-weighted): 7 priceable constituents = 45% of fund weight",
+    "quality": 0.7575723830734967,
+    "earn_quality": 0.7584632516703789,
+    "dominance": 0.5752783964365258,
+    "capex_elastic": 0.5712694877505569,
+    "runway_norm": 0.2836165885319363,
+    "premium_pts": 6.166357399189788,
+    "justified_pts": 1.748881249226871,
+    "unsupported_pts": 4.417476149962917,
+    "unsupported_frac": 0.20110189730983127,
+    "eq_fragility": 0.24153674832962113,
+    "fragility": 0.21727583771774722,
+    "recovery_quality": 0.3241200510842704
+   },
+   "SOXX (iShares Semis)": {
+    "pen": 0.12471845966152596,
+    "runway_raw": 0.1167003240720913,
+    "rev_bn": 34.81986899563319,
+    "tam_bn": 279.1877729257642,
+    "tam_cagr": 0.393231441048035,
+    "fwd_pe": 20.040339368005917,
+    "beta": 1.34792576419214,
+    "role": "ETF (holdings-weighted): 7 priceable constituents = 46% of fund weight",
+    "quality": 0.7139737991266376,
+    "earn_quality": 0.7253275109170306,
+    "dominance": 0.47489082969432317,
+    "capex_elastic": 0.5848253275109172,
+    "runway_norm": 0.23816392667773734,
+    "premium_pts": 4.240339368005916,
+    "justified_pts": 1.009895874330484,
+    "unsupported_pts": 3.2304434936754323,
+    "unsupported_frac": 0.1611970453371056,
+    "eq_fragility": 0.2746724890829694,
+    "fragility": 0.2065872228354511,
+    "recovery_quality": 0.3097842312178619
+   },
+   "DRAM (Roundhill Memory)": {
+    "pen": 0.8152499999999999,
+    "runway_raw": 0.011217471074271821,
+    "rev_bn": 89.34246575342465,
+    "tam_bn": 109.58904109589041,
+    "tam_cagr": 0.2654794520547945,
+    "fwd_pe": 11.95761741122566,
+    "beta": 1.2808219178082192,
+    "role": "ETF (holdings-weighted): 3 priceable constituents = 73% of fund weight",
+    "quality": 0.6842465753424657,
+    "earn_quality": 0.4842465753424658,
+    "dominance": 0.3342465753424657,
+    "capex_elastic": 0.44999999999999996,
+    "runway_norm": 0.022892798110758818,
+    "premium_pts": 0,
+    "justified_pts": 0.0,
+    "unsupported_pts": 0.0,
+    "unsupported_frac": 0.0,
+    "eq_fragility": 0.5157534246575342,
+    "fragility": 0.20630136986301367,
+    "recovery_quality": 0.17115953854046329
+   },
+   "QTUM (Defiance Quantum)": {
+    "pen": 0.14220683343502133,
+    "runway_raw": 0.1173166177032689,
+    "rev_bn": 36.879272151898725,
+    "tam_bn": 259.33544303797464,
+    "tam_cagr": 0.3822784810126582,
+    "fwd_pe": 22.55404290617067,
+    "beta": 1.3936708860759492,
+    "role": "ETF (holdings-weighted): 8 priceable constituents = 16% of fund weight",
+    "quality": 0.6822784810126581,
+    "earn_quality": 0.6825949367088606,
+    "dominance": 0.5243670886075948,
+    "capex_elastic": 0.5632911392405062,
+    "runway_norm": 0.23942166878218143,
+    "premium_pts": 6.754042906170671,
+    "justified_pts": 1.6170642236218364,
+    "unsupported_pts": 5.136978682548834,
+    "unsupported_frac": 0.22776309790309848,
+    "eq_fragility": 0.3174050632911394,
+    "fragility": 0.2636198840583148,
+    "recovery_quality": 0.2706379376603984
+   },
+   "AIQ (Global X AI)": {
+    "pen": 0.24652948935368382,
+    "runway_raw": 0.09361513074872677,
+    "rev_bn": 153.20046838407492,
+    "tam_bn": 621.4285714285713,
+    "tam_cagr": 0.2957377049180327,
+    "fwd_pe": 17.457621745479397,
+    "beta": 1.3241217798594846,
+    "role": "ETF (holdings-weighted): 10 priceable constituents = 43% of fund weight",
+    "quality": 0.7710772833723654,
+    "earn_quality": 0.6758782201405152,
+    "dominance": 0.544847775175644,
+    "capex_elastic": 0.5439110070257611,
+    "runway_norm": 0.19105128724229953,
+    "premium_pts": 1.6576217454793962,
+    "justified_pts": 0.316690768234666,
+    "unsupported_pts": 1.3409309772447302,
+    "unsupported_frac": 0.07681063301717833,
+    "eq_fragility": 0.32412177985948476,
+    "fragility": 0.1757350917541009,
+    "recovery_quality": 0.2907607208123427
+   },
+   "CHAT (Roundhill GenAI)": {
+    "pen": 0.1947493712918427,
+    "runway_raw": 0.11759578799877962,
+    "rev_bn": 173.02277657266808,
+    "tam_bn": 888.4381778741863,
+    "tam_cagr": 0.3009110629067244,
+    "fwd_pe": 20.055504600137933,
+    "beta": 1.3233188720173532,
+    "role": "ETF (holdings-weighted): 10 priceable constituents = 46% of fund weight",
+    "quality": 0.7905639913232103,
+    "earn_quality": 0.7286767895878523,
+    "dominance": 0.613882863340564,
+    "capex_elastic": 0.5584598698481561,
+    "runway_norm": 0.2399914040791421,
+    "premium_pts": 4.255504600137932,
+    "justified_pts": 1.0212845240523505,
+    "unsupported_pts": 3.234220076085582,
+    "unsupported_frac": 0.16126346060937996,
+    "eq_fragility": 0.2713232104121477,
+    "fragility": 0.20528736053048705,
+    "recovery_quality": 0.30615166476107936
+   }
+  },
+  "exceedance": {
+   "NVIDIA": {
+    "6m": [
+     0.43875,
+     0.22875,
+     0.12625,
+     0.065,
+     0.02625,
+     0.0125
+    ],
+    "12m": [
+     0.755,
+     0.51125,
+     0.34,
+     0.21375,
+     0.0925,
+     0.0475
+    ],
+    "18m": [
+     0.89625,
+     0.69125,
+     0.53375,
+     0.37,
+     0.1825,
+     0.0925
+    ]
+   },
+   "Broadcom": {
+    "6m": [
+     0.37625,
+     0.19875,
+     0.09625,
+     0.055,
+     0.0175,
+     0.00875
+    ],
+    "12m": [
+     0.7125,
+     0.47125,
+     0.285,
+     0.18375,
+     0.085,
+     0.03875
+    ],
+    "18m": [
+     0.88125,
+     0.67125,
+     0.46875,
+     0.33375,
+     0.165,
+     0.07375
+    ]
+   },
+   "Micron": {
+    "6m": [
+     0.40375,
+     0.2825,
+     0.16875,
+     0.09875,
+     0.03,
+     0.01375
+    ],
+    "12m": [
+     0.7175,
+     0.615,
+     0.4125,
+     0.2875,
+     0.125,
+     0.06125
+    ],
+    "18m": [
+     0.8775,
+     0.78375,
+     0.60625,
+     0.4575,
+     0.25875,
+     0.13125
+    ]
+   },
+   "Kioxia": {
+    "6m": [
+     0.3925,
+     0.2675,
+     0.15125,
+     0.08875,
+     0.0275,
+     0.015
+    ],
+    "12m": [
+     0.73625,
+     0.5925,
+     0.39875,
+     0.26875,
+     0.12375,
+     0.05625
+    ],
+    "18m": [
+     0.88875,
+     0.77625,
+     0.6075,
+     0.4525,
+     0.24,
+     0.12
+    ]
+   },
+   "Marvell": {
+    "6m": [
+     0.4025,
+     0.25875,
+     0.14125,
+     0.08,
+     0.0275,
+     0.0125
+    ],
+    "12m": [
+     0.745,
+     0.54875,
+     0.37625,
+     0.2475,
+     0.1075,
+     0.0525
+    ],
+    "18m": [
+     0.90875,
+     0.7425,
+     0.57875,
+     0.4175,
+     0.22375,
+     0.11
+    ]
+   },
+   "Qualcomm": {
+    "6m": [
+     0.34,
+     0.1775,
+     0.09,
+     0.0525,
+     0.01875,
+     0.00875
+    ],
+    "12m": [
+     0.64875,
+     0.4625,
+     0.29625,
+     0.17625,
+     0.0725,
+     0.03875
+    ],
+    "18m": [
+     0.81625,
+     0.6525,
+     0.45125,
+     0.3225,
+     0.1575,
+     0.07375
+    ]
+   },
+   "AMD": {
+    "6m": [
+     0.43375,
+     0.22625,
+     0.12625,
+     0.06625,
+     0.02125,
+     0.0125
+    ],
+    "12m": [
+     0.76375,
+     0.51625,
+     0.33625,
+     0.22375,
+     0.08875,
+     0.05
+    ],
+    "18m": [
+     0.90375,
+     0.7125,
+     0.5125,
+     0.3775,
+     0.18875,
+     0.0975
+    ]
+   },
+   "ARM": {
+    "6m": [
+     0.40875,
+     0.21875,
+     0.1225,
+     0.0625,
+     0.01875,
+     0.01
+    ],
+    "12m": [
+     0.7425,
+     0.495,
+     0.32875,
+     0.21,
+     0.0875,
+     0.0425
+    ],
+    "18m": [
+     0.89875,
+     0.7075,
+     0.5225,
+     0.375,
+     0.19,
+     0.08375
+    ]
+   },
+   "Samsung": {
+    "6m": [
+     0.33375,
+     0.23,
+     0.11,
+     0.0675,
+     0.0225,
+     0.00875
+    ],
+    "12m": [
+     0.65875,
+     0.53,
+     0.345,
+     0.2375,
+     0.09625,
+     0.04125
+    ],
+    "18m": [
+     0.81875,
+     0.7175,
+     0.52625,
+     0.38625,
+     0.205,
+     0.1
+    ]
+   },
+   "SK Hynix": {
+    "6m": [
+     0.43625,
+     0.315,
+     0.19375,
+     0.1175,
+     0.04125,
+     0.02
+    ],
+    "12m": [
+     0.76125,
+     0.64,
+     0.4425,
+     0.30625,
+     0.14625,
+     0.0725
+    ],
+    "18m": [
+     0.89,
+     0.79875,
+     0.63,
+     0.485,
+     0.26625,
+     0.155
+    ]
+   },
+   "Lumentum": {
+    "6m": [
+     0.47,
+     0.32,
+     0.17875,
+     0.10625,
+     0.04,
+     0.015
+    ],
+    "12m": [
+     0.78625,
+     0.65125,
+     0.45125,
+     0.31875,
+     0.1425,
+     0.0675
+    ],
+    "18m": [
+     0.925,
+     0.82375,
+     0.64375,
+     0.50375,
+     0.285,
+     0.1475
+    ]
+   },
+   "Coherent": {
+    "6m": [
+     0.495,
+     0.31875,
+     0.19375,
+     0.115,
+     0.0425,
+     0.0175
+    ],
+    "12m": [
+     0.81625,
+     0.66,
+     0.4625,
+     0.33625,
+     0.1675,
+     0.07125
+    ],
+    "18m": [
+     0.92875,
+     0.8275,
+     0.65875,
+     0.5325,
+     0.2975,
+     0.16625
+    ]
+   },
+   "Applied Optoelectronics": {
+    "6m": [
+     0.53125,
+     0.38125,
+     0.22875,
+     0.1475,
+     0.0575,
+     0.0225
+    ],
+    "12m": [
+     0.86375,
+     0.7325,
+     0.52,
+     0.37875,
+     0.2,
+     0.09
+    ],
+    "18m": [
+     0.965,
+     0.895,
+     0.73125,
+     0.5675,
+     0.36875,
+     0.19625
+    ]
+   },
+   "IonQ": {
+    "6m": [
+     0.60125,
+     0.4025,
+     0.245,
+     0.14625,
+     0.05625,
+     0.02625
+    ],
+    "12m": [
+     0.895,
+     0.72875,
+     0.5475,
+     0.39375,
+     0.20375,
+     0.1075
+    ],
+    "18m": [
+     0.97,
+     0.87875,
+     0.73375,
+     0.595,
+     0.35375,
+     0.20625
+    ]
+   },
+   "Palantir": {
+    "6m": [
+     0.47875,
+     0.26875,
+     0.15125,
+     0.085,
+     0.03,
+     0.01125
+    ],
+    "12m": [
+     0.7925,
+     0.5675,
+     0.3725,
+     0.2525,
+     0.12,
+     0.05375
+    ],
+    "18m": [
+     0.92625,
+     0.77125,
+     0.5875,
+     0.4325,
+     0.2375,
+     0.12
+    ]
+   },
+   "AppLovin": {
+    "6m": [
+     0.70375,
+     0.49875,
+     0.33375,
+     0.2025,
+     0.08875,
+     0.0425
+    ],
+    "12m": [
+     0.95625,
+     0.8225,
+     0.6425,
+     0.47375,
+     0.255,
+     0.13875
+    ],
+    "18m": [
+     0.9875,
+     0.92875,
+     0.81125,
+     0.67875,
+     0.43625,
+     0.26375
+    ]
+   },
+   "Meta": {
+    "6m": [
+     0.35,
+     0.1725,
+     0.09125,
+     0.05,
+     0.01625,
+     0.00625
+    ],
+    "12m": [
+     0.69,
+     0.43625,
+     0.2725,
+     0.17,
+     0.0625,
+     0.02625
+    ],
+    "18m": [
+     0.8525,
+     0.63375,
+     0.4625,
+     0.3225,
+     0.14125,
+     0.06625
+    ]
+   },
+   "Microsoft": {
+    "6m": [
+     0.31875,
+     0.1375,
+     0.06875,
+     0.04,
+     0.01125,
+     0.005
+    ],
+    "12m": [
+     0.62875,
+     0.3925,
+     0.225,
+     0.14125,
+     0.05125,
+     0.0175
+    ],
+    "18m": [
+     0.82375,
+     0.5925,
+     0.4025,
+     0.2725,
+     0.11125,
+     0.045
+    ]
+   },
+   "Amazon": {
+    "6m": [
+     0.46,
+     0.24875,
+     0.1425,
+     0.08625,
+     0.02875,
+     0.0075
+    ],
+    "12m": [
+     0.7825,
+     0.545,
+     0.36625,
+     0.2525,
+     0.1,
+     0.05
+    ],
+    "18m": [
+     0.90625,
+     0.73,
+     0.57375,
+     0.43625,
+     0.21,
+     0.1075
+    ]
+   },
+   "Tesla": {
+    "6m": [
+     0.67625,
+     0.47,
+     0.30375,
+     0.21625,
+     0.08,
+     0.0375
+    ],
+    "12m": [
+     0.9425,
+     0.77875,
+     0.62625,
+     0.4775,
+     0.255,
+     0.13625
+    ],
+    "18m": [
+     0.99,
+     0.91125,
+     0.805,
+     0.67375,
+     0.44125,
+     0.2725
+    ]
+   },
+   "Apple": {
+    "6m": [
+     0.34125,
+     0.17125,
+     0.07875,
+     0.04,
+     0.01125,
+     0.005
+    ],
+    "12m": [
+     0.66625,
+     0.43125,
+     0.2675,
+     0.17,
+     0.065,
+     0.0225
+    ],
+    "18m": [
+     0.835,
+     0.61875,
+     0.45,
+     0.3125,
+     0.15375,
+     0.05875
+    ]
+   },
+   "Alphabet": {
+    "6m": [
+     0.3225,
+     0.14375,
+     0.07375,
+     0.0375,
+     0.01,
+     0.005
+    ],
+    "12m": [
+     0.63875,
+     0.40375,
+     0.23375,
+     0.1425,
+     0.04875,
+     0.01875
+    ],
+    "18m": [
+     0.8075,
+     0.59125,
+     0.41,
+     0.285,
+     0.1175,
+     0.04875
+    ]
+   },
+   "Oracle": {
+    "6m": [
+     0.305,
+     0.14375,
+     0.06875,
+     0.035,
+     0.00875,
+     0.005
+    ],
+    "12m": [
+     0.62875,
+     0.38,
+     0.21125,
+     0.13625,
+     0.05125,
+     0.01625
+    ],
+    "18m": [
+     0.81125,
+     0.59,
+     0.405,
+     0.25875,
+     0.10625,
+     0.05
+    ]
+   },
+   "Texas Instruments": {
+    "6m": [
+     0.3025,
+     0.16625,
+     0.08625,
+     0.035,
+     0.01375,
+     0.00625
+    ],
+    "12m": [
+     0.62625,
+     0.43875,
+     0.275,
+     0.15625,
+     0.06125,
+     0.0275
+    ],
+    "18m": [
+     0.80125,
+     0.64625,
+     0.47375,
+     0.31,
+     0.13875,
+     0.05875
+    ]
+   },
+   "Cisco": {
+    "6m": [
+     0.24,
+     0.105,
+     0.0425,
+     0.02,
+     0.00625,
+     0.00375
+    ],
+    "12m": [
+     0.5525,
+     0.315,
+     0.1675,
+     0.0875,
+     0.03125,
+     0.0125
+    ],
+    "18m": [
+     0.73125,
+     0.49375,
+     0.31875,
+     0.20125,
+     0.07,
+     0.0325
+    ]
+   },
+   "IBM": {
+    "6m": [
+     0.19125,
+     0.07125,
+     0.02375,
+     0.01125,
+     0.00625,
+     0.00125
+    ],
+    "12m": [
+     0.50625,
+     0.24875,
+     0.125,
+     0.06375,
+     0.02,
+     0.005
+    ],
+    "18m": [
+     0.70125,
+     0.41875,
+     0.26375,
+     0.15875,
+     0.0525,
+     0.0175
+    ]
+   },
+   "Astera Labs": {
+    "6m": [
+     0.61875,
+     0.40875,
+     0.26,
+     0.1525,
+     0.0625,
+     0.025
+    ],
+    "12m": [
+     0.9025,
+     0.73,
+     0.52875,
+     0.38375,
+     0.2075,
+     0.095
+    ],
+    "18m": [
+     0.97125,
+     0.8875,
+     0.72875,
+     0.585,
+     0.345,
+     0.19375
+    ]
+   },
+   "Vertiv": {
+    "6m": [
+     0.45375,
+     0.25875,
+     0.15375,
+     0.08,
+     0.0275,
+     0.01375
+    ],
+    "12m": [
+     0.7975,
+     0.54625,
+     0.37375,
+     0.26125,
+     0.10875,
+     0.0525
+    ],
+    "18m": [
+     0.9225,
+     0.75625,
+     0.575,
+     0.425,
+     0.21625,
+     0.105
+    ]
+   },
+   "CoreWeave": {
+    "6m": [
+     0.715,
+     0.50375,
+     0.35,
+     0.2325,
+     0.09875,
+     0.04375
+    ],
+    "12m": [
+     0.9625,
+     0.845,
+     0.67375,
+     0.5125,
+     0.29125,
+     0.15375
+    ],
+    "18m": [
+     0.99,
+     0.94125,
+     0.845,
+     0.70375,
+     0.47,
+     0.295
+    ]
+   },
+   "ARKK (ARK Innovation)": {
+    "6m": [
+     0.5925,
+     0.39375,
+     0.24625,
+     0.15125,
+     0.05625,
+     0.02625
+    ],
+    "12m": [
+     0.88875,
+     0.71375,
+     0.52625,
+     0.38625,
+     0.19375,
+     0.09375
+    ],
+    "18m": [
+     0.96375,
+     0.8675,
+     0.72625,
+     0.58,
+     0.34,
+     0.19625
+    ]
+   },
+   "QQQ (Nasdaq-100)": {
+    "6m": [
+     0.2575,
+     0.1175,
+     0.06375,
+     0.03625,
+     0.01,
+     0.005
+    ],
+    "12m": [
+     0.545,
+     0.31875,
+     0.21875,
+     0.125,
+     0.0525,
+     0.01875
+    ],
+    "18m": [
+     0.73375,
+     0.5225,
+     0.375,
+     0.24625,
+     0.11375,
+     0.0525
+    ]
+   },
+   "VOO (S&P 500)": {
+    "6m": [
+     0.1825,
+     0.085,
+     0.04,
+     0.0225,
+     0.0075,
+     0.005
+    ],
+    "12m": [
+     0.44,
+     0.26,
+     0.145,
+     0.08,
+     0.0375,
+     0.01375
+    ],
+    "18m": [
+     0.63,
+     0.42,
+     0.2825,
+     0.17,
+     0.07375,
+     0.035
+    ]
+   },
+   "SCHD (Dividend)": {
+    "6m": [
+     0.125,
+     0.05375,
+     0.02375,
+     0.015,
+     0.005,
+     0.00125
+    ],
+    "12m": [
+     0.3325,
+     0.18125,
+     0.09625,
+     0.05125,
+     0.02,
+     0.0075
+    ],
+    "18m": [
+     0.51375,
+     0.3275,
+     0.18625,
+     0.11625,
+     0.0525,
+     0.02125
+    ]
+   },
+   "DTCR (Data Ctr Infra)": {
+    "6m": [
+     0.20375,
+     0.0825,
+     0.04,
+     0.02125,
+     0.00875,
+     0.00375
+    ],
+    "12m": [
+     0.475,
+     0.27875,
+     0.16,
+     0.085,
+     0.04,
+     0.0125
+    ],
+    "18m": [
+     0.67375,
+     0.45,
+     0.295,
+     0.185,
+     0.08,
+     0.0375
+    ]
+   },
+   "GRID (Smart Grid)": {
+    "6m": [
+     0.2525,
+     0.125,
+     0.06,
+     0.03125,
+     0.0125,
+     0.00375
+    ],
+    "12m": [
+     0.53125,
+     0.33875,
+     0.2075,
+     0.1175,
+     0.05125,
+     0.0175
+    ],
+    "18m": [
+     0.7325,
+     0.51875,
+     0.36,
+     0.24375,
+     0.105,
+     0.04875
+    ]
+   },
+   "NUKE (Nuclear/Uranium)": {
+    "6m": [
+     0.38875,
+     0.20625,
+     0.11,
+     0.06125,
+     0.02,
+     0.01
+    ],
+    "12m": [
+     0.7075,
+     0.46625,
+     0.32,
+     0.20875,
+     0.09375,
+     0.04375
+    ],
+    "18m": [
+     0.8625,
+     0.66375,
+     0.50125,
+     0.3575,
+     0.18125,
+     0.09125
+    ]
+   },
+   "VGT (Info Tech)": {
+    "6m": [
+     0.26,
+     0.12125,
+     0.06375,
+     0.03625,
+     0.01125,
+     0.00625
+    ],
+    "12m": [
+     0.5475,
+     0.33125,
+     0.2225,
+     0.1325,
+     0.05375,
+     0.02
+    ],
+    "18m": [
+     0.74,
+     0.5275,
+     0.3825,
+     0.25125,
+     0.115,
+     0.05125
+    ]
+   },
+   "IGV (Software)": {
+    "6m": [
+     0.30875,
+     0.1575,
+     0.08625,
+     0.04875,
+     0.01625,
+     0.00625
+    ],
+    "12m": [
+     0.6075,
+     0.39625,
+     0.27,
+     0.1725,
+     0.0725,
+     0.02875
+    ],
+    "18m": [
+     0.79375,
+     0.59875,
+     0.45375,
+     0.32125,
+     0.15375,
+     0.0725
+    ]
+   },
+   "SMH (VanEck Semis)": {
+    "6m": [
+     0.335,
+     0.185,
+     0.09125,
+     0.04875,
+     0.01875,
+     0.01
+    ],
+    "12m": [
+     0.6575,
+     0.43625,
+     0.2725,
+     0.1775,
+     0.0725,
+     0.04
+    ],
+    "18m": [
+     0.83125,
+     0.63,
+     0.43,
+     0.31,
+     0.15625,
+     0.0775
+    ]
+   },
+   "SOXX (iShares Semis)": {
+    "6m": [
+     0.33375,
+     0.17125,
+     0.09,
+     0.05,
+     0.01875,
+     0.01
+    ],
+    "12m": [
+     0.6625,
+     0.39875,
+     0.27,
+     0.175,
+     0.065,
+     0.04
+    ],
+    "18m": [
+     0.83125,
+     0.6125,
+     0.44,
+     0.30875,
+     0.1475,
+     0.07875
+    ]
+   },
+   "DRAM (Roundhill Memory)": {
+    "6m": [
+     0.35125,
+     0.24875,
+     0.12625,
+     0.07875,
+     0.02625,
+     0.0125
+    ],
+    "12m": [
+     0.6725,
+     0.54,
+     0.35625,
+     0.25375,
+     0.105,
+     0.05375
+    ],
+    "18m": [
+     0.8275,
+     0.7275,
+     0.55,
+     0.40625,
+     0.22125,
+     0.1175
+    ]
+   },
+   "QTUM (Defiance Quantum)": {
+    "6m": [
+     0.37125,
+     0.18375,
+     0.09875,
+     0.06,
+     0.02125,
+     0.01
+    ],
+    "12m": [
+     0.6875,
+     0.43875,
+     0.30375,
+     0.18625,
+     0.0825,
+     0.04375
+    ],
+    "18m": [
+     0.84125,
+     0.64375,
+     0.485,
+     0.31625,
+     0.16125,
+     0.085
+    ]
+   },
+   "AIQ (Global X AI)": {
+    "6m": [
+     0.3175,
+     0.1675,
+     0.08125,
+     0.0475,
+     0.015,
+     0.01
+    ],
+    "12m": [
+     0.635,
+     0.39,
+     0.25125,
+     0.1575,
+     0.07,
+     0.03875
+    ],
+    "18m": [
+     0.82,
+     0.6,
+     0.415,
+     0.2925,
+     0.145,
+     0.0775
+    ]
+   },
+   "CHAT (Roundhill GenAI)": {
+    "6m": [
+     0.32125,
+     0.17125,
+     0.0875,
+     0.05,
+     0.01625,
+     0.0075
+    ],
+    "12m": [
+     0.64875,
+     0.4175,
+     0.2625,
+     0.16375,
+     0.06625,
+     0.0325
+    ],
+    "18m": [
+     0.825,
+     0.61375,
+     0.43125,
+     0.3025,
+     0.14,
+     0.0675
+    ]
+   }
+  },
+  "recovery_cond": {
+   "NVIDIA": {
+    "p_dd25": 0.53375,
+    "p_recover": 0.4519906323185012,
+    "recovery_quality": 0.38594928824149655,
+    "fragility": 0.22177129755102043,
+    "p_never": 0.28337236533957844,
+    "p_deep_permanent": 0.15125,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.1686182669789227,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.27400468384074944,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.34192037470725994,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.40046838407494145,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.4519906323185012,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.5105386416861827,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.5714285714285714,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.6135831381733021,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.12625,
+      "n": 101,
+      "recover_6m": 0.19801980198019803,
+      "recover_12m": 0.3465346534653465,
+      "recover_18m": 0.4752475247524752,
+      "recover_24m": 0.5544554455445545,
+      "recover_36m": 0.6435643564356436,
+      "not_recovered_36m": 0.3564356435643564
+     },
+     "12m": {
+      "p_drawdown": 0.34,
+      "n": 272,
+      "recover_6m": 0.1801470588235294,
+      "recover_12m": 0.34558823529411764,
+      "recover_18m": 0.4485294117647059,
+      "recover_24m": 0.5147058823529411,
+      "recover_36m": 0.6066176470588235,
+      "not_recovered_36m": 0.3933823529411765
+     },
+     "18m": {
+      "p_drawdown": 0.53375,
+      "n": 427,
+      "recover_6m": 0.1686182669789227,
+      "recover_12m": 0.34192037470725994,
+      "recover_18m": 0.4519906323185012,
+      "recover_24m": 0.5105386416861827,
+      "recover_36m": 0.6135831381733021,
+      "not_recovered_36m": 0.3864168618266979
+     }
+    }
+   },
+   "Broadcom": {
+    "p_dd25": 0.46875,
+    "p_recover": 0.376,
+    "recovery_quality": 0.38870200328407223,
+    "fragility": 0.23582660098522168,
+    "p_never": 0.33866666666666667,
+    "p_deep_permanent": 0.15875,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.13066666666666665,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.18666666666666668,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.28,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.3253333333333333,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.376,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.4613333333333333,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.5093333333333333,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5466666666666666,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.09625,
+      "n": 77,
+      "recover_6m": 0.15584415584415584,
+      "recover_12m": 0.2857142857142857,
+      "recover_18m": 0.4025974025974026,
+      "recover_24m": 0.44155844155844154,
+      "recover_36m": 0.6103896103896104,
+      "not_recovered_36m": 0.38961038961038963
+     },
+     "12m": {
+      "p_drawdown": 0.285,
+      "n": 228,
+      "recover_6m": 0.13596491228070176,
+      "recover_12m": 0.2631578947368421,
+      "recover_18m": 0.3508771929824561,
+      "recover_24m": 0.40350877192982454,
+      "recover_36m": 0.5043859649122807,
+      "not_recovered_36m": 0.4956140350877193
+     },
+     "18m": {
+      "p_drawdown": 0.46875,
+      "n": 375,
+      "recover_6m": 0.13066666666666665,
+      "recover_12m": 0.28,
+      "recover_18m": 0.376,
+      "recover_24m": 0.4613333333333333,
+      "recover_36m": 0.5466666666666666,
+      "not_recovered_36m": 0.45333333333333337
+     }
+    }
+   },
+   "Micron": {
+    "p_dd25": 0.60625,
+    "p_recover": 0.41855670103092785,
+    "recovery_quality": 0.04047959183673469,
+    "fragility": 0.22000000000000003,
+    "p_never": 0.32989690721649484,
+    "p_deep_permanent": 0.2,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.38144329896907214,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.41855670103092785,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.47216494845360824,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.5237113402061856,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5608247422680412,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.16875,
+      "n": 135,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.43703703703703706,
+      "recover_24m": 0.5555555555555556,
+      "recover_36m": 0.6296296296296297,
+      "not_recovered_36m": 0.37037037037037035
+     },
+     "12m": {
+      "p_drawdown": 0.4125,
+      "n": 330,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.43636363636363634,
+      "recover_24m": 0.4909090909090909,
+      "recover_36m": 0.5636363636363636,
+      "not_recovered_36m": 0.4363636363636364
+     },
+     "18m": {
+      "p_drawdown": 0.60625,
+      "n": 485,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.41855670103092785,
+      "recover_24m": 0.47216494845360824,
+      "recover_36m": 0.5608247422680412,
+      "not_recovered_36m": 0.43917525773195876
+     }
+    }
+   },
+   "Kioxia": {
+    "p_dd25": 0.6075,
+    "p_recover": 0.3662551440329218,
+    "recovery_quality": 0.0,
+    "fragility": 0.27999999999999997,
+    "p_never": 0.37448559670781895,
+    "p_deep_permanent": 0.2275,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.3292181069958848,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.3662551440329218,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.4403292181069959,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.46296296296296297,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5102880658436214,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.15125,
+      "n": 121,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.4049586776859504,
+      "recover_24m": 0.4793388429752066,
+      "recover_36m": 0.5289256198347108,
+      "not_recovered_36m": 0.47107438016528924
+     },
+     "12m": {
+      "p_drawdown": 0.39875,
+      "n": 319,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.36363636363636365,
+      "recover_24m": 0.43573667711598746,
+      "recover_36m": 0.4952978056426332,
+      "not_recovered_36m": 0.5047021943573669
+     },
+     "18m": {
+      "p_drawdown": 0.6075,
+      "n": 486,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.3662551440329218,
+      "recover_24m": 0.4403292181069959,
+      "recover_36m": 0.5102880658436214,
+      "not_recovered_36m": 0.4897119341563786
+     }
+    }
+   },
+   "Marvell": {
+    "p_dd25": 0.57875,
+    "p_recover": 0.38660907127429806,
+    "recovery_quality": 0.30603120567375885,
+    "fragility": 0.2466170212765957,
+    "p_never": 0.3326133909287257,
+    "p_deep_permanent": 0.1925,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.23758099352051837,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.3023758099352052,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.35853131749460043,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.38660907127429806,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.4557235421166307,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.5075593952483801,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5550755939524838,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.14125,
+      "n": 113,
+      "recover_6m": 0.0,
+      "recover_12m": 0.26548672566371684,
+      "recover_18m": 0.415929203539823,
+      "recover_24m": 0.4690265486725664,
+      "recover_36m": 0.6017699115044248,
+      "not_recovered_36m": 0.3982300884955752
+     },
+     "12m": {
+      "p_drawdown": 0.37625,
+      "n": 301,
+      "recover_6m": 0.0,
+      "recover_12m": 0.3023255813953488,
+      "recover_18m": 0.3787375415282392,
+      "recover_24m": 0.4418604651162791,
+      "recover_36m": 0.5481727574750831,
+      "not_recovered_36m": 0.4518272425249169
+     },
+     "18m": {
+      "p_drawdown": 0.57875,
+      "n": 463,
+      "recover_6m": 0.0,
+      "recover_12m": 0.3023758099352052,
+      "recover_18m": 0.38660907127429806,
+      "recover_24m": 0.4557235421166307,
+      "recover_36m": 0.5550755939524838,
+      "not_recovered_36m": 0.44492440604751615
+     }
+    }
+   },
+   "Qualcomm": {
+    "p_dd25": 0.45125,
+    "p_recover": 0.3739612188365651,
+    "recovery_quality": 0.2663925,
+    "fragility": 0.12000000000000002,
+    "p_never": 0.3850415512465374,
+    "p_deep_permanent": 0.17375,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.18559556786703602,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.26038781163434904,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.32409972299168976,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.3739612188365651,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.42382271468144045,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.48753462603878117,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5152354570637119,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.09,
+      "n": 72,
+      "recover_6m": 0.0,
+      "recover_12m": 0.3055555555555556,
+      "recover_18m": 0.4166666666666667,
+      "recover_24m": 0.4861111111111111,
+      "recover_36m": 0.5694444444444444,
+      "not_recovered_36m": 0.4305555555555556
+     },
+     "12m": {
+      "p_drawdown": 0.29625,
+      "n": 237,
+      "recover_6m": 0.0,
+      "recover_12m": 0.25738396624472576,
+      "recover_18m": 0.35443037974683544,
+      "recover_24m": 0.42616033755274263,
+      "recover_36m": 0.510548523206751,
+      "not_recovered_36m": 0.48945147679324896
+     },
+     "18m": {
+      "p_drawdown": 0.45125,
+      "n": 361,
+      "recover_6m": 0.0,
+      "recover_12m": 0.26038781163434904,
+      "recover_18m": 0.3739612188365651,
+      "recover_24m": 0.42382271468144045,
+      "recover_36m": 0.5152354570637119,
+      "not_recovered_36m": 0.4847645429362881
+     }
+    }
+   },
+   "AMD": {
+    "p_dd25": 0.5125,
+    "p_recover": 0.28536585365853656,
+    "recovery_quality": 0.25900870228647016,
+    "fragility": 0.2828507936507936,
+    "p_never": 0.37317073170731707,
+    "p_deep_permanent": 0.19125,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.06585365853658537,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.14146341463414633,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.1878048780487805,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.24634146341463414,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.28536585365853656,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.35609756097560974,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.40487804878048783,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.44878048780487806,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.12625,
+      "n": 101,
+      "recover_6m": 0.1188118811881188,
+      "recover_12m": 0.25742574257425743,
+      "recover_18m": 0.31683168316831684,
+      "recover_24m": 0.4158415841584158,
+      "recover_36m": 0.4752475247524752,
+      "not_recovered_36m": 0.5247524752475248
+     },
+     "12m": {
+      "p_drawdown": 0.33625,
+      "n": 269,
+      "recover_6m": 0.08550185873605948,
+      "recover_12m": 0.21189591078066913,
+      "recover_18m": 0.31226765799256506,
+      "recover_24m": 0.37174721189591076,
+      "recover_36m": 0.44609665427509293,
+      "not_recovered_36m": 0.5539033457249071
+     },
+     "18m": {
+      "p_drawdown": 0.5125,
+      "n": 410,
+      "recover_6m": 0.06585365853658537,
+      "recover_12m": 0.1878048780487805,
+      "recover_18m": 0.28536585365853656,
+      "recover_24m": 0.35609756097560974,
+      "recover_36m": 0.44878048780487806,
+      "not_recovered_36m": 0.551219512195122
+     }
+    }
+   },
+   "ARM": {
+    "p_dd25": 0.5225,
+    "p_recover": 0.3373205741626794,
+    "recovery_quality": 0.2550026822157434,
+    "fragility": 0.40217609329446063,
+    "p_never": 0.39473684210526316,
+    "p_deep_permanent": 0.20625,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.10287081339712918,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.19138755980861244,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.24162679425837322,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.30861244019138756,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.3373205741626794,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.41626794258373206,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.47368421052631576,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5095693779904307,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.1225,
+      "n": 98,
+      "recover_6m": 0.1326530612244898,
+      "recover_12m": 0.2653061224489796,
+      "recover_18m": 0.336734693877551,
+      "recover_24m": 0.3979591836734694,
+      "recover_36m": 0.5102040816326531,
+      "not_recovered_36m": 0.4897959183673469
+     },
+     "12m": {
+      "p_drawdown": 0.32875,
+      "n": 263,
+      "recover_6m": 0.11406844106463879,
+      "recover_12m": 0.2623574144486692,
+      "recover_18m": 0.35361216730038025,
+      "recover_24m": 0.39923954372623577,
+      "recover_36m": 0.5057034220532319,
+      "not_recovered_36m": 0.49429657794676807
+     },
+     "18m": {
+      "p_drawdown": 0.5225,
+      "n": 418,
+      "recover_6m": 0.10287081339712918,
+      "recover_12m": 0.24162679425837322,
+      "recover_18m": 0.3373205741626794,
+      "recover_24m": 0.41626794258373206,
+      "recover_36m": 0.5095693779904307,
+      "not_recovered_36m": 0.49043062200956933
+     }
+    }
+   },
+   "Samsung": {
+    "p_dd25": 0.52625,
+    "p_recover": 0.35391923990498814,
+    "recovery_quality": 0.159765306122449,
+    "fragility": 0.18,
+    "p_never": 0.33966745843230406,
+    "p_deep_permanent": 0.17875,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.3182897862232779,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.35391923990498814,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.40617577197149646,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.48693586698337293,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5344418052256532,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.11,
+      "n": 88,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.3522727272727273,
+      "recover_24m": 0.42045454545454547,
+      "recover_36m": 0.5795454545454546,
+      "not_recovered_36m": 0.4204545454545454
+     },
+     "12m": {
+      "p_drawdown": 0.345,
+      "n": 276,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.33695652173913043,
+      "recover_24m": 0.39492753623188404,
+      "recover_36m": 0.5072463768115942,
+      "not_recovered_36m": 0.49275362318840576
+     },
+     "18m": {
+      "p_drawdown": 0.52625,
+      "n": 421,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.35391923990498814,
+      "recover_24m": 0.40617577197149646,
+      "recover_36m": 0.5344418052256532,
+      "not_recovered_36m": 0.4655581947743468
+     }
+    }
+   },
+   "SK Hynix": {
+    "p_dd25": 0.63,
+    "p_recover": 0.42063492063492064,
+    "recovery_quality": 0.0804770408163265,
+    "fragility": 0.22000000000000003,
+    "p_never": 0.3194444444444444,
+    "p_deep_permanent": 0.20125,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.37103174603174605,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.42063492063492064,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.4742063492063492,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.5238095238095238,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5535714285714286,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.19375,
+      "n": 155,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.44516129032258067,
+      "recover_24m": 0.5161290322580645,
+      "recover_36m": 0.5741935483870968,
+      "not_recovered_36m": 0.4258064516129032
+     },
+     "12m": {
+      "p_drawdown": 0.4425,
+      "n": 354,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.4322033898305085,
+      "recover_24m": 0.4887005649717514,
+      "recover_36m": 0.5677966101694916,
+      "not_recovered_36m": 0.43220338983050843
+     },
+     "18m": {
+      "p_drawdown": 0.63,
+      "n": 504,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.42063492063492064,
+      "recover_24m": 0.4742063492063492,
+      "recover_36m": 0.5535714285714286,
+      "not_recovered_36m": 0.4464285714285714
+     }
+    }
+   },
+   "Lumentum": {
+    "p_dd25": 0.64375,
+    "p_recover": 0.3650485436893204,
+    "recovery_quality": 0.15321413175510204,
+    "fragility": 0.4727891722448979,
+    "p_never": 0.3786407766990291,
+    "p_deep_permanent": 0.24375,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.22524271844660193,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.29320388349514565,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.32815533980582523,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.3650485436893204,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.41359223300970877,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.4563106796116505,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.4970873786407767,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.17875,
+      "n": 143,
+      "recover_6m": 0.0,
+      "recover_12m": 0.2937062937062937,
+      "recover_18m": 0.38461538461538464,
+      "recover_24m": 0.46853146853146854,
+      "recover_36m": 0.5384615384615384,
+      "not_recovered_36m": 0.46153846153846156
+     },
+     "12m": {
+      "p_drawdown": 0.45125,
+      "n": 361,
+      "recover_6m": 0.0,
+      "recover_12m": 0.30193905817174516,
+      "recover_18m": 0.3739612188365651,
+      "recover_24m": 0.4293628808864266,
+      "recover_36m": 0.5124653739612188,
+      "not_recovered_36m": 0.48753462603878117
+     },
+     "18m": {
+      "p_drawdown": 0.64375,
+      "n": 515,
+      "recover_6m": 0.0,
+      "recover_12m": 0.29320388349514565,
+      "recover_18m": 0.3650485436893204,
+      "recover_24m": 0.41359223300970877,
+      "recover_36m": 0.4970873786407767,
+      "not_recovered_36m": 0.5029126213592233
+     }
+    }
+   },
+   "Coherent": {
+    "p_dd25": 0.65875,
+    "p_recover": 0.35294117647058826,
+    "recovery_quality": 0.17514029931972785,
+    "fragility": 0.4490187755102041,
+    "p_never": 0.3889943074003795,
+    "p_deep_permanent": 0.25625,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.22580645161290322,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.27703984819734345,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.3206831119544592,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.35294117647058826,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.4079696394686907,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.4573055028462998,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.4971537001897533,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.19375,
+      "n": 155,
+      "recover_6m": 0.0,
+      "recover_12m": 0.34838709677419355,
+      "recover_18m": 0.43870967741935485,
+      "recover_24m": 0.5032258064516129,
+      "recover_36m": 0.567741935483871,
+      "not_recovered_36m": 0.432258064516129
+     },
+     "12m": {
+      "p_drawdown": 0.4625,
+      "n": 370,
+      "recover_6m": 0.0,
+      "recover_12m": 0.3108108108108108,
+      "recover_18m": 0.3783783783783784,
+      "recover_24m": 0.43513513513513513,
+      "recover_36m": 0.518918918918919,
+      "not_recovered_36m": 0.48108108108108105
+     },
+     "18m": {
+      "p_drawdown": 0.65875,
+      "n": 527,
+      "recover_6m": 0.0,
+      "recover_12m": 0.27703984819734345,
+      "recover_18m": 0.35294117647058826,
+      "recover_24m": 0.4079696394686907,
+      "recover_36m": 0.4971537001897533,
+      "not_recovered_36m": 0.5028462998102468
+     }
+    }
+   },
+   "Applied Optoelectronics": {
+    "p_dd25": 0.73125,
+    "p_recover": 0.3452991452991453,
+    "recovery_quality": 0.0051165642857142896,
+    "fragility": 0.5791153408163265,
+    "p_never": 0.40512820512820513,
+    "p_deep_permanent": 0.29625,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.2188034188034188,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.27521367521367524,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.3076923076923077,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.3452991452991453,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.39316239316239315,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.441025641025641,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.4683760683760684,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.22875,
+      "n": 183,
+      "recover_6m": 0.0,
+      "recover_12m": 0.3333333333333333,
+      "recover_18m": 0.4098360655737705,
+      "recover_24m": 0.453551912568306,
+      "recover_36m": 0.5136612021857924,
+      "not_recovered_36m": 0.48633879781420764
+     },
+     "12m": {
+      "p_drawdown": 0.52,
+      "n": 416,
+      "recover_6m": 0.0,
+      "recover_12m": 0.31009615384615385,
+      "recover_18m": 0.3701923076923077,
+      "recover_24m": 0.4110576923076923,
+      "recover_36m": 0.45913461538461536,
+      "not_recovered_36m": 0.5408653846153846
+     },
+     "18m": {
+      "p_drawdown": 0.73125,
+      "n": 585,
+      "recover_6m": 0.0,
+      "recover_12m": 0.27521367521367524,
+      "recover_18m": 0.3452991452991453,
+      "recover_24m": 0.39316239316239315,
+      "recover_36m": 0.4683760683760684,
+      "not_recovered_36m": 0.5316239316239316
+     }
+    }
+   },
+   "IonQ": {
+    "p_dd25": 0.73375,
+    "p_recover": 0.24872231686541738,
+    "recovery_quality": 0.0,
+    "fragility": 0.7900279668571428,
+    "p_never": 0.5178875638841567,
+    "p_deep_permanent": 0.38,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.08347529812606473,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.13969335604770017,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.18568994889267462,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.21635434412265758,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.24872231686541738,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.29642248722316866,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.33560477001703576,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.3696763202725724,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.245,
+      "n": 196,
+      "recover_6m": 0.12244897959183673,
+      "recover_12m": 0.2193877551020408,
+      "recover_18m": 0.29591836734693877,
+      "recover_24m": 0.3520408163265306,
+      "recover_36m": 0.4489795918367347,
+      "not_recovered_36m": 0.5510204081632653
+     },
+     "12m": {
+      "p_drawdown": 0.5475,
+      "n": 438,
+      "recover_6m": 0.09817351598173515,
+      "recover_12m": 0.2054794520547945,
+      "recover_18m": 0.2876712328767123,
+      "recover_24m": 0.3310502283105023,
+      "recover_36m": 0.3949771689497717,
+      "not_recovered_36m": 0.6050228310502284
+     },
+     "18m": {
+      "p_drawdown": 0.73375,
+      "n": 587,
+      "recover_6m": 0.08347529812606473,
+      "recover_12m": 0.18568994889267462,
+      "recover_18m": 0.24872231686541738,
+      "recover_24m": 0.29642248722316866,
+      "recover_36m": 0.3696763202725724,
+      "not_recovered_36m": 0.6303236797274276
+     }
+    }
+   },
+   "Palantir": {
+    "p_dd25": 0.5875,
+    "p_recover": 0.39787234042553193,
+    "recovery_quality": 0.21414784257518793,
+    "fragility": 0.46285067669172936,
+    "p_never": 0.3191489361702128,
+    "p_deep_permanent": 0.1875,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.125531914893617,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.19787234042553192,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.27872340425531916,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.3446808510638298,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.39787234042553193,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.44893617021276594,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.48936170212765956,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5297872340425532,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.15125,
+      "n": 121,
+      "recover_6m": 0.17355371900826447,
+      "recover_12m": 0.3140495867768595,
+      "recover_18m": 0.4132231404958678,
+      "recover_24m": 0.4462809917355372,
+      "recover_36m": 0.512396694214876,
+      "not_recovered_36m": 0.487603305785124
+     },
+     "12m": {
+      "p_drawdown": 0.3725,
+      "n": 298,
+      "recover_6m": 0.12080536912751678,
+      "recover_12m": 0.2751677852348993,
+      "recover_18m": 0.37583892617449666,
+      "recover_24m": 0.4161073825503356,
+      "recover_36m": 0.4966442953020134,
+      "not_recovered_36m": 0.5033557046979866
+     },
+     "18m": {
+      "p_drawdown": 0.5875,
+      "n": 470,
+      "recover_6m": 0.125531914893617,
+      "recover_12m": 0.27872340425531916,
+      "recover_18m": 0.39787234042553193,
+      "recover_24m": 0.44893617021276594,
+      "recover_36m": 0.5297872340425532,
+      "not_recovered_36m": 0.47021276595744677
+     }
+    }
+   },
+   "AppLovin": {
+    "p_dd25": 0.81125,
+    "p_recover": 0.42989214175654855,
+    "recovery_quality": 0.12147996745249828,
+    "fragility": 0.4092449155524278,
+    "p_never": 0.29738058551617874,
+    "p_deep_permanent": 0.24125,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.1802773497688752,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.2711864406779661,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.3235747303543914,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.3898305084745763,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.42989214175654855,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.4899845916795069,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.5285053929121726,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5469953775038521,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.33375,
+      "n": 267,
+      "recover_6m": 0.20973782771535582,
+      "recover_12m": 0.3782771535580524,
+      "recover_18m": 0.48314606741573035,
+      "recover_24m": 0.5355805243445693,
+      "recover_36m": 0.602996254681648,
+      "not_recovered_36m": 0.39700374531835203
+     },
+     "12m": {
+      "p_drawdown": 0.6425,
+      "n": 514,
+      "recover_6m": 0.22568093385214008,
+      "recover_12m": 0.3832684824902724,
+      "recover_18m": 0.4688715953307393,
+      "recover_24m": 0.5233463035019456,
+      "recover_36m": 0.5894941634241245,
+      "not_recovered_36m": 0.41050583657587547
+     },
+     "18m": {
+      "p_drawdown": 0.81125,
+      "n": 649,
+      "recover_6m": 0.1802773497688752,
+      "recover_12m": 0.3235747303543914,
+      "recover_18m": 0.42989214175654855,
+      "recover_24m": 0.4899845916795069,
+      "recover_36m": 0.5469953775038521,
+      "not_recovered_36m": 0.4530046224961479
+     }
+    }
+   },
+   "Meta": {
+    "p_dd25": 0.4625,
+    "p_recover": 0.3783783783783784,
+    "recovery_quality": 0.27060338742441414,
+    "fragility": 0.12044793083900225,
+    "p_never": 0.3162162162162162,
+    "p_deep_permanent": 0.14625,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.11351351351351352,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.20540540540540542,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.27837837837837837,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.32432432432432434,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.3783783783783784,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.44594594594594594,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.5162162162162162,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5594594594594594,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.09125,
+      "n": 73,
+      "recover_6m": 0.1232876712328767,
+      "recover_12m": 0.273972602739726,
+      "recover_18m": 0.3972602739726027,
+      "recover_24m": 0.4931506849315068,
+      "recover_36m": 0.547945205479452,
+      "not_recovered_36m": 0.452054794520548
+     },
+     "12m": {
+      "p_drawdown": 0.2725,
+      "n": 218,
+      "recover_6m": 0.11009174311926606,
+      "recover_12m": 0.2798165137614679,
+      "recover_18m": 0.38990825688073394,
+      "recover_24m": 0.4541284403669725,
+      "recover_36m": 0.5596330275229358,
+      "not_recovered_36m": 0.44036697247706424
+     },
+     "18m": {
+      "p_drawdown": 0.4625,
+      "n": 370,
+      "recover_6m": 0.11351351351351352,
+      "recover_12m": 0.27837837837837837,
+      "recover_18m": 0.3783783783783784,
+      "recover_24m": 0.44594594594594594,
+      "recover_36m": 0.5594594594594594,
+      "not_recovered_36m": 0.4405405405405406
+     }
+    }
+   },
+   "Microsoft": {
+    "p_dd25": 0.4025,
+    "p_recover": 0.33229813664596275,
+    "recovery_quality": 0.3368732345164152,
+    "fragility": 0.1852478296362023,
+    "p_never": 0.34782608695652173,
+    "p_deep_permanent": 0.14,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.06832298136645963,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.17701863354037267,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.2329192546583851,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.2981366459627329,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.33229813664596275,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.40683229813664595,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.46273291925465837,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5217391304347826,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.06875,
+      "n": 55,
+      "recover_6m": 0.16363636363636364,
+      "recover_12m": 0.2727272727272727,
+      "recover_18m": 0.38181818181818183,
+      "recover_24m": 0.4727272727272727,
+      "recover_36m": 0.5454545454545454,
+      "not_recovered_36m": 0.4545454545454546
+     },
+     "12m": {
+      "p_drawdown": 0.225,
+      "n": 180,
+      "recover_6m": 0.08888888888888889,
+      "recover_12m": 0.2222222222222222,
+      "recover_18m": 0.3,
+      "recover_24m": 0.40555555555555556,
+      "recover_36m": 0.5,
+      "not_recovered_36m": 0.5
+     },
+     "18m": {
+      "p_drawdown": 0.4025,
+      "n": 322,
+      "recover_6m": 0.06832298136645963,
+      "recover_12m": 0.2329192546583851,
+      "recover_18m": 0.33229813664596275,
+      "recover_24m": 0.40683229813664595,
+      "recover_36m": 0.5217391304347826,
+      "not_recovered_36m": 0.4782608695652174
+     }
+    }
+   },
+   "Amazon": {
+    "p_dd25": 0.57375,
+    "p_recover": 0.3899782135076253,
+    "recovery_quality": 0.2539909190710767,
+    "fragility": 0.30913936664320896,
+    "p_never": 0.3464052287581699,
+    "p_deep_permanent": 0.19875,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.12200435729847495,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.23311546840958605,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.2984749455337691,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.3420479302832244,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.3899782135076253,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.4422657952069717,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.48366013071895425,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5315904139433552,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.1425,
+      "n": 114,
+      "recover_6m": 0.14035087719298245,
+      "recover_12m": 0.3333333333333333,
+      "recover_18m": 0.42105263157894735,
+      "recover_24m": 0.4649122807017544,
+      "recover_36m": 0.5701754385964912,
+      "not_recovered_36m": 0.4298245614035088
+     },
+     "12m": {
+      "p_drawdown": 0.36625,
+      "n": 293,
+      "recover_6m": 0.14334470989761092,
+      "recover_12m": 0.31399317406143346,
+      "recover_18m": 0.3924914675767918,
+      "recover_24m": 0.44368600682593856,
+      "recover_36m": 0.5324232081911263,
+      "not_recovered_36m": 0.4675767918088737
+     },
+     "18m": {
+      "p_drawdown": 0.57375,
+      "n": 459,
+      "recover_6m": 0.12200435729847495,
+      "recover_12m": 0.2984749455337691,
+      "recover_18m": 0.3899782135076253,
+      "recover_24m": 0.4422657952069717,
+      "recover_36m": 0.5315904139433552,
+      "not_recovered_36m": 0.46840958605664484
+     }
+    }
+   },
+   "Tesla": {
+    "p_dd25": 0.805,
+    "p_recover": 0.31521739130434784,
+    "recovery_quality": 0.0,
+    "fragility": 0.7260589966777409,
+    "p_never": 0.4083850931677019,
+    "p_deep_permanent": 0.32875,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.09316770186335403,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.15993788819875776,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.2204968944099379,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.27639751552795033,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.31521739130434784,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.37732919254658387,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.41459627329192544,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.44565217391304346,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.30375,
+      "n": 243,
+      "recover_6m": 0.13168724279835392,
+      "recover_12m": 0.2674897119341564,
+      "recover_18m": 0.34156378600823045,
+      "recover_24m": 0.3950617283950617,
+      "recover_36m": 0.49382716049382713,
+      "not_recovered_36m": 0.5061728395061729
+     },
+     "12m": {
+      "p_drawdown": 0.62625,
+      "n": 501,
+      "recover_6m": 0.11976047904191617,
+      "recover_12m": 0.25748502994011974,
+      "recover_18m": 0.34930139720558884,
+      "recover_24m": 0.40119760479041916,
+      "recover_36m": 0.46506986027944114,
+      "not_recovered_36m": 0.5349301397205588
+     },
+     "18m": {
+      "p_drawdown": 0.805,
+      "n": 644,
+      "recover_6m": 0.09316770186335403,
+      "recover_12m": 0.2204968944099379,
+      "recover_18m": 0.31521739130434784,
+      "recover_24m": 0.37732919254658387,
+      "recover_36m": 0.44565217391304346,
+      "not_recovered_36m": 0.5543478260869565
+     }
+    }
+   },
+   "Apple": {
+    "p_dd25": 0.45,
+    "p_recover": 0.2833333333333333,
+    "recovery_quality": 0.2148160372332361,
+    "fragility": 0.33907256723032064,
+    "p_never": 0.4666666666666667,
+    "p_deep_permanent": 0.21,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.05555555555555555,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.12777777777777777,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.18888888888888888,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.22777777777777777,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.2833333333333333,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.3388888888888889,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.375,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.4027777777777778,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.07875,
+      "n": 63,
+      "recover_6m": 0.07936507936507936,
+      "recover_12m": 0.19047619047619047,
+      "recover_18m": 0.31746031746031744,
+      "recover_24m": 0.36507936507936506,
+      "recover_36m": 0.4444444444444444,
+      "not_recovered_36m": 0.5555555555555556
+     },
+     "12m": {
+      "p_drawdown": 0.2675,
+      "n": 214,
+      "recover_6m": 0.0794392523364486,
+      "recover_12m": 0.21962616822429906,
+      "recover_18m": 0.29906542056074764,
+      "recover_24m": 0.3691588785046729,
+      "recover_36m": 0.4205607476635514,
+      "not_recovered_36m": 0.5794392523364487
+     },
+     "18m": {
+      "p_drawdown": 0.45,
+      "n": 360,
+      "recover_6m": 0.05555555555555555,
+      "recover_12m": 0.18888888888888888,
+      "recover_18m": 0.2833333333333333,
+      "recover_24m": 0.3388888888888889,
+      "recover_36m": 0.4027777777777778,
+      "not_recovered_36m": 0.5972222222222222
+     }
+    }
+   },
+   "Alphabet": {
+    "p_dd25": 0.41,
+    "p_recover": 0.24390243902439024,
+    "recovery_quality": 0.21137986489795918,
+    "fragility": 0.2767110958479943,
+    "p_never": 0.45121951219512196,
+    "p_deep_permanent": 0.185,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.06097560975609756,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.12195121951219512,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.1676829268292683,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.22865853658536586,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.24390243902439024,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.31097560975609756,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.375,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.4298780487804878,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.07375,
+      "n": 59,
+      "recover_6m": 0.11864406779661017,
+      "recover_12m": 0.2033898305084746,
+      "recover_18m": 0.3389830508474576,
+      "recover_24m": 0.3559322033898305,
+      "recover_36m": 0.423728813559322,
+      "not_recovered_36m": 0.576271186440678
+     },
+     "12m": {
+      "p_drawdown": 0.23375,
+      "n": 187,
+      "recover_6m": 0.0855614973262032,
+      "recover_12m": 0.17647058823529413,
+      "recover_18m": 0.24064171122994651,
+      "recover_24m": 0.2994652406417112,
+      "recover_36m": 0.4117647058823529,
+      "not_recovered_36m": 0.5882352941176471
+     },
+     "18m": {
+      "p_drawdown": 0.41,
+      "n": 328,
+      "recover_6m": 0.06097560975609756,
+      "recover_12m": 0.1676829268292683,
+      "recover_18m": 0.24390243902439024,
+      "recover_24m": 0.31097560975609756,
+      "recover_36m": 0.4298780487804878,
+      "not_recovered_36m": 0.5701219512195121
+     }
+    }
+   },
+   "Oracle": {
+    "p_dd25": 0.405,
+    "p_recover": 0.30246913580246915,
+    "recovery_quality": 0.2739659096362023,
+    "fragility": 0.23848289902395736,
+    "p_never": 0.42592592592592593,
+    "p_deep_permanent": 0.1725,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.06790123456790123,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.15123456790123457,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.2191358024691358,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.2777777777777778,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.30246913580246915,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.3487654320987654,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.39814814814814814,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.4506172839506173,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.06875,
+      "n": 55,
+      "recover_6m": 0.14545454545454545,
+      "recover_12m": 0.3090909090909091,
+      "recover_18m": 0.38181818181818183,
+      "recover_24m": 0.38181818181818183,
+      "recover_36m": 0.43636363636363634,
+      "not_recovered_36m": 0.5636363636363637
+     },
+     "12m": {
+      "p_drawdown": 0.21125,
+      "n": 169,
+      "recover_6m": 0.10059171597633136,
+      "recover_12m": 0.25443786982248523,
+      "recover_18m": 0.31952662721893493,
+      "recover_24m": 0.33136094674556216,
+      "recover_36m": 0.4260355029585799,
+      "not_recovered_36m": 0.5739644970414202
+     },
+     "18m": {
+      "p_drawdown": 0.405,
+      "n": 324,
+      "recover_6m": 0.06790123456790123,
+      "recover_12m": 0.2191358024691358,
+      "recover_18m": 0.30246913580246915,
+      "recover_24m": 0.3487654320987654,
+      "recover_36m": 0.4506172839506173,
+      "not_recovered_36m": 0.5493827160493827
+     }
+    }
+   },
+   "Texas Instruments": {
+    "p_dd25": 0.47375,
+    "p_recover": 0.24538258575197888,
+    "recovery_quality": 0.1851577597402597,
+    "fragility": 0.33578397031539886,
+    "p_never": 0.46965699208443273,
+    "p_deep_permanent": 0.2225,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.12928759894459102,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.16358839050131926,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.19525065963060687,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.24538258575197888,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.2849604221635884,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.3324538258575198,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.38786279683377306,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.08625,
+      "n": 69,
+      "recover_6m": 0.0,
+      "recover_12m": 0.15942028985507245,
+      "recover_18m": 0.30434782608695654,
+      "recover_24m": 0.34782608695652173,
+      "recover_36m": 0.42028985507246375,
+      "not_recovered_36m": 0.5797101449275363
+     },
+     "12m": {
+      "p_drawdown": 0.275,
+      "n": 220,
+      "recover_6m": 0.0,
+      "recover_12m": 0.19090909090909092,
+      "recover_18m": 0.2772727272727273,
+      "recover_24m": 0.32272727272727275,
+      "recover_36m": 0.39090909090909093,
+      "not_recovered_36m": 0.6090909090909091
+     },
+     "18m": {
+      "p_drawdown": 0.47375,
+      "n": 379,
+      "recover_6m": 0.0,
+      "recover_12m": 0.16358839050131926,
+      "recover_18m": 0.24538258575197888,
+      "recover_24m": 0.2849604221635884,
+      "recover_36m": 0.38786279683377306,
+      "not_recovered_36m": 0.6121372031662269
+     }
+    }
+   },
+   "Cisco": {
+    "p_dd25": 0.31875,
+    "p_recover": 0.2980392156862745,
+    "recovery_quality": 0.34713744642857136,
+    "fragility": 0.06708535714285713,
+    "p_never": 0.41568627450980394,
+    "p_deep_permanent": 0.1325,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.07058823529411765,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.12549019607843137,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.19215686274509805,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.24313725490196078,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.2980392156862745,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.34901960784313724,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.4117647058823529,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.4627450980392157,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.0425,
+      "n": 34,
+      "recover_6m": 0.058823529411764705,
+      "recover_12m": 0.20588235294117646,
+      "recover_18m": 0.2647058823529412,
+      "recover_24m": 0.29411764705882354,
+      "recover_36m": 0.35294117647058826,
+      "not_recovered_36m": 0.6470588235294117
+     },
+     "12m": {
+      "p_drawdown": 0.1675,
+      "n": 134,
+      "recover_6m": 0.05970149253731343,
+      "recover_12m": 0.1865671641791045,
+      "recover_18m": 0.31343283582089554,
+      "recover_24m": 0.3283582089552239,
+      "recover_36m": 0.43283582089552236,
+      "not_recovered_36m": 0.5671641791044777
+     },
+     "18m": {
+      "p_drawdown": 0.31875,
+      "n": 255,
+      "recover_6m": 0.07058823529411765,
+      "recover_12m": 0.19215686274509805,
+      "recover_18m": 0.2980392156862745,
+      "recover_24m": 0.34901960784313724,
+      "recover_36m": 0.4627450980392157,
+      "not_recovered_36m": 0.5372549019607843
+     }
+    }
+   },
+   "IBM": {
+    "p_dd25": 0.26375,
+    "p_recover": 0.17535545023696683,
+    "recovery_quality": 0.25637952445740203,
+    "fragility": 0.22372971817298345,
+    "p_never": 0.5545023696682464,
+    "p_deep_permanent": 0.14625,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.03317535545023697,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.07109004739336493,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.0947867298578199,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.13270142180094788,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.17535545023696683,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.22748815165876776,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.26540284360189575,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.2843601895734597,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.02375,
+      "n": 19,
+      "recover_6m": null,
+      "recover_12m": null,
+      "recover_18m": null,
+      "recover_24m": null,
+      "recover_36m": null,
+      "not_recovered_36m": null
+     },
+     "12m": {
+      "p_drawdown": 0.125,
+      "n": 100,
+      "recover_6m": 0.04,
+      "recover_12m": 0.11,
+      "recover_18m": 0.18,
+      "recover_24m": 0.24,
+      "recover_36m": 0.29,
+      "not_recovered_36m": 0.71
+     },
+     "18m": {
+      "p_drawdown": 0.26375,
+      "n": 211,
+      "recover_6m": 0.03317535545023697,
+      "recover_12m": 0.0947867298578199,
+      "recover_18m": 0.17535545023696683,
+      "recover_24m": 0.22748815165876776,
+      "recover_36m": 0.2843601895734597,
+      "not_recovered_36m": 0.7156398104265402
+     }
+    }
+   },
+   "Astera Labs": {
+    "p_dd25": 0.72875,
+    "p_recover": 0.44939965694682676,
+    "recovery_quality": 0.18172683751417235,
+    "fragility": 0.4925832738095238,
+    "p_never": 0.2933104631217839,
+    "p_deep_permanent": 0.21375,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.2058319039451115,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.2830188679245283,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.35506003430531735,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.4065180102915952,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.44939965694682676,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.5094339622641509,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.5420240137221269,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5780445969125214,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.26,
+      "n": 208,
+      "recover_6m": 0.24519230769230768,
+      "recover_12m": 0.40865384615384615,
+      "recover_18m": 0.4951923076923077,
+      "recover_24m": 0.5432692307692307,
+      "recover_36m": 0.6009615384615384,
+      "not_recovered_36m": 0.39903846153846156
+     },
+     "12m": {
+      "p_drawdown": 0.52875,
+      "n": 423,
+      "recover_6m": 0.24113475177304963,
+      "recover_12m": 0.3829787234042553,
+      "recover_18m": 0.458628841607565,
+      "recover_24m": 0.5153664302600472,
+      "recover_36m": 0.5815602836879432,
+      "not_recovered_36m": 0.4184397163120568
+     },
+     "18m": {
+      "p_drawdown": 0.72875,
+      "n": 583,
+      "recover_6m": 0.2058319039451115,
+      "recover_12m": 0.35506003430531735,
+      "recover_18m": 0.44939965694682676,
+      "recover_24m": 0.5094339622641509,
+      "recover_36m": 0.5780445969125214,
+      "not_recovered_36m": 0.4219554030874786
+     }
+    }
+   },
+   "Vertiv": {
+    "p_dd25": 0.575,
+    "p_recover": 0.29130434782608694,
+    "recovery_quality": 0.18800606292517,
+    "fragility": 0.36335612244897963,
+    "p_never": 0.3804347826086957,
+    "p_deep_permanent": 0.21875,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0891304347826087,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.14565217391304347,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.19130434782608696,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.24782608695652175,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.29130434782608694,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.3760869565217391,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.4282608695652174,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.4608695652173913,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.15375,
+      "n": 123,
+      "recover_6m": 0.08130081300813008,
+      "recover_12m": 0.22764227642276422,
+      "recover_18m": 0.2845528455284553,
+      "recover_24m": 0.4146341463414634,
+      "recover_36m": 0.4878048780487805,
+      "not_recovered_36m": 0.5121951219512195
+     },
+     "12m": {
+      "p_drawdown": 0.37375,
+      "n": 299,
+      "recover_6m": 0.07692307692307693,
+      "recover_12m": 0.19732441471571907,
+      "recover_18m": 0.2976588628762542,
+      "recover_24m": 0.3979933110367893,
+      "recover_36m": 0.45484949832775917,
+      "not_recovered_36m": 0.5451505016722409
+     },
+     "18m": {
+      "p_drawdown": 0.575,
+      "n": 460,
+      "recover_6m": 0.0891304347826087,
+      "recover_12m": 0.19130434782608696,
+      "recover_18m": 0.29130434782608694,
+      "recover_24m": 0.3760869565217391,
+      "recover_36m": 0.4608695652173913,
+      "not_recovered_36m": 0.5391304347826087
+     }
+    }
+   },
+   "CoreWeave": {
+    "p_dd25": 0.845,
+    "p_recover": 0.30177514792899407,
+    "recovery_quality": 0.0,
+    "fragility": 0.7093414269387754,
+    "p_never": 0.507396449704142,
+    "p_deep_permanent": 0.42875,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.11834319526627218,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.1863905325443787,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.2455621301775148,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.2692307692307692,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.30177514792899407,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.34023668639053256,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.3594674556213018,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.3816568047337278,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.35,
+      "n": 280,
+      "recover_6m": 0.17857142857142858,
+      "recover_12m": 0.2892857142857143,
+      "recover_18m": 0.4,
+      "recover_24m": 0.4357142857142857,
+      "recover_36m": 0.48928571428571427,
+      "not_recovered_36m": 0.5107142857142857
+     },
+     "12m": {
+      "p_drawdown": 0.67375,
+      "n": 539,
+      "recover_6m": 0.14471243042671614,
+      "recover_12m": 0.29684601113172543,
+      "recover_18m": 0.3562152133580705,
+      "recover_24m": 0.3877551020408163,
+      "recover_36m": 0.43413729128014844,
+      "not_recovered_36m": 0.5658627087198516
+     },
+     "18m": {
+      "p_drawdown": 0.845,
+      "n": 676,
+      "recover_6m": 0.11834319526627218,
+      "recover_12m": 0.2455621301775148,
+      "recover_18m": 0.30177514792899407,
+      "recover_24m": 0.34023668639053256,
+      "recover_36m": 0.3816568047337278,
+      "not_recovered_36m": 0.6183431952662721
+     }
+    }
+   },
+   "ARKK (ARK Innovation)": {
+    "p_dd25": 0.72625,
+    "p_recover": 0.27710843373493976,
+    "recovery_quality": 0.008010894248608545,
+    "fragility": 0.6145745454545455,
+    "p_never": 0.4664371772805508,
+    "p_deep_permanent": 0.33875,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.08777969018932874,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.13941480206540446,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.19965576592082615,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.23924268502581755,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.27710843373493976,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.3373493975903614,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.3855421686746988,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.41308089500860584,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.24625,
+      "n": 197,
+      "recover_6m": 0.08121827411167512,
+      "recover_12m": 0.2131979695431472,
+      "recover_18m": 0.3147208121827411,
+      "recover_24m": 0.38578680203045684,
+      "recover_36m": 0.4873096446700508,
+      "not_recovered_36m": 0.5126903553299492
+     },
+     "12m": {
+      "p_drawdown": 0.52625,
+      "n": 421,
+      "recover_6m": 0.09501187648456057,
+      "recover_12m": 0.2327790973871734,
+      "recover_18m": 0.32304038004750596,
+      "recover_24m": 0.3752969121140142,
+      "recover_36m": 0.4489311163895487,
+      "not_recovered_36m": 0.5510688836104514
+     },
+     "18m": {
+      "p_drawdown": 0.72625,
+      "n": 581,
+      "recover_6m": 0.08777969018932874,
+      "recover_12m": 0.19965576592082615,
+      "recover_18m": 0.27710843373493976,
+      "recover_24m": 0.3373493975903614,
+      "recover_36m": 0.41308089500860584,
+      "not_recovered_36m": 0.5869191049913942
+     }
+    }
+   },
+   "QQQ (Nasdaq-100)": {
+    "p_dd25": 0.375,
+    "p_recover": 0.22666666666666666,
+    "recovery_quality": 0.2465645282798833,
+    "fragility": 0.3014681282798834,
+    "p_never": 0.46,
+    "p_deep_permanent": 0.1725,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.05,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.1,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.15,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.2,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.22666666666666666,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.29333333333333333,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.34,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.37,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.06375,
+      "n": 51,
+      "recover_6m": 0.13725490196078433,
+      "recover_12m": 0.29411764705882354,
+      "recover_18m": 0.37254901960784315,
+      "recover_24m": 0.45098039215686275,
+      "recover_36m": 0.47058823529411764,
+      "not_recovered_36m": 0.5294117647058824
+     },
+     "12m": {
+      "p_drawdown": 0.21875,
+      "n": 175,
+      "recover_6m": 0.06857142857142857,
+      "recover_12m": 0.1657142857142857,
+      "recover_18m": 0.22857142857142856,
+      "recover_24m": 0.2742857142857143,
+      "recover_36m": 0.3485714285714286,
+      "not_recovered_36m": 0.6514285714285715
+     },
+     "18m": {
+      "p_drawdown": 0.375,
+      "n": 300,
+      "recover_6m": 0.05,
+      "recover_12m": 0.15,
+      "recover_18m": 0.22666666666666666,
+      "recover_24m": 0.29333333333333333,
+      "recover_36m": 0.37,
+      "not_recovered_36m": 0.63
+     }
+    }
+   },
+   "VOO (S&P 500)": {
+    "p_dd25": 0.2825,
+    "p_recover": 0.2168141592920354,
+    "recovery_quality": 0.28673187384044524,
+    "fragility": 0.21635732838589977,
+    "p_never": 0.4778761061946903,
+    "p_deep_permanent": 0.135,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.05309734513274336,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.08849557522123894,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.12831858407079647,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.18584070796460178,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.2168141592920354,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.26548672566371684,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.33185840707964603,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.35398230088495575,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.04,
+      "n": 32,
+      "recover_6m": 0.125,
+      "recover_12m": 0.21875,
+      "recover_18m": 0.3125,
+      "recover_24m": 0.3125,
+      "recover_36m": 0.375,
+      "not_recovered_36m": 0.625
+     },
+     "12m": {
+      "p_drawdown": 0.145,
+      "n": 116,
+      "recover_6m": 0.0603448275862069,
+      "recover_12m": 0.15517241379310345,
+      "recover_18m": 0.1896551724137931,
+      "recover_24m": 0.22413793103448276,
+      "recover_36m": 0.31896551724137934,
+      "not_recovered_36m": 0.6810344827586207
+     },
+     "18m": {
+      "p_drawdown": 0.2825,
+      "n": 226,
+      "recover_6m": 0.05309734513274336,
+      "recover_12m": 0.12831858407079647,
+      "recover_18m": 0.2168141592920354,
+      "recover_24m": 0.26548672566371684,
+      "recover_36m": 0.35398230088495575,
+      "not_recovered_36m": 0.6460176991150443
+     }
+    }
+   },
+   "SCHD (Dividend)": {
+    "p_dd25": 0.18625,
+    "p_recover": 0.18791946308724833,
+    "recovery_quality": 0.39499075,
+    "fragility": 0.04720749999999997,
+    "p_never": 0.5033557046979866,
+    "p_deep_permanent": 0.09375,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.053691275167785234,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.08053691275167785,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.10738255033557047,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.1476510067114094,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.18791946308724833,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.2214765100671141,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.26174496644295303,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.3087248322147651,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.02375,
+      "n": 19,
+      "recover_6m": null,
+      "recover_12m": null,
+      "recover_18m": null,
+      "recover_24m": null,
+      "recover_36m": null,
+      "not_recovered_36m": null
+     },
+     "12m": {
+      "p_drawdown": 0.09625,
+      "n": 77,
+      "recover_6m": 0.03896103896103896,
+      "recover_12m": 0.1038961038961039,
+      "recover_18m": 0.11688311688311688,
+      "recover_24m": 0.16883116883116883,
+      "recover_36m": 0.24675324675324675,
+      "not_recovered_36m": 0.7532467532467533
+     },
+     "18m": {
+      "p_drawdown": 0.18625,
+      "n": 149,
+      "recover_6m": 0.053691275167785234,
+      "recover_12m": 0.10738255033557047,
+      "recover_18m": 0.18791946308724833,
+      "recover_24m": 0.2214765100671141,
+      "recover_36m": 0.3087248322147651,
+      "not_recovered_36m": 0.6912751677852349
+     }
+    }
+   },
+   "DTCR (Data Ctr Infra)": {
+    "p_dd25": 0.295,
+    "p_recover": 0.16101694915254236,
+    "recovery_quality": 0.249224192,
+    "fragility": 0.3285568,
+    "p_never": 0.6016949152542372,
+    "p_deep_permanent": 0.1775,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.038135593220338986,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.0635593220338983,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.1016949152542373,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.13135593220338984,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.16101694915254236,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.211864406779661,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.2584745762711864,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.2966101694915254,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.04,
+      "n": 32,
+      "recover_6m": 0.125,
+      "recover_12m": 0.1875,
+      "recover_18m": 0.21875,
+      "recover_24m": 0.21875,
+      "recover_36m": 0.3125,
+      "not_recovered_36m": 0.6875
+     },
+     "12m": {
+      "p_drawdown": 0.16,
+      "n": 128,
+      "recover_6m": 0.03125,
+      "recover_12m": 0.078125,
+      "recover_18m": 0.1171875,
+      "recover_24m": 0.15625,
+      "recover_36m": 0.2578125,
+      "not_recovered_36m": 0.7421875
+     },
+     "18m": {
+      "p_drawdown": 0.295,
+      "n": 236,
+      "recover_6m": 0.038135593220338986,
+      "recover_12m": 0.1016949152542373,
+      "recover_18m": 0.16101694915254236,
+      "recover_24m": 0.211864406779661,
+      "recover_36m": 0.2966101694915254,
+      "not_recovered_36m": 0.7033898305084746
+     }
+    }
+   },
+   "GRID (Smart Grid)": {
+    "p_dd25": 0.36,
+    "p_recover": 0.2152777777777778,
+    "recovery_quality": 0.24211476946334087,
+    "fragility": 0.3139174603174603,
+    "p_never": 0.4826388888888889,
+    "p_deep_permanent": 0.17375,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.05555555555555555,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.10416666666666667,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.13194444444444445,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.1597222222222222,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.2152777777777778,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.2916666666666667,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.3333333333333333,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.3645833333333333,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.06,
+      "n": 48,
+      "recover_6m": 0.125,
+      "recover_12m": 0.1875,
+      "recover_18m": 0.25,
+      "recover_24m": 0.2708333333333333,
+      "recover_36m": 0.3958333333333333,
+      "not_recovered_36m": 0.6041666666666667
+     },
+     "12m": {
+      "p_drawdown": 0.2075,
+      "n": 166,
+      "recover_6m": 0.0783132530120482,
+      "recover_12m": 0.1566265060240964,
+      "recover_18m": 0.22289156626506024,
+      "recover_24m": 0.26506024096385544,
+      "recover_36m": 0.3433734939759036,
+      "not_recovered_36m": 0.6566265060240963
+     },
+     "18m": {
+      "p_drawdown": 0.36,
+      "n": 288,
+      "recover_6m": 0.05555555555555555,
+      "recover_12m": 0.13194444444444445,
+      "recover_18m": 0.2152777777777778,
+      "recover_24m": 0.2916666666666667,
+      "recover_36m": 0.3645833333333333,
+      "not_recovered_36m": 0.6354166666666667
+     }
+    }
+   },
+   "NUKE (Nuclear/Uranium)": {
+    "p_dd25": 0.50125,
+    "p_recover": 0.32917705735660846,
+    "recovery_quality": 0.16598791545189504,
+    "fragility": 0.3843621793002916,
+    "p_never": 0.3865336658354115,
+    "p_deep_permanent": 0.19375,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.10972568578553615,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.1770573566084788,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.2144638403990025,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.26932668329177056,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.32917705735660846,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.38154613466334164,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.42643391521197005,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.4713216957605985,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.11,
+      "n": 88,
+      "recover_6m": 0.19318181818181818,
+      "recover_12m": 0.2727272727272727,
+      "recover_18m": 0.3522727272727273,
+      "recover_24m": 0.38636363636363635,
+      "recover_36m": 0.5113636363636364,
+      "not_recovered_36m": 0.48863636363636365
+     },
+     "12m": {
+      "p_drawdown": 0.32,
+      "n": 256,
+      "recover_6m": 0.13671875,
+      "recover_12m": 0.23828125,
+      "recover_18m": 0.3359375,
+      "recover_24m": 0.3828125,
+      "recover_36m": 0.48046875,
+      "not_recovered_36m": 0.51953125
+     },
+     "18m": {
+      "p_drawdown": 0.50125,
+      "n": 401,
+      "recover_6m": 0.10972568578553615,
+      "recover_12m": 0.2144638403990025,
+      "recover_18m": 0.32917705735660846,
+      "recover_24m": 0.38154613466334164,
+      "recover_36m": 0.4713216957605985,
+      "not_recovered_36m": 0.5286783042394014
+     }
+    }
+   },
+   "VGT (Info Tech)": {
+    "p_dd25": 0.3825,
+    "p_recover": 0.238562091503268,
+    "recovery_quality": 0.2684678870748299,
+    "fragility": 0.29837453061224484,
+    "p_never": 0.4444444444444444,
+    "p_deep_permanent": 0.17,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.05555555555555555,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.13398692810457516,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.16013071895424835,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.20588235294117646,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.238562091503268,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.30392156862745096,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.3431372549019608,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.39215686274509803,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.06375,
+      "n": 51,
+      "recover_6m": 0.13725490196078433,
+      "recover_12m": 0.2549019607843137,
+      "recover_18m": 0.3333333333333333,
+      "recover_24m": 0.35294117647058826,
+      "recover_36m": 0.39215686274509803,
+      "not_recovered_36m": 0.607843137254902
+     },
+     "12m": {
+      "p_drawdown": 0.2225,
+      "n": 178,
+      "recover_6m": 0.07303370786516854,
+      "recover_12m": 0.20224719101123595,
+      "recover_18m": 0.24719101123595505,
+      "recover_24m": 0.28651685393258425,
+      "recover_36m": 0.38202247191011235,
+      "not_recovered_36m": 0.6179775280898876
+     },
+     "18m": {
+      "p_drawdown": 0.3825,
+      "n": 306,
+      "recover_6m": 0.05555555555555555,
+      "recover_12m": 0.16013071895424835,
+      "recover_18m": 0.238562091503268,
+      "recover_24m": 0.30392156862745096,
+      "recover_36m": 0.39215686274509803,
+      "not_recovered_36m": 0.607843137254902
+     }
+    }
+   },
+   "IGV (Software)": {
+    "p_dd25": 0.45375,
+    "p_recover": 0.25895316804407714,
+    "recovery_quality": 0.21080657142857145,
+    "fragility": 0.38589706122448975,
+    "p_never": 0.4573002754820937,
+    "p_deep_permanent": 0.2075,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.049586776859504134,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.11294765840220386,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.1763085399449036,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.22589531680440772,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.25895316804407714,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.3278236914600551,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.371900826446281,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.41046831955922863,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.08625,
+      "n": 69,
+      "recover_6m": 0.10144927536231885,
+      "recover_12m": 0.2608695652173913,
+      "recover_18m": 0.36231884057971014,
+      "recover_24m": 0.4057971014492754,
+      "recover_36m": 0.4782608695652174,
+      "not_recovered_36m": 0.5217391304347826
+     },
+     "12m": {
+      "p_drawdown": 0.27,
+      "n": 216,
+      "recover_6m": 0.05555555555555555,
+      "recover_12m": 0.19444444444444445,
+      "recover_18m": 0.2638888888888889,
+      "recover_24m": 0.3101851851851852,
+      "recover_36m": 0.39351851851851855,
+      "not_recovered_36m": 0.6064814814814814
+     },
+     "18m": {
+      "p_drawdown": 0.45375,
+      "n": 363,
+      "recover_6m": 0.049586776859504134,
+      "recover_12m": 0.1763085399449036,
+      "recover_18m": 0.25895316804407714,
+      "recover_24m": 0.3278236914600551,
+      "recover_36m": 0.41046831955922863,
+      "not_recovered_36m": 0.5895316804407713
+     }
+    }
+   },
+   "SMH (VanEck Semis)": {
+    "p_dd25": 0.43,
+    "p_recover": 0.38372093023255816,
+    "recovery_quality": 0.3241200510842704,
+    "fragility": 0.21727583771774722,
+    "p_never": 0.34593023255813954,
+    "p_deep_permanent": 0.14875,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.09593023255813954,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.1744186046511628,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.25290697674418605,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.32558139534883723,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.38372093023255816,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.43023255813953487,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.4941860465116279,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5290697674418605,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.09125,
+      "n": 73,
+      "recover_6m": 0.1506849315068493,
+      "recover_12m": 0.2465753424657534,
+      "recover_18m": 0.3287671232876712,
+      "recover_24m": 0.410958904109589,
+      "recover_36m": 0.5205479452054794,
+      "not_recovered_36m": 0.4794520547945206
+     },
+     "12m": {
+      "p_drawdown": 0.2725,
+      "n": 218,
+      "recover_6m": 0.0963302752293578,
+      "recover_12m": 0.26146788990825687,
+      "recover_18m": 0.3440366972477064,
+      "recover_24m": 0.40825688073394495,
+      "recover_36m": 0.5229357798165137,
+      "not_recovered_36m": 0.47706422018348627
+     },
+     "18m": {
+      "p_drawdown": 0.43,
+      "n": 344,
+      "recover_6m": 0.09593023255813954,
+      "recover_12m": 0.25290697674418605,
+      "recover_18m": 0.38372093023255816,
+      "recover_24m": 0.43023255813953487,
+      "recover_36m": 0.5290697674418605,
+      "not_recovered_36m": 0.4709302325581395
+     }
+    }
+   },
+   "SOXX (iShares Semis)": {
+    "p_dd25": 0.44,
+    "p_recover": 0.375,
+    "recovery_quality": 0.3097842312178619,
+    "fragility": 0.2065872228354511,
+    "p_never": 0.32954545454545453,
+    "p_deep_permanent": 0.145,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.11931818181818182,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.20454545454545456,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.26136363636363635,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.3181818181818182,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.375,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.4346590909090909,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.4971590909090909,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5284090909090909,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.09,
+      "n": 72,
+      "recover_6m": 0.125,
+      "recover_12m": 0.2361111111111111,
+      "recover_18m": 0.4027777777777778,
+      "recover_24m": 0.4166666666666667,
+      "recover_36m": 0.5277777777777778,
+      "not_recovered_36m": 0.4722222222222222
+     },
+     "12m": {
+      "p_drawdown": 0.27,
+      "n": 216,
+      "recover_6m": 0.10185185185185185,
+      "recover_12m": 0.24537037037037038,
+      "recover_18m": 0.33796296296296297,
+      "recover_24m": 0.39814814814814814,
+      "recover_36m": 0.48148148148148145,
+      "not_recovered_36m": 0.5185185185185186
+     },
+     "18m": {
+      "p_drawdown": 0.44,
+      "n": 352,
+      "recover_6m": 0.11931818181818182,
+      "recover_12m": 0.26136363636363635,
+      "recover_18m": 0.375,
+      "recover_24m": 0.4346590909090909,
+      "recover_36m": 0.5284090909090909,
+      "not_recovered_36m": 0.47159090909090906
+     }
+    }
+   },
+   "DRAM (Roundhill Memory)": {
+    "p_dd25": 0.55,
+    "p_recover": 0.3977272727272727,
+    "recovery_quality": 0.17115953854046329,
+    "fragility": 0.20630136986301367,
+    "p_never": 0.3386363636363636,
+    "p_deep_permanent": 0.18625,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.0,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.35,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.3977272727272727,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.4636363636363636,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.5113636363636364,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5295454545454545,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.12625,
+      "n": 101,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.39603960396039606,
+      "recover_24m": 0.49504950495049505,
+      "recover_36m": 0.5841584158415841,
+      "not_recovered_36m": 0.4158415841584159
+     },
+     "12m": {
+      "p_drawdown": 0.35625,
+      "n": 285,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.37543859649122807,
+      "recover_24m": 0.45614035087719296,
+      "recover_36m": 0.5333333333333333,
+      "not_recovered_36m": 0.4666666666666667
+     },
+     "18m": {
+      "p_drawdown": 0.55,
+      "n": 440,
+      "recover_6m": 0.0,
+      "recover_12m": 0.0,
+      "recover_18m": 0.3977272727272727,
+      "recover_24m": 0.4636363636363636,
+      "recover_36m": 0.5295454545454545,
+      "not_recovered_36m": 0.47045454545454546
+     }
+    }
+   },
+   "QTUM (Defiance Quantum)": {
+    "p_dd25": 0.485,
+    "p_recover": 0.2345360824742268,
+    "recovery_quality": 0.2706379376603984,
+    "fragility": 0.2636198840583148,
+    "p_never": 0.3943298969072165,
+    "p_deep_permanent": 0.19125,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.04381443298969072,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.09020618556701031,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.13917525773195877,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.19072164948453607,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.2345360824742268,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.3170103092783505,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.36855670103092786,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.42010309278350516,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.09875,
+      "n": 79,
+      "recover_6m": 0.0759493670886076,
+      "recover_12m": 0.1518987341772152,
+      "recover_18m": 0.24050632911392406,
+      "recover_24m": 0.2911392405063291,
+      "recover_36m": 0.43037974683544306,
+      "not_recovered_36m": 0.5696202531645569
+     },
+     "12m": {
+      "p_drawdown": 0.30375,
+      "n": 243,
+      "recover_6m": 0.04526748971193416,
+      "recover_12m": 0.13991769547325103,
+      "recover_18m": 0.2222222222222222,
+      "recover_24m": 0.2962962962962963,
+      "recover_36m": 0.3786008230452675,
+      "not_recovered_36m": 0.6213991769547325
+     },
+     "18m": {
+      "p_drawdown": 0.485,
+      "n": 388,
+      "recover_6m": 0.04381443298969072,
+      "recover_12m": 0.13917525773195877,
+      "recover_18m": 0.2345360824742268,
+      "recover_24m": 0.3170103092783505,
+      "recover_36m": 0.42010309278350516,
+      "not_recovered_36m": 0.5798969072164948
+     }
+    }
+   },
+   "AIQ (Global X AI)": {
+    "p_dd25": 0.415,
+    "p_recover": 0.35542168674698793,
+    "recovery_quality": 0.2907607208123427,
+    "fragility": 0.1757350917541009,
+    "p_never": 0.3463855421686747,
+    "p_deep_permanent": 0.14375,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.09939759036144578,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.1927710843373494,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.2710843373493976,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.31626506024096385,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.35542168674698793,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.43373493975903615,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.4789156626506024,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5180722891566265,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.08125,
+      "n": 65,
+      "recover_6m": 0.13846153846153847,
+      "recover_12m": 0.26153846153846155,
+      "recover_18m": 0.36923076923076925,
+      "recover_24m": 0.4461538461538462,
+      "recover_36m": 0.5230769230769231,
+      "not_recovered_36m": 0.4769230769230769
+     },
+     "12m": {
+      "p_drawdown": 0.25125,
+      "n": 201,
+      "recover_6m": 0.09950248756218906,
+      "recover_12m": 0.263681592039801,
+      "recover_18m": 0.3383084577114428,
+      "recover_24m": 0.4079601990049751,
+      "recover_36m": 0.46766169154228854,
+      "not_recovered_36m": 0.5323383084577115
+     },
+     "18m": {
+      "p_drawdown": 0.415,
+      "n": 332,
+      "recover_6m": 0.09939759036144578,
+      "recover_12m": 0.2710843373493976,
+      "recover_18m": 0.35542168674698793,
+      "recover_24m": 0.43373493975903615,
+      "recover_36m": 0.5180722891566265,
+      "not_recovered_36m": 0.4819277108433735
+     }
+    }
+   },
+   "CHAT (Roundhill GenAI)": {
+    "p_dd25": 0.43125,
+    "p_recover": 0.3565217391304348,
+    "recovery_quality": 0.30615166476107936,
+    "fragility": 0.20528736053048705,
+    "p_never": 0.32463768115942027,
+    "p_deep_permanent": 0.14,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.13043478260869565,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.19420289855072465,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.2463768115942029,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.3072463768115942,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.3565217391304348,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.4260869565217391,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.48405797101449277,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.5304347826086957,
+      "beyond_suggested": true
+     }
+    ],
+    "dd_recovery_matrix": {
+     "6m": {
+      "p_drawdown": 0.0875,
+      "n": 70,
+      "recover_6m": 0.2,
+      "recover_12m": 0.3,
+      "recover_18m": 0.35714285714285715,
+      "recover_24m": 0.4,
+      "recover_36m": 0.5,
+      "not_recovered_36m": 0.5
+     },
+     "12m": {
+      "p_drawdown": 0.2625,
+      "n": 210,
+      "recover_6m": 0.1380952380952381,
+      "recover_12m": 0.26666666666666666,
+      "recover_18m": 0.3333333333333333,
+      "recover_24m": 0.4,
+      "recover_36m": 0.47619047619047616,
+      "not_recovered_36m": 0.5238095238095238
+     },
+     "18m": {
+      "p_drawdown": 0.43125,
+      "n": 345,
+      "recover_6m": 0.13043478260869565,
+      "recover_12m": 0.2463768115942029,
+      "recover_18m": 0.3565217391304348,
+      "recover_24m": 0.4260869565217391,
+      "recover_36m": 0.5304347826086957,
+      "not_recovered_36m": 0.4695652173913043
+     }
+    }
+   },
+   "TECL (3x Tech)": {
+    "p_dd25": 0.97625,
+    "p_recover": 0.5300896286811779,
+    "recovery_quality": 0.0,
+    "fragility": 1.0,
+    "p_never": 0.28425096030729835,
+    "p_deep_permanent": 0.2775,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.29449423815621,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.3905249679897567,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.45710627400768244,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.49167733674775926,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.5300896286811779,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.5787451984635084,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.6030729833546735,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.6402048655569782,
+      "beyond_suggested": true
+     }
+    ]
+   },
+   "SOXL (3x Semis)": {
+    "p_dd25": 0.9975,
+    "p_recover": 0.5300751879699248,
+    "recovery_quality": 0.0,
+    "fragility": 1.0,
+    "p_never": 0.2857142857142857,
+    "p_deep_permanent": 0.285,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.31203007518796994,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.41478696741854637,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.46616541353383456,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.4974937343358396,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.5300751879699248,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.5877192982456141,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.6215538847117794,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.6466165413533834,
+      "beyond_suggested": true
+     }
+    ]
+   },
+   "TQQQ (3x NDX)": {
+    "p_dd25": 0.97625,
+    "p_recover": 0.5300896286811779,
+    "recovery_quality": 0.0,
+    "fragility": 1.0,
+    "p_never": 0.28425096030729835,
+    "p_deep_permanent": 0.2775,
+    "recovery_curve": [
+     {
+      "months": 6,
+      "p_recovered": 0.29449423815621,
+      "beyond_suggested": false
+     },
+     {
+      "months": 9,
+      "p_recovered": 0.3905249679897567,
+      "beyond_suggested": false
+     },
+     {
+      "months": 12,
+      "p_recovered": 0.45710627400768244,
+      "beyond_suggested": false
+     },
+     {
+      "months": 15,
+      "p_recovered": 0.49167733674775926,
+      "beyond_suggested": false
+     },
+     {
+      "months": 18,
+      "p_recovered": 0.5300896286811779,
+      "beyond_suggested": false
+     },
+     {
+      "months": 24,
+      "p_recovered": 0.5787451984635084,
+      "beyond_suggested": true
+     },
+     {
+      "months": 30,
+      "p_recovered": 0.6030729833546735,
+      "beyond_suggested": true
+     },
+     {
+      "months": 36,
+      "p_recovered": 0.6402048655569782,
+      "beyond_suggested": true
+     }
+    ]
+   }
+  }
+ },
+ "sensitivity": {
+  "base": [
+   "SCHD (Dividend)",
+   "Broadcom",
+   "NVIDIA",
+   "Cisco",
+   "Microsoft",
+   "SMH (VanEck Semis)",
+   "SOXX (iShares Semis)",
+   "CHAT (Roundhill GenAI)",
+   "Marvell",
+   "AIQ (Global X AI)",
+   "VOO (S&P 500)",
+   "Oracle",
+   "QTUM (Defiance Quantum)",
+   "Meta",
+   "VGT (Info Tech)",
+   "Qualcomm",
+   "AMD",
+   "IBM",
+   "ARM",
+   "Amazon",
+   "DTCR (Data Ctr Infra)",
+   "QQQ (Nasdaq-100)",
+   "GRID (Smart Grid)",
+   "Apple",
+   "Palantir",
+   "Alphabet",
+   "IGV (Software)",
+   "Vertiv",
+   "Texas Instruments",
+   "Astera Labs",
+   "Coherent",
+   "DRAM (Roundhill Memory)",
+   "NUKE (Nuclear/Uranium)",
+   "Samsung",
+   "Lumentum",
+   "AppLovin",
+   "SK Hynix",
+   "Micron",
+   "ARKK (ARK Innovation)",
+   "Applied Optoelectronics",
+   "Kioxia",
+   "IonQ",
+   "Tesla",
+   "CoreWeave"
+  ],
+  "quality+": [
+   "Broadcom",
+   "NVIDIA",
+   "SCHD (Dividend)",
+   "Cisco",
+   "Microsoft",
+   "SMH (VanEck Semis)",
+   "SOXX (iShares Semis)",
+   "Marvell",
+   "CHAT (Roundhill GenAI)",
+   "AIQ (Global X AI)",
+   "QTUM (Defiance Quantum)",
+   "VOO (S&P 500)",
+   "Oracle",
+   "VGT (Info Tech)",
+   "Meta",
+   "ARM",
+   "AMD",
+   "Qualcomm",
+   "Amazon",
+   "DTCR (Data Ctr Infra)",
+   "Palantir",
+   "IBM",
+   "QQQ (Nasdaq-100)",
+   "GRID (Smart Grid)",
+   "IGV (Software)",
+   "Astera Labs",
+   "Alphabet",
+   "Apple",
+   "Vertiv",
+   "Coherent",
+   "Texas Instruments",
+   "NUKE (Nuclear/Uranium)",
+   "Lumentum",
+   "DRAM (Roundhill Memory)",
+   "Samsung",
+   "AppLovin",
+   "SK Hynix",
+   "Micron",
+   "ARKK (ARK Innovation)",
+   "Applied Optoelectronics",
+   "Kioxia",
+   "IonQ",
+   "Tesla",
+   "CoreWeave"
+  ],
+  "quality-": [
+   "SCHD (Dividend)",
+   "Broadcom",
+   "NVIDIA",
+   "Cisco",
+   "Microsoft",
+   "SMH (VanEck Semis)",
+   "SOXX (iShares Semis)",
+   "CHAT (Roundhill GenAI)",
+   "Marvell",
+   "VOO (S&P 500)",
+   "AIQ (Global X AI)",
+   "Oracle",
+   "Meta",
+   "Qualcomm",
+   "IBM",
+   "VGT (Info Tech)",
+   "QTUM (Defiance Quantum)",
+   "AMD",
+   "Amazon",
+   "DTCR (Data Ctr Infra)",
+   "QQQ (Nasdaq-100)",
+   "ARM",
+   "GRID (Smart Grid)",
+   "Apple",
+   "Alphabet",
+   "IGV (Software)",
+   "Texas Instruments",
+   "Vertiv",
+   "DRAM (Roundhill Memory)",
+   "Palantir",
+   "Samsung",
+   "Coherent",
+   "NUKE (Nuclear/Uranium)",
+   "Astera Labs",
+   "Lumentum",
+   "AppLovin",
+   "SK Hynix",
+   "Micron",
+   "Kioxia",
+   "Applied Optoelectronics",
+   "IonQ",
+   "Tesla",
+   "CoreWeave",
+   "ARKK (ARK Innovation)"
+  ],
+  "earn_quality+": [
+   "Broadcom",
+   "NVIDIA",
+   "SCHD (Dividend)",
+   "Cisco",
+   "SMH (VanEck Semis)",
+   "Microsoft",
+   "Marvell",
+   "SOXX (iShares Semis)",
+   "CHAT (Roundhill GenAI)",
+   "VOO (S&P 500)",
+   "AIQ (Global X AI)",
+   "Oracle",
+   "VGT (Info Tech)",
+   "QTUM (Defiance Quantum)",
+   "Meta",
+   "Qualcomm",
+   "IBM",
+   "AMD",
+   "DTCR (Data Ctr Infra)",
+   "Amazon",
+   "QQQ (Nasdaq-100)",
+   "GRID (Smart Grid)",
+   "ARM",
+   "Palantir",
+   "IGV (Software)",
+   "Alphabet",
+   "Apple",
+   "Vertiv",
+   "Texas Instruments",
+   "Astera Labs",
+   "Coherent",
+   "NUKE (Nuclear/Uranium)",
+   "DRAM (Roundhill Memory)",
+   "Lumentum",
+   "Samsung",
+   "AppLovin",
+   "SK Hynix",
+   "Micron",
+   "Applied Optoelectronics",
+   "ARKK (ARK Innovation)",
+   "Kioxia",
+   "Tesla",
+   "IonQ",
+   "CoreWeave"
+  ],
+  "earn_quality-": [
+   "NVIDIA",
+   "SCHD (Dividend)",
+   "Broadcom",
+   "Cisco",
+   "Microsoft",
+   "SMH (VanEck Semis)",
+   "SOXX (iShares Semis)",
+   "CHAT (Roundhill GenAI)",
+   "Marvell",
+   "AIQ (Global X AI)",
+   "VOO (S&P 500)",
+   "Meta",
+   "QTUM (Defiance Quantum)",
+   "Oracle",
+   "Qualcomm",
+   "VGT (Info Tech)",
+   "AMD",
+   "IBM",
+   "Amazon",
+   "ARM",
+   "QQQ (Nasdaq-100)",
+   "DTCR (Data Ctr Infra)",
+   "GRID (Smart Grid)",
+   "Apple",
+   "Palantir",
+   "Alphabet",
+   "IGV (Software)",
+   "Vertiv",
+   "Texas Instruments",
+   "Astera Labs",
+   "DRAM (Roundhill Memory)",
+   "Coherent",
+   "NUKE (Nuclear/Uranium)",
+   "Samsung",
+   "Lumentum",
+   "AppLovin",
+   "SK Hynix",
+   "Micron",
+   "Kioxia",
+   "Applied Optoelectronics",
+   "IonQ",
+   "Tesla",
+   "CoreWeave",
+   "ARKK (ARK Innovation)"
+  ],
+  "dominance+": [
+   "Broadcom",
+   "NVIDIA",
+   "SCHD (Dividend)",
+   "Microsoft",
+   "SMH (VanEck Semis)",
+   "Cisco",
+   "SOXX (iShares Semis)",
+   "Marvell",
+   "CHAT (Roundhill GenAI)",
+   "AMD",
+   "AIQ (Global X AI)",
+   "QTUM (Defiance Quantum)",
+   "VOO (S&P 500)",
+   "Oracle",
+   "VGT (Info Tech)",
+   "Meta",
+   "Qualcomm",
+   "ARM",
+   "Amazon",
+   "DTCR (Data Ctr Infra)",
+   "Palantir",
+   "GRID (Smart Grid)",
+   "IBM",
+   "QQQ (Nasdaq-100)",
+   "Astera Labs",
+   "IGV (Software)",
+   "Alphabet",
+   "Apple",
+   "Coherent",
+   "Vertiv",
+   "Texas Instruments",
+   "Lumentum",
+   "NUKE (Nuclear/Uranium)",
+   "DRAM (Roundhill Memory)",
+   "Samsung",
+   "AppLovin",
+   "SK Hynix",
+   "Micron",
+   "Applied Optoelectronics",
+   "ARKK (ARK Innovation)",
+   "Kioxia",
+   "IonQ",
+   "Tesla",
+   "CoreWeave"
+  ],
+  "dominance-": [
+   "SCHD (Dividend)",
+   "NVIDIA",
+   "Broadcom",
+   "Cisco",
+   "Microsoft",
+   "SMH (VanEck Semis)",
+   "CHAT (Roundhill GenAI)",
+   "VOO (S&P 500)",
+   "SOXX (iShares Semis)",
+   "AIQ (Global X AI)",
+   "Marvell",
+   "Qualcomm",
+   "Meta",
+   "Oracle",
+   "VGT (Info Tech)",
+   "IBM",
+   "QTUM (Defiance Quantum)",
+   "Amazon",
+   "QQQ (Nasdaq-100)",
+   "DTCR (Data Ctr Infra)",
+   "ARM",
+   "GRID (Smart Grid)",
+   "Apple",
+   "AMD",
+   "Alphabet",
+   "IGV (Software)",
+   "Texas Instruments",
+   "Vertiv",
+   "DRAM (Roundhill Memory)",
+   "Palantir",
+   "Samsung",
+   "NUKE (Nuclear/Uranium)",
+   "Coherent",
+   "Astera Labs",
+   "Lumentum",
+   "AppLovin",
+   "SK Hynix",
+   "Micron",
+   "Kioxia",
+   "Applied Optoelectronics",
+   "IonQ",
+   "Tesla",
+   "CoreWeave",
+   "ARKK (ARK Innovation)"
+  ],
+  "capex_elastic+": [
+   "SCHD (Dividend)",
+   "NVIDIA",
+   "Broadcom",
+   "Cisco",
+   "Microsoft",
+   "SMH (VanEck Semis)",
+   "SOXX (iShares Semis)",
+   "CHAT (Roundhill GenAI)",
+   "Marvell",
+   "AIQ (Global X AI)",
+   "VOO (S&P 500)",
+   "Meta",
+   "Oracle",
+   "QTUM (Defiance Quantum)",
+   "Qualcomm",
+   "VGT (Info Tech)",
+   "AMD",
+   "IBM",
+   "ARM",
+   "Amazon",
+   "DTCR (Data Ctr Infra)",
+   "QQQ (Nasdaq-100)",
+   "GRID (Smart Grid)",
+   "Alphabet",
+   "Apple",
+   "Palantir",
+   "IGV (Software)",
+   "Texas Instruments",
+   "Vertiv",
+   "Astera Labs",
+   "Coherent",
+   "DRAM (Roundhill Memory)",
+   "NUKE (Nuclear/Uranium)",
+   "Samsung",
+   "Lumentum",
+   "AppLovin",
+   "SK Hynix",
+   "Micron",
+   "ARKK (ARK Innovation)",
+   "Applied Optoelectronics",
+   "Kioxia",
+   "IonQ",
+   "Tesla",
+   "CoreWeave"
+  ],
+  "capex_elastic-": [
+   "SCHD (Dividend)",
+   "Broadcom",
+   "NVIDIA",
+   "Cisco",
+   "Microsoft",
+   "SMH (VanEck Semis)",
+   "SOXX (iShares Semis)",
+   "Marvell",
+   "CHAT (Roundhill GenAI)",
+   "AIQ (Global X AI)",
+   "VOO (S&P 500)",
+   "Oracle",
+   "QTUM (Defiance Quantum)",
+   "VGT (Info Tech)",
+   "Qualcomm",
+   "Meta",
+   "IBM",
+   "AMD",
+   "ARM",
+   "Amazon",
+   "DTCR (Data Ctr Infra)",
+   "QQQ (Nasdaq-100)",
+   "GRID (Smart Grid)",
+   "Apple",
+   "Palantir",
+   "IGV (Software)",
+   "Alphabet",
+   "Vertiv",
+   "Astera Labs",
+   "Texas Instruments",
+   "Coherent",
+   "DRAM (Roundhill Memory)",
+   "NUKE (Nuclear/Uranium)",
+   "Samsung",
+   "Lumentum",
+   "AppLovin",
+   "SK Hynix",
+   "Micron",
+   "ARKK (ARK Innovation)",
+   "Applied Optoelectronics",
+   "Kioxia",
+   "IonQ",
+   "Tesla",
+   "CoreWeave"
+  ]
+ },
+ "thresholds": [
+  0.15,
+  0.2,
+  0.25,
+  0.3,
+  0.4,
+  0.5
+ ]
+}

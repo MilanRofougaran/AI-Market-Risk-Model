@@ -1,0 +1,203 @@
+{
+ "current_index": {
+  "score": 0.482,
+  "structural": 0.583,
+  "acute": 0.246,
+  "components": [
+   {
+    "key": "shiller_cape",
+    "label": "valuation (CAPE)",
+    "group": "structural",
+    "value": 39.4,
+    "score": 0.733,
+    "weight": 0.17
+   },
+   {
+    "key": "ust_10y_real",
+    "label": "real 10y yield",
+    "group": "structural",
+    "value": 2.25,
+    "score": 0.848,
+    "weight": 0.11
+   },
+   {
+    "key": "margin_debt_yoy",
+    "label": "margin-debt growth (leverage)",
+    "group": "structural",
+    "value": 0.45,
+    "score": 1.0,
+    "weight": 0.15
+   },
+   {
+    "key": "household_debt_gdp",
+    "label": "household debt / GDP",
+    "group": "structural",
+    "value": 60.3,
+    "score": 0.009,
+    "weight": 0.08
+   },
+   {
+    "key": "corp_debt_gdp",
+    "label": "corporate debt / GDP",
+    "group": "structural",
+    "value": 47.0,
+    "score": 0.152,
+    "weight": 0.09
+   },
+   {
+    "key": "hy_oas_bps",
+    "label": "high-yield credit spread",
+    "group": "acute",
+    "value": 312,
+    "score": 0.024,
+    "weight": 0.14
+   },
+   {
+    "key": "ig_oas_bps",
+    "label": "investment-grade spread",
+    "group": "acute",
+    "value": 85,
+    "score": 0.029,
+    "weight": 0.05
+   },
+   {
+    "key": "vix",
+    "label": "equity vol (VIX)",
+    "group": "acute",
+    "value": 24.0,
+    "score": 0.385,
+    "weight": 0.07
+   },
+   {
+    "key": "move",
+    "label": "rates vol (MOVE)",
+    "group": "acute",
+    "value": 95.0,
+    "score": 0.438,
+    "weight": 0.03
+   },
+   {
+    "key": "brent_usd",
+    "label": "oil / geopolitical shock",
+    "group": "acute",
+    "value": 96.0,
+    "score": 0.52,
+    "weight": 0.06
+   },
+   {
+    "key": "short_interest_pct",
+    "label": "short interest",
+    "group": "acute",
+    "value": 2.0,
+    "score": 0.143,
+    "weight": 0.05
+   },
+   {
+    "key": "fed_net_liq_3m_pct",
+    "label": "Fed net liquidity 3m chg",
+    "group": "acute",
+    "value": -1.5,
+    "score": 0.438,
+    "weight": 0.08
+   },
+   {
+    "key": "mmf_dry_powder_gdp",
+    "label": "MMF dry powder /GDP (buffer)",
+    "group": "structural",
+    "value": 25.5,
+    "score": 0.045,
+    "weight": 0.06
+   }
+  ]
+ },
+ "ladder": [
+  {
+   "scenario": "Benign",
+   "stress": 0.3,
+   "mult": 0.782,
+   "exposures": {
+    "S&P 500": {
+     "dd25": 0.357,
+     "dd30": 0.23046666666666665,
+     "dd40": 0.07853333333333333
+    },
+    "Semis (SOXX)": {
+     "dd25": 0.611,
+     "dd30": 0.4616,
+     "dd40": 0.23033333333333333
+    },
+    "SOXL (3x semis)": {
+     "dd25": 0.9985333333333334,
+     "dd30": 0.9902,
+     "dd40": 0.9355333333333333
+    }
+   }
+  },
+  {
+   "scenario": "Current",
+   "stress": 0.482,
+   "mult": 0.991,
+   "exposures": {
+    "S&P 500": {
+     "dd25": 0.38193333333333335,
+     "dd30": 0.2544666666666667,
+     "dd40": 0.09713333333333334
+    },
+    "Semis (SOXX)": {
+     "dd25": 0.6344,
+     "dd30": 0.485,
+     "dd40": 0.2534666666666667
+    },
+    "SOXL (3x semis)": {
+     "dd25": 0.9988666666666667,
+     "dd30": 0.9923333333333333,
+     "dd40": 0.944
+    }
+   }
+  },
+  {
+   "scenario": "Elevated",
+   "stress": 0.65,
+   "mult": 1.184,
+   "exposures": {
+    "S&P 500": {
+     "dd25": 0.40926666666666667,
+     "dd30": 0.28086666666666665,
+     "dd40": 0.11713333333333334
+    },
+    "Semis (SOXX)": {
+     "dd25": 0.6561333333333333,
+     "dd30": 0.5090666666666667,
+     "dd40": 0.2792
+    },
+    "SOXL (3x semis)": {
+     "dd25": 0.9991333333333333,
+     "dd30": 0.9935333333333334,
+     "dd40": 0.9502
+    }
+   }
+  },
+  {
+   "scenario": "Critical",
+   "stress": 0.8,
+   "mult": 1.357,
+   "exposures": {
+    "S&P 500": {
+     "dd25": 0.4364,
+     "dd30": 0.30593333333333333,
+     "dd40": 0.13873333333333332
+    },
+    "Semis (SOXX)": {
+     "dd25": 0.6772666666666667,
+     "dd30": 0.5339333333333334,
+     "dd40": 0.3015333333333333
+    },
+    "SOXL (3x semis)": {
+     "dd25": 0.9993333333333333,
+     "dd30": 0.9942666666666666,
+     "dd40": 0.9563333333333334
+    }
+   }
+  }
+ ]
+}

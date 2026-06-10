@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Systemic + TAM — growth × risk (demo)</title>
+<style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:#faf9f5;color:#1c1c1a;margin:0;padding:26px;line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto}
+h1{font-size:24px;margin:0 0 2px}
+.meta{color:#6b6a64;font-size:13px;margin-bottom:12px}
+.alert{background:#fceBEB;color:#a32d2d;border-radius:10px;padding:9px 13px;font-size:13px;margin-bottom:16px}
+.chip{display:inline-block;background:#faeeda;color:#854f0b;border-radius:20px;padding:2px 10px;font-size:12px;font-weight:600;margin-left:6px}
+.controls{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:8px}
+.controls .sp{flex:1}
+button{font-size:13px;border:1px solid #d8d6cd;background:#fff;color:#5f5e5a;border-radius:8px;padding:6px 13px;cursor:pointer}
+button.on{background:#185fa5;color:#fff;border-color:#185fa5;font-weight:500}
+.legend{font-size:12px;color:#6b6a64;margin-bottom:8px}
+.legend b{font-weight:600}
+.box{background:#fff;border:1px solid #e7e5dd;border-radius:12px;padding:12px}
+svg{display:block;width:100%;height:auto}
+.pt{cursor:pointer}.pt:hover{stroke:#1c1c1a;stroke-width:1.5}
+.bar{fill:#185fa5}
+h2{font-size:16px;margin:24px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:12.5px;background:#fff;border:1px solid #e7e5dd;border-radius:12px;overflow:hidden}
+th,td{padding:6px 9px;border-bottom:1px solid #f0eee7;text-align:right;white-space:nowrap}
+th{color:#6b6a64;font-weight:600;font-size:11px;cursor:pointer;background:#f6f5ef;user-select:none}
+th:hover{color:#185fa5}
+td.l,th.l{text-align:left}
+tr:hover td{background:#faf9f5}
+.tag{font-size:9px;padding:1px 5px;border-radius:4px;margin-left:5px}
+.etf{background:#f1efe8;color:#5f5e5a}.stk{background:#e6f1fb;color:#185fa5}
+.pill{font-weight:600;padding:2px 7px;border-radius:6px}
+.lo{background:#e1f5ee;color:#0f6e56}.mid{background:#faeeda;color:#854f0b}.hi{background:#fceBEB;color:#a32d2d}
+.foot{color:#8b8a82;font-size:11px;margin-top:18px}
+.ask{margin-top:24px;background:#fff;border:1px solid #e7e5dd;border-radius:12px;padding:14px 16px}
+.ask h3{margin:0 0 2px;font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+.chip2{font-size:12px;border:1px solid #d8d6cd;background:#faf9f5;border-radius:16px;padding:4px 11px;cursor:pointer}
+.chip2:hover{background:#f0eee7}
+#q{width:100%;min-height:42px;border:1px solid #d8d6cd;border-radius:8px;padding:8px;font:inherit;font-size:13px}
+#go{margin-top:8px;border-color:#185fa5;background:#185fa5;color:#fff}
+#ans{margin-top:10px;font-size:13px;line-height:1.55;white-space:pre-wrap;color:#1c1c1a;min-height:8px}
+</style></head><body><div class="wrap">
+<h1>Systemic + TAM — growth × risk <span class="chip">stress 51/100</span></h1>
+<div class="meta">45 stocks &amp; ETFs · model as of June 5 2026 · research model, not investment advice</div>
+<div class="alert"><b>June 5 risk-off:</b> hot jobs → Fed-hike fears → Nasdaq-100 −4.8%, SOXX −10% (worst day since Mar 2020). The whole AI-semis complex fell together — the model's concentration warning, live.</div>
+
+<div class="controls">
+  <span style="font-size:12px;color:#6b6a64">View:</span>
+  <button class="vb on" data-v="scatter">Growth vs risk</button>
+  <button class="vb" data-v="rank">Top by reward (vs S&amp;P)</button>
+  <span class="sp"></span>
+  <span style="font-size:12px;color:#6b6a64">Show:</span>
+  <button class="fb on" data-f="all">All</button>
+  <button class="fb" data-f="stock">Stocks</button>
+  <button class="fb" data-f="ETF">ETFs</button>
+</div>
+<div class="legend">Tier: <b style="color:#e24b4a">High &gt;40%</b> · <b style="color:#8b8a82">3x-Trading = leveraged, excluded from tiers</b> · <b style="color:#ef9f27">Moderate 15–40%</b> · <b style="color:#1d9e75">Safe &lt;15%</b> &nbsp;·&nbsp; ● stocks, ■ ETFs &nbsp;·&nbsp; hover a point for details</div>
+<div class="box"><div id="chart"></div></div>
+
+<h2>All names <span style="font-size:12px;color:#8b8a82;font-weight:400">(click a column header to sort)</span></h2>
+<table id="tbl"><thead><tr>
+  <th class="l" data-k="n">Name</th><th class="l" data-k="tier">Tier</th>
+  <th data-k="g">Growth</th><th data-k="fall">P(&gt;25%)</th><th data-k="p40">P(&gt;40%)</th><th data-k="p50">P(&gt;50%)</th><th data-k="tail">&gt;3y tail</th><th data-k="vssp">vs S&amp;P</th>
+</tr></thead><tbody id="tb"></tbody></table>
+
+<div class="ask">
+  <h3>Ask about the names <span style="font-size:12px;color:#8b8a82;font-weight:400">— answers from the data on this page (no internet needed)</span></h3>
+  <div class="chips" id="chips"></div>
+  <textarea id="q" placeholder="e.g. compare NVIDIA and Tesla · which ETF is safest? · top 5 by reward · what happened today?"></textarea>
+  <div><button id="go">Ask</button></div>
+  <div id="ans"></div>
+</div>
+
+<div class="foot">Growth = expected 18-month revenue growth (sets the tier). P(&gt;25/40/50%) = chance the 18-month max drawdown exceeds that depth — the deeper cuts are the real safety ranking, since a 25% dip is a low bar nearly everything brushes (cells shaded green→red by depth). &#9888; = tagged "Safe" on low growth but drops as deep as riskier names (Amazon, Kioxia). &gt;3y tail = chance a &gt;25% fall is still underwater at ~3.5y. vs S&amp;P = (growth ÷ S&amp;P growth) × (S&amp;P tail ÷ name tail); 1.0 = just holding the index — growth-tilted, so it under-penalizes the leveraged ETFs' ~100% fall odds (read P&gt;40/50 directly). Beta sets how deep a name falls; TAM-penetration sets whether it recovers. Not investment advice.</div>
+</div>
+
+<script>
+var D=[{"n":"IonQ","t":"stock","tier":"High","g":80,"fall":70,"tail":31,"vssp":6.19,"rec":[31,48,55],"p40":33,"p50":18,"flag":false},{"n":"Astera Labs","t":"stock","tier":"High","g":70,"fall":71,"tail":28,"vssp":6.07,"rec":[39,56,60],"p40":33,"p50":19,"flag":false},{"n":"CoreWeave","t":"stock","tier":"High","g":60,"fall":81,"tail":30,"vssp":4.76,"rec":[40,57,62],"p40":43,"p50":26,"flag":false},{"n":"Palantir","t":"stock","tier":"High","g":55,"fall":55,"tail":26,"vssp":5.19,"rec":[31,48,53],"p40":21,"p50":11,"flag":false},{"n":"Lumentum","t":"stock","tier":"High","g":55,"fall":55,"tail":27,"vssp":4.91,"rec":[29,46,51],"p40":21,"p50":11,"flag":false},{"n":"Applied Opto.","t":"stock","tier":"High","g":55,"fall":63,"tail":30,"vssp":4.42,"rec":[29,46,52],"p40":27,"p50":14,"flag":false},{"n":"Micron","t":"stock","tier":"High","g":50,"fall":49,"tail":25,"vssp":4.78,"rec":[28,45,49],"p40":17,"p50":9,"flag":false},{"n":"AMD","t":"stock","tier":"High","g":45,"fall":51,"tail":25,"vssp":4.3,"rec":[29,47,50],"p40":18,"p50":9,"flag":false},{"n":"NVIDIA","t":"stock","tier":"High","g":45,"fall":51,"tail":23,"vssp":4.71,"rec":[33,52,54],"p40":18,"p50":10,"flag":false},{"n":"DRAM","t":"ETF","tier":"High","g":45,"fall":49,"tail":25,"vssp":4.29,"rec":[27,45,48],"p40":17,"p50":9,"flag":false},{"n":"Broadcom","t":"stock","tier":"Moderate","g":38,"fall":45,"tail":23,"vssp":4.04,"rec":[29,47,50],"p40":16,"p50":8,"flag":false},{"n":"Marvell","t":"stock","tier":"Moderate","g":35,"fall":51,"tail":25,"vssp":3.37,"rec":[30,48,51],"p40":18,"p50":10,"flag":false},{"n":"CHAT","t":"ETF","tier":"Moderate","g":32,"fall":46,"tail":24,"vssp":3.28,"rec":[28,46,49],"p40":16,"p50":8,"flag":false},{"n":"AppLovin","t":"stock","tier":"Moderate","g":30,"fall":80,"tail":29,"vssp":2.49,"rec":[44,60,64],"p40":42,"p50":25,"flag":false},{"n":"SMH","t":"ETF","tier":"Moderate","g":30,"fall":48,"tail":24,"vssp":3.04,"rec":[30,48,51],"p40":17,"p50":9,"flag":false},{"n":"Vertiv","t":"stock","tier":"Moderate","g":28,"fall":55,"tail":27,"vssp":2.52,"rec":[30,48,52],"p40":21,"p50":11,"flag":false},{"n":"SOXX","t":"ETF","tier":"Moderate","g":28,"fall":48,"tail":24,"vssp":2.86,"rec":[30,48,51],"p40":17,"p50":9,"flag":false},{"n":"Coherent","t":"stock","tier":"Moderate","g":25,"fall":57,"tail":27,"vssp":2.21,"rec":[30,47,52],"p40":22,"p50":12,"flag":false},{"n":"ARM","t":"stock","tier":"Moderate","g":25,"fall":47,"tail":25,"vssp":2.39,"rec":[25,42,47],"p40":17,"p50":8,"flag":false},{"n":"AIQ","t":"ETF","tier":"Moderate","g":25,"fall":48,"tail":24,"vssp":2.56,"rec":[30,48,51],"p40":17,"p50":8,"flag":false},{"n":"QTUM","t":"ETF","tier":"Moderate","g":22,"fall":50,"tail":24,"vssp":2.18,"rec":[30,48,51],"p40":18,"p50":9,"flag":false},{"n":"Meta","t":"stock","tier":"Moderate","g":18,"fall":43,"tail":23,"vssp":1.92,"rec":[28,45,48],"p40":14,"p50":7,"flag":false},{"n":"Oracle","t":"stock","tier":"Moderate","g":16,"fall":37,"tail":22,"vssp":1.74,"rec":[20,38,41],"p40":11,"p50":5,"flag":false},{"n":"Microsoft","t":"stock","tier":"Safe","g":14,"fall":38,"tail":21,"vssp":1.58,"rec":[24,42,44],"p40":12,"p50":6,"flag":false},{"n":"Texas Instr.","t":"stock","tier":"Safe","g":14,"fall":36,"tail":23,"vssp":1.47,"rec":[16,33,36],"p40":10,"p50":5,"flag":false},{"n":"Amazon","t":"stock","tier":"Safe","g":13,"fall":54,"tail":26,"vssp":1.2,"rec":[30,48,51],"p40":20,"p50":10,"flag":true},{"n":"Alphabet","t":"stock","tier":"Safe","g":12,"fall":38,"tail":23,"vssp":1.29,"rec":[19,37,40],"p40":11,"p50":5,"flag":false},{"n":"Qualcomm","t":"stock","tier":"Safe","g":8,"fall":41,"tail":23,"vssp":0.83,"rec":[23,40,43],"p40":13,"p50":6,"flag":false},{"n":"Apple","t":"stock","tier":"Safe","g":7,"fall":40,"tail":24,"vssp":0.71,"rec":[20,36,40],"p40":12,"p50":6,"flag":false},{"n":"Cisco","t":"stock","tier":"Safe","g":6,"fall":32,"tail":20,"vssp":0.71,"rec":[17,33,36],"p40":8,"p50":3,"flag":false},{"n":"IBM","t":"stock","tier":"Safe","g":5,"fall":25,"tail":18,"vssp":0.67,"rec":[10,23,26],"p40":5,"p50":2,"flag":false},{"n":"Kioxia","t":"stock","tier":"Safe","g":5,"fall":49,"tail":27,"vssp":0.45,"rec":[24,41,45],"p40":17,"p50":8,"flag":true},{"n":"Tesla","t":"stock","tier":"Moderate","g":17,"fall":77,"tail":31,"vssp":1.31,"rec":[36,53,59],"p40":39,"p50":23,"flag":false},{"n":"ARKK","t":"ETF","tier":"High","g":42,"fall":71,"tail":30,"vssp":3.39,"rec":[34,51,57],"p40":32,"p50":18,"flag":false},{"n":"QQQ","t":"ETF","tier":"Moderate","g":16,"fall":42,"tail":24,"vssp":1.6,"rec":[22,39,42],"p40":13,"p50":6,"flag":false},{"n":"VOO","t":"ETF","tier":"Safe","g":9,"fall":36,"tail":22,"vssp":1.0,"rec":[19,36,39],"p40":10,"p50":4,"flag":false},{"n":"SCHD","t":"ETF","tier":"Safe","g":6,"fall":30,"tail":20,"vssp":0.73,"rec":[15,31,33],"p40":7,"p50":3,"flag":false},{"n":"NUKE","t":"ETF","tier":"Moderate","g":22,"fall":52,"tail":26,"vssp":2.01,"rec":[27,44,48],"p40":19,"p50":9,"flag":false},{"n":"IGV","t":"ETF","tier":"Moderate","g":20,"fall":46,"tail":25,"vssp":1.92,"rec":[23,41,45],"p40":15,"p50":7,"flag":false},{"n":"GRID","t":"ETF","tier":"Moderate","g":18,"fall":40,"tail":23,"vssp":1.86,"rec":[20,38,42],"p40":12,"p50":6,"flag":false},{"n":"VGT","t":"ETF","tier":"Moderate","g":15,"fall":41,"tail":24,"vssp":1.52,"rec":[22,39,42],"p40":13,"p50":6,"flag":false},{"n":"DTCR","t":"ETF","tier":"Safe","g":14,"fall":34,"tail":22,"vssp":1.54,"rec":[16,32,35],"p40":9,"p50":4,"flag":false},{"n":"SOXL","t":"ETF","tier":"3x-Trading","g":60,"fall":100,"tail":39,"vssp":3.73,"rec":[47,59,61],"p40":92,"p50":82,"flag":false},{"n":"TECL","t":"ETF","tier":"3x-Trading","g":50,"fall":97,"tail":38,"vssp":3.16,"rec":[46,58,60],"p40":86,"p50":74,"flag":false},{"n":"TQQQ","t":"ETF","tier":"3x-Trading","g":45,"fall":97,"tail":38,"vssp":2.84,"rec":[46,58,60],"p40":85,"p50":72,"flag":false}];
+function tc(t){return t==='High'?'#e24b4a':(t==='Moderate'?'#ef9f27':'#1d9e75');}
+var V='scatter',F='all',sortK='vssp',sortDir=-1;
+function rows(){return F==='all'?D:D.filter(function(d){return d.t===F;});}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+
+function scatter(){
+  var W=960,H=440,L=56,R=24,B=46,T=18;
+  var xmin=0,xmax=85,ymin=15,ymax=42;
+  function X(g){return L+(g-xmin)/(xmax-xmin)*(W-L-R);}
+  function Y(t){return H-B-(t-ymin)/(ymax-ymin)*(H-B-T);}
+  var s='<svg viewBox="0 0 '+W+' '+H+'" xmlns="http://www.w3.org/2000/svg">';
+  // gridlines + y ticks
+  for(var t=15;t<=40;t+=5){var y=Y(t);s+='<line x1="'+L+'" y1="'+y+'" x2="'+(W-R)+'" y2="'+y+'" stroke="#eee"/>';s+='<text x="'+(L-8)+'" y="'+(y+4)+'" text-anchor="end" font-size="11" fill="#888">'+t+'%</text>';}
+  // x ticks
+  for(var g=0;g<=80;g+=20){var x=X(g);s+='<text x="'+x+'" y="'+(H-B+18)+'" text-anchor="middle" font-size="11" fill="#888">'+g+'%</text>';}
+  s+='<text x="'+((L+W-R)/2)+'" y="'+(H-6)+'" text-anchor="middle" font-size="12" fill="#555">expected 18-month growth %</text>';
+  s+='<text x="14" y="'+((T+H-B)/2)+'" text-anchor="middle" font-size="12" fill="#555" transform="rotate(-90 14 '+((T+H-B)/2)+')">&gt;3y permanent-loss tail % (higher = riskier)</text>';
+  rows().forEach(function(d){
+    var x=X(d.g),y=Y(d.tail),c=tc(d.tier);
+    var tip=d.n+': growth '+d.g+'%, >3y tail '+d.tail+'%, P(fall) '+d.fall+'%, vs S&P '+d.vssp;
+    if(d.t==='ETF') s+='<rect class="pt" x="'+(x-5)+'" y="'+(y-5)+'" width="10" height="10" fill="'+c+'" opacity="0.85"><title>'+esc(tip)+'</title></rect>';
+    else s+='<circle class="pt" cx="'+x+'" cy="'+y+'" r="6" fill="'+c+'" opacity="0.85"><title>'+esc(tip)+'</title></circle>';
+  });
+  s+='</svg>';
+  return s;
+}
+function rank(){
+  var r=rows().slice().sort(function(a,b){return b.vssp-a.vssp;}).slice(0,15);
+  var max=Math.max.apply(null,r.map(function(d){return d.vssp;}));
+  var h=r.length*26+30,W=960,L=120,R=60;
+  var s='<svg viewBox="0 0 '+W+' '+h+'" xmlns="http://www.w3.org/2000/svg">';
+  r.forEach(function(d,i){
+    var y=18+i*26,bw=(d.vssp/max)*(W-L-R);
+    s+='<text x="'+(L-8)+'" y="'+(y+11)+'" text-anchor="end" font-size="12" fill="#1c1c1a">'+esc(d.n)+'</text>';
+    s+='<rect x="'+L+'" y="'+y+'" width="'+bw+'" height="15" rx="3" fill="'+tc(d.tier)+'"><title>'+esc(d.n+': vs S&P '+d.vssp)+'</title></rect>';
+    s+='<text x="'+(L+bw+6)+'" y="'+(y+12)+'" font-size="11" fill="#555">'+d.vssp+'</text>';
+  });
+  // benchmark line at vssp=1
+  var x1=L+(1/max)*(W-L-R);
+  s+='<line x1="'+x1+'" y1="10" x2="'+x1+'" y2="'+(h-6)+'" stroke="#a32d2d" stroke-dasharray="4 3"/>';
+  s+='<text x="'+x1+'" y="'+(h-2)+'" text-anchor="middle" font-size="10" fill="#a32d2d">S&amp;P = 1.0</text>';
+  s+='</svg>';
+  return s;
+}
+function pill(v){var c=v<=23?'lo':(v<=26?'mid':'hi');return '<span class="pill '+c+'">'+v+'%</span>';}
+function heat(x){if(x==null)return '#fff';if(x<12)return '#e1f5ee';if(x<22)return '#faeeda';if(x<45)return '#fceBEB';return '#ef4444';}
+function dcell(x){return '<td style="background:'+heat(x)+'">'+(x==null?'—':x+'%')+'</td>';}
+function table(){
+  var r=rows().slice().sort(function(a,b){var x=a[sortK],y=b[sortK];return (x<y?-1:x>y?1:0)*sortDir;});
+  document.getElementById('tb').innerHTML=r.map(function(d){return '<tr>'+
+    '<td class="l">'+esc(d.n)+(d.flag?' <span title="Tagged Safe on low growth, but drops as deep as riskier names" style="color:#d97706">⚠</span>':'')+'<span class="tag '+(d.t==='ETF'?'etf':'stk')+'">'+d.t+'</span></td>'+
+    '<td class="l">'+d.tier+'</td><td>'+d.g+'%</td>'+
+    dcell(d.fall)+dcell(d.p40)+dcell(d.p50)+
+    '<td>'+pill(d.tail)+'</td><td><b>'+d.vssp+'</b></td></tr>';}).join('');
+}
+function drawChart(){document.getElementById('chart').innerHTML = (V==='scatter')?scatter():rank();}
+function refresh(){drawChart();table();}
+var vbs=document.querySelectorAll('.vb');
+for(var i=0;i<vbs.length;i++){vbs[i].onclick=function(){V=this.dataset.v;for(var j=0;j<vbs.length;j++)vbs[j].classList.toggle('on',vbs[j]===this);drawChart();};}
+var fbs=document.querySelectorAll('.fb');
+for(var k=0;k<fbs.length;k++){fbs[k].onclick=function(){F=this.dataset.f;for(var j=0;j<fbs.length;j++)fbs[j].classList.toggle('on',fbs[j]===this);refresh();};}
+var ths=document.querySelectorAll('th');
+for(var m=0;m<ths.length;m++){ths[m].onclick=function(){var key=this.dataset.k;if(!key)return;if(sortK===key)sortDir*=-1;else{sortK=key;sortDir=(key==='n'||key==='tier')?1:-1;}table();};}
+
+/* ---- built-in Q&A: answers from the embedded data, fully offline ---- */
+var ALIAS={'nvda':'NVIDIA','avgo':'Broadcom','msft':'Microsoft','googl':'Alphabet','google':'Alphabet','amzn':'Amazon','mu':'Micron','tsla':'Tesla','pltr':'Palantir','app':'AppLovin','aapl':'Apple','applied optoelectronics':'Applied Opto.','s&p':'VOO','sp500':'VOO','nasdaq':'QQQ'};
+function findNames(q){
+  var hits=[];
+  D.forEach(function(d){if(q.indexOf(d.n.toLowerCase())>=0)hits.push(d);});
+  for(var a in ALIAS){if(q.indexOf(a)>=0){var nm=ALIAS[a];var f=D.filter(function(d){return d.n===nm;})[0];if(f&&hits.indexOf(f)<0)hits.push(f);}}
+  return hits;
+}
+function top(metric,dir,pool){pool=pool||D;return pool.slice().sort(function(a,b){return (a[metric]-b[metric])*(dir||1);});}
+function desc(d){
+  var read = d.vssp>=1 ? 'beats the S&P per unit of permanent risk' : 'below the S&P per unit of permanent risk';
+  var dep = (d.p40!=null)?' Drop depth: P(>25%) '+d.fall+'%, P(>40%) '+d.p40+'%, P(>50%) '+d.p50+'%.':'';
+  var fl = d.flag?' ⚠ tagged Safe on low growth, but drops as deep as riskier names.':'';
+  return d.n+' ('+d.tier+' tier, '+d.t+'): growth '+d.g+'%, >3y permanent-loss tail '+d.tail+'%, reward-vs-S&P '+d.vssp+' — '+read+'.'+dep+fl;
+}
+function answer(q){
+  q=(q||'').toLowerCase().trim(); if(!q)return 'Ask me something — try a starter below.';
+  var names=findNames(q);
+  var isRec=q.match(/recover|recovery|come ?back|bounce|rebound|drop|fell|fall|crash|down|will it|going to/);
+  if(names.length>=1 && isRec){var d=names[0];var verdict=d.rec[1]>=50?'more likely than not to recover within ~2 years':(d.rec[2]>=50?'a coin-flip by 2 years, likely back by ~3':'recovery is uncertain — the cyclical/structural risk is real');
+    return d.n+': if it falls >25%, the model gives it '+d.rec[0]+'% odds of recovering within 1 year, '+d.rec[1]+'% within 2 years, '+d.rec[2]+'% within 3 — with a '+d.tail+'% chance it takes longer than ~3 years (the permanent-loss tail). Read: '+verdict+'. A drop that is multiple-compression (macro/rates-driven) recovers more easily than one that breaks the demand story.';}
+  if(q.match(/market|happen|today|going on|selloff|sell-off|news/)) return 'June 5, 2026: a risk-off day. Hot jobs (172k vs 88k expected) revived Fed rate-hike fears; the S&P fell ~2.6%, Nasdaq-100 ~4.8%, and semis cratered (SOXX -10%, Marvell -16%, Micron -13%). The whole AI complex fell together — exactly the concentration the model warns about. Macro-stress index: 51/100.';
+  if(q.match(/leverage|3x|soxl|tecl|tqqq/) && !names.length) return 'Leveraged 3x ETFs (SOXL, TECL, TQQQ) carry ~97-100% odds of a >25% fall and volatility decay — they look fine on the growth-tilted reward score but are the riskiest things here for any hold. Treat them as short-term trades, not holds.';
+  if(names.length>=2){var a=names[0],b=names[1];return desc(a)+'\n\n'+desc(b)+'\n\nVerdict: '+(a.vssp>b.vssp?a.n:b.n)+' has the better reward-per-permanent-risk ('+Math.max(a.vssp,b.vssp)+' vs '+Math.min(a.vssp,b.vssp)+'); '+(a.tail<b.tail?a.n:b.n)+' has the thinner tail.';}
+  if(names.length===1) return desc(names[0]);
+  if(q.match(/hold|9.?18|short|month/)) return 'For a 9-18 month hold the relevant risk is getting stuck in a >25% loss before your deadline — so favor lower P(>25% fall) and higher recovery, not raw growth. That tilts toward NVIDIA, Broadcom, the broad ETFs (SMH/VOO) and Microsoft, and away from the 70-100%-fall names (IonQ, CoreWeave, the leveraged ETFs).';
+  var etf = q.indexOf('etf')>=0, stk = q.indexOf('stock')>=0;
+  var pool = etf?D.filter(function(d){return d.t==='ETF';}):(stk?D.filter(function(d){return d.t==='stock';}):D);
+  if(q.match(/safe.*deep|deep.*safe|mis.?tier|mislabel|flag/)){var s=D.filter(function(d){return d.flag;});return 'Tagged "Safe" (low growth) but drop as deep as riskier names: '+s.map(function(d){return d.n+' (P>40% '+d.p40+'%, P>50% '+d.p50+'%)';}).join(', ')+'. Their growth tier does not match their drawdown depth — Amazon and Kioxia fall deeper than several Moderate names.';}
+  if(q.match(/deep|deepest|furthest|hardest|biggest drop|drawdown|>40|>50|p40|p50/)){var s=top('p40',-1,pool.filter(function(d){return d.p40!=null;})).slice(0,5);return 'Deepest by P(>40% fall)'+(etf?' (ETFs)':stk?' (stocks)':'')+': '+s.map(function(d){return d.n+' ('+d.p40+'%)';}).join(', ')+'. Shallowest: '+top('p40',1,pool.filter(function(d){return d.p40!=null;})).slice(0,4).map(function(d){return d.n+' ('+d.p40+'%)';}).join(', ')+'. A >25% dip is a low bar everything brushes; the deep cut is where safe and risky really separate.';}
+  if(q.match(/safe|safest|least risk|lowest risk|defensive|conservative/)){var s=top('tail',1,pool).slice(0,4);return 'Safest by permanent-loss tail'+(etf?' (ETFs)':stk?' (stocks)':'')+': '+s.map(function(d){return d.n+' ('+d.tail+'% tail, '+d.g+'% growth)';}).join(', ')+'.';}
+  if(q.match(/risk|riskiest|most dangerous|worst|blow ?up/)){var s=top('tail',-1,pool).slice(0,4);return 'Highest permanent-loss tail'+(etf?' (ETFs)':'')+': '+s.map(function(d){return d.n+' ('+d.tail+'% tail, '+d.fall+'% fall odds)';}).join(', ')+'. The leveraged ETFs and IonQ/CoreWeave/Tesla lead here.';}
+  if(q.match(/best|top|reward|buy|recommend|per risk|risk.?adjusted/)){var n=(q.match(/\d+/)||[5])[0]*1||5;var s=top('vssp',-1,pool).slice(0,n);return 'Top '+n+' by reward-vs-S&P'+(etf?' (ETFs)':stk?' (stocks)':'')+': '+s.map(function(d){return d.n+' ('+d.vssp+')';}).join(', ')+'. Higher = more growth per unit of long-drawdown risk. Note: growth-tilted, so it under-penalizes the leveraged funds.';}
+  if(q.match(/grow|fastest|highest growth|most growth/)){var s=top('g',-1,pool).slice(0,5);return 'Highest expected 18m growth'+(etf?' (ETFs)':'')+': '+s.map(function(d){return d.n+' ('+d.g+'%)';}).join(', ')+'.';}
+  if(q.match(/diversif|correlat|one bet|concentrat/)) return 'The model treats this universe as ~1 effective bet — average correlation ~0.90. The AI/semis names move together (today proved it). The only real diversifiers here are VOO, SCHD, DTCR and a platform like Microsoft; everything else is the same AI-capex trade.';
+  if(q.match(/etf/)) {var s=top('vssp',-1,D.filter(function(d){return d.t==='ETF';})).slice(0,5);return 'ETFs by reward-vs-S&P: '+s.map(function(d){return d.n+' ('+d.vssp+')';}).join(', ')+'. Safest ETFs: SCHD, DTCR, VOO. Aggressive: SOXL/TECL/TQQQ (leveraged).';}
+  return "I answer from this page's data. Try: 'compare NVIDIA and Tesla', 'safest ETF', 'top 5 by reward', 'riskiest', 'highest growth', 'what happened today', or 'is this diversified?'";
+}
+var STARTERS=['Which names fall deepest?','Which "Safe" names drop deep?','Safest by drop depth','Compare NVIDIA and Tesla','What happened today?','Top 5 by reward','Best for a 9-18 month hold'];
+var chips=document.getElementById('chips');
+STARTERS.forEach(function(s){var c=document.createElement('span');c.className='chip2';c.textContent=s;c.onclick=function(){document.getElementById('q').value=s;ask();};chips.appendChild(c);});
+// Ask box: if the local Claude helper (ask_server.py) is running, route the
+// question to live Claude for real analysis; otherwise fall back to the
+// built-in offline answers so the demo never breaks. The API key lives only
+// in the server's environment — never in this file.
+var ASK_URL='http://localhost:8765/ask';
+function ask(){
+  var q=document.getElementById('q').value;if(!q.trim())return;
+  var out=document.getElementById('ans');out.textContent='Asking Claude…';
+  var done=false;
+  var t=setTimeout(function(){if(!done){done=true;out.textContent=answer(q);}},6000);
+  fetch(ASK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:q})})
+    .then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(j){if(done)return;done=true;clearTimeout(t);out.textContent=(j&&j.answer)?j.answer:answer(q);})
+    .catch(function(){if(done)return;done=true;clearTimeout(t);out.textContent=answer(q);});
+}
+document.getElementById('go').onclick=ask;
+document.getElementById('q').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();ask();}});
+
+refresh();
+</script>
+</body></html>

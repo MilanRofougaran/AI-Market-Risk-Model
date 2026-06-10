@@ -1,0 +1,707 @@
+{
+ "ARKK (ARK Innovation)": {
+  "kind": "ETF",
+  "growth_ann": 0.263,
+  "crash_growth": "broken",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.558,
+    "depth": 0.525,
+    "p_rec_horizon": 0.14043754410726889,
+    "p_rec_24m": 0.26040931545518703,
+    "exp_return_horizon": -0.055,
+    "exp_return_24m": -0.01,
+    "reward_to_risk": 1.05,
+    "unrec_loss": 0.252
+   },
+   "24m": {
+    "p_fall": 0.8466666666666667,
+    "depth": 0.525,
+    "p_rec_horizon": 0.26040931545518703,
+    "p_rec_24m": 0.26040931545518703,
+    "exp_return_horizon": 0.071,
+    "exp_return_24m": 0.071,
+    "reward_to_risk": 1.81,
+    "unrec_loss": 0.329
+   },
+   "36m": {
+    "p_fall": 0.9446666666666667,
+    "depth": 0.525,
+    "p_rec_horizon": 0.33803810868031053,
+    "p_rec_24m": 0.26040931545518703,
+    "exp_return_horizon": 0.354,
+    "exp_return_24m": 0.277,
+    "reward_to_risk": 3.1,
+    "unrec_loss": 0.328
+   },
+   "60m": {
+    "p_fall": 0.9933333333333333,
+    "depth": 0.525,
+    "p_rec_horizon": 0.42836979534227243,
+    "p_rec_24m": 0.26040931545518703,
+    "exp_return_horizon": 1.259,
+    "exp_return_24m": 0.977,
+    "reward_to_risk": 7.44,
+    "unrec_loss": 0.298
+   }
+  }
+ },
+ "QQQ (Nasdaq-100)": {
+  "kind": "ETF",
+  "growth_ann": 0.104,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.23066666666666666,
+    "depth": 0.42,
+    "p_rec_horizon": 0.14118792599805258,
+    "p_rec_24m": 0.314508276533593,
+    "exp_return_horizon": 0.012,
+    "exp_return_24m": 0.031,
+    "reward_to_risk": 1.25,
+    "unrec_loss": 0.083
+   },
+   "24m": {
+    "p_fall": 0.5053333333333333,
+    "depth": 0.42,
+    "p_rec_horizon": 0.314508276533593,
+    "p_rec_24m": 0.314508276533593,
+    "exp_return_horizon": 0.041,
+    "exp_return_24m": 0.041,
+    "reward_to_risk": 1.5,
+    "unrec_loss": 0.146
+   },
+   "36m": {
+    "p_fall": 0.6846666666666666,
+    "depth": 0.42,
+    "p_rec_horizon": 0.4050632911392405,
+    "p_rec_24m": 0.314508276533593,
+    "exp_return_horizon": 0.115,
+    "exp_return_24m": 0.08,
+    "reward_to_risk": 2.02,
+    "unrec_loss": 0.171
+   },
+   "60m": {
+    "p_fall": 0.8633333333333333,
+    "depth": 0.42,
+    "p_rec_horizon": 0.5170399221032133,
+    "p_rec_24m": 0.314508276533593,
+    "exp_return_horizon": 0.353,
+    "exp_return_24m": 0.232,
+    "reward_to_risk": 3.65,
+    "unrec_loss": 0.175
+   }
+  }
+ },
+ "VOO (S&P 500)": {
+  "kind": "ETF",
+  "growth_ann": 0.059,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.164,
+    "depth": 0.402,
+    "p_rec_horizon": 0.11045828437132785,
+    "p_rec_24m": 0.26321974148061106,
+    "exp_return_horizon": -0.003,
+    "exp_return_24m": 0.008,
+    "reward_to_risk": 1.01,
+    "unrec_loss": 0.059
+   },
+   "24m": {
+    "p_fall": 0.39066666666666666,
+    "depth": 0.402,
+    "p_rec_horizon": 0.26321974148061106,
+    "p_rec_24m": 0.26321974148061106,
+    "exp_return_horizon": -0.008,
+    "exp_return_24m": -0.008,
+    "reward_to_risk": 1.05,
+    "unrec_loss": 0.116
+   },
+   "36m": {
+    "p_fall": 0.5673333333333334,
+    "depth": 0.402,
+    "p_rec_horizon": 0.36780258519388953,
+    "p_rec_24m": 0.26321974148061106,
+    "exp_return_horizon": 0.017,
+    "exp_return_24m": -0.012,
+    "reward_to_risk": 1.3,
+    "unrec_loss": 0.144
+   },
+   "60m": {
+    "p_fall": 0.776,
+    "depth": 0.402,
+    "p_rec_horizon": 0.48531139835487663,
+    "p_rec_24m": 0.26321974148061106,
+    "exp_return_horizon": 0.119,
+    "exp_return_24m": 0.026,
+    "reward_to_risk": 2.07,
+    "unrec_loss": 0.161
+   }
+  }
+ },
+ "SCHD (Dividend)": {
+  "kind": "ETF",
+  "growth_ann": 0.04,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.11666666666666667,
+    "depth": 0.384,
+    "p_rec_horizon": 0.0865533230293663,
+    "p_rec_24m": 0.2581143740340031,
+    "exp_return_horizon": -0.003,
+    "exp_return_24m": 0.005,
+    "reward_to_risk": 0.97,
+    "unrec_loss": 0.041
+   },
+   "24m": {
+    "p_fall": 0.28,
+    "depth": 0.384,
+    "p_rec_horizon": 0.2581143740340031,
+    "p_rec_24m": 0.2581143740340031,
+    "exp_return_horizon": -0.005,
+    "exp_return_24m": -0.005,
+    "reward_to_risk": 1.01,
+    "unrec_loss": 0.08
+   },
+   "36m": {
+    "p_fall": 0.43133333333333335,
+    "depth": 0.384,
+    "p_rec_horizon": 0.366306027820711,
+    "p_rec_24m": 0.2581143740340031,
+    "exp_return_horizon": 0.006,
+    "exp_return_24m": -0.014,
+    "reward_to_risk": 1.18,
+    "unrec_loss": 0.105
+   },
+   "60m": {
+    "p_fall": 0.6533333333333333,
+    "depth": 0.384,
+    "p_rec_horizon": 0.500772797527048,
+    "p_rec_24m": 0.2581143740340031,
+    "exp_return_horizon": 0.062,
+    "exp_return_24m": -0.011,
+    "reward_to_risk": 1.71,
+    "unrec_loss": 0.125
+   }
+  }
+ },
+ "DTCR (Data Ctr Infra)": {
+  "kind": "ETF",
+  "growth_ann": 0.091,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.18266666666666667,
+    "depth": 0.406,
+    "p_rec_horizon": 0.09361702127659574,
+    "p_rec_24m": 0.22872340425531915,
+    "exp_return_horizon": 0.018,
+    "exp_return_24m": 0.029,
+    "reward_to_risk": 1.36,
+    "unrec_loss": 0.067
+   },
+   "24m": {
+    "p_fall": 0.454,
+    "depth": 0.406,
+    "p_rec_horizon": 0.22872340425531915,
+    "p_rec_24m": 0.22872340425531915,
+    "exp_return_horizon": 0.022,
+    "exp_return_24m": 0.022,
+    "reward_to_risk": 1.34,
+    "unrec_loss": 0.142
+   },
+   "36m": {
+    "p_fall": 0.6266666666666667,
+    "depth": 0.406,
+    "p_rec_horizon": 0.3351063829787234,
+    "p_rec_24m": 0.22872340425531915,
+    "exp_return_horizon": 0.08,
+    "exp_return_24m": 0.045,
+    "reward_to_risk": 1.77,
+    "unrec_loss": 0.169
+   },
+   "60m": {
+    "p_fall": 0.824,
+    "depth": 0.406,
+    "p_rec_horizon": 0.425531914893617,
+    "p_rec_24m": 0.22872340425531915,
+    "exp_return_horizon": 0.25,
+    "exp_return_24m": 0.149,
+    "reward_to_risk": 2.85,
+    "unrec_loss": 0.192
+   }
+  }
+ },
+ "GRID (Smart Grid)": {
+  "kind": "ETF",
+  "growth_ann": 0.117,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.22933333333333333,
+    "depth": 0.415,
+    "p_rec_horizon": 0.14009661835748793,
+    "p_rec_24m": 0.3178743961352657,
+    "exp_return_horizon": 0.025,
+    "exp_return_24m": 0.044,
+    "reward_to_risk": 1.42,
+    "unrec_loss": 0.082
+   },
+   "24m": {
+    "p_fall": 0.5093333333333333,
+    "depth": 0.415,
+    "p_rec_horizon": 0.3178743961352657,
+    "p_rec_24m": 0.3178743961352657,
+    "exp_return_horizon": 0.067,
+    "exp_return_24m": 0.067,
+    "reward_to_risk": 1.71,
+    "unrec_loss": 0.144
+   },
+   "36m": {
+    "p_fall": 0.69,
+    "depth": 0.415,
+    "p_rec_horizon": 0.4067632850241546,
+    "p_rec_24m": 0.3178743961352657,
+    "exp_return_horizon": 0.156,
+    "exp_return_24m": 0.12,
+    "reward_to_risk": 2.31,
+    "unrec_loss": 0.17
+   },
+   "60m": {
+    "p_fall": 0.8633333333333333,
+    "depth": 0.415,
+    "p_rec_horizon": 0.4966183574879227,
+    "p_rec_24m": 0.3178743961352657,
+    "exp_return_horizon": 0.423,
+    "exp_return_24m": 0.312,
+    "reward_to_risk": 4.08,
+    "unrec_loss": 0.181
+   }
+  }
+ },
+ "NUKE (Nuclear/Uranium)": {
+  "kind": "ETF",
+  "growth_ann": 0.142,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.36133333333333334,
+    "depth": 0.452,
+    "p_rec_horizon": 0.20113085621970922,
+    "p_rec_24m": 0.3772213247172859,
+    "exp_return_horizon": -0.007,
+    "exp_return_24m": 0.026,
+    "reward_to_risk": 1.09,
+    "unrec_loss": 0.131
+   },
+   "24m": {
+    "p_fall": 0.6613333333333333,
+    "depth": 0.452,
+    "p_rec_horizon": 0.3772213247172859,
+    "p_rec_24m": 0.3772213247172859,
+    "exp_return_horizon": 0.061,
+    "exp_return_24m": 0.061,
+    "reward_to_risk": 1.63,
+    "unrec_loss": 0.186
+   },
+   "36m": {
+    "p_fall": 0.8253333333333334,
+    "depth": 0.452,
+    "p_rec_horizon": 0.46365105008077545,
+    "p_rec_24m": 0.3772213247172859,
+    "exp_return_horizon": 0.19,
+    "exp_return_24m": 0.142,
+    "reward_to_risk": 2.44,
+    "unrec_loss": 0.2
+   },
+   "60m": {
+    "p_fall": 0.954,
+    "depth": 0.452,
+    "p_rec_horizon": 0.5444264943457189,
+    "p_rec_24m": 0.3772213247172859,
+    "exp_return_horizon": 0.559,
+    "exp_return_24m": 0.419,
+    "reward_to_risk": 4.78,
+    "unrec_loss": 0.197
+   }
+  }
+ },
+ "VGT (Info Tech)": {
+  "kind": "ETF",
+  "growth_ann": 0.098,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.23466666666666666,
+    "depth": 0.425,
+    "p_rec_horizon": 0.14897760467380722,
+    "p_rec_24m": 0.31158714703018503,
+    "exp_return_horizon": 0.005,
+    "exp_return_24m": 0.022,
+    "reward_to_risk": 1.15,
+    "unrec_loss": 0.085
+   },
+   "24m": {
+    "p_fall": 0.514,
+    "depth": 0.425,
+    "p_rec_horizon": 0.31158714703018503,
+    "p_rec_24m": 0.31158714703018503,
+    "exp_return_horizon": 0.024,
+    "exp_return_24m": 0.024,
+    "reward_to_risk": 1.36,
+    "unrec_loss": 0.15
+   },
+   "36m": {
+    "p_fall": 0.6846666666666666,
+    "depth": 0.425,
+    "p_rec_horizon": 0.4206426484907498,
+    "p_rec_24m": 0.31158714703018503,
+    "exp_return_horizon": 0.1,
+    "exp_return_24m": 0.058,
+    "reward_to_risk": 1.91,
+    "unrec_loss": 0.169
+   },
+   "60m": {
+    "p_fall": 0.8753333333333333,
+    "depth": 0.425,
+    "p_rec_horizon": 0.5170399221032133,
+    "p_rec_24m": 0.31158714703018503,
+    "exp_return_horizon": 0.307,
+    "exp_return_24m": 0.185,
+    "reward_to_risk": 3.3,
+    "unrec_loss": 0.18
+   }
+  }
+ },
+ "IGV (Software)": {
+  "kind": "ETF",
+  "growth_ann": 0.129,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.30333333333333334,
+    "depth": 0.439,
+    "p_rec_horizon": 0.16463414634146342,
+    "p_rec_24m": 0.32578397212543553,
+    "exp_return_horizon": 0.004,
+    "exp_return_24m": 0.028,
+    "reward_to_risk": 1.16,
+    "unrec_loss": 0.111
+   },
+   "24m": {
+    "p_fall": 0.5973333333333334,
+    "depth": 0.439,
+    "p_rec_horizon": 0.32578397212543553,
+    "p_rec_24m": 0.32578397212543553,
+    "exp_return_horizon": 0.05,
+    "exp_return_24m": 0.05,
+    "reward_to_risk": 1.56,
+    "unrec_loss": 0.177
+   },
+   "36m": {
+    "p_fall": 0.7653333333333333,
+    "depth": 0.439,
+    "p_rec_horizon": 0.4094076655052265,
+    "p_rec_24m": 0.32578397212543553,
+    "exp_return_horizon": 0.154,
+    "exp_return_24m": 0.114,
+    "reward_to_risk": 2.22,
+    "unrec_loss": 0.199
+   },
+   "60m": {
+    "p_fall": 0.9153333333333333,
+    "depth": 0.439,
+    "p_rec_horizon": 0.5078397212543554,
+    "p_rec_24m": 0.32578397212543553,
+    "exp_return_horizon": 0.473,
+    "exp_return_24m": 0.339,
+    "reward_to_risk": 4.23,
+    "unrec_loss": 0.198
+   }
+  }
+ },
+ "SMH (VanEck Semis)": {
+  "kind": "ETF",
+  "growth_ann": 0.191,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.302,
+    "depth": 0.438,
+    "p_rec_horizon": 0.2515391380826737,
+    "p_rec_24m": 0.45382585751978893,
+    "exp_return_horizon": 0.073,
+    "exp_return_24m": 0.105,
+    "reward_to_risk": 1.93,
+    "unrec_loss": 0.099
+   },
+   "24m": {
+    "p_fall": 0.588,
+    "depth": 0.438,
+    "p_rec_horizon": 0.45382585751978893,
+    "p_rec_24m": 0.45382585751978893,
+    "exp_return_horizon": 0.219,
+    "exp_return_24m": 0.219,
+    "reward_to_risk": 2.98,
+    "unrec_loss": 0.141
+   },
+   "36m": {
+    "p_fall": 0.758,
+    "depth": 0.438,
+    "p_rec_horizon": 0.5470536499560247,
+    "p_rec_24m": 0.45382585751978893,
+    "exp_return_horizon": 0.436,
+    "exp_return_24m": 0.383,
+    "reward_to_risk": 4.59,
+    "unrec_loss": 0.15
+   },
+   "60m": {
+    "p_fall": 0.9153333333333333,
+    "depth": 0.438,
+    "p_rec_horizon": 0.6455584872471416,
+    "p_rec_24m": 0.45382585751978893,
+    "exp_return_horizon": 1.057,
+    "exp_return_24m": 0.872,
+    "reward_to_risk": 9.83,
+    "unrec_loss": 0.142
+   }
+  }
+ },
+ "SOXX (iShares Semis)": {
+  "kind": "ETF",
+  "growth_ann": 0.179,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.2966666666666667,
+    "depth": 0.436,
+    "p_rec_horizon": 0.24392439243924394,
+    "p_rec_24m": 0.43564356435643564,
+    "exp_return_horizon": 0.063,
+    "exp_return_24m": 0.093,
+    "reward_to_risk": 1.83,
+    "unrec_loss": 0.098
+   },
+   "24m": {
+    "p_fall": 0.5633333333333334,
+    "depth": 0.436,
+    "p_rec_horizon": 0.43564356435643564,
+    "p_rec_24m": 0.43564356435643564,
+    "exp_return_horizon": 0.197,
+    "exp_return_24m": 0.197,
+    "reward_to_risk": 2.81,
+    "unrec_loss": 0.139
+   },
+   "36m": {
+    "p_fall": 0.7406666666666667,
+    "depth": 0.436,
+    "p_rec_horizon": 0.5211521152115212,
+    "p_rec_24m": 0.43564356435643564,
+    "exp_return_horizon": 0.385,
+    "exp_return_24m": 0.34,
+    "reward_to_risk": 4.12,
+    "unrec_loss": 0.155
+   },
+   "60m": {
+    "p_fall": 0.9106666666666666,
+    "depth": 0.436,
+    "p_rec_horizon": 0.630963096309631,
+    "p_rec_24m": 0.43564356435643564,
+    "exp_return_horizon": 0.943,
+    "exp_return_24m": 0.766,
+    "reward_to_risk": 8.71,
+    "unrec_loss": 0.147
+   }
+  }
+ },
+ "DRAM (Roundhill Memory)": {
+  "kind": "ETF",
+  "growth_ann": 0.281,
+  "crash_growth": "cyclical",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.396,
+    "depth": 0.474,
+    "p_rec_horizon": 0.0,
+    "p_rec_24m": 0.4142857142857143,
+    "exp_return_horizon": 0.041,
+    "exp_return_24m": 0.14,
+    "reward_to_risk": 1.5,
+    "unrec_loss": 0.188
+   },
+   "24m": {
+    "p_fall": 0.6906666666666667,
+    "depth": 0.474,
+    "p_rec_horizon": 0.4142857142857143,
+    "p_rec_24m": 0.4142857142857143,
+    "exp_return_horizon": 0.326,
+    "exp_return_24m": 0.326,
+    "reward_to_risk": 3.34,
+    "unrec_loss": 0.192
+   },
+   "36m": {
+    "p_fall": 0.84,
+    "depth": 0.474,
+    "p_rec_horizon": 0.49523809523809526,
+    "p_rec_24m": 0.4142857142857143,
+    "exp_return_horizon": 0.68,
+    "exp_return_24m": 0.612,
+    "reward_to_risk": 5.49,
+    "unrec_loss": 0.201
+   },
+   "60m": {
+    "p_fall": 0.96,
+    "depth": 0.474,
+    "p_rec_horizon": 0.6031746031746031,
+    "p_rec_24m": 0.4142857142857143,
+    "exp_return_horizon": 1.827,
+    "exp_return_24m": 1.531,
+    "reward_to_risk": 13.57,
+    "unrec_loss": 0.181
+   }
+  }
+ },
+ "QTUM (Defiance Quantum)": {
+  "kind": "ETF",
+  "growth_ann": 0.142,
+  "crash_growth": "broken",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.33266666666666667,
+    "depth": 0.445,
+    "p_rec_horizon": 0.10338835794960903,
+    "p_rec_24m": 0.26672458731537796,
+    "exp_return_horizon": -0.01,
+    "exp_return_24m": 0.018,
+    "reward_to_risk": 1.07,
+    "unrec_loss": 0.133
+   },
+   "24m": {
+    "p_fall": 0.6153333333333333,
+    "depth": 0.445,
+    "p_rec_horizon": 0.26672458731537796,
+    "p_rec_24m": 0.26672458731537796,
+    "exp_return_horizon": 0.042,
+    "exp_return_24m": 0.042,
+    "reward_to_risk": 1.51,
+    "unrec_loss": 0.201
+   },
+   "36m": {
+    "p_fall": 0.7673333333333333,
+    "depth": 0.445,
+    "p_rec_horizon": 0.3779322328410078,
+    "p_rec_24m": 0.26672458731537796,
+    "exp_return_horizon": 0.172,
+    "exp_return_24m": 0.115,
+    "reward_to_risk": 2.3,
+    "unrec_loss": 0.213
+   },
+   "60m": {
+    "p_fall": 0.924,
+    "depth": 0.445,
+    "p_rec_horizon": 0.5039096437880104,
+    "p_rec_24m": 0.26672458731537796,
+    "exp_return_horizon": 0.544,
+    "exp_return_24m": 0.355,
+    "reward_to_risk": 4.6,
+    "unrec_loss": 0.204
+   }
+  }
+ },
+ "AIQ (Global X AI)": {
+  "kind": "ETF",
+  "growth_ann": 0.16,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.2886666666666667,
+    "depth": 0.433,
+    "p_rec_horizon": 0.23232323232323232,
+    "p_rec_24m": 0.43067033976124885,
+    "exp_return_horizon": 0.049,
+    "exp_return_24m": 0.078,
+    "reward_to_risk": 1.67,
+    "unrec_loss": 0.096
+   },
+   "24m": {
+    "p_fall": 0.564,
+    "depth": 0.433,
+    "p_rec_horizon": 0.43067033976124885,
+    "p_rec_24m": 0.43067033976124885,
+    "exp_return_horizon": 0.159,
+    "exp_return_24m": 0.159,
+    "reward_to_risk": 2.49,
+    "unrec_loss": 0.139
+   },
+   "36m": {
+    "p_fall": 0.726,
+    "depth": 0.433,
+    "p_rec_horizon": 0.5151515151515151,
+    "p_rec_24m": 0.43067033976124885,
+    "exp_return_horizon": 0.324,
+    "exp_return_24m": 0.283,
+    "reward_to_risk": 3.69,
+    "unrec_loss": 0.153
+   },
+   "60m": {
+    "p_fall": 0.896,
+    "depth": 0.433,
+    "p_rec_horizon": 0.6161616161616161,
+    "p_rec_24m": 0.43067033976124885,
+    "exp_return_horizon": 0.79,
+    "exp_return_24m": 0.639,
+    "reward_to_risk": 7.4,
+    "unrec_loss": 0.149
+   }
+  }
+ },
+ "CHAT (Roundhill GenAI)": {
+  "kind": "ETF",
+  "growth_ann": 0.203,
+  "crash_growth": "secular",
+  "horizons": {
+   "12m": {
+    "p_fall": 0.30133333333333334,
+    "depth": 0.433,
+    "p_rec_horizon": 0.24440465532676814,
+    "p_rec_24m": 0.4288272157564906,
+    "exp_return_horizon": 0.085,
+    "exp_return_24m": 0.114,
+    "reward_to_risk": 2.06,
+    "unrec_loss": 0.099
+   },
+   "24m": {
+    "p_fall": 0.5773333333333334,
+    "depth": 0.433,
+    "p_rec_horizon": 0.4288272157564906,
+    "p_rec_24m": 0.4288272157564906,
+    "exp_return_horizon": 0.241,
+    "exp_return_24m": 0.241,
+    "reward_to_risk": 3.14,
+    "unrec_loss": 0.143
+   },
+   "36m": {
+    "p_fall": 0.7446666666666667,
+    "depth": 0.433,
+    "p_rec_horizon": 0.5308863025962399,
+    "p_rec_24m": 0.4288272157564906,
+    "exp_return_horizon": 0.479,
+    "exp_return_24m": 0.422,
+    "reward_to_risk": 4.91,
+    "unrec_loss": 0.151
+   },
+   "60m": {
+    "p_fall": 0.9106666666666666,
+    "depth": 0.433,
+    "p_rec_horizon": 0.6338406445837064,
+    "p_rec_24m": 0.4288272157564906,
+    "exp_return_horizon": 1.159,
+    "exp_return_24m": 0.955,
+    "reward_to_risk": 10.56,
+    "unrec_loss": 0.144
+   }
+  }
+ }
+}

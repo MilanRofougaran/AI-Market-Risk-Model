@@ -1,0 +1,140 @@
+{
+ "SMH (VanEck Semis)": {
+  "known_coverage": 0.45,
+  "unknown_named_weight": 0.17,
+  "other_weight": 0.39,
+  "confidence": "medium",
+  "top3_fund": 0.32,
+  "top5_fund": 0.47,
+  "top3": 0.68,
+  "neff": 5.0,
+  "theme_durability": 0.66,
+  "fin_resilience": 0.74,
+  "fragile_weight": 0,
+  "fast_weight": 0.66,
+  "slow_weight": 0.31,
+  "permanent_weight": 0.035,
+  "class": "thematic-diversified (theme TAM/SAM is the driver)"
+ },
+ "SOXX (iShares Semis)": {
+  "known_coverage": 0.46,
+  "unknown_named_weight": 0.07,
+  "other_weight": 0.48,
+  "confidence": "medium",
+  "top3_fund": 0.27,
+  "top5_fund": 0.4,
+  "top3": 0.59,
+  "neff": 6.0,
+  "theme_durability": 0.6,
+  "fin_resilience": 0.65,
+  "fragile_weight": 0,
+  "fast_weight": 0.48,
+  "slow_weight": 0.47,
+  "permanent_weight": 0.048,
+  "class": "thematic-diversified (theme TAM/SAM is the driver)"
+ },
+ "DRAM (Roundhill Memory)": {
+  "known_coverage": 0.73,
+  "unknown_named_weight": 0.0,
+  "other_weight": 0.27,
+  "confidence": "high",
+  "top3_fund": 0.73,
+  "top5_fund": 0.73,
+  "top3": 1.0,
+  "neff": 3.0,
+  "theme_durability": 0.38,
+  "fin_resilience": 0.67,
+  "fragile_weight": 0,
+  "fast_weight": 0.34,
+  "slow_weight": 0.58,
+  "permanent_weight": 0.081,
+  "class": "narrow/concentrated (acts like its top holdings)"
+ },
+ "QTUM (Defiance Quantum)": {
+  "known_coverage": 0.16,
+  "unknown_named_weight": 0.05,
+  "other_weight": 0.79,
+  "confidence": "LOW \u2014 default-driven",
+  "top3_fund": 0.08,
+  "top5_fund": 0.12,
+  "top3": 0.44,
+  "neff": 7.6,
+  "theme_durability": 0.59,
+  "fin_resilience": 0.65,
+  "fragile_weight": 0.09,
+  "fast_weight": 0.46,
+  "slow_weight": 0.48,
+  "permanent_weight": 0.063,
+  "class": "thematic-diversified (theme TAM/SAM is the driver)"
+ },
+ "AIQ (Global X AI)": {
+  "known_coverage": 0.43,
+  "unknown_named_weight": 0.04,
+  "other_weight": 0.53,
+  "confidence": "medium",
+  "top3_fund": 0.18,
+  "top5_fund": 0.27,
+  "top3": 0.42,
+  "neff": 9.0,
+  "theme_durability": 0.62,
+  "fin_resilience": 0.73,
+  "fragile_weight": 0,
+  "fast_weight": 0.63,
+  "slow_weight": 0.33,
+  "permanent_weight": 0.044,
+  "class": "thematic-diversified (theme TAM/SAM is the driver)"
+ },
+ "CHAT (Roundhill GenAI)": {
+  "known_coverage": 0.46,
+  "unknown_named_weight": 0.0,
+  "other_weight": 0.54,
+  "confidence": "medium",
+  "top3_fund": 0.18,
+  "top5_fund": 0.29,
+  "top3": 0.39,
+  "neff": 9.3,
+  "theme_durability": 0.69,
+  "fin_resilience": 0.76,
+  "fragile_weight": 0,
+  "fast_weight": 0.67,
+  "slow_weight": 0.29,
+  "permanent_weight": 0.037,
+  "class": "thematic-diversified (theme TAM/SAM is the driver)"
+ },
+ "ARKK (ARK Innovation)": {
+  "class": "narrow/concentrated (acts like its top holdings)"
+ },
+ "DTCR (Data Ctr Infra)": {
+  "class": "thematic-diversified (theme TAM/SAM is the driver)"
+ },
+ "GRID (Smart Grid)": {
+  "class": "thematic-diversified (theme TAM/SAM is the driver)"
+ },
+ "IGV (Software)": {
+  "class": "sector-diversified (mega-cap/quality tilt)"
+ },
+ "NUKE (Nuclear/Uranium)": {
+  "class": "thematic-diversified (theme TAM/SAM is the driver)"
+ },
+ "QQQ (Nasdaq-100)": {
+  "class": "broad index (highest predictability)"
+ },
+ "SCHD (Dividend)": {
+  "class": "broad index (highest predictability)"
+ },
+ "SOXL (3x Semis)": {
+  "class": "leveraged (path-dependent \u2014 treat separately)"
+ },
+ "TECL (3x Tech)": {
+  "class": "leveraged (path-dependent \u2014 treat separately)"
+ },
+ "TQQQ (3x NDX)": {
+  "class": "leveraged (path-dependent \u2014 treat separately)"
+ },
+ "VGT (Info Tech)": {
+  "class": "sector-diversified (mega-cap/quality tilt)"
+ },
+ "VOO (S&P 500)": {
+  "class": "broad index (highest predictability)"
+ }
+}

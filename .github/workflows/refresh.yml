@@ -1,0 +1,43 @@
+name: refresh-model
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "followed (full pipeline) or discover (agent stage plan)"
+        default: "followed"
+      paths:
+        description: "Monte Carlo paths"
+        default: "30000"
+  schedule:
+    - cron: "0 13 * * 1"   # Mondays 13:00 UTC — weekly published run
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install deps
+        run: pip install numpy numba
+      - name: Run engine
+        run: |
+          cd systemic_model
+          if [ "${{ github.event.inputs.mode || 'followed' }}" = "discover" ]; then
+            python discovery/agent.py
+          else
+            python run_all.py --paths ${{ github.event.inputs.paths || 30000 }}
+          fi
+      - name: Export snapshot
+        run: python export_snapshot.py
+      - name: Commit fresh snapshot (triggers Pages deploy on push)
+        run: |
+          git config user.name "model-bot"
+          git config user.email "model-bot@users.noreply.github.com"
+          git add site/data/snapshot.json systemic_model/tier_table.csv systemic_model/results.json || true
+          git commit -m "engine run: fresh snapshot" || echo "no changes"
+          git push

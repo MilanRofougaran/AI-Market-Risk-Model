@@ -1,0 +1,271 @@
+{
+ "run_date": "2026-06-03",
+ "opened_run": "run_004",
+ "targets": {
+  "etfs": [
+   3,
+   5
+  ],
+  "stocks": [
+   6,
+   8
+  ]
+ },
+ "shortlist_etfs": [
+  {
+   "name": "DRAM (Roundhill Memory)",
+   "sector": "AI/semis-memory",
+   "kind": "etf",
+   "score": 0.5575,
+   "components": {
+    "demonstrated": 0.8,
+    "forward": 0.621,
+    "blended_raw": 0.719,
+    "quality_mult": 0.775
+   }
+  },
+  {
+   "name": "CHAT (Roundhill GenAI)",
+   "sector": "generative AI",
+   "kind": "etf",
+   "score": 0.3992,
+   "components": {
+    "demonstrated": 0.33,
+    "forward": 0.637,
+    "blended_raw": 0.468,
+    "quality_mult": 0.853
+   }
+  },
+  {
+   "name": "AIQ (Global X AI)",
+   "sector": "AI broad",
+   "kind": "etf",
+   "score": 0.3479,
+   "components": {
+    "demonstrated": 0.28,
+    "forward": 0.548,
+    "blended_raw": 0.401,
+    "quality_mult": 0.868
+   }
+  },
+  {
+   "name": "QTUM (Defiance Quantum)",
+   "sector": "quantum/compute",
+   "kind": "etf",
+   "score": 0.2964,
+   "components": {
+    "demonstrated": 0.2,
+    "forward": 0.739,
+    "blended_raw": 0.442,
+    "quality_mult": 0.67
+   }
+  },
+  {
+   "name": "TECL (3x Tech, leveraged)",
+   "sector": "tech (3x leveraged)",
+   "kind": "etf",
+   "score": 0.2511,
+   "components": {
+    "demonstrated": 0.4,
+    "forward": 0.308,
+    "blended_raw": 0.359,
+    "quality_mult": 0.7
+   }
+  }
+ ],
+ "shortlist_stocks": [
+  {
+   "name": "Palantir (PLTR)",
+   "sector": "AI software",
+   "kind": "stock",
+   "score": 0.4921,
+   "components": {
+    "demonstrated": 0.56,
+    "forward": 0.58,
+    "blended_raw": 0.569,
+    "quality_mult": 0.865
+   }
+  },
+  {
+   "name": "AppLovin (APP)",
+   "sector": "AI ad-tech",
+   "kind": "stock",
+   "score": 0.4393,
+   "components": {
+    "demonstrated": 0.7,
+    "forward": 0.326,
+    "blended_raw": 0.532,
+    "quality_mult": 0.826
+   }
+  },
+  {
+   "name": "Meta (META)",
+   "sector": "AI/advertising",
+   "kind": "stock",
+   "score": 0.2115,
+   "components": {
+    "demonstrated": 0.22,
+    "forward": 0.234,
+    "blended_raw": 0.226,
+    "quality_mult": 0.934
+   }
+  },
+  {
+   "name": "Microsoft (MSFT)",
+   "sector": "cloud/AI software",
+   "kind": "stock",
+   "score": 0.1997,
+   "components": {
+    "demonstrated": 0.15,
+    "forward": 0.283,
+    "blended_raw": 0.21,
+    "quality_mult": 0.952
+   }
+  },
+  {
+   "name": "Amazon (AMZN)",
+   "sector": "cloud/retail",
+   "kind": "stock",
+   "score": 0.1635,
+   "components": {
+    "demonstrated": 0.13,
+    "forward": 0.233,
+    "blended_raw": 0.176,
+    "quality_mult": 0.928
+   }
+  }
+ ],
+ "all_ranked_etfs": [
+  {
+   "name": "DRAM (Roundhill Memory)",
+   "sector": "AI/semis-memory",
+   "kind": "etf",
+   "score": 0.5575,
+   "components": {
+    "demonstrated": 0.8,
+    "forward": 0.621,
+    "blended_raw": 0.719,
+    "quality_mult": 0.775
+   }
+  },
+  {
+   "name": "CHAT (Roundhill GenAI)",
+   "sector": "generative AI",
+   "kind": "etf",
+   "score": 0.3992,
+   "components": {
+    "demonstrated": 0.33,
+    "forward": 0.637,
+    "blended_raw": 0.468,
+    "quality_mult": 0.853
+   }
+  },
+  {
+   "name": "AIQ (Global X AI)",
+   "sector": "AI broad",
+   "kind": "etf",
+   "score": 0.3479,
+   "components": {
+    "demonstrated": 0.28,
+    "forward": 0.548,
+    "blended_raw": 0.401,
+    "quality_mult": 0.868
+   }
+  },
+  {
+   "name": "QTUM (Defiance Quantum)",
+   "sector": "quantum/compute",
+   "kind": "etf",
+   "score": 0.2964,
+   "components": {
+    "demonstrated": 0.2,
+    "forward": 0.739,
+    "blended_raw": 0.442,
+    "quality_mult": 0.67
+   }
+  },
+  {
+   "name": "TECL (3x Tech, leveraged)",
+   "sector": "tech (3x leveraged)",
+   "kind": "etf",
+   "score": 0.2511,
+   "components": {
+    "demonstrated": 0.4,
+    "forward": 0.308,
+    "blended_raw": 0.359,
+    "quality_mult": 0.7
+   }
+  }
+ ],
+ "all_ranked_stocks": [
+  {
+   "name": "Palantir (PLTR)",
+   "sector": "AI software",
+   "kind": "stock",
+   "score": 0.4921,
+   "components": {
+    "demonstrated": 0.56,
+    "forward": 0.58,
+    "blended_raw": 0.569,
+    "quality_mult": 0.865
+   }
+  },
+  {
+   "name": "AppLovin (APP)",
+   "sector": "AI ad-tech",
+   "kind": "stock",
+   "score": 0.4393,
+   "components": {
+    "demonstrated": 0.7,
+    "forward": 0.326,
+    "blended_raw": 0.532,
+    "quality_mult": 0.826
+   }
+  },
+  {
+   "name": "Meta (META)",
+   "sector": "AI/advertising",
+   "kind": "stock",
+   "score": 0.2115,
+   "components": {
+    "demonstrated": 0.22,
+    "forward": 0.234,
+    "blended_raw": 0.226,
+    "quality_mult": 0.934
+   }
+  },
+  {
+   "name": "Microsoft (MSFT)",
+   "sector": "cloud/AI software",
+   "kind": "stock",
+   "score": 0.1997,
+   "components": {
+    "demonstrated": 0.15,
+    "forward": 0.283,
+    "blended_raw": 0.21,
+    "quality_mult": 0.952
+   }
+  },
+  {
+   "name": "Amazon (AMZN)",
+   "sector": "cloud/retail",
+   "kind": "stock",
+   "score": 0.1635,
+   "components": {
+    "demonstrated": 0.13,
+    "forward": 0.233,
+    "blended_raw": 0.176,
+    "quality_mult": 0.928
+   }
+  }
+ ],
+ "diff": {
+  "metric": "penetration",
+  "from_run": "run_003",
+  "to_run": "run_004",
+  "entered": [],
+  "exited": [],
+  "moved_up": [],
+  "moved_down": []
+ }
+}

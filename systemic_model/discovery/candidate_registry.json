@@ -1,0 +1,799 @@
+{
+ "runs": [
+  {
+   "run_id": "run_001",
+   "date": "2026-06-03",
+   "n_candidates": 18,
+   "notes": "first live discovery run, June 2026 broad screen"
+  },
+  {
+   "run_id": "run_002",
+   "date": "2026-06-03",
+   "n_candidates": 18,
+   "notes": "first live discovery run, June 2026 broad screen"
+  },
+  {
+   "run_id": "run_003",
+   "date": "2026-06-03",
+   "n_candidates": 10,
+   "notes": "Jun 2026 test: TECL DRAM PLTR APP META MSFT AMZN CHAT AIQ QTUM"
+  },
+  {
+   "run_id": "run_004",
+   "date": "2026-06-03",
+   "n_candidates": 10,
+   "notes": "run via run_agent 2026-06-03"
+  }
+ ],
+ "candidates": {
+  "SMH (VanEck Semis)": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/semis",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.55,
+     "tam_cagr": 0.35,
+     "penetration": 0.3,
+     "tam_quality": 0.9,
+     "conviction": 0.9,
+     "ytd_note": "strong; NVDA+TSM ~30%",
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.55,
+     "tam_cagr": 0.35,
+     "penetration": 0.3,
+     "tam_quality": 0.9,
+     "conviction": 0.9,
+     "kind": "etf"
+    }
+   ]
+  },
+  "SOXX (iShares Semis)": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/semis",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.52,
+     "tam_cagr": 0.35,
+     "penetration": 0.3,
+     "tam_quality": 0.9,
+     "conviction": 0.88,
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.52,
+     "tam_cagr": 0.35,
+     "penetration": 0.3,
+     "tam_quality": 0.9,
+     "conviction": 0.88,
+     "kind": "etf"
+    }
+   ]
+  },
+  "FTXL (FT Nasdaq Semis)": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/semis",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.6,
+     "tam_cagr": 0.35,
+     "penetration": 0.28,
+     "tam_quality": 0.85,
+     "conviction": 0.82,
+     "ytd_note": "+99% YTD, +219% 1y",
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.6,
+     "tam_cagr": 0.35,
+     "penetration": 0.28,
+     "tam_quality": 0.85,
+     "conviction": 0.82,
+     "kind": "etf"
+    }
+   ]
+  },
+  "BAI (BlackRock AI)": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI broad",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.4,
+     "tam_cagr": 0.4,
+     "penetration": 0.2,
+     "tam_quality": 0.75,
+     "conviction": 0.8,
+     "ytd_note": "largest thematic, +38% 3mo",
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.4,
+     "tam_cagr": 0.4,
+     "penetration": 0.2,
+     "tam_quality": 0.75,
+     "conviction": 0.8,
+     "kind": "etf"
+    }
+   ]
+  },
+  "PAVE (US Infrastructure)": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "infrastructure/power",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.18,
+     "tam_cagr": 0.2,
+     "penetration": 0.25,
+     "tam_quality": 0.8,
+     "conviction": 0.75,
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.18,
+     "tam_cagr": 0.2,
+     "penetration": 0.25,
+     "tam_quality": 0.8,
+     "conviction": 0.75,
+     "kind": "etf"
+    }
+   ]
+  },
+  "QTUM (Quantum/Compute)": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "quantum",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.2,
+     "tam_cagr": 0.45,
+     "penetration": 0.05,
+     "tam_quality": 0.45,
+     "conviction": 0.4,
+     "ytd_note": "+23% 1mo, volatile",
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.2,
+     "tam_cagr": 0.45,
+     "penetration": 0.05,
+     "tam_quality": 0.45,
+     "conviction": 0.4,
+     "kind": "etf"
+    }
+   ]
+  },
+  "Nuclear/Uranium ETF (e.g. URA/NLR)": {
+   "first_seen": "run_001",
+   "last_seen": "run_001",
+   "sector": "power/nuclear",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.3,
+     "tam_cagr": 0.25,
+     "penetration": 0.2,
+     "tam_quality": 0.75,
+     "conviction": 0.7,
+     "kind": "etf"
+    }
+   ]
+  },
+  "NVIDIA": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/semis",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.66,
+     "tam_cagr": 0.45,
+     "penetration": 0.39,
+     "tam_quality": 0.9,
+     "conviction": 0.92,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.66,
+     "tam_cagr": 0.45,
+     "penetration": 0.39,
+     "tam_quality": 0.9,
+     "conviction": 0.92,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Broadcom": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/semis",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.65,
+     "tam_cagr": 0.4,
+     "penetration": 0.27,
+     "tam_quality": 0.85,
+     "conviction": 0.88,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.65,
+     "tam_cagr": 0.4,
+     "penetration": 0.27,
+     "tam_quality": 0.85,
+     "conviction": 0.88,
+     "kind": "stock"
+    }
+   ]
+  },
+  "AMD": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/semis",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.32,
+     "tam_cagr": 0.5,
+     "penetration": 0.03,
+     "tam_quality": 0.75,
+     "conviction": 0.78,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.32,
+     "tam_cagr": 0.5,
+     "penetration": 0.03,
+     "tam_quality": 0.75,
+     "conviction": 0.78,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Marvell": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/semis",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.42,
+     "tam_cagr": 0.35,
+     "penetration": 0.07,
+     "tam_quality": 0.7,
+     "conviction": 0.72,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.42,
+     "tam_cagr": 0.35,
+     "penetration": 0.07,
+     "tam_quality": 0.7,
+     "conviction": 0.72,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Micron": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/semis-memory",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.57,
+     "tam_cagr": 0.4,
+     "penetration": 0.23,
+     "tam_quality": 0.65,
+     "conviction": 0.7,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.57,
+     "tam_cagr": 0.4,
+     "penetration": 0.23,
+     "tam_quality": 0.65,
+     "conviction": 0.7,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Coherent": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/optical",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.41,
+     "tam_cagr": 0.4,
+     "penetration": 0.1,
+     "tam_quality": 0.8,
+     "conviction": 0.8,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.41,
+     "tam_cagr": 0.4,
+     "penetration": 0.1,
+     "tam_quality": 0.8,
+     "conviction": 0.8,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Lumentum": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/optical",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.65,
+     "tam_cagr": 0.4,
+     "penetration": 0.08,
+     "tam_quality": 0.78,
+     "conviction": 0.75,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.65,
+     "tam_cagr": 0.4,
+     "penetration": 0.08,
+     "tam_quality": 0.78,
+     "conviction": 0.75,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Vistra": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "power/nuclear",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.43,
+     "tam_cagr": 0.2,
+     "penetration": 0.15,
+     "tam_quality": 0.8,
+     "conviction": 0.78,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.43,
+     "tam_cagr": 0.2,
+     "penetration": 0.15,
+     "tam_quality": 0.8,
+     "conviction": 0.78,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Constellation Energy": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "power/nuclear",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.11,
+     "tam_cagr": 0.2,
+     "penetration": 0.18,
+     "tam_quality": 0.82,
+     "conviction": 0.78,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.11,
+     "tam_cagr": 0.2,
+     "penetration": 0.18,
+     "tam_quality": 0.82,
+     "conviction": 0.78,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Applied Optoelectronics": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "AI/optical",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.51,
+     "tam_cagr": 0.4,
+     "penetration": 0.04,
+     "tam_quality": 0.55,
+     "conviction": 0.45,
+     "note": "huge YTD run, hype risk",
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.51,
+     "tam_cagr": 0.4,
+     "penetration": 0.04,
+     "tam_quality": 0.55,
+     "conviction": 0.45,
+     "kind": "stock"
+    }
+   ]
+  },
+  "IonQ": {
+   "first_seen": "run_001",
+   "last_seen": "run_002",
+   "sector": "quantum",
+   "history": [
+    {
+     "run_id": "run_001",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.9,
+     "tam_cagr": 0.45,
+     "penetration": 0.02,
+     "tam_quality": 0.4,
+     "conviction": 0.4,
+     "note": "tiny revenue ~$62M, narrative",
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.9,
+     "tam_cagr": 0.45,
+     "penetration": 0.02,
+     "tam_quality": 0.4,
+     "conviction": 0.4,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Nuclear/Uranium ETF (URA/NLR)": {
+   "first_seen": "run_002",
+   "last_seen": "run_002",
+   "sector": "power/nuclear",
+   "history": [
+    {
+     "run_id": "run_002",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.3,
+     "tam_cagr": 0.25,
+     "penetration": 0.2,
+     "tam_quality": 0.75,
+     "conviction": 0.7,
+     "kind": "etf"
+    }
+   ]
+  },
+  "Palantir (PLTR)": {
+   "first_seen": "run_003",
+   "last_seen": "run_004",
+   "sector": "AI software",
+   "history": [
+    {
+     "run_id": "run_003",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.56,
+     "tam_cagr": 0.35,
+     "penetration": 0.02,
+     "tam_quality": 0.75,
+     "conviction": 0.8,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_004",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.56,
+     "tam_cagr": 0.35,
+     "penetration": 0.02,
+     "tam_quality": 0.75,
+     "conviction": 0.8,
+     "kind": "stock"
+    }
+   ]
+  },
+  "AppLovin (APP)": {
+   "first_seen": "run_003",
+   "last_seen": "run_004",
+   "sector": "AI ad-tech",
+   "history": [
+    {
+     "run_id": "run_003",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.7,
+     "tam_cagr": 0.2,
+     "penetration": 0.07,
+     "tam_quality": 0.7,
+     "conviction": 0.72,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_004",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.7,
+     "tam_cagr": 0.2,
+     "penetration": 0.07,
+     "tam_quality": 0.7,
+     "conviction": 0.72,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Meta (META)": {
+   "first_seen": "run_003",
+   "last_seen": "run_004",
+   "sector": "AI/advertising",
+   "history": [
+    {
+     "run_id": "run_003",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.22,
+     "tam_cagr": 0.15,
+     "penetration": 0.21,
+     "tam_quality": 0.88,
+     "conviction": 0.9,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_004",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.22,
+     "tam_cagr": 0.15,
+     "penetration": 0.21,
+     "tam_quality": 0.88,
+     "conviction": 0.9,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Microsoft (MSFT)": {
+   "first_seen": "run_003",
+   "last_seen": "run_004",
+   "sector": "cloud/AI software",
+   "history": [
+    {
+     "run_id": "run_003",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.15,
+     "tam_cagr": 0.18,
+     "penetration": 0.19,
+     "tam_quality": 0.92,
+     "conviction": 0.92,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_004",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.15,
+     "tam_cagr": 0.18,
+     "penetration": 0.19,
+     "tam_quality": 0.92,
+     "conviction": 0.92,
+     "kind": "stock"
+    }
+   ]
+  },
+  "Amazon (AMZN)": {
+   "first_seen": "run_003",
+   "last_seen": "run_004",
+   "sector": "cloud/retail",
+   "history": [
+    {
+     "run_id": "run_003",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.13,
+     "tam_cagr": 0.15,
+     "penetration": 0.23,
+     "tam_quality": 0.88,
+     "conviction": 0.88,
+     "kind": "stock"
+    },
+    {
+     "run_id": "run_004",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.13,
+     "tam_cagr": 0.15,
+     "penetration": 0.23,
+     "tam_quality": 0.88,
+     "conviction": 0.88,
+     "kind": "stock"
+    }
+   ]
+  },
+  "DRAM (Roundhill Memory)": {
+   "first_seen": "run_003",
+   "last_seen": "run_004",
+   "sector": "AI/semis-memory",
+   "history": [
+    {
+     "run_id": "run_003",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.8,
+     "tam_cagr": 0.4,
+     "penetration": 0.23,
+     "tam_quality": 0.6,
+     "conviction": 0.65,
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_004",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.8,
+     "tam_cagr": 0.4,
+     "penetration": 0.23,
+     "tam_quality": 0.6,
+     "conviction": 0.65,
+     "kind": "etf"
+    }
+   ]
+  },
+  "TECL (3x Tech, leveraged)": {
+   "first_seen": "run_003",
+   "last_seen": "run_004",
+   "sector": "tech (3x leveraged)",
+   "history": [
+    {
+     "run_id": "run_003",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.4,
+     "tam_cagr": 0.2,
+     "penetration": 0.25,
+     "tam_quality": 0.55,
+     "conviction": 0.45,
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_004",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.4,
+     "tam_cagr": 0.2,
+     "penetration": 0.25,
+     "tam_quality": 0.55,
+     "conviction": 0.45,
+     "kind": "etf"
+    }
+   ]
+  },
+  "QTUM (Defiance Quantum)": {
+   "first_seen": "run_003",
+   "last_seen": "run_004",
+   "sector": "quantum/compute",
+   "history": [
+    {
+     "run_id": "run_003",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.2,
+     "tam_cagr": 0.45,
+     "penetration": 0.05,
+     "tam_quality": 0.45,
+     "conviction": 0.45,
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_004",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.2,
+     "tam_cagr": 0.45,
+     "penetration": 0.05,
+     "tam_quality": 0.45,
+     "conviction": 0.45,
+     "kind": "etf"
+    }
+   ]
+  },
+  "AIQ (Global X AI)": {
+   "first_seen": "run_003",
+   "last_seen": "run_004",
+   "sector": "AI broad",
+   "history": [
+    {
+     "run_id": "run_003",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.28,
+     "tam_cagr": 0.35,
+     "penetration": 0.2,
+     "tam_quality": 0.78,
+     "conviction": 0.78,
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_004",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.28,
+     "tam_cagr": 0.35,
+     "penetration": 0.2,
+     "tam_quality": 0.78,
+     "conviction": 0.78,
+     "kind": "etf"
+    }
+   ]
+  },
+  "CHAT (Roundhill GenAI)": {
+   "first_seen": "run_003",
+   "last_seen": "run_004",
+   "sector": "generative AI",
+   "history": [
+    {
+     "run_id": "run_003",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.33,
+     "tam_cagr": 0.4,
+     "penetration": 0.15,
+     "tam_quality": 0.75,
+     "conviction": 0.76,
+     "kind": "etf"
+    },
+    {
+     "run_id": "run_004",
+     "date": "2026-06-03",
+     "demonstrated_growth": 0.33,
+     "tam_cagr": 0.4,
+     "penetration": 0.15,
+     "tam_quality": 0.75,
+     "conviction": 0.76,
+     "kind": "etf"
+    }
+   ]
+  }
+ }
+}

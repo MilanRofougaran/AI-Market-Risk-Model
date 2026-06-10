@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Systemic + TAM dashboard</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridjs@5.0.2/dist/theme/mermaid.min.css" integrity="sha384-jZvDSsmGB9oGGT/4l9bHXGoAv1OxvG/cFmSo0dZaSqmBgvQTKDBFAMftlXTmMbNW" crossorigin="anonymous">
+<style>
+:root{color-scheme:light}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+background:#faf9f5;color:#1c1c1a;margin:0;padding:22px;line-height:1.5}
+.wrap{max-width:900px;margin:0 auto}
+h1{font-size:21px;margin:0 0 2px} .meta{color:#6b6a64;font-size:13px;margin-bottom:16px}
+.explain{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.explain .b{background:#fff;border:1px solid #e7e5dd;border-radius:10px;padding:11px 14px}
+.explain h4{margin:0 0 3px;font-size:13px} .explain p{margin:0;font-size:12px;color:#6b6a64}
+.legend{display:flex;flex-wrap:wrap;gap:12px;font-size:11px;color:#6b6a64;margin-bottom:14px}
+.legend i{display:inline-block;width:13px;height:9px;vertical-align:middle;margin-right:3px;border:0.5px solid #ddd}
+.tierhead{font-size:15px;font-weight:600;margin:18px 0 6px} .sub{color:#8b8a82;font-weight:400;font-size:12px}
+.tier{border:1px solid #e7e5dd;border-radius:10px;overflow:hidden;background:#fff}
+.row{display:grid;grid-template-columns:150px 90px 1fr 48px;align-items:center;gap:10px;
+padding:6px 13px;border-bottom:1px solid #f0eee7;font-size:13px} .row:last-child{border-bottom:none}
+.nm{font-weight:600} .bd{font-size:9px;padding:1px 4px;border-radius:4px;margin-left:5px}
+.bd.etf{background:#f1efe8;color:#5f5e5a} .bd.stk{background:#e6f1fb;color:#185fa5}
+.gw{display:flex;align-items:center;gap:6px} .gbar{flex:1;height:7px;background:#efeee8;border-radius:4px;overflow:hidden}
+.gbar i{display:block;height:100%;background:#185fa5} .gw b{font-size:12px;min-width:28px}
+.rec{display:flex;height:11px;border-radius:3px;overflow:hidden;background:#efeee8;border:0.5px solid #e7e5dd}
+.rec span{height:100%}
+.tl{text-align:center;font-weight:600;font-size:12px;padding:2px 0;border-radius:6px}
+.tl.lo{background:#e1f5ee;color:#0f6e56} .tl.mid{background:#faeeda;color:#854f0b} .tl.hi{background:#fceBEB;color:#a32d2d}
+h2{font-size:16px;margin:24px 0 8px}
+#tbl{font-size:12px}
+.ask{margin-top:22px;background:#fff;border:1px solid #e7e5dd;border-radius:12px;padding:14px 16px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+.chip{font-size:12px;border:1px solid #d8d6cd;background:#faf9f5;border-radius:16px;padding:4px 11px;cursor:pointer}
+.chip:hover{background:#f0eee7}
+#q{width:100%;min-height:46px;border:1px solid #d8d6cd;border-radius:8px;padding:8px;font:inherit;font-size:13px;box-sizing:border-box}
+#go{margin-top:8px;border:1px solid #185fa5;background:#185fa5;color:#fff;border-radius:8px;padding:7px 16px;cursor:pointer;font-size:13px}
+#ans{margin-top:12px;font-size:13px;white-space:pre-wrap;color:#1c1c1a;min-height:8px}
+.foot{color:#8b8a82;font-size:11px;margin-top:20px}
+.toggle{display:inline-flex;border:1px solid #d8d6cd;border-radius:8px;overflow:hidden;margin-bottom:12px}
+.toggle button{border:0;background:#fff;color:#5f5e5a;padding:6px 16px;cursor:pointer;font:inherit;font-size:13px;border-right:1px solid #e7e5dd}
+.toggle button:last-child{border-right:0} .toggle button.on{background:#185fa5;color:#fff;font-weight:500}
+.charts{background:#fff;border:1px solid #e7e5dd;border-radius:12px;padding:14px 16px;margin:6px 0 8px}
+.cbar{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:10px}
+.cbar .clab{font-size:12px;color:#6b6a64;margin-right:2px}
+.cbar button{font-size:12px;border:1px solid #d8d6cd;background:#faf9f5;border-radius:8px;padding:5px 11px;cursor:pointer}
+.cbar button.con{background:#185fa5;color:#fff;border-color:#185fa5;font-weight:500}
+.cbar select{font-size:12px;border:1px solid #d8d6cd;border-radius:8px;padding:5px 8px;background:#fff}
+</style></head><body><div class="wrap">
+<h1>Systemic + TAM — growth × recovery, with change tracking</h1>
+<div class="meta">Model as of 2026-06-05 · research model, not investment advice</div>
+<div style="background:#f1efe8;border-radius:10px;padding:8px 13px;margin-bottom:10px;font-size:12px;color:#5f5e5a"><b>Macro-stress 48/100</b> (moderate (watch-zone)) — structural 58, acute 25; scales drawdown odds x0.99.</div><div style="background:#fceBEB;border-radius:10px;padding:8px 13px;margin-bottom:14px;font-size:12px;color:#a32d2d"><b>Concentration</b> — ~1 effective bets across 42 names (corr 0.88); a specialized ETF ≈ 0.95 correlated with its lead holding. P(equal-weight basket &gt;25% in 18m) ≈ 60%. This list is mostly one bet — size accordingly.</div>
+
+<div class="explain">
+  <div class="b"><h4>Growth % — how fast</h4><p>Forward 18-month revenue-growth estimate; sets the tier (&gt;40% / 15–40% / &lt;15%).</p></div>
+  <div class="b"><h4>Recovery bar &amp; &gt;3y % — how long back</h4><p>Grey = never fell &gt;25%. Greens = a deep fall back within 1/2/3y. Red = &gt;3y (long &amp; uncertain — execution risk for a single stock; an ETF dilutes it).</p></div>
+</div>
+
+<div class="legend">
+  <span><i style="background:#185fa5"></i>growth 18m</span>
+  <span><i style="background:#efeee8"></i>no &gt;25% fall</span>
+  <span><i style="background:#1d9e75"></i>back ≤1y</span>
+  <span><i style="background:#9fe1cb"></i>1–2y</span>
+  <span><i style="background:#ef9f27"></i>2–3y</span>
+  <span><i style="background:#e24b4a"></i>&gt;3y</span>
+</div>
+
+<div class="toggle" id="toggle"><button data-k="all" class="on">All</button><button data-k="stock">Stocks</button><button data-k="ETF">ETFs</button></div>
+<div class="charts">
+  <div class="cbar">
+    <span class="clab">Chart:</span>
+    <button data-c="scatter" class="con">Growth vs risk</button>
+    <button data-c="bar">Ranking</button>
+    <button data-c="pie">By sector</button>
+    <button data-c="recovery">Recovery curve</button>
+    <select id="metric" style="display:none">
+      <option value="tail">&gt;3y tail (risk)</option>
+      <option value="growth">growth</option>
+      <option value="pfall">P(&gt;25% fall)</option>
+    </select>
+  </div>
+  <div style="position:relative;height:340px;"><canvas id="chart" role="img" aria-label="Selected chart of the universe"></canvas></div>
+</div>
+
+<div id="bars"></div>
+
+<h2>All numbers <span class="sub">— click a column header to sort</span></h2>
+<div id="tbl"></div>
+
+<div class="ask">
+  <div style="font-size:14px;font-weight:600;">Ask about this dashboard</div>
+  <div class="sub">Answered in-page from the data below. Click a starter or type your own.</div>
+  <div class="chips" id="chips"></div>
+  <textarea id="q" placeholder="e.g. Why is CoreWeave's >3y tail so high if it grows fast?"></textarea>
+  <button id="go">Ask</button>
+  <div id="ans"></div>
+</div>
+
+<div class="foot">The recovery bar &amp; &gt;3y tail are unconditional (across all scenarios), comparable across names and between stocks &amp; ETFs.
+Conditional recover-by-1/2/3y columns answer "if it falls &gt;25%, odds it's back by then". Regenerated each run.</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/gridjs@5.0.2/dist/gridjs.umd.js" integrity="sha384-/XXDzxe4FsGiAe50i/u9pY/Vy/uX654MHB1xoc1BJNnH1WXHhqHga9g3q5tF4gj7" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<script>
+const DATA = [{"name": "IonQ", "type": "stock", "theme": "Quantum", "tier": "High", "growth": 80, "pfall": 73, "r1": 19, "r2": 30, "r3": 37, "tail": 46, "buckets": [26.6, 13.6, 8.1, 5.4, 46.2], "xsp": 2.8, "vssp": 3.16, "vsschd": 3.29, "d30": 10}, {"name": "Astera Labs", "type": "stock", "theme": "AI connectivity", "tier": "High", "growth": 70, "pfall": 73, "r1": 36, "r2": 51, "r3": 58, "tail": 31, "buckets": [27.1, 25.9, 11.2, 5.0, 30.8], "xsp": 1.6, "vssp": 4.91, "vsschd": 5.12, "d30": null}, {"name": "CoreWeave", "type": "stock", "theme": "AI cloud (GPU)", "tier": "High", "growth": 60, "pfall": 84, "r1": 25, "r2": 34, "r3": 38, "tail": 52, "buckets": [15.5, 20.8, 8.0, 3.5, 52.2], "xsp": 3.2, "vssp": 2.1, "vsschd": 2.19, "d30": null}, {"name": "Palantir", "type": "stock", "theme": "Gen-AI software", "tier": "High", "growth": 55, "pfall": 59, "r1": 28, "r2": 45, "r3": 53, "tail": 28, "buckets": [41.2, 16.4, 10.0, 4.8, 27.6], "xsp": 1.4, "vssp": 4.4, "vsschd": 4.58, "d30": -6}, {"name": "Lumentum", "type": "stock", "theme": "AI optical", "tier": "High", "growth": 55, "pfall": 64, "r1": 29, "r2": 41, "r3": 50, "tail": 32, "buckets": [35.6, 18.9, 7.8, 5.4, 32.4], "xsp": 1.8, "vssp": 3.38, "vsschd": 3.53, "d30": -2}, {"name": "Applied Optoelectronics", "type": "stock", "theme": "AI optical", "tier": "High", "growth": 55, "pfall": 73, "r1": 28, "r2": 39, "r3": 47, "tail": 39, "buckets": [26.9, 20.1, 8.6, 5.5, 38.9], "xsp": 2.2, "vssp": 2.78, "vsschd": 2.9, "d30": 0}, {"name": "Micron", "type": "stock", "theme": "Memory / HBM", "tier": "High", "growth": 50, "pfall": 61, "r1": 0, "r2": 47, "r3": 56, "tail": 27, "buckets": [39.4, 0.0, 28.6, 5.4, 26.6], "xsp": 1.5, "vssp": 3.75, "vsschd": 3.91, "d30": -4}, {"name": "AMD", "type": "stock", "theme": "AI compute", "tier": "High", "growth": 45, "pfall": 51, "r1": 19, "r2": 36, "r3": 45, "tail": 28, "buckets": [48.8, 9.6, 8.6, 4.8, 28.2], "xsp": 1.4, "vssp": 3.53, "vsschd": 3.68, "d30": -6}, {"name": "NVIDIA", "type": "stock", "theme": "Gen-AI infra", "tier": "High", "growth": 45, "pfall": 53, "r1": 34, "r2": 51, "r3": 61, "tail": 21, "buckets": [46.6, 18.2, 9.0, 5.5, 20.6], "xsp": 1.1, "vssp": 4.46, "vsschd": 4.65, "d30": -8}, {"name": "DRAM (Roundhill Memory)", "type": "ETF", "theme": "Memory / HBM", "tier": "High", "growth": 45, "pfall": 55, "r1": 0, "r2": 46, "r3": 53, "tail": 26, "buckets": [45.0, 0.0, 25.5, 3.6, 25.9], "xsp": 1.4, "vssp": 3.62, "vsschd": 3.78, "d30": -7}, {"name": "Broadcom", "type": "stock", "theme": "AI compute", "tier": "Moderate", "growth": 38, "pfall": 47, "r1": 28, "r2": 46, "r3": 55, "tail": 21, "buckets": [53.1, 13.1, 8.5, 4.0, 21.3], "xsp": 1.2, "vssp": 3.59, "vsschd": 3.74, "d30": -7}, {"name": "Marvell", "type": "stock", "theme": "AI compute", "tier": "Moderate", "growth": 35, "pfall": 58, "r1": 30, "r2": 46, "r3": 56, "tail": 26, "buckets": [42.1, 17.5, 8.9, 5.8, 25.7], "xsp": 1.4, "vssp": 2.73, "vsschd": 2.84, "d30": -6}, {"name": "CHAT (Roundhill GenAI)", "type": "ETF", "theme": "Generative AI", "tier": "Moderate", "growth": 32, "pfall": 43, "r1": 25, "r2": 43, "r3": 53, "tail": 20, "buckets": [56.9, 10.6, 7.7, 4.5, 20.2], "xsp": 1.0, "vssp": 3.43, "vsschd": 3.57, "d30": -9}, {"name": "AppLovin", "type": "stock", "theme": "AI ad-tech", "tier": "Moderate", "growth": 30, "pfall": 81, "r1": 32, "r2": 49, "r3": 55, "tail": 37, "buckets": [18.9, 26.2, 13.5, 4.6, 36.8], "xsp": 1.8, "vssp": 1.87, "vsschd": 1.94, "d30": 0}, {"name": "SMH (VanEck Semis)", "type": "ETF", "theme": "Semis (broad)", "tier": "Moderate", "growth": 30, "pfall": 43, "r1": 25, "r2": 43, "r3": 53, "tail": 20, "buckets": [57.0, 10.9, 7.6, 4.3, 20.2], "xsp": 1.1, "vssp": 3.03, "vsschd": 3.15, "d30": -8}, {"name": "Vertiv", "type": "stock", "theme": "AI power / cooling", "tier": "Moderate", "growth": 28, "pfall": 57, "r1": 19, "r2": 38, "r3": 46, "tail": 31, "buckets": [42.5, 11.0, 10.6, 4.9, 31.0], "xsp": 1.6, "vssp": 1.92, "vsschd": 2.0, "d30": null}, {"name": "SOXX (iShares Semis)", "type": "ETF", "theme": "Semis (broad)", "tier": "Moderate", "growth": 28, "pfall": 44, "r1": 26, "r2": 43, "r3": 53, "tail": 21, "buckets": [56.0, 11.5, 7.6, 4.1, 20.8], "xsp": 1.1, "vssp": 2.9, "vsschd": 3.02, "d30": -9}, {"name": "Coherent", "type": "stock", "theme": "AI optical", "tier": "Moderate", "growth": 25, "pfall": 66, "r1": 28, "r2": 41, "r3": 50, "tail": 33, "buckets": [34.1, 18.2, 8.6, 5.9, 33.1], "xsp": 1.9, "vssp": 1.46, "vsschd": 1.52, "d30": -2}, {"name": "ARM", "type": "stock", "theme": "Chip IP / licensing", "tier": "Moderate", "growth": 25, "pfall": 52, "r1": 24, "r2": 42, "r3": 51, "tail": 26, "buckets": [47.8, 12.6, 9.1, 4.9, 25.6], "xsp": 1.5, "vssp": 1.82, "vsschd": 1.89, "d30": -5}, {"name": "AIQ (Global X AI)", "type": "ETF", "theme": "AI broad", "tier": "Moderate", "growth": 25, "pfall": 42, "r1": 27, "r2": 43, "r3": 52, "tail": 20, "buckets": [58.5, 11.2, 6.8, 3.5, 20.0], "xsp": 1.1, "vssp": 2.61, "vsschd": 2.72, "d30": -9}, {"name": "QTUM (Defiance Quantum)", "type": "ETF", "theme": "Quantum", "tier": "Moderate", "growth": 22, "pfall": 48, "r1": 14, "r2": 32, "r3": 42, "tail": 28, "buckets": [51.5, 6.8, 8.6, 5.0, 28.1], "xsp": 1.4, "vssp": 1.73, "vsschd": 1.8, "d30": -5}, {"name": "Meta", "type": "stock", "theme": "Megacap / ads", "tier": "Moderate", "growth": 18, "pfall": 46, "r1": 28, "r2": 45, "r3": 56, "tail": 20, "buckets": [53.8, 12.9, 7.8, 5.2, 20.4], "xsp": 1.1, "vssp": 1.85, "vsschd": 1.92, "d30": -8}, {"name": "Oracle", "type": "stock", "theme": "Enterprise cloud", "tier": "Moderate", "growth": 16, "pfall": 40, "r1": 22, "r2": 35, "r3": 45, "tail": 22, "buckets": [59.5, 8.9, 5.2, 4.1, 22.2], "xsp": 1.3, "vssp": 1.39, "vsschd": 1.45, "d30": null}, {"name": "Microsoft", "type": "stock", "theme": "AI cloud", "tier": "Safe", "growth": 14, "pfall": 40, "r1": 23, "r2": 41, "r3": 52, "tail": 19, "buckets": [59.7, 9.4, 7.0, 4.6, 19.2], "xsp": 1.0, "vssp": 1.5, "vsschd": 1.56, "d30": -7}, {"name": "Texas Instruments", "type": "stock", "theme": "Analog / industrial", "tier": "Safe", "growth": 14, "pfall": 47, "r1": 16, "r2": 28, "r3": 39, "tail": 29, "buckets": [52.6, 7.8, 5.8, 4.9, 29.0], "xsp": 1.6, "vssp": 0.94, "vsschd": 0.98, "d30": null}, {"name": "Amazon", "type": "stock", "theme": "Cloud / retail", "tier": "Safe", "growth": 13, "pfall": 57, "r1": 30, "r2": 44, "r3": 53, "tail": 27, "buckets": [42.6, 17.1, 8.2, 5.1, 26.9], "xsp": 1.5, "vssp": 0.98, "vsschd": 1.02, "d30": -6}, {"name": "Alphabet", "type": "stock", "theme": "Ads / cloud / AI", "tier": "Safe", "growth": 12, "pfall": 41, "r1": 17, "r2": 31, "r3": 43, "tail": 23, "buckets": [59.0, 6.9, 5.9, 4.9, 23.4], "xsp": 1.4, "vssp": 0.97, "vsschd": 1.01, "d30": null}, {"name": "Qualcomm", "type": "stock", "theme": "Edge AI / mobile", "tier": "Safe", "growth": 8, "pfall": 45, "r1": 26, "r2": 42, "r3": 52, "tail": 22, "buckets": [54.9, 11.8, 7.4, 4.1, 21.9], "xsp": 1.3, "vssp": 0.69, "vsschd": 0.72, "d30": -6}, {"name": "Apple", "type": "stock", "theme": "Devices / services", "tier": "Safe", "growth": 7, "pfall": 45, "r1": 19, "r2": 34, "r3": 40, "tail": 27, "buckets": [55.0, 8.5, 6.8, 2.9, 26.9], "xsp": 1.6, "vssp": 0.5, "vsschd": 0.52, "d30": null}, {"name": "Cisco", "type": "stock", "theme": "Networking", "tier": "Safe", "growth": 6, "pfall": 32, "r1": 19, "r2": 35, "r3": 46, "tail": 17, "buckets": [68.1, 6.1, 5.0, 3.6, 17.1], "xsp": 1.0, "vssp": 0.68, "vsschd": 0.71, "d30": null}, {"name": "IBM", "type": "stock", "theme": "Hybrid cloud / AI", "tier": "Safe", "growth": 5, "pfall": 26, "r1": 9, "r2": 23, "r3": 28, "tail": 19, "buckets": [73.6, 2.5, 3.5, 1.5, 18.9], "xsp": 1.1, "vssp": 0.51, "vsschd": 0.53, "d30": null}, {"name": "Kioxia", "type": "stock", "theme": "NAND memory", "tier": "Safe", "growth": 5, "pfall": 61, "r1": 0, "r2": 44, "r3": 51, "tail": 30, "buckets": [39.2, 0.0, 26.8, 4.3, 29.8], "xsp": 1.7, "vssp": 0.33, "vsschd": 0.34, "d30": -3}, {"name": "Tesla", "type": "stock", "theme": "EV / robotaxi / AI", "tier": "Moderate", "growth": 17, "pfall": 80, "r1": 22, "r2": 38, "r3": 45, "tail": 45, "buckets": [19.5, 17.8, 12.6, 5.5, 44.6], "xsp": 2.4, "vssp": 0.78, "vsschd": 0.81, "d30": null}, {"name": "ARKK (ARK Innovation)", "type": "ETF", "theme": "Disruptive (Tesla-led)", "tier": "High", "growth": 42, "pfall": 73, "r1": 20, "r2": 34, "r3": 41, "tail": 43, "buckets": [27.4, 14.5, 10.0, 5.5, 42.6], "xsp": 2.5, "vssp": 1.86, "vsschd": 1.94, "d30": null}, {"name": "QQQ (Nasdaq-100)", "type": "ETF", "theme": "Mega-cap tech", "tier": "Moderate", "growth": 16, "pfall": 38, "r1": 15, "r2": 29, "r3": 37, "tail": 24, "buckets": [62.5, 5.6, 5.4, 2.9, 23.6], "xsp": 1.3, "vssp": 1.39, "vsschd": 1.45, "d30": null}, {"name": "VOO (S&P 500)", "type": "ETF", "theme": "Broad US market", "tier": "Safe", "growth": 9, "pfall": 28, "r1": 13, "r2": 27, "r3": 35, "tail": 18, "buckets": [71.8, 3.6, 3.9, 2.5, 18.2], "xsp": 1.0, "vssp": 1.0, "vsschd": 1.04, "d30": null}, {"name": "SCHD (Dividend)", "type": "ETF", "theme": "Quality dividend", "tier": "Safe", "growth": 6, "pfall": 19, "r1": 11, "r2": 22, "r3": 31, "tail": 13, "buckets": [81.4, 2.0, 2.1, 1.6, 12.9], "xsp": 0.7, "vssp": 0.96, "vsschd": 1.0, "d30": null}, {"name": "NUKE (Nuclear/Uranium)", "type": "ETF", "theme": "Nuclear power", "tier": "Moderate", "growth": 22, "pfall": 50, "r1": 21, "r2": 38, "r3": 47, "tail": 26, "buckets": [49.9, 10.7, 8.4, 4.5, 26.5], "xsp": 1.4, "vssp": 1.7, "vsschd": 1.77, "d30": null}, {"name": "IGV (Software)", "type": "ETF", "theme": "Software", "tier": "Moderate", "growth": 20, "pfall": 45, "r1": 18, "r2": 33, "r3": 41, "tail": 27, "buckets": [54.6, 8.0, 6.9, 3.8, 26.7], "xsp": 1.5, "vssp": 1.45, "vsschd": 1.51, "d30": null}, {"name": "GRID (Smart Grid)", "type": "ETF", "theme": "Grid / power", "tier": "Moderate", "growth": 18, "pfall": 36, "r1": 13, "r2": 29, "r3": 36, "tail": 23, "buckets": [64.0, 4.8, 5.8, 2.6, 22.9], "xsp": 1.3, "vssp": 1.55, "vsschd": 1.62, "d30": null}, {"name": "VGT (Info Tech)", "type": "ETF", "theme": "Info tech (broad)", "tier": "Moderate", "growth": 15, "pfall": 38, "r1": 16, "r2": 30, "r3": 39, "tail": 23, "buckets": [61.7, 6.1, 5.5, 3.4, 23.3], "xsp": 1.3, "vssp": 1.32, "vsschd": 1.38, "d30": null}, {"name": "DTCR (Data Ctr Infra)", "type": "ETF", "theme": "Data-center infra", "tier": "Safe", "growth": 14, "pfall": 30, "r1": 10, "r2": 21, "r3": 30, "tail": 21, "buckets": [70.5, 3.0, 3.2, 2.5, 20.8], "xsp": 1.3, "vssp": 1.18, "vsschd": 1.23, "d30": null}, {"name": "SOXL (3x Semis)", "type": "ETF", "theme": "Semis 3x leveraged", "tier": "Trading", "growth": 60, "pfall": 100, "r1": 47, "r2": 59, "r3": 65, "tail": 35, "buckets": [0.2, 46.5, 12.1, 5.9, 35.2], "xsp": 2.1, "vssp": 3.16, "vsschd": 3.29, "d30": null}, {"name": "TECL (3x Tech)", "type": "ETF", "theme": "Tech 3x leveraged", "tier": "Trading", "growth": 50, "pfall": 98, "r1": 46, "r2": 58, "r3": 64, "tail": 35, "buckets": [2.4, 44.6, 11.9, 6.0, 35.1], "xsp": 2.1, "vssp": 2.7, "vsschd": 2.82, "d30": null}, {"name": "TQQQ (3x NDX)", "type": "ETF", "theme": "Nasdaq 3x leveraged", "tier": "Trading", "growth": 45, "pfall": 98, "r1": 46, "r2": 58, "r3": 64, "tail": 35, "buckets": [2.4, 44.6, 11.9, 6.0, 35.1], "xsp": 2.1, "vssp": 2.43, "vsschd": 2.53, "d30": null}];
+let FILTER='all';
+const COL=['transparent','#1d9e75','#9fe1cb','#ef9f27','#e24b4a'];
+const TIERS=[['Tier 1 · High growth','> 40%',d=>d.growth>40],
+             ['Tier 2 · Moderate growth','15–40%',d=>d.growth>=15&&d.growth<=40],
+             ['Tier 3 · Safe / smaller growth','< 15%',d=>d.growth<15]];
+function shown(){return FILTER==='all'?DATA:DATA.filter(d=>d.type===FILTER);}
+function renderBars(){
+  const host=document.getElementById('bars'); host.innerHTML='';
+  const rows=shown();
+  TIERS.forEach(([label,sub,test])=>{
+    const mem=rows.filter(test).sort((a,b)=>b.growth-a.growth);
+    if(!mem.length)return;
+    const sec=document.createElement('div'); sec.style.marginBottom='6px';
+    sec.innerHTML=`<div class="tierhead">${label} <span class="sub">${sub} · ${mem.length} ${FILTER==='ETF'?'ETFs':'names'}</span></div>`;
+    const tier=document.createElement('div'); tier.className='tier';
+    mem.forEach(d=>{
+      const gw=Math.round(Math.min(d.growth/80,1)*100);
+      const segs=d.buckets.map((v,i)=>`<span style="width:${v}%;background:${COL[i]}"></span>`).join('');
+      const tcls=d.tail<=22?'lo':(d.tail<=26?'mid':'hi');
+      const bd=d.type==='ETF'?'etf':'stk';
+      const r=document.createElement('div'); r.className='row';
+      r.innerHTML=`<div class="nm">${d.name}<span class="bd ${bd}">${d.type}</span></div>
+        <div class="gw"><div class="gbar"><i style="width:${gw}%"></i></div><b>${d.growth}%</b></div>
+        <div class="rec">${segs}</div><div class="tl ${tcls}">${d.tail}%</div>`;
+      tier.appendChild(r);
+    });
+    sec.appendChild(tier); host.appendChild(sec);
+  });
+}
+function tailFmt(c){const v=c;const col=v<=22?['#e1f5ee','#0f6e56']:(v<=26?['#faeeda','#854f0b']:['#fceBEB','#a32d2d']);
+  return gridjs.html(`<span style="background:${col[0]};color:${col[1]};font-weight:600;padding:2px 7px;border-radius:6px">${v}%</span>`);}
+function dFmt(v){if(v===null)return gridjs.html('<span style="color:#8b8a82">new</span>');
+  if(v>=1)return gridjs.html(`<span style="color:#a32d2d">▲+${v}</span>`);
+  if(v<=-1)return gridjs.html(`<span style="color:#0f6e56">▼${v}</span>`);
+  return gridjs.html('<span style="color:#8b8a82">0</span>');}
+let grid=null;
+function renderGrid(){
+  if(typeof gridjs==='undefined')return;   // table lib not ready yet
+  const rows=shown().map(r=>[r.name,r.type,r.tier,r.growth,r.pfall,r.r2,r.tail,r.xsp,r.vssp,r.vsschd,r.d30]);
+  const vsFmt=v=>{if(v===null||v===undefined)return gridjs.html('<span style="color:#8b8a82">—</span>');
+    const col=v>=1?['#e1f5ee','#0f6e56']:(v>=0.7?['#faeeda','#854f0b']:['#fceBEB','#a32d2d']);
+    return gridjs.html(`<span style="background:${col[0]};color:${col[1]};font-weight:600;padding:2px 6px;border-radius:6px">${v}</span>`);};
+  const cfg={columns:[{name:'Name'},{name:'Type'},{name:'Tier'},
+      {name:'Growth',formatter:c=>c+'%'},{name:'P(>25% fall)',formatter:c=>c+'%'},
+      {name:'↻2y',formatter:c=>c+'%'},{name:'>3y tail',formatter:c=>tailFmt(c)},
+      {name:'×S&P',formatter:c=>(c===null?'—':c+'×')},
+      {name:'vs S&P',formatter:c=>vsFmt(c)},{name:'vs SCHD',formatter:c=>vsFmt(c)},
+      {name:'Δ30d',formatter:c=>dFmt(c)}],
+    data:rows, sort:true, search:true, pagination:{limit:12}};
+  if(grid){grid.updateConfig(cfg).forceRender();}
+  else{grid=new gridjs.Grid(cfg); grid.render(document.getElementById('tbl'));}
+}
+// ---- Chart.js visuals (selectable) ----
+let CHART='scatter', chartObj=null;
+const PAL=['#185fa5','#1d9e75','#ef9f27','#e24b4a','#7f77dd','#d4537e','#d85a30','#888780','#5dcaa5','#85b7eb','#97c459','#f0997b','#afa9ec','#b4b2a9'];
+function tierColor(t){return t==='High'?'#e24b4a':(t==='Moderate'?'#ef9f27':'#1d9e75');}
+function renderChart(){
+  if(typeof Chart==='undefined')return;
+  const rows=shown(); const ctx=document.getElementById('chart');
+  document.getElementById('metric').style.display = (CHART==='bar')?'inline-block':'none';
+  if(chartObj){chartObj.destroy(); chartObj=null;}
+  let cfg;
+  if(CHART==='scatter'){
+    cfg={type:'scatter',data:{datasets:[{
+        data:rows.map(r=>({x:r.growth,y:r.tail,nm:r.name})),
+        backgroundColor:rows.map(r=>tierColor(r.tier)),pointRadius:6,pointHoverRadius:8}]},
+      options:{responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.raw.nm+': growth '+c.raw.x+'%, >3y tail '+c.raw.y+'%'}}},
+        scales:{x:{title:{display:true,text:'expected 18m growth %'}},
+                 y:{title:{display:true,text:'>3y tail % — risk (lower safer)'}}}}};
+  } else if(CHART==='bar'){
+    const m=document.getElementById('metric').value;
+    const srt=[...rows].sort((a,b)=>b[m]-a[m]).slice(0,16);
+    cfg={type:'bar',data:{labels:srt.map(r=>r.name),datasets:[{
+        data:srt.map(r=>r[m]),backgroundColor:srt.map(r=>tierColor(r.tier))}]},
+      options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x+'%'}}},
+        scales:{x:{ticks:{callback:v=>v+'%'}}}}};
+  } else if(CHART==='pie'){
+    const counts={}; rows.forEach(r=>counts[r.theme]=(counts[r.theme]||0)+1);
+    const labels=Object.keys(counts);
+    cfg={type:'doughnut',data:{labels,datasets:[{data:labels.map(l=>counts[l]),
+        backgroundColor:labels.map((l,i)=>PAL[i%PAL.length])}]},
+      options:{responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{position:'right',labels:{boxWidth:12,font:{size:11}}},
+          tooltip:{callbacks:{label:c=>c.label+': '+c.parsed+' names'}}}}};
+  } else { // recovery curve: avg recover-by 1/2/3y for the shown set, by tier
+    const tiers=['High','Moderate','Safe'];
+    const xs=['1y','2y','3y'];
+    const ds=tiers.map(t=>{
+      const g=rows.filter(r=>r.tier===t);
+      const avg=k=>g.length?Math.round(g.reduce((s,r)=>s+r[k],0)/g.length):null;
+      return {label:t+' tier',data:[avg('r1'),avg('r2'),avg('r3')],
+        borderColor:tierColor(t),backgroundColor:tierColor(t),tension:.3,
+        borderWidth:2,spanGaps:true};
+    }).filter(d=>d.data.some(v=>v!==null));
+    cfg={type:'line',data:{labels:xs,datasets:ds},
+      options:{responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{position:'bottom'},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y+'% recovered'}}},
+        scales:{y:{title:{display:true,text:'P(recovered | fell >25%)'},ticks:{callback:v=>v+'%'}}}}};
+  }
+  chartObj=new Chart(ctx,cfg);
+}
+function safe(fn){try{fn();}catch(e){console.error(e);}}
+function refresh(){safe(renderBars); safe(renderGrid); safe(renderChart);}
+// Wire the controls FIRST, so selections always respond even if a chart
+// library is still loading. Renders are guarded and re-run on window load.
+const tg=document.getElementById('toggle');
+if(tg){tg.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+  FILTER=b.dataset.k; tg.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b)); refresh();});}
+const cbar=document.querySelector('.cbar');
+if(cbar){cbar.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+  CHART=b.dataset.c; cbar.querySelectorAll('button').forEach(x=>x.classList.toggle('con',x===b)); safe(renderChart);});}
+const met=document.getElementById('metric'); if(met){met.onchange=()=>safe(renderChart);}
+refresh();
+window.addEventListener('load', refresh);
+
+const STARTERS=[
+ "Which names have the best growth for the lowest >3y tail?",
+ "Why is CoreWeave's >3y tail high if it grows fast?",
+ "Compare the ETFs vs the single stocks on risk.",
+ "What changed most over the last 30 days?",
+ "If I can hold 3 years, which high-growth names look survivable?"];
+const chips=document.getElementById('chips'), q=document.getElementById('q'),
+      go=document.getElementById('go'), ans=document.getElementById('ans');
+STARTERS.forEach(s=>{const c=document.createElement('span');c.className='chip';c.textContent=s;
+  c.onclick=()=>{q.value=s;ask();};chips.appendChild(c);});
+async function ask(){
+  const text=q.value.trim(); if(!text)return;
+  if(!(window.cowork&&window.cowork.askClaude)){ans.textContent='Open this in Cowork to use the Ask box.';return;}
+  ans.textContent='Thinking…';
+  try{
+    const prompt="You are looking at a growth-vs-recovery dashboard. Each row: name, type, tier, growth=expected 18m revenue growth %, pfall=P(>25% drawdown), r1/r2/r3=chance of recovering within 1/2/3 years IF it falls, tail=unconditional chance a >25% fall takes >3 years to recover (lower=safer), d30=30-day change in that tail. Answer this question using ONLY the data, concisely, naming specific tickers and numbers: "+text;
+    const a=await window.cowork.askClaude(prompt, DATA);
+    ans.textContent=(typeof a==='string')?a:JSON.stringify(a);
+  }catch(e){ans.textContent='Error: '+e;}
+}
+go.onclick=ask;
+q.addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.metaKey||e.ctrlKey))ask();});
+</script></body></html>

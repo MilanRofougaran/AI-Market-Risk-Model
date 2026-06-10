@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Systemic + TAM Risk model — start here</title>
+<style>
+:root{color-scheme:light}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:#faf9f5;color:#1c1c1a;margin:0;padding:32px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto}
+h1{font-size:23px;margin:0 0 4px}
+.dis{background:#fceBEB;color:#a32d2d;border-radius:10px;padding:9px 14px;font-size:13px;margin:14px 0 22px}
+h2{font-size:15px;color:#6b6a64;font-weight:600;margin:24px 0 8px;text-transform:uppercase;letter-spacing:.04em}
+.card{display:block;background:#fff;border:1px solid #e7e5dd;border-radius:12px;padding:14px 18px;margin-bottom:10px;text-decoration:none;color:inherit}
+.card:hover{border-color:#185fa5}
+.card .t{font-size:16px;font-weight:600;color:#185fa5}
+.card .d{font-size:13px;color:#6b6a64;margin-top:2px}
+.foot{color:#8b8a82;font-size:12px;margin-top:24px}
+code{background:#f1efe8;padding:1px 5px;border-radius:4px;font-size:12px}
+</style></head><body><div class="wrap">
+<h1>Systemic + TAM Risk model</h1>
+<div style="color:#6b6a64;font-size:14px">Growth-tiered ranking with drawdown / recovery risk, macro-stress, and concentration — for US AI / semiconductor names and ETFs.</div>
+<div class="dis"><b>Research model — not investment advice.</b> Every figure is conditional on stated assumptions; read tiers and ranges, not decimals.</div>
+
+<h2>Look at the results</h2>
+<a class="card" href="tier_artifact.html"><div class="t">▶ Full interactive dashboard</div><div class="d">All names. Selectable charts (growth-vs-risk, ranking, sector, recovery), recovery-profile bars, sortable table, All/Stocks/ETFs toggle. Opens in any browser; the "Ask" box works inside Cowork.</div></a>
+<a class="card" href="tier_artifact_etf.html"><div class="t">▶ ETF-only dashboard</div><div class="d">Just the funds, 1–3 per growth tier — for ETF holders.</div></a>
+<a class="card" href="tier_dashboard.html"><div class="t">Simple dashboard (offline)</div><div class="d">Bars + table + warnings, fully self-contained (no internet needed). No charts.</div></a>
+
+<h2>The numbers</h2>
+<a class="card" href="tier_table.csv"><div class="t">tier_table.csv</div><div class="d">Every name: growth, P(&gt;25% fall), recover-by 1/2/3y, &gt;3y tail, 30-day change. Opens in Excel.</div></a>
+<a class="card" href="tier_table_etf.csv"><div class="t">tier_table_etf.csv</div><div class="d">Same, ETFs only.</div></a>
+
+<h2>Read the analysis</h2>
+<a class="card" href="ANALYST_GUIDE.md"><div class="t">ANALYST_GUIDE.md — read me first</div><div class="d">How to view, how to run your own analysis, what the model does and doesn't capture, and what not to edit.</div></a>
+<a class="card" href="five_year_thesis.md"><div class="t">five_year_thesis.md</div><div class="d">Drops are inevitable over a long hold; recovery + runway are the test.</div></a>
+<a class="card" href="test_jun2026_results.md"><div class="t">test_jun2026_results.md</div><div class="d">Worked example on a 10-name request.</div></a>
+
+<h2>Run your own (Python 3 + numpy)</h2>
+<div style="font-size:13px;color:#444;background:#fff;border:1px solid #e7e5dd;border-radius:12px;padding:14px 18px">
+Check any ticker not in the list (non-destructive what-if):<br>
+<code>python3 analyze_name.py --name "Nebius" --growth 0.65 --rev_bn 1.5 --tam_bn 200 --tam_cagr 0.40 --fwd_pe 90 --beta 2.1 --quality 0.6 --earn_quality 0.4 --dominance 0.4 --capex_elastic 0.4</code><br><br>
+Other tools: <code>stress_test.py</code> (macro ladder), <code>correlation.py</code> (concentration), <code>build_dashboard.py</code> (rebuild the views). Full instructions in the guide.
+</div>
+
+<div class="foot">One package: open this page, then pick what you need. Calibration files (calibration.py, tam_bridge.py, tiering.py, engine.py) are the model owner's — please don't edit; send corrections instead.</div>
+</div></body></html>

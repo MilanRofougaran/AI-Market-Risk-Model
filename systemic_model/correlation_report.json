@@ -1,0 +1,58 @@
+{
+ "groups": {
+  "AI-infra": 24,
+  "AI-platform": 10,
+  "defensive": 6,
+  "disruptive": 2
+ },
+ "group_rho": {
+  "AI-infra": 0.55,
+  "AI-platform": 0.4,
+  "defensive": 0.3,
+  "disruptive": 0.35
+ },
+ "baskets": [
+  {
+   "label": "Whole universe (equal-weight)",
+   "n": 42,
+   "rho_with": 0.88,
+   "neff_with": 1.1,
+   "rho_indep": 0.86,
+   "neff_indep": 1.2,
+   "port_dd25_with": 0.604125,
+   "port_dd25_indep": 0.593875,
+   "port_dd35_with": 0.34425,
+   "port_dd35_indep": 0.333625
+  },
+  {
+   "label": "Tier-1 high-growth basket",
+   "n": 11,
+   "rho_with": 0.94,
+   "neff_with": 1.1,
+   "rho_indep": 0.91,
+   "neff_indep": 1.1,
+   "port_dd25_with": 0.737625,
+   "port_dd25_indep": 0.72225,
+   "port_dd35_with": 0.480875,
+   "port_dd35_indep": 0.467125
+  }
+ ],
+ "etf_corr": {
+  "SMH (VanEck Semis)": {
+   "lead": "NVIDIA",
+   "corr": 0.95
+  },
+  "SOXX (iShares Semis)": {
+   "lead": "Micron",
+   "corr": 0.94
+  },
+  "DRAM (Roundhill Memory)": {
+   "lead": "Micron",
+   "corr": 0.94
+  },
+  "CHAT (Roundhill GenAI)": {
+   "lead": "NVIDIA",
+   "corr": 0.94
+  }
+ }
+}

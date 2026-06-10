@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Systemic + TAM — live dashboard</title>
+<style>
+:root{--bg:#faf9f5;--card:#fff;--ink:#1c1c1a;--mut:#6b6a64;--line:#e7e5dd;
+--lo-b:#e1f5ee;--lo-t:#0f6e56;--mid-b:#faeeda;--mid-t:#854f0b;--hi-b:#fceBEB;--hi-t:#a32d2d;
+--up:#a32d2d;--down:#0f6e56;--info-b:#e6f1fb;--info-t:#185fa5;}
+*{box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+background:var(--bg);color:var(--ink);margin:0;padding:24px;line-height:1.5}
+.wrap{max-width:860px;margin:0 auto}
+h1{font-size:22px;font-weight:600;margin:0 0 2px}
+.meta{color:var(--mut);font-size:13px;margin-bottom:18px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--mut);margin-bottom:14px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:middle;margin-right:4px}
+.explain{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.explain .b{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 14px}
+.explain .b h4{margin:0 0 3px;font-size:13px;font-weight:600}
+.explain .b p{margin:0;font-size:12px;color:var(--mut);line-height:1.5}
+@media(max-width:640px){.explain{grid-template-columns:1fr}}
+h3{font-size:15px;font-weight:600;margin:22px 0 8px}
+.sub{color:var(--mut);font-weight:400;font-size:12px}
+.tier{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+.row{display:grid;grid-template-columns:138px 104px 88px 1fr 46px 56px;align-items:center;
+gap:9px;padding:7px 14px;border-bottom:1px solid var(--line);font-size:13px}
+.row:last-child{border-bottom:none}
+.nm{font-weight:600}
+.badge{font-size:9px;padding:1px 4px;border-radius:4px;margin-left:4px;font-weight:500}
+.badge.etf{background:#f1efe8;color:#5f5e5a} .badge.stk{background:var(--info-b);color:var(--info-t)}
+.th{color:var(--mut);font-size:12px}
+.gw{display:flex;align-items:center;gap:7px}
+.bar{flex:1;height:7px;background:#efeee8;border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--info-t);border-radius:4px}
+.gw b{font-weight:600;min-width:30px}
+.rec{display:flex;height:11px;border-radius:3px;overflow:hidden;background:#efeee8}
+.seg{height:100%} .seg.nofall{background:#efeee8}
+.seg.s1{background:#1d9e75} .seg.s2{background:#9fe1cb} .seg.s3{background:#ef9f27} .seg.s4{background:#e24b4a}
+.tail{text-align:center;font-weight:600;padding:2px 0;border-radius:6px;font-size:12px}
+.rk-lo{background:var(--lo-b);color:var(--lo-t)} .rk-mid{background:var(--mid-b);color:var(--mid-t)}
+.rk-hi{background:var(--hi-b);color:var(--hi-t)} .rk-na{color:var(--mut)}
+.chg{font-size:11px;text-align:right;white-space:nowrap}
+.up{color:var(--up);font-weight:600} .down{color:var(--down);font-weight:600} .flat{color:var(--mut)}
+.panel{margin-top:24px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.chglist{margin:6px 0 0;padding-left:18px} .chglist li{margin:3px 0;font-size:13px}
+.foot{color:var(--mut);font-size:11px;margin-top:22px}
+table.dt{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+table.dt th,table.dt td{padding:5px 7px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+table.dt th{color:var(--mut);font-weight:500;font-size:11px;border-bottom:1px solid var(--mut)}
+table.dt td.l,table.dt th.l{text-align:left}
+table.dt tr:hover{background:var(--bg)}
+td.t-lo{color:var(--lo-t);font-weight:600} td.t-mid{color:var(--mid-t);font-weight:600} td.t-hi{color:var(--hi-t);font-weight:600}
+.up{color:var(--up)} .down{color:var(--down)}
+</style></head><body><div class="wrap">
+<h1>Systemic + TAM — growth × risk, tracked over time — ETFs only (1-3 per tier)</h1>
+<div class="meta">Model as of 2026-06-05 · regenerated 2026-06-10 05:02 · research model, not investment advice</div>
+<div style="background:#f1efe8;border-radius:10px;padding:8px 13px;margin-bottom:14px;font-size:12px;color:#5f5e5a"><b>Macro-stress index 48/100</b> (moderate (watch-zone)) — structural fragility 58, acute trigger 25 · scales every name's drawdown odds by x0.99 vs a neutral backdrop.</div>
+<div style="background:#fceBEB;border-radius:10px;padding:8px 13px;margin-bottom:14px;font-size:12px;color:#a32d2d"><b>Concentration warning</b> — these names are mostly ONE bet (the AI-capex cycle): ~1 effective independent bets across 42 names (avg correlation 0.88). A specialized ETF ≈ 0.95 correlated with its lead holding, so it barely diversifies. P(equal-weight basket falls &gt;25% in 18m) ≈ 60%. Size to the bet, not the name count.</div>
+<div class="legend">
+  <span><i style="background:var(--info-t)"></i>growth, next 18m</span>
+  <span><i style="background:#efeee8"></i>no &gt;25% fall</span>
+  <span><i style="background:#1d9e75"></i>back ≤1y</span>
+  <span><i style="background:#9fe1cb"></i>1–2y</span>
+  <span><i style="background:#ef9f27"></i>2–3y</span>
+  <span><i style="background:#e24b4a"></i>&gt;3y (long)</span>
+  <span>▲▼ = 30-day change in the &gt;3y tail</span>
+</div>
+<div class="explain">
+  <div class="b"><h4>Growth % — "how fast"</h4>
+    <p>Forward estimate of <b>revenue growth over the next 18 months</b>; it sets the tier (high &gt;40%, moderate 15–40%, safe &lt;15%). Bigger = faster-growing, with more upside <em>and</em> usually more to lose in a panic.</p></div>
+  <div class="b"><h4>Recovery bar &amp; the &gt;3y % — "how long to climb back"</h4>
+    <p>Across all scenarios: the grey slice is "never fell &gt;25%"; the greens are deep falls that recovered within <b>1 / 2 / 3 years</b>; the <b>red slice is the &gt;3-year tail</b> — a deep fall that takes <em>many years</em> to heal (we can't truly say "never" — the sim only runs ~3.5y). The % shown is that red tail. For a single stock it largely reflects <b>management/execution risk</b>; a diversified ETF dilutes it.</p></div>
+</div>
+<details style="margin:6px 0 16px;background:#fff;border:1px solid #e7e5dd;border-radius:10px;padding:10px 14px">
+  <summary style="cursor:pointer;font-weight:600;font-size:13px">How the ranking works</summary>
+  <div style="font-size:12px;color:#444;line-height:1.6;margin-top:8px">
+  Two axes, two sort keys — so different views can look ordered differently even though it's the same data:
+  <ul style="margin:6px 0;padding-left:18px">
+    <li><b>Growth</b> (expected 18-month revenue growth) sets the <b>tier</b> (&gt;40% / 15–40% / &lt;15%). The recovery-profile <b>bars are sorted by growth</b> within each tier.</li>
+    <li><b>Risk</b> is <b>simulated</b>, not assigned: a regime-switching Monte Carlo where <b>beta sets how deep a name falls</b> and <b>TAM-penetration sets whether it recovers</b>. The headline is the <b>&gt;3y tail</b> (P of a &gt;25% fall still underwater at ~3.5y). Macro-stress scales the crisis odds.</li>
+    <li><b>vs S&amp;P / vs SCHD</b> combine both: (growth ÷ benchmark growth) × (benchmark tail ÷ name tail). Benchmark = 1.00. <b>Sorting by this gives a different order than sorting by growth</b> — it rewards growth-per-unit-of-risk, so a lower-tail name can outrank a faster grower.</li>
+  </ul>
+  Not an expected-return forecast or a buy list; growth and the judgment scores are opinions the model sweeps. The vs-S&amp;P scaling is growth-tilted (it under-penalizes leveraged ETFs' fat tails — check P(&gt;25% fall) directly).
+  </div>
+</details>
+<h3>TIER 1  ·  HIGH growth (&gt;40% expected, 18m)</h3><div class="tier">
+            <div class="row">
+              <div class="nm">DRAM (Roundhill Memory)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Memory / HBM</div>
+              <div class="gw"><div class="bar"><i style="width:56%"></i></div><b>45%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:45.0%"></span><span class="seg s1" style="width:0.0%"></span><span class="seg s2" style="width:25.5%"></span><span class="seg s3" style="width:3.6%"></span><span class="seg s4" style="width:25.9%"></span>
+              </div>
+              <div class="tail rk-mid">26%</div>
+              <div class="chg"><span class="down">▼ -7pp</span></div>
+            </div>
+            <div class="row">
+              <div class="nm">ARKK (ARK Innovation)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Disruptive (Tesla-led)</div>
+              <div class="gw"><div class="bar"><i style="width:52%"></i></div><b>42%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:27.4%"></span><span class="seg s1" style="width:14.5%"></span><span class="seg s2" style="width:10.0%"></span><span class="seg s3" style="width:5.5%"></span><span class="seg s4" style="width:42.6%"></span>
+              </div>
+              <div class="tail rk-hi">43%</div>
+              <div class="chg"><span class="flat">—</span></div>
+            </div></div><h3>TIER 2  ·  MODERATE growth (15-40%)</h3><div class="tier">
+            <div class="row">
+              <div class="nm">CHAT (Roundhill GenAI)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Generative AI</div>
+              <div class="gw"><div class="bar"><i style="width:40%"></i></div><b>32%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:56.9%"></span><span class="seg s1" style="width:10.6%"></span><span class="seg s2" style="width:7.7%"></span><span class="seg s3" style="width:4.5%"></span><span class="seg s4" style="width:20.2%"></span>
+              </div>
+              <div class="tail rk-lo">20%</div>
+              <div class="chg"><span class="down">▼ -9pp</span></div>
+            </div>
+            <div class="row">
+              <div class="nm">SMH (VanEck Semis)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Semis (broad)</div>
+              <div class="gw"><div class="bar"><i style="width:37%"></i></div><b>30%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:57.0%"></span><span class="seg s1" style="width:10.9%"></span><span class="seg s2" style="width:7.6%"></span><span class="seg s3" style="width:4.3%"></span><span class="seg s4" style="width:20.2%"></span>
+              </div>
+              <div class="tail rk-lo">20%</div>
+              <div class="chg"><span class="down">▼ -8pp</span></div>
+            </div>
+            <div class="row">
+              <div class="nm">SOXX (iShares Semis)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Semis (broad)</div>
+              <div class="gw"><div class="bar"><i style="width:35%"></i></div><b>28%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:56.0%"></span><span class="seg s1" style="width:11.5%"></span><span class="seg s2" style="width:7.6%"></span><span class="seg s3" style="width:4.1%"></span><span class="seg s4" style="width:20.8%"></span>
+              </div>
+              <div class="tail rk-lo">21%</div>
+              <div class="chg"><span class="down">▼ -9pp</span></div>
+            </div></div><h3>TIER 3  ·  SAFE / smaller growth (&lt;15%)</h3><div class="tier">
+            <div class="row">
+              <div class="nm">VGT (Info Tech)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Info tech (broad)</div>
+              <div class="gw"><div class="bar"><i style="width:19%"></i></div><b>15%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:61.7%"></span><span class="seg s1" style="width:6.1%"></span><span class="seg s2" style="width:5.5%"></span><span class="seg s3" style="width:3.4%"></span><span class="seg s4" style="width:23.3%"></span>
+              </div>
+              <div class="tail rk-mid">23%</div>
+              <div class="chg"><span class="flat">—</span></div>
+            </div>
+            <div class="row">
+              <div class="nm">DTCR (Data Ctr Infra)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Data-center infra</div>
+              <div class="gw"><div class="bar"><i style="width:18%"></i></div><b>14%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:70.5%"></span><span class="seg s1" style="width:3.0%"></span><span class="seg s2" style="width:3.2%"></span><span class="seg s3" style="width:2.5%"></span><span class="seg s4" style="width:20.8%"></span>
+              </div>
+              <div class="tail rk-lo">21%</div>
+              <div class="chg"><span class="flat">—</span></div>
+            </div>
+            <div class="row">
+              <div class="nm">VOO (S&amp;P 500)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Broad US market</div>
+              <div class="gw"><div class="bar"><i style="width:11%"></i></div><b>9%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:71.8%"></span><span class="seg s1" style="width:3.6%"></span><span class="seg s2" style="width:3.9%"></span><span class="seg s3" style="width:2.5%"></span><span class="seg s4" style="width:18.2%"></span>
+              </div>
+              <div class="tail rk-lo">18%</div>
+              <div class="chg"><span class="flat">—</span></div>
+            </div></div><h3>Trading vehicles — 3x leveraged (volatility decay; excluded from tiers &amp; rankings)</h3><div class="tier">
+            <div class="row">
+              <div class="nm">SOXL (3x Semis)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Semis 3x leveraged</div>
+              <div class="gw"><div class="bar"><i style="width:75%"></i></div><b>60%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:0.2%"></span><span class="seg s1" style="width:46.5%"></span><span class="seg s2" style="width:12.1%"></span><span class="seg s3" style="width:5.9%"></span><span class="seg s4" style="width:35.2%"></span>
+              </div>
+              <div class="tail rk-hi">35%</div>
+              <div class="chg"><span class="flat">—</span></div>
+            </div>
+            <div class="row">
+              <div class="nm">TECL (3x Tech)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Tech 3x leveraged</div>
+              <div class="gw"><div class="bar"><i style="width:62%"></i></div><b>50%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:2.4%"></span><span class="seg s1" style="width:44.6%"></span><span class="seg s2" style="width:11.9%"></span><span class="seg s3" style="width:6.0%"></span><span class="seg s4" style="width:35.1%"></span>
+              </div>
+              <div class="tail rk-hi">35%</div>
+              <div class="chg"><span class="flat">—</span></div>
+            </div>
+            <div class="row">
+              <div class="nm">TQQQ (3x NDX)
+                <span class="badge etf">ETF</span></div>
+              <div class="th">Nasdaq 3x leveraged</div>
+              <div class="gw"><div class="bar"><i style="width:56%"></i></div><b>45%</b></div>
+              <div class="rec" title="if it falls >25%: recovers ≤1y / 1-2y / 2-3y / takes >3y">
+                <span class="seg nofall" style="width:2.4%"></span><span class="seg s1" style="width:44.6%"></span><span class="seg s2" style="width:11.9%"></span><span class="seg s3" style="width:6.0%"></span><span class="seg s4" style="width:35.1%"></span>
+              </div>
+              <div class="tail rk-hi">35%</div>
+              <div class="chg"><span class="flat">—</span></div>
+            </div></div>
+
+    <div class="panel"><h3>All numbers <span class="sub">(full set, incl. recovery-by-1/2/3y, exported to tier_table.csv)</span></h3>
+      <table class="dt"><thead><tr>
+        <th class="l">Name</th><th class="l">Type</th><th class="l">Tier</th>
+        <th>Growth</th><th>P(&gt;25% fall)</th><th>↻2y</th><th>&gt;3y tail</th>
+        <th>×S&amp;P</th><th>vs&nbsp;S&amp;P</th><th>vs&nbsp;SCHD</th><th>Δ30d</th>
+      </tr></thead><tbody><tr><td class="l">DRAM (Roundhill Memory)</td><td class="l">ETF</td><td class="l">High</td><td>45%</td><td>55%</td><td>46%</td><td class="t-mid">26%</td><td>1.42×</td><td class="t-lo"><b>3.53</b></td><td class="t-lo"><b>3.73</b></td><td class="down">-7</td></tr><tr><td class="l">ARKK (ARK Innovation)</td><td class="l">ETF</td><td class="l">High</td><td>42%</td><td>73%</td><td>34%</td><td class="t-hi">43%</td><td>2.34×</td><td class="t-lo"><b>2.0</b></td><td class="t-lo"><b>2.11</b></td><td style="color:var(--mut)">new</td></tr><tr><td class="l">CHAT (Roundhill GenAI)</td><td class="l">ETF</td><td class="l">Moderate</td><td>32%</td><td>43%</td><td>43%</td><td class="t-lo">20%</td><td>1.11×</td><td class="t-lo"><b>3.2</b></td><td class="t-lo"><b>3.39</b></td><td class="down">-9</td></tr><tr><td class="l">SMH (VanEck Semis)</td><td class="l">ETF</td><td class="l">Moderate</td><td>30%</td><td>43%</td><td>43%</td><td class="t-lo">20%</td><td>1.11×</td><td class="t-lo"><b>3.0</b></td><td class="t-lo"><b>3.18</b></td><td class="down">-8</td></tr><tr><td class="l">SOXX (iShares Semis)</td><td class="l">ETF</td><td class="l">Moderate</td><td>28%</td><td>44%</td><td>43%</td><td class="t-lo">21%</td><td>1.14×</td><td class="t-lo"><b>2.74</b></td><td class="t-lo"><b>2.9</b></td><td class="down">-9</td></tr><tr><td class="l">VGT (Info Tech)</td><td class="l">ETF</td><td class="l">Moderate</td><td>15%</td><td>38%</td><td>30%</td><td class="t-mid">23%</td><td>1.27×</td><td class="t-lo"><b>1.31</b></td><td class="t-lo"><b>1.38</b></td><td style="color:var(--mut)">new</td></tr><tr><td class="l">DTCR (Data Ctr Infra)</td><td class="l">ETF</td><td class="l">Safe</td><td>14%</td><td>30%</td><td>21%</td><td class="t-lo">21%</td><td>1.14×</td><td class="t-lo"><b>1.37</b></td><td class="t-lo"><b>1.45</b></td><td style="color:var(--mut)">new</td></tr><tr><td class="l">VOO (S&amp;P 500)</td><td class="l">ETF</td><td class="l">Safe</td><td>9%</td><td>28%</td><td>27%</td><td class="t-lo">18%</td><td>1.0×</td><td class="t-lo"><b>1.0</b></td><td class="t-lo"><b>1.06</b></td><td style="color:var(--mut)">new</td></tr><tr><td class="l">SOXL (3x Semis)</td><td class="l">ETF</td><td class="l">Trading</td><td>60%</td><td>100%</td><td>59%</td><td class="t-hi">35%</td><td>1.93×</td><td class="t-lo"><b>3.45</b></td><td class="t-lo"><b>3.65</b></td><td style="color:var(--mut)">new</td></tr><tr><td class="l">TECL (3x Tech)</td><td class="l">ETF</td><td class="l">Trading</td><td>50%</td><td>98%</td><td>58%</td><td class="t-hi">35%</td><td>1.92×</td><td class="t-lo"><b>2.89</b></td><td class="t-lo"><b>3.05</b></td><td style="color:var(--mut)">new</td></tr><tr><td class="l">TQQQ (3x NDX)</td><td class="l">ETF</td><td class="l">Trading</td><td>45%</td><td>98%</td><td>58%</td><td class="t-hi">35%</td><td>1.92×</td><td class="t-lo"><b>2.6</b></td><td class="t-lo"><b>2.75</b></td><td style="color:var(--mut)">new</td></tr></tbody></table>
+      <p class="sub" style="margin-top:8px">↻2y = chance of recovering within 2y if it falls &gt;25%. <b>&gt;3y tail</b> = still-underwater-at-~3.5y probability. <b>×S&amp;P</b> = &gt;3y tail ÷ the S&amp;P's &gt;3y tail (risk relative to the index). <b>vs S&amp;P / vs SCHD</b> = (growth ÷ benchmark growth) × (benchmark tail ÷ name tail) — reward-to-risk normalized so benchmark = <b>1.00</b>. Above 1 = more growth per unit of long-drawdown risk than the benchmark; below 1 = less. (e.g. DRAM = (45÷9)×(21÷24) ≈ 4.4.)</p>
+    </div>
+
+        <div class="panel">
+          <h3>What changed · last 30 days <span class="sub">(2026-05-06 → 2026-06-05)</span></h3>
+          <ul class="chglist"><li>ust_10y: 4.14 -&gt; 4.7  (+0.56 pts)</li><li>ust_10y_real: 1.79 -&gt; 2.25  (+0.46 pts) (slow creep — no single-day flag)</li><li>vix: 14.4 -&gt; 24  (+67%)</li><li>NVIDIA: perm-loss 23%-&gt;15% (-8pp, notable)</li><li>Broadcom: perm-loss 23%-&gt;16% (-7pp, notable)</li><li>Micron: recov-quality 24%-&gt;4% (-20pp, MAJOR)</li><li>Kioxia: recov-quality 10%-&gt;0% (-10pp, notable)</li><li>Marvell: perm-loss 25%-&gt;19% (-6pp, notable)</li><li>Qualcomm: perm-loss 23%-&gt;17% (-6pp, notable)</li><li>AMD: perm-loss 26%-&gt;19% (-6pp, notable)</li><li>ARM: perm-loss 25%-&gt;21% (-5pp, notable)</li><li>Lumentum: fragility 41%-&gt;47% (+6pp, slow creep, notable); penetration 10%-&gt;12% (+2pp, slow creep, notable)</li><li>IonQ: perm-loss 28%-&gt;38% (+10pp, MAJOR)</li><li>Palantir: perm-loss 25%-&gt;19% (-6pp, notable)</li><li>AppLovin: fragility 32%-&gt;41% (+9pp, notable)</li><li>Meta: fragility 6%-&gt;12% (+6pp, notable); recov-quality 38%-&gt;27% (-10pp, MAJOR); perm-loss 22%-&gt;15% (-8pp, notable)</li><li>Microsoft: recov-quality 41%-&gt;34% (-7pp, notable); perm-loss 21%-&gt;14% (-7pp, notable)</li><li>Amazon: perm-loss 26%-&gt;20% (-6pp, notable)</li><li>SMH (VanEck Semis): perm-loss 23%-&gt;15% (-8pp, MAJOR)</li><li>SOXX (iShares Semis): perm-loss 24%-&gt;14% (-9pp, MAJOR)</li><li>DRAM (Roundhill Memory): perm-loss 25%-&gt;19% (-7pp, notable); penetration 23%-&gt;82% (+59pp, MAJOR)</li><li>QTUM (Defiance Quantum): perm-loss 25%-&gt;19% (-5pp, notable)</li><li>AIQ (Global X AI): perm-loss 24%-&gt;14% (-9pp, MAJOR); penetration 21%-&gt;25% (+4pp, notable)</li><li>CHAT (Roundhill GenAI): perm-loss 23%-&gt;14% (-9pp, MAJOR)</li><li>** Micron: recov-quality MAJOR move -20pp</li><li>** IonQ: crossed INTO elevated permanent-loss (&gt;30%)</li><li>** IonQ: perm-loss MAJOR move +10pp</li><li>** AppLovin: crossed INTO fragile (&gt;40%)</li><li>** Meta: recov-quality MAJOR move -10pp</li><li>** SMH (VanEck Semis): perm-loss MAJOR move -8pp</li><li>** SOXX (iShares Semis): perm-loss MAJOR move -9pp</li><li>** DRAM (Roundhill Memory): penetration MAJOR move +59pp</li><li>** AIQ (Global X AI): perm-loss MAJOR move -9pp</li><li>** CHAT (Roundhill GenAI): perm-loss MAJOR move -9pp</li></ul>
+        </div>
+<div class="foot">Tiers by expected 18-month growth (&gt;40% / 15–40% / &lt;15%); ranked by growth within tier.
+The recovery bar &amp; &gt;3y tail are unconditional (across all scenarios), so they're comparable across names and between stocks and ETFs.
+The arrow shows the 30-day change in the &gt;3y tail. Growth figures are forward estimates; recovery figures are simulated.</div>
+</div></body></html>

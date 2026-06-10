@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Systemic + TAM Risk — Live Dashboard</title>
+<style>
+:root{
+  --ink:#13202B; --ink2:#1B2C3A; --paper:#F5F7F8; --card:#FFFFFF;
+  --macro:#0F5D77; --mac2:#1B89AA; --macsoft:#E2EEF2;
+  --prem:#A86E16; --prm2:#CC9234; --premsoft:#F7ECD7;
+  --frz:#9E2B3C; --frzsoft:#F4E3E5; --good:#2C7A55; --goodsoft:#E3F0E9;
+  --faint:#5C6B79; --line:#D7DEE4; --soft:#EEF2F5;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box} html,body{margin:0;height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px}
+button{font-family:var(--sans);cursor:pointer}
+.mono{font-family:var(--mono)}
+a{color:var(--macro)}
+
+/* header */
+header{background:var(--ink);color:#EAF1F5;padding:14px 22px 0}
+.h-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.h-title{font-size:19px;font-weight:700;letter-spacing:.01em}
+.badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;padding:3px 9px;border-radius:3px;font-weight:600}
+.badge.live{background:#15323E;color:#7FD6C2;border:1px solid #1F4A57}
+.badge.static{background:#2A3B47;color:#AEC4D0;border:1px solid #3A4C58}
+.h-meta{font-family:var(--mono);font-size:11px;color:#8AA3B1;margin-left:auto}
+.h-actions{display:flex;gap:8px;margin-left:8px}
+.btn{border:1px solid #3A4C58;background:#1B2C3A;color:#DCE8EE;border-radius:5px;padding:7px 12px;font-size:12.5px;font-weight:600}
+.btn:hover{background:#22364512;border-color:#4A6070;background:#223645}
+.btn.primary{background:var(--mac2);border-color:var(--mac2);color:#06222C}
+.btn.primary:hover{background:#27A0C4}
+.btn:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--mac2);outline-offset:2px}
+
+/* signature: live envelope strip — crush width binds to stress */
+.envelope{display:block;width:100%;height:54px;margin-top:10px}
+
+/* macro chips */
+.chips{display:flex;gap:10px;flex-wrap:wrap;padding:12px 22px;background:var(--ink2)}
+.chip{background:#16242F;border:1px solid #243744;border-radius:6px;padding:7px 12px;min-width:110px}
+.chip .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:#7E97A6;text-transform:uppercase}
+.chip .v{font-family:var(--mono);font-size:15px;font-weight:600;color:#EAF1F5;margin-top:2px}
+.chip .v.warn{color:#E3B264}.chip .v.calm{color:#7FD6C2}
+
+/* controls */
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:14px 22px;border-bottom:1px solid var(--line);background:var(--card)}
+.controls input[type=search]{padding:8px 12px;border:1px solid var(--line);border-radius:6px;font-size:13px;width:230px;background:#FBFCFD}
+.seg{display:flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{border:0;background:#FBFCFD;padding:7px 11px;font-size:12px;color:var(--faint);border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--macro);color:#fff;font-weight:600}
+select{padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:12.5px;background:#FBFCFD}
+.count{font-family:var(--mono);font-size:11px;color:var(--faint);margin-left:auto}
+
+/* layout */
+.main{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(330px,1fr);gap:0;min-height:60vh}
+@media(max-width:980px){.main{grid-template-columns:1fr}}
+
+/* table */
+.tablewrap{overflow:auto;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--soft);text-align:right;white-space:nowrap}
+th{position:sticky;top:0;background:var(--soft);font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);cursor:pointer;z-index:2}
+th:first-child,td:first-child{text-align:left;padding-left:18px}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:#F3F8FA}
+tbody tr.sel{background:var(--macsoft)}
+td.name{font-weight:600}
+.v-tag{font-family:var(--mono);font-size:9.5px;padding:2px 6px;border-radius:3px;font-weight:600;white-space:nowrap}
+.v-sec{background:var(--goodsoft);color:var(--good)} .v-cyc{background:var(--premsoft);color:var(--prem)}
+.v-safe{background:var(--macsoft);color:var(--macro)} .v-brk{background:var(--frzsoft);color:var(--frz)}
+.v-watch{background:#EDEFF2;color:var(--faint)} .v-lev{background:#E9E2F2;color:#5B3E8C}
+
+/* detail */
+.detail{border-left:1px solid var(--line);background:#FBFCFD;padding:18px 20px;overflow:auto}
+.detail h2{margin:.1em 0 .15em;font-size:20px}
+.d-sub{font-family:var(--mono);font-size:11px;color:var(--faint);margin-bottom:12px}
+.statrow{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px 12px;min-width:96px}
+.stat .k{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--faint);text-transform:uppercase}
+.stat .v{font-family:var(--mono);font-size:16px;font-weight:700}
+.mt{width:100%;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:10px 0 4px}
+.mt table{font-size:11.5px}
+.mt th{position:static;cursor:default}
+.cap{font-size:11px;color:var(--faint);font-style:italic;line-height:1.45;margin:6px 0 14px}
+.curve{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px}
+.empty{color:var(--faint);font-size:13px;padding:30px 10px;text-align:center}
+
+/* chat dock */
+.chat-toggle{position:fixed;right:18px;bottom:18px;z-index:40;background:var(--macro);color:#fff;border:0;border-radius:24px;padding:11px 18px;font-weight:700;font-size:13px;box-shadow:0 6px 18px rgba(15,50,65,.35)}
+.chat{position:fixed;right:18px;bottom:70px;width:380px;max-width:92vw;height:480px;max-height:72vh;background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 14px 40px rgba(10,25,35,.28);display:none;flex-direction:column;z-index:41;overflow:hidden}
+.chat.open{display:flex}
+.chat-h{background:var(--ink);color:#EAF1F5;padding:10px 14px;font-size:13px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.chat-h .mode{font-family:var(--mono);font-size:9.5px;color:#8FD0E0}
+.chat-b{flex:1;overflow:auto;padding:12px;display:flex;flex-direction:column;gap:8px;background:#F7FAFB}
+.msg{max-width:88%;padding:8px 11px;border-radius:9px;font-size:12.5px;line-height:1.5;white-space:pre-wrap}
+.msg.u{align-self:flex-end;background:var(--macro);color:#fff;border-bottom-right-radius:3px}
+.msg.a{align-self:flex-start;background:var(--card);border:1px solid var(--line);border-bottom-left-radius:3px}
+.msg.a .src{display:block;margin-top:6px;font-family:var(--mono);font-size:9px;color:var(--faint)}
+.chat-i{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:var(--card)}
+.chat-i input{flex:1;border:1px solid var(--line);border-radius:6px;padding:9px 11px;font-size:12.5px}
+.chat-i button{background:var(--macro);color:#fff;border:0;border-radius:6px;padding:0 14px;font-weight:700}
+
+/* modal */
+.modal-bg{position:fixed;inset:0;background:rgba(10,20,28,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal-bg.open{display:flex}
+.modal{background:var(--card);border-radius:10px;max-width:640px;width:100%;max-height:84vh;overflow:auto;padding:22px 26px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal h3{margin:.1em 0 .6em}
+.modal .log{background:#0F1C26;color:#C9DBE4;font-family:var(--mono);font-size:11px;border-radius:6px;padding:12px;white-space:pre-wrap;max-height:260px;overflow:auto;margin:10px 0}
+.modal .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:8px 0}
+.modal .btn{background:var(--macro);border-color:var(--macro);color:#fff}
+.modal .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.jstat{font-family:var(--mono);font-size:11px;padding:3px 8px;border-radius:3px;font-weight:700}
+.jstat.run{background:var(--premsoft);color:var(--prem)} .jstat.done{background:var(--goodsoft);color:var(--good)} .jstat.fail{background:var(--frzsoft);color:var(--frz)}
+
+footer{padding:14px 22px;font-size:11px;color:var(--faint);border-top:1px solid var(--line)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-top">
+    <span class="h-title">Systemic + TAM Risk</span>
+    <span id="badge" class="badge static">STATIC SNAPSHOT</span>
+    <span class="h-meta" id="asof">—</span>
+    <div class="h-actions">
+      <button class="btn primary" onclick="openRun('followed')">Refresh followed universe</button>
+      <button class="btn" onclick="openRun('discover')">Discover candidates</button>
+      <button class="btn" onclick="document.getElementById('arch').classList.add('open')">Architecture</button>
+    </div>
+  </div>
+  <svg id="env" class="envelope" viewBox="0 0 1000 54" preserveAspectRatio="none" aria-label="macro envelope, crush region reflects current stress"></svg>
+</header>
+
+<div class="chips" id="chips"></div>
+
+<div class="controls">
+  <input type="search" id="q" placeholder="Search name… (e.g. Micron, SMH)" oninput="render()">
+  <div class="seg" id="segType"></div>
+  <div class="seg" id="segTier"></div>
+  <div class="seg" id="segArch"></div>
+  <select id="sort" onchange="render()">
+    <option value="vssp">Sort: reward vs S&P</option>
+    <option value="growth">Sort: growth</option>
+    <option value="tail">Sort: >3y tail (safest first)</option>
+    <option value="p25">Sort: P(>25% fall)</option>
+    <option value="name">Sort: name</option>
+  </select>
+  <span class="count" id="count"></span>
+</div>
+
+<div class="main">
+  <div class="tablewrap">
+    <table>
+      <thead><tr>
+        <th onclick="setSort('name')">Name</th><th>Type</th><th>Tier</th><th>Verdict</th>
+        <th onclick="setSort('growth')">Growth</th><th onclick="setSort('p25')">P(&gt;25% fall)</th>
+        <th>Rec 2y</th><th onclick="setSort('tail')">&gt;3y tail</th><th onclick="setSort('vssp')">vs S&amp;P</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <aside class="detail" id="detail"><div class="empty">Select a name to see its drawdown × recovery matrix and curve.</div></aside>
+</div>
+
+<footer>
+  Research model — not investment advice. Probabilities are frequencies over simulated futures; growth/TAM/archetype inputs are documented judgments the simulation sweeps.
+  Engine: <span class="mono">run_all.py</span> · Discovery: <span class="mono">discovery/agent.py</span> · Chat: <span class="mono">dash_server.py /ask</span>
+</footer>
+
+<button class="chat-toggle" onclick="toggleChat()">Ask the model ▴</button>
+<div class="chat" id="chat">
+  <div class="chat-h"><span>Model analyst</span><span class="mode" id="chatmode">offline answers</span></div>
+  <div class="chat-b" id="chatb">
+    <div class="msg a">Ask about any name in the universe — “How risky is Micron?”, “Compare NVIDIA vs AMD”, “Top 5 by reward”, “What’s the macro reading?”<span class="src">Answers cite the model’s current numbers. Research model, not investment advice.</span></div>
+  </div>
+  <div class="chat-i">
+    <input id="chatq" placeholder="Ask about any stock or ETF…" onkeydown="if(event.key==='Enter')send()">
+    <button onclick="send()">Ask</button>
+  </div>
+</div>
+
+<div class="modal-bg" id="runmodal"><div class="modal">
+  <h3 id="rm-title">Run</h3>
+  <p id="rm-desc" style="font-size:13px;color:#33414E"></p>
+  <div class="row" id="rm-opts">
+    <label style="font-size:12.5px">Paths <select id="rm-paths"><option>8000</option><option selected>30000</option><option>150000</option></select></label>
+    <label style="font-size:12.5px"><input type="checkbox" id="rm-light"> light (smoke test only — never quote)</label>
+  </div>
+  <div class="row">
+    <button class="btn" id="rm-start" onclick="startJob()">Start</button>
+    <button class="btn ghost" onclick="closeRun()">Close</button>
+    <span id="rm-status"></span>
+  </div>
+  <div class="log" id="rm-log" style="display:none"></div>
+</div></div>
+
+<div class="modal-bg" id="arch"><div class="modal">
+  <h3>How this dashboard is wired</h3>
+  <p style="font-size:13px;line-height:1.6;color:#33414E">
+    <b>Live mode</b> (badge: LIVE): this page is served by <span class="mono">dash_server.py</span>, which reads
+    <span class="mono">tier_table.csv</span> + <span class="mono">results.json</span>, computes the stress index from
+    <span class="mono">calibration.py</span>, runs jobs, and proxies chat to Claude with the key kept server-side.<br><br>
+    <b>Refresh followed universe</b> → runs <span class="mono">run_all.py</span> (8-stage pipeline: discovery screen →
+    TAM bridge → macro stress → Monte Carlo → leveraged → growth-regime → stress tests → dashboards), then this page reloads the numbers.<br><br>
+    <b>Discover candidates</b> → runs the <span class="mono">discovery/agent.py</span> stage plan with its warm-start diff.
+    The full discover→narrow→TAM flow keeps its <b>human checkpoints</b> by design — judgment inputs (TAM, archetypes) are
+    confirmed by a person before the model prices them.<br><br>
+    <b>Chat</b> → <span class="mono">POST /ask</span>: Claude answers as the model’s analyst over the live table, macro
+    and matrices. Without a server key, the dashboard falls back to built-in offline answers from the embedded snapshot.<br><br>
+    <b>Production path</b>: schedule the followed-universe run (cron/systemd), add a FRED/market-data ingestion module for
+    the macro inputs, put auth + HTTPS in front, and pin the chat to the published tail definition.
+  </p>
+  <div class="row"><button class="btn ghost" onclick="document.getElementById('arch').classList.remove('open')">Close</button>
+  <span style="font-size:11px;color:var(--faint)">Engineer contact: <span class="mono">add-your-email-here</span></span></div>
+</div></div>
+
+<script>
+/* ================= embedded fallback snapshot (2026-06-05 canonical, 150k paths) ================= */
+const FB_ROWS = [
+// name,type,tier,verdict,growth,p25,rec2y,tail,vsSP
+["Astera Labs","stock","High","PEG-fast",70,75,51,22,5.15],["NVIDIA","stock","High","PEG-fast",45,55,50,16,4.54],
+["Palantir","stock","High","watch",55,61,45,22,4.15],["Micron","stock","High","cyclical",50,63,46,22,3.82],
+["DRAM (Roundhill Memory)","ETF","High","cyclical",45,58,44,20,3.72],["Broadcom","stock","Moderate","safe",38,49,44,17,3.64],
+["AMD","stock","High","cyclical",45,55,36,21,3.54],["CHAT (Roundhill GenAI)","ETF","Moderate","safe",32,45,43,16,3.36],
+["Lumentum","stock","High","cyclical",55,68,41,28,3.30],["IonQ","stock","High","broken",80,76,29,42,3.16],
+["SMH (VanEck Semis)","ETF","Moderate","safe",30,47,44,16,3.15],["SOXX (iShares Semis)","ETF","Moderate","safe",28,46,44,16,2.94],
+["Applied Optoelectronics","stock","High","cyclical",55,75,40,32,2.81],["Marvell","stock","Moderate","cyclical",35,60,45,21,2.80],
+["AIQ (Global X AI)","ETF","Moderate","safe",25,44,42,16,2.65],["CoreWeave","stock","High","cyclical",60,85,31,45,2.18],
+["ARKK (ARK Innovation)","ETF","High","broken",42,74,33,35,1.99],["AppLovin","stock","Moderate","cyclical",30,83,49,26,1.92],
+["Meta","stock","Moderate","safe",18,46,45,16,1.91],["Vertiv","stock","Moderate","cyclical",28,61,35,25,1.87],
+["QTUM (Defiance Quantum)","ETF","Moderate","broken",22,49,30,20,1.82],["ARM","stock","Moderate","safe",25,55,37,24,1.71],
+["NUKE (Nuclear/Uranium)","ETF","Moderate","safe",22,53,39,22,1.69],["GRID (Smart Grid)","ETF","Moderate","safe",18,38,30,18,1.61],
+["IGV (Software)","ETF","Moderate","safe",20,46,33,22,1.52],["Coherent","stock","Moderate","cyclical",25,69,41,29,1.45],
+["Microsoft","stock","Safe","safe",14,42,39,16,1.43],["QQQ (Nasdaq-100)","ETF","Moderate","safe",16,38,30,19,1.43],
+["Oracle","stock","Moderate","safe",16,41,35,19,1.42],["VGT (Info Tech)","ETF","Safe","safe",15,39,32,18,1.35],
+["DTCR (Data Ctr Infra)","ETF","Safe","safe",14,32,22,18,1.29],["Alphabet","stock","Safe","safe",12,43,33,19,1.04],
+["Amazon","stock","Safe","safe",13,59,44,21,1.01],["Texas Instruments","stock","Safe","cyclical",14,47,30,23,1.00],
+["VOO (S&P 500)","ETF","Safe","safe",9,29,25,15,1.00],["SCHD (Dividend)","ETF","Safe","safe",6,20,23,10,0.96],
+["Tesla","stock","Moderate","cyclical",17,82,38,34,0.83],["Qualcomm","stock","Safe","cyclical",8,48,42,17,0.76],
+["Cisco","stock","Safe","safe",6,33,35,14,0.70],["IBM","stock","Safe","safe",5,27,22,16,0.53],
+["Apple","stock","Safe","safe",7,47,31,23,0.50],["Kioxia","stock","Safe","cyclical",5,63,42,25,0.34],
+["SOXL (3x Semis)","ETF","Trading","leveraged",60,100,57,29,3.40],["TECL (3x Tech)","ETF","Trading","leveraged",50,98,57,30,2.79],
+["TQQQ (3x NDX)","ETF","Trading","leveraged",45,98,57,30,2.51],
+];
+const FB_MAT = { // name -> {h:[pfall, r6,r12,r18,r24,r36]}
+"NVIDIA":{"6m":[15,16,30,41,48,57],"12m":[37,17,32,42,50,59],"18m":[55,16,33,43,50,59]},
+"Microsoft":{"6m":[8,10,20,28,35,45],"12m":[26,9,22,30,37,48],"18m":[42,8,23,32,39,49]},
+"Micron":{"6m":[19,0,0,39,46,55],"12m":[45,0,0,40,46,55],"18m":[63,0,0,40,46,55]},
+"AMD":{"6m":[15,10,20,29,35,44],"12m":[38,8,20,30,36,45],"18m":[55,8,20,30,36,45]},
+"IonQ":{"6m":[28,9,18,26,30,37],"12m":[58,8,19,25,30,36],"18m":[76,7,17,24,29,34]},
+"SMH (VanEck Semis)":{"6m":[11,12,26,35,42,52],"12m":[30,12,27,37,44,53],"18m":[47,12,27,37,44,54]},
+"DRAM (Roundhill Memory)":{"6m":[16,0,0,36,43,52],"12m":[40,0,0,38,45,54],"18m":[58,0,0,38,44,53]},
+"QQQ (Nasdaq-100)":{"6m":[8,9,16,23,29,39],"12m":[23,7,16,23,30,39],"18m":[38,6,16,24,30,39]},
+"VOO (S&P 500)":{"6m":[5,7,12,18,23,35],"12m":[17,5,12,19,24,34],"18m":[29,4,12,19,25,35]},
+"ARKK (ARK Innovation)":{"6m":[27,11,22,29,35,43],"12m":[57,9,21,29,34,41],"18m":[74,8,20,28,33,40]},
+};
+const FB_MACRO = {idx:48,structural:58,acute:25,cape:39.4,real10:2.25,vix:24,hy:312,brent:96,margin:"+45%",fwdpe:21.9,base_pe:15.8};
+
+/* ================= state ================= */
+let LIVE=false, ROWS=[], MATS={}, MACRO=FB_MACRO, ASOF="2026-06-05 snapshot";
+let f={q:"",type:"All",tier:"All",arch:"All",sort:"vssp",sel:null};
+const VC=v=>{v=(v||"").toLowerCase();
+  if(v.includes("brok"))return["broken","v-brk"]; if(v.includes("cyc"))return["cyclical","v-cyc"];
+  if(v.includes("peg")||v.includes("secul"))return["secular","v-sec"]; if(v.includes("watch"))return["watch","v-watch"];
+  if(v.includes("lev")||v.includes("trad"))return["leveraged","v-lev"]; return["diversified","v-safe"];};
+
+function normRow(r){ // from arrays (fallback) or server objects
+  if(Array.isArray(r)) return {name:r[0],kind:r[1],tier:r[2],verdict:r[3],growth:r[4],p25:r[5],rec2y:r[6],tail:r[7],vssp:r[8]};
+  const pct=x=>x==null?null:(x<=1.5? x*100 : x);
+  return {name:r.name,kind:r.kind,tier:r.tier,verdict:r.verdict||r.crash_growth,
+    growth:pct(r.growth),p25:pct(r.p25),rec2y:pct(r.rec2y),tail:pct(r.tail),vssp:r.vssp};
+}
+
+/* ================= boot ================= */
+async function boot(){
+  try{
+    const res=await fetch("/api/snapshot",{cache:"no-store"});
+    if(!res.ok) throw 0;
+    const s=await res.json();
+    if(!(s.rows&&s.rows.length)) throw 0;
+    LIVE=true; ROWS=s.rows.map(normRow);
+    MATS={}; for(const [k,v] of Object.entries(s.matrices||{})){MATS[k]={};
+      for(const h of ["6m","12m","18m"]) if(v[h]) MATS[k][h]=[Math.round(v[h].p*100),...v[h].r.map(x=>Math.round(x*100))];}
+    const m=s.macro||{}, st=s.stress||{};
+    MACRO={idx:st.score!=null?Math.round(st.score*100):FB_MACRO.idx,
+      structural:st.structural!=null?Math.round(st.structural*100):FB_MACRO.structural,
+      acute:st.acute!=null?Math.round(st.acute*100):FB_MACRO.acute,
+      cape:m.shiller_cape??FB_MACRO.cape, real10:m.ust_10y_real??FB_MACRO.real10,
+      vix:m.vix??FB_MACRO.vix, hy:m.hy_oas_bps??FB_MACRO.hy, brent:m.brent_usd??FB_MACRO.brent,
+      margin:m.margin_debt_yoy??FB_MACRO.margin, fwdpe:m.sp500_forward_pe??FB_MACRO.fwdpe, base_pe:st.base_pe??FB_MACRO.base_pe};
+    ASOF=`as of ${s.as_of} · regenerated ${s.generated}`;
+    document.getElementById("badge").className="badge live"; document.getElementById("badge").textContent="LIVE · dash_server";
+    document.getElementById("chatmode").textContent="Claude via /ask";
+  }catch(e){
+    ROWS=FB_ROWS.map(normRow); MATS=FB_MAT; LIVE=false;
+  }
+  document.getElementById("asof").textContent=ASOF;
+  buildSegs(); chips(); envelope(); render();
+}
+function buildSegs(){
+  seg("segType",["All","stock","ETF"],v=>{f.type=v;render()});
+  seg("segTier",["All","High","Moderate","Safe","Trading"],v=>{f.tier=v;render()});
+  seg("segArch",["All","secular","cyclical","diversified","broken","leveraged"],v=>{f.arch=v;render()});
+}
+function seg(id,opts,cb){const el=document.getElementById(id);el.innerHTML="";
+  opts.forEach(o=>{const b=document.createElement("button");b.textContent=o;
+    b.className=(o==="All"?"on":"");b.onclick=()=>{[...el.children].forEach(c=>c.classList.remove("on"));b.classList.add("on");cb(o)};el.appendChild(b);});}
+
+function chips(){
+  const M=MACRO, hot=(x,t)=>x>=t?"warn":"calm";
+  document.getElementById("chips").innerHTML=[
+    ["Stress index",`${M.idx} / 100`, M.idx>=60?"warn":(M.idx>=40?"":"calm")],
+    ["Structural / acute",`${M.structural} / ${M.acute}`,""],
+    ["CAPE",M.cape,hot(M.cape,32)],["Real 10y",`${M.real10}%`,hot(M.real10,2)],
+    ["VIX",M.vix,hot(M.vix,28)],["HY spread",`${M.hy} bps`,hot(M.hy,450)],
+    ["Margin debt YoY",M.margin,"warn"],["Fair PE",`${M.base_pe}×`,""],
+  ].map(([k,v,c])=>`<div class="chip"><div class="k">${k}</div><div class="v ${c}">${v}</div></div>`).join("");
+}
+function envelope(){
+  const crush=0.18+0.5*(MACRO.idx/100);          // stress widens the crushed region
+  const cx=1000*(1-crush);
+  let up="M0,12 ",lo="M0,42 ",sig="M0,27 ";
+  for(let x=0;x<=1000;x+=10){
+    const t=x>cx?(x-cx)/(1000-cx):0, hw=15*(1-0.7*t), c=27+8*t;
+    up+=`L${x},${c-hw} `; lo+=`L${x},${c+hw} `;
+    sig+=`L${x},${(c+0.8*hw*Math.sin(x/26)).toFixed(1)} `;
+  }
+  document.getElementById("env").innerHTML=
+   `<path d="${up}" fill="none" stroke="#1B89AA" stroke-width="1.6"/>
+    <path d="${lo}" fill="none" stroke="#1B89AA" stroke-width="1.1" opacity=".55"/>
+    <path d="${sig}" fill="none" stroke="#EAF1F5" stroke-width="1" opacity=".9"/>
+    <line x1="${cx}" y1="4" x2="${cx}" y2="50" stroke="#D98592" stroke-dasharray="3 4" opacity=".8"/>
+    <text x="${cx+8}" y="12" fill="#D98592" font-size="9" font-family="ui-monospace,monospace">stress ${MACRO.idx}/100</text>`;
+}
+
+/* ================= table ================= */
+function filtered(){
+  return ROWS.filter(r=>{
+    if(f.q && !r.name.toLowerCase().includes(f.q.toLowerCase())) return false;
+    if(f.type!=="All" && (r.kind||"")!==f.type) return false;
+    if(f.tier!=="All" && (r.tier||"")!==f.tier) return false;
+    if(f.arch!=="All" && VC(r.verdict)[0]!==f.arch) return false;
+    return true;
+  }).sort((a,b)=>{
+    const k=f.sort;
+    if(k==="name") return a.name.localeCompare(b.name);
+    if(k==="tail"||k==="p25") return (a[k]??99)-(b[k]??99);
+    return (b[k]??-99)-(a[k]??-99);
+  });
+}
+function setSort(k){f.sort=k;document.getElementById("sort").value=(["vssp","growth","tail","p25","name"].includes(k)?k:f.sort);render()}
+function fmt(x,suf=""){return x==null?"—":Math.round(x)+suf}
+function render(){
+  f.q=document.getElementById("q").value; f.sort=document.getElementById("sort").value;
+  const rows=filtered();
+  document.getElementById("count").textContent=`${rows.length} of ${ROWS.length} names · ${LIVE?"live data":"embedded 06-05 snapshot"}`;
+  document.getElementById("rows").innerHTML=rows.map(r=>{
+    const [vt,vc]=VC(r.verdict);
+    return `<tr class="${f.sel===r.name?'sel':''}" onclick="select('${r.name.replace(/'/g,"\\'")}')">
+      <td class="name">${r.name}</td><td>${r.kind||""}</td><td>${r.tier||""}</td>
+      <td style="text-align:left"><span class="v-tag ${vc}">${vt}</span></td>
+      <td class="mono">${fmt(r.growth,"%")}</td><td class="mono">${fmt(r.p25,"%")}</td>
+      <td class="mono">${fmt(r.rec2y,"%")}</td><td class="mono">${fmt(r.tail,"%")}</td>
+      <td class="mono"><b>${r.vssp==null?"—":r.vssp.toFixed(2)}</b></td></tr>`;
+  }).join("");
+}
+function select(name){
+  f.sel=name; render();
+  const r=ROWS.find(x=>x.name===name); if(!r) return;
+  const [vt,vc]=VC(r.verdict);
+  const m=MATS[name];
+  let mhtml="";
+  if(m){
+    const rowh=h=>{const a=m[h];if(!a)return "";return `<tr><td style="text-align:left">${h}</td><td class="mono">${a[0]}%</td>`+
+      a.slice(1).map(x=>`<td class="mono">${x}%</td>`).join("")+`<td class="mono">${100-a[5]}%</td></tr>`;};
+    mhtml=`<div class="mt"><table><thead><tr><th style="text-align:left">Fall &gt;25% within</th><th>P(fall)</th>
+      <th>rec≤6m</th><th>≤12m</th><th>≤18m</th><th>≤24m</th><th>≤36m</th><th>&gt;36m</th></tr></thead>
+      <tbody>${rowh("6m")}${rowh("12m")}${rowh("18m")}</tbody></table></div>
+      <div class="cap">If it falls &gt;25% within the horizon: the chance it has reclaimed its prior peak within 6–36 months of the trough, and the residual still underwater past three years.</div>
+      <div class="curve">${curveSVG(m)}</div>
+      <div class="cap">Conditional recovery curve (12-month-fall row). ${vt==="cyclical"?"The flat early segment is the explicit demand trough — the cycle must clear before the peak can be reclaimed.":vt==="broken"?"A low, barely-rising ceiling: most paths never reclaim the peak.":"A steady climb from the first months — the secular shape."}</div>`;
+  } else {
+    mhtml=`<div class="cap" style="margin-top:12px">No full matrix for this name in the current artifacts ${r.tier==="Trading"?"(leveraged vehicles are excluded by design — read the raw odds: P(&gt;25% fall) ≈ "+fmt(r.p25,"%")+", a daily-reset decay product, not a growth holding)":"(matrices are emitted for the core simulated set; the headline columns above are complete)"}.</div>`;
+  }
+  document.getElementById("detail").innerHTML=`
+    <h2>${r.name}</h2><div class="d-sub">${r.kind||""} · ${r.tier||""} growth tier · <span class="v-tag ${vc}">${vt}</span></div>
+    <div class="statrow">
+      ${st("Growth 18m",fmt(r.growth,"%"))}${st("P(>25% fall)",fmt(r.p25,"%"))}
+      ${st("Recover ≤2y",fmt(r.rec2y,"%"))}${st(">3y tail",fmt(r.tail,"%"))}
+      ${st("vs S&P",r.vssp==null?"—":r.vssp.toFixed(2))}
+    </div>${mhtml}
+    <div class="cap">Ask the analyst (chat, bottom-right) for context on this name — e.g. “why is ${r.name.split(" ")[0]} ranked here?”</div>`;
+  function st(k,v){return `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`}
+}
+function curveSVG(m){
+  const a=m["12m"]; if(!a) return "";
+  const pts=[0,...a.slice(1)], xs=[0,6,12,18,24,36];
+  const X=x=>30+(x/36)*300, Y=v=>96-(v/70)*84;
+  let path="M"+X(0)+","+Y(0); xs.slice(1).forEach((x,i)=>path+=" L"+X(x)+","+Y(pts[i+1]));
+  const dots=xs.map((x,i)=>`<circle cx="${X(x)}" cy="${Y(pts[i])}" r="3" fill="#0F5D77"/>`).join("");
+  const grid=[0,20,40,60].map(v=>`<line x1="30" y1="${Y(v)}" x2="330" y2="${Y(v)}" stroke="#EEF2F5"/><text x="26" y="${Y(v)+3}" font-size="8" fill="#8A98A5" text-anchor="end">${v}</text>`).join("");
+  const xl=xs.map(x=>`<text x="${X(x)}" y="108" font-size="8" fill="#8A98A5" text-anchor="middle">${x?x+"m":"0"}</text>`).join("");
+  return `<svg viewBox="0 0 345 114" style="width:100%;display:block">${grid}<path d="${path}" fill="none" stroke="#0F5D77" stroke-width="2"/>${dots}${xl}</svg>`;
+}
+
+/* ================= run jobs ================= */
+let JOB=null, POLL=null, RUNMODE="followed";
+function openRun(mode){
+  RUNMODE=mode;
+  document.getElementById("rm-title").textContent= mode==="followed"?"Refresh followed universe":"Discover candidates";
+  document.getElementById("rm-desc").textContent= mode==="followed"
+    ? "Re-runs the full 8-stage pipeline (run_all.py) on the tracked universe with the current calibration, then reloads this dashboard's numbers."
+    : "Runs the discovery agent's stage plan and warm-start diff (discovery/agent.py). The full discover→narrow→TAM flow keeps its human checkpoints — finish those in a terminal before new names enter the model.";
+  document.getElementById("rm-opts").style.display = mode==="followed" ? "flex":"none";
+  document.getElementById("rm-log").style.display="none"; document.getElementById("rm-status").textContent="";
+  document.getElementById("runmodal").classList.add("open");
+  document.getElementById("rm-start").disabled=!LIVE;
+  if(!LIVE) document.getElementById("rm-status").innerHTML='<span class="jstat fail">static page — start dash_server.py to run jobs</span>';
+}
+function closeRun(){document.getElementById("runmodal").classList.remove("open"); if(POLL){clearInterval(POLL);POLL=null;}}
+async function startJob(){
+  const body={mode:RUNMODE, paths:+document.getElementById("rm-paths").value, light:document.getElementById("rm-light").checked};
+  const r=await fetch("/api/run",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+  const j=await r.json();
+  if(j.error){document.getElementById("rm-status").innerHTML=`<span class="jstat fail">${j.error}</span>`;return;}
+  JOB=j.job_id; document.getElementById("rm-log").style.display="block";
+  document.getElementById("rm-status").innerHTML='<span class="jstat run">running</span>';
+  POLL=setInterval(async()=>{
+    const s=await (await fetch("/api/job/"+JOB)).json();
+    document.getElementById("rm-log").textContent=s.log||"(starting…)";
+    if(s.status==="done"){clearInterval(POLL);POLL=null;
+      document.getElementById("rm-status").innerHTML='<span class="jstat done">done — reloading numbers</span>';
+      setTimeout(()=>{boot();},800);}
+    if(s.status==="failed"){clearInterval(POLL);POLL=null;
+      document.getElementById("rm-status").innerHTML='<span class="jstat fail">failed (rc '+s.returncode+')</span>';}
+  },1500);
+}
+
+/* ================= chat ================= */
+function toggleChat(){document.getElementById("chat").classList.toggle("open")}
+function addMsg(t,who,src){const b=document.getElementById("chatb");
+  const d=document.createElement("div");d.className="msg "+who;d.textContent=t;
+  if(src){const s=document.createElement("span");s.className="src";s.textContent=src;d.appendChild(s);}
+  b.appendChild(d);b.scrollTop=b.scrollHeight;}
+async function send(){
+  const inp=document.getElementById("chatq"), q=inp.value.trim(); if(!q)return;
+  inp.value=""; addMsg(q,"u");
+  if(LIVE){
+    try{
+      const r=await fetch("/ask",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:q})});
+      const j=await r.json();
+      if(j.answer && !j.offline){addMsg(j.answer,"a","Claude · live model data");return;}
+      if(j.note) addMsg(offline(q),"a","offline answer · "+j.note);
+      else addMsg(offline(q),"a","offline answer");
+      return;
+    }catch(e){/* fall through */}
+  }
+  addMsg(offline(q),"a","offline answer · embedded 06-05 snapshot");
+}
+function offline(q){
+  const ql=q.toLowerCase();
+  const hits=ROWS.filter(r=>ql.includes(r.name.split(" ")[0].toLowerCase())&&r.name.length>2);
+  if(hits.length>=2){
+    const [a,b]=hits;
+    return `${a.name}: growth ${fmt(a.growth,"%")}, P(>25% fall) ${fmt(a.p25,"%")}, >3y tail ${fmt(a.tail,"%")}, reward ${a.vssp?.toFixed(2)} (${VC(a.verdict)[0]}).\n${b.name}: growth ${fmt(b.growth,"%")}, P(fall) ${fmt(b.p25,"%")}, tail ${fmt(b.tail,"%")}, reward ${b.vssp?.toFixed(2)} (${VC(b.verdict)[0]}).\nHigher reward-per-risk: ${ (a.vssp??0)>=(b.vssp??0)?a.name:b.name }. Watch the tails — a fat >3y tail demotes a cyclical toward broken. Research model, not investment advice.`;
+  }
+  if(hits.length===1){
+    const r=hits[0],[vt]=VC(r.verdict);
+    const m=MATS[r.name], extra=m?` If it falls >25% within 12m (P=${m["12m"][0]}%), recovery odds run ${m["12m"][2]}% by 1y → ${m["12m"][5]}% by 3y; ${100-m["12m"][5]}% of fallen paths are still down past 3y.`:"";
+    return `${r.name} — ${r.tier} tier, ${vt}. Growth ${fmt(r.growth,"%")} (18m), P(>25% fall, 18m) ${fmt(r.p25,"%")}, recover-by-2y ${fmt(r.rec2y,"%")}, >3y permanent tail ${fmt(r.tail,"%")}, reward vs S&P ${r.vssp?.toFixed(2)} (S&P = 1.00).${extra} Research model, not investment advice.`;
+  }
+  if(/top|best|rank/.test(ql)){
+    const t=[...ROWS].filter(r=>r.tier!=="Trading").sort((x,y)=>(y.vssp??0)-(x.vssp??0)).slice(0,5);
+    return "Top by reward vs S&P (growth per unit of long-drawdown risk):\n"+t.map((r,i)=>`${i+1}. ${r.name} — ${r.vssp.toFixed(2)} (${VC(r.verdict)[0]}, tail ${fmt(r.tail,"%")})`).join("\n")+"\nVerdicts override flattering numbers: a broken tag means avoid regardless of rank. Research model, not investment advice.";
+  }
+  if(/macro|stress|market/.test(ql)){
+    return `Macro stress ${MACRO.idx}/100 — structural ${MACRO.structural} (elevated: CAPE ${MACRO.cape}, real 10y ${MACRO.real10}%, margin debt ${MACRO.margin}) vs acute ${MACRO.acute} (calm: HY ${MACRO.hy}bps, VIX ${MACRO.vix}). Dry powder, no lit match: the structural channel widens the tail; the acute channel decides if it fires. Research model, not investment advice.`;
+  }
+  return "I can answer about any name in the table (try a ticker or company), compare two names, list the top by reward, or summarize the macro reading. For full reasoning, start dash_server.py with an ANTHROPIC_API_KEY so Claude answers live over the model's data.";
+}
+
+boot();
+</script>
+</body>
+</html>

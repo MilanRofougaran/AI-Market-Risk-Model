@@ -1,0 +1,23 @@
+[
+  {"name": "Palantir (PLTR)", "kind": "stock", "sector": "AI software",
+   "demonstrated_growth": 0.56, "tam_cagr": 0.35, "penetration": 0.02, "tam_quality": 0.75, "conviction": 0.80},
+  {"name": "AppLovin (APP)", "kind": "stock", "sector": "AI ad-tech",
+   "demonstrated_growth": 0.70, "tam_cagr": 0.20, "penetration": 0.07, "tam_quality": 0.70, "conviction": 0.72},
+  {"name": "Meta (META)", "kind": "stock", "sector": "AI/advertising",
+   "demonstrated_growth": 0.22, "tam_cagr": 0.15, "penetration": 0.21, "tam_quality": 0.88, "conviction": 0.90},
+  {"name": "Microsoft (MSFT)", "kind": "stock", "sector": "cloud/AI software",
+   "demonstrated_growth": 0.15, "tam_cagr": 0.18, "penetration": 0.19, "tam_quality": 0.92, "conviction": 0.92},
+  {"name": "Amazon (AMZN)", "kind": "stock", "sector": "cloud/retail",
+   "demonstrated_growth": 0.13, "tam_cagr": 0.15, "penetration": 0.23, "tam_quality": 0.88, "conviction": 0.88},
+
+  {"name": "DRAM (Roundhill Memory)", "kind": "etf", "sector": "AI/semis-memory",
+   "demonstrated_growth": 0.80, "tam_cagr": 0.40, "penetration": 0.23, "tam_quality": 0.60, "conviction": 0.65},
+  {"name": "TECL (3x Tech, leveraged)", "kind": "etf", "sector": "tech (3x leveraged)",
+   "demonstrated_growth": 0.40, "tam_cagr": 0.20, "penetration": 0.25, "tam_quality": 0.55, "conviction": 0.45},
+  {"name": "QTUM (Defiance Quantum)", "kind": "etf", "sector": "quantum/compute",
+   "demonstrated_growth": 0.20, "tam_cagr": 0.45, "penetration": 0.05, "tam_quality": 0.45, "conviction": 0.45},
+  {"name": "AIQ (Global X AI)", "kind": "etf", "sector": "AI broad",
+   "demonstrated_growth": 0.28, "tam_cagr": 0.35, "penetration": 0.20, "tam_quality": 0.78, "conviction": 0.78},
+  {"name": "CHAT (Roundhill GenAI)", "kind": "etf", "sector": "generative AI",
+   "demonstrated_growth": 0.33, "tam_cagr": 0.40, "penetration": 0.15, "tam_quality": 0.75, "conviction": 0.76}
+]

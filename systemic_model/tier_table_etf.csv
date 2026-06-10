@@ -1,0 +1,12 @@
+name,type,growth_tier,crash_growth,recovery_rank,exp_growth_18m,P(>25% fall),recover_6m_if_falls_by18m,recover_12m_if_falls_by18m,recover_18m_if_falls_by18m,recover_by_1y_if_falls,recover_by_2y_if_falls,recover_by_3y_if_falls,gt3y_tail_unconditional,permanence_factor,true_permanent_loss,perm_vs_SP_multiple,reward_vs_SP,reward_vs_SCHD,growth_per_fall,delta_tail_30d
+DRAM (Roundhill Memory),ETF,High,cyclical,cyclical — needs TAM rebound,0.45,0.55,0.0,0.0,0.398,0.0,0.464,0.53,0.259,0.25,0.065,1.4,3.53,3.73,0.82,-0.068
+ARKK (ARK Innovation),ETF,High,broken,broken thesis — avoid unless evidence changes,0.42,0.726,0.088,0.2,0.277,0.2,0.337,0.413,0.426,0.35,0.149,2.3,2.0,2.11,0.58,
+CHAT (Roundhill GenAI),ETF,Moderate,secular,diversified / safe (buyback earn-back),0.32,0.431,0.13,0.246,0.357,0.246,0.426,0.53,0.202,0.2,0.041,1.1,3.2,3.39,0.74,-0.094
+SMH (VanEck Semis),ETF,Moderate,secular,diversified / safe (buyback earn-back),0.3,0.43,0.096,0.253,0.384,0.253,0.43,0.529,0.202,0.18,0.036,1.1,3.0,3.18,0.7,-0.085
+SOXX (iShares Semis),ETF,Moderate,secular,diversified / safe (buyback earn-back),0.28,0.44,0.119,0.261,0.375,0.261,0.435,0.528,0.207,0.18,0.037,1.1,2.74,2.9,0.64,-0.091
+VGT (Info Tech),ETF,Moderate,secular,diversified / safe (buyback earn-back),0.15,0.383,0.056,0.16,0.239,0.16,0.304,0.392,0.233,0.12,0.028,1.3,1.31,1.38,0.39,
+DTCR (Data Ctr Infra),ETF,Safe,secular,diversified / safe (buyback earn-back),0.14,0.295,0.038,0.102,0.161,0.102,0.212,0.297,0.207,0.15,0.031,1.1,1.37,1.45,0.47,
+VOO (S&P 500),ETF,Safe,secular,diversified / safe (buyback earn-back),0.09,0.282,0.053,0.128,0.217,0.128,0.265,0.354,0.182,0.05,0.009,1.0,1.0,1.06,0.32,
+SOXL (3x Semis),ETF,Trading,secular,,0.6,0.998,0.312,0.466,0.53,0.466,0.588,0.647,0.353,0.55,0.194,1.9,3.45,3.65,0.6,
+TECL (3x Tech),ETF,Trading,secular,,0.5,0.976,0.294,0.457,0.53,0.457,0.579,0.64,0.351,0.55,0.193,1.9,2.89,3.05,0.51,
+TQQQ (3x NDX),ETF,Trading,secular,,0.45,0.976,0.294,0.457,0.53,0.457,0.579,0.64,0.351,0.55,0.193,1.9,2.6,2.75,0.46,
