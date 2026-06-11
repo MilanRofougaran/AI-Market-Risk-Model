@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in — Market Analyst</title>
+<style>
+:root{
+  --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#fff; --hush:#f5f5f7;
+  --blue:#0071e3; --green:#1a9c63; --red:#d2402f;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);background:var(--hush);color:var(--ink);
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased}
+.card{background:var(--paper);border-radius:24px;box-shadow:0 14px 50px rgba(0,0,0,.08);
+  width:100%;max-width:420px;padding:40px 36px}
+.brand{font-size:22px;font-weight:700;letter-spacing:-.02em;text-align:center}
+.brand .dot{color:var(--blue)}
+.tag{text-align:center;color:var(--soft);font-size:15px;margin:6px 0 26px}
+.tabs{display:flex;background:var(--hush);border-radius:12px;padding:4px;margin-bottom:22px}
+.tabs button{flex:1;border:0;background:none;padding:9px;border-radius:9px;font-size:14px;font-weight:600;color:var(--soft);cursor:pointer}
+.tabs button.on{background:var(--paper);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.08)}
+label{display:block;font-size:13px;font-weight:600;color:var(--soft);margin:14px 0 6px}
+input{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;font-size:16px;font-family:inherit;outline:none}
+input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.12)}
+.btn{width:100%;margin-top:22px;background:var(--blue);color:#fff;border:0;border-radius:980px;
+  padding:14px;font-size:16px;font-weight:600;cursor:pointer}
+.btn:hover{background:#0077ed}
+.btn:disabled{opacity:.6;cursor:default}
+.msg{margin-top:16px;font-size:14px;text-align:center;min-height:20px}
+.msg.err{color:var(--red)}.msg.ok{color:var(--green)}
+.foot{margin-top:24px;text-align:center;font-size:12px;color:var(--soft);line-height:1.5}
+.foot a{color:var(--blue);text-decoration:none}
+.name-field{display:none}
+.name-field.show{display:block}
+.confirm-field{display:none}
+.confirm-field.show{display:block}
+.pw-wrap{position:relative}
+.pw-wrap input{padding-right:70px}
+.toggle-pw{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:none;
+  color:var(--blue);font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px}
+.pwmeter{display:none;margin-top:10px}
+.pwmeter.show{display:block}
+.strength{height:6px;border-radius:4px;background:var(--line);overflow:hidden}
+.strength i{display:block;height:100%;width:0;border-radius:4px;transition:width .25s,background .25s}
+.pwline{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:5px;min-height:16px}
+.strength-label{font-size:12px;font-weight:700;white-space:nowrap}
+.pwhint{font-size:12px;color:var(--soft);text-align:right;flex:1}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="brand">Market<span class="dot">Analyst</span></div>
+  <div class="tag" id="tag">Welcome back</div>
+
+  <div class="tabs">
+    <button id="tabLogin" class="on" onclick="setMode('login')">Log in</button>
+    <button id="tabSignup" onclick="setMode('signup')">Sign up</button>
+  </div>
+
+  <div class="name-field" id="nameField">
+    <label for="name">Your name</label>
+    <input id="name" type="text" autocomplete="name" placeholder="Jane Doe">
+  </div>
+
+  <label for="email">Email</label>
+  <input id="email" type="email" autocomplete="email" placeholder="you@example.com">
+
+  <label for="password">Password</label>
+  <div class="pw-wrap">
+    <input id="password" type="password" autocomplete="current-password" placeholder="••••••••" oninput="checkPw()" onkeydown="if(event.key==='Enter')submit()">
+    <button type="button" class="toggle-pw" onclick="togglePw('password',this)">Show</button>
+  </div>
+
+  <div class="pwmeter" id="pwmeter">
+    <div class="strength"><i id="strengthFill"></i></div>
+    <div class="pwline"><span class="strength-label" id="strengthLabel"></span><span class="pwhint" id="pwhint"></span></div>
+  </div>
+
+  <div class="confirm-field" id="confirmField">
+    <label for="confirm">Confirm password</label>
+    <div class="pw-wrap">
+      <input id="confirm" type="password" autocomplete="new-password" placeholder="••••••••" onkeydown="if(event.key==='Enter')submit()">
+      <button type="button" class="toggle-pw" onclick="togglePw('confirm',this)">Show</button>
+    </div>
+  </div>
+
+  <button class="btn" id="go" onclick="submit()">Log in</button>
+  <div class="msg" id="msg"></div>
+  <div style="text-align:center;margin-top:12px">
+    <a href="#" onclick="forgot();return false" style="font-size:13px;color:var(--blue);text-decoration:none">Forgot password?</a>
+  </div>
+
+  <div class="foot">
+    By continuing you agree this is a research tool, not financial advice.<br>
+    <a href="index.html">← Back to home</a>
+  </div>
+</div>
+
+<script type="module">
+import { sb, currentUser } from "./auth.js";
+
+let mode = "login";
+window.setMode = (m) => {
+  mode = m;
+  document.getElementById("tabLogin").classList.toggle("on", m==="login");
+  document.getElementById("tabSignup").classList.toggle("on", m==="signup");
+  document.getElementById("nameField").classList.toggle("show", m==="signup");
+  document.getElementById("confirmField").classList.toggle("show", m==="signup");
+  document.getElementById("pwmeter").classList.toggle("show", m==="signup");
+  document.getElementById("go").textContent = m==="signup" ? "Create account" : "Log in";
+  document.getElementById("tag").textContent = m==="signup" ? "Create your account" : "Welcome back";
+  document.getElementById("password").setAttribute("autocomplete", m==="signup"?"new-password":"current-password");
+  msg("");
+};
+
+function msg(t, kind=""){ const el=document.getElementById("msg"); el.textContent=t; el.className="msg "+kind; }
+
+window.forgot = async () => {
+  const email = document.getElementById("email").value.trim();
+  if(!email){ msg("Type your email above first, then tap Forgot password.", "err"); return; }
+  const { error } = await sb.auth.resetPasswordForEmail(email, { redirectTo: location.origin + "/reset.html" });
+  if(error){ msg(error.message, "err"); return; }
+  msg("Check your email for a password-reset link.", "ok");
+};
+
+window.togglePw = (id, btn) => {
+  const inp = document.getElementById(id);
+  const show = inp.type === "password";
+  inp.type = show ? "text" : "password";
+  btn.textContent = show ? "Hide" : "Show";
+};
+
+// password rules — returns true only when ALL are met
+const RULES = {
+  "8+ characters": p => p.length >= 8,
+  "uppercase":     p => /[A-Z]/.test(p),
+  "lowercase":     p => /[a-z]/.test(p),
+  "number":        p => /[0-9]/.test(p),
+  "symbol":        p => /[^A-Za-z0-9]/.test(p),
+};
+window.checkPw = () => {
+  const p = document.getElementById("password").value;
+  const missing = [];
+  let met = 0;
+  for(const [label, test] of Object.entries(RULES)){
+    if(test(p)) met++; else missing.push(label);
+  }
+  const pct = (met/5)*100;
+  const colors = ["#d2402f","#d2402f","#c8841a","#c8841a","#1a9c63","#1a9c63"];
+  const labels = ["","Weak","Weak","Fair","Good","Strong"];
+  document.getElementById("strengthFill").style.width = pct + "%";
+  document.getElementById("strengthFill").style.background = colors[met];
+  const lbl = document.getElementById("strengthLabel");
+  lbl.textContent = p ? labels[met] : "";
+  lbl.style.color = colors[met];
+  document.getElementById("pwhint").textContent = (p && missing.length) ? "Add: " + missing.join(", ") : "";
+  return met === 5;
+};
+
+window.submit = async () => {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const confirm = document.getElementById("confirm").value;
+  const name = document.getElementById("name").value.trim();
+  if(!email || !password){ msg("Please enter your email and password.", "err"); return; }
+  if(mode === "signup"){
+    if(!checkPw()){ msg("Please meet all the password requirements below.", "err"); return; }
+    if(password !== confirm){ msg("The passwords don't match.", "err"); return; }
+  }
+  const btn = document.getElementById("go"); btn.disabled = true;
+
+  try{
+    if(mode === "signup"){
+      const { error } = await sb.auth.signUp({
+        email, password, options:{ data:{ full_name: name } }
+      });
+      if(error) throw error;
+      // If email confirmation is OFF, a session exists now → go straight in.
+      const user = await currentUser();
+      if(user){ window.location.href = "account.html"; return; }
+      msg("Account created! Check your email to confirm, then log in.", "ok");
+      setMode("login");
+    } else {
+      const { error } = await sb.auth.signInWithPassword({ email, password });
+      if(error) throw error;
+      window.location.href = "account.html";
+    }
+  } catch(e){
+    msg(e.message || "Something went wrong. Try again.", "err");
+  } finally {
+    btn.disabled = false;
+  }
+};
+
+// already logged in? skip straight to the account page
+currentUser().then(u => { if(u) window.location.href = "account.html"; });
+</script>
+</body>
+</html>

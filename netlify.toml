@@ -8,3 +8,14 @@
   for = "/data/*"
   [headers.values]
     Cache-Control = "no-cache"
+
+# Security headers for the whole site (applied on Netlify deploys)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://esm.sh https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://*.supabase.co https://finnhub.io https://api.polygon.io https://api.massive.com https://api.anthropic.com; img-src 'self' data:; font-src 'self' data:; frame-ancestors 'none'; base-uri 'self'"

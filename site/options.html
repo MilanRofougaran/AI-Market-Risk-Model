@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Options Lens — Market Analyst</title>
+<style>
+:root{
+  --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#fff; --hush:#f5f5f7;
+  --blue:#0071e3; --green:#1a9c63; --greenbg:#eaf7f0; --amber:#c8841a; --amberbg:#fdf3e4;
+  --red:#d2402f; --redbg:#fbeceb;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);background:var(--hush);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+
+.nav{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;
+  padding:14px max(20px,4vw);background:rgba(255,255,255,.82);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);z-index:10}
+.brand{font-size:18px;font-weight:700;letter-spacing:-.02em}
+.brand .dot{color:var(--blue)}
+.nav .right{display:flex;gap:16px;font-size:14px;align-items:center}
+
+.wrap{max-width:960px;margin:0 auto;padding:26px max(20px,4vw) 80px}
+h1{font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.02em;margin:6px 0 4px}
+.sub{color:var(--soft);font-size:15px;margin-bottom:18px}
+
+.warn{background:var(--redbg);border:1px solid #f1c5bf;color:#8a2c20;border-radius:14px;padding:13px 16px;font-size:13.5px;line-height:1.55;margin-bottom:22px}
+.warn b{color:#6f221a}
+
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin-bottom:18px}
+.controls{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end}
+.ctl label{display:block;font-size:12px;font-weight:600;color:var(--soft);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+select{font-family:inherit;font-size:16px;border:1.5px solid var(--line);border-radius:11px;padding:10px 13px;background:#fff;outline:none}
+select:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.1)}
+.ac{position:relative}
+.ac input{font-family:inherit;font-size:16px;border:1.5px solid var(--line);border-radius:11px;padding:10px 13px;width:240px;background:#fff;outline:none}
+.ac input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.1)}
+.ac-list{position:absolute;left:0;right:0;top:calc(100% + 4px);background:#fff;border:1px solid var(--line);
+  border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.14);max-height:260px;overflow:auto;z-index:20;display:none}
+.ac-list.show{display:block}
+.ac-item{padding:11px 14px;cursor:pointer;font-size:15px}
+.ac-item:hover,.ac-item.active{background:var(--hush)}
+.ac-empty{padding:11px 14px;color:var(--soft);font-size:14px}
+.seg{display:flex;border:1.5px solid var(--line);border-radius:11px;overflow:hidden}
+.seg button{border:0;background:#fff;padding:10px 14px;font-size:14px;font-weight:600;color:var(--soft);cursor:pointer;border-right:1px solid var(--line)}
+.seg button:last-child{border-right:0}
+.seg button.on{background:var(--blue);color:#fff}
+
+.gatecard{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:4px}
+.vbadge{font-size:13px;font-weight:700;border-radius:980px;padding:6px 14px}
+.v-pass{background:var(--greenbg);color:var(--green)} .v-caution{background:var(--amberbg);color:var(--amber)} .v-reject{background:var(--redbg);color:var(--red)}
+.gatetext{font-size:14px;color:var(--soft)}
+.likely{display:flex;gap:22px;flex-wrap:wrap;margin-top:14px;font-size:14px}
+.likely div b{display:block;font-size:20px;font-weight:700;letter-spacing:-.01em;margin-top:2px}
+
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:right;padding:11px 12px;border-bottom:1px solid var(--line)}
+th{font-size:11px;color:var(--soft);text-transform:uppercase;letter-spacing:.04em;font-weight:600;background:var(--hush)}
+th:first-child,td:first-child{text-align:left}
+tr:last-child td{border-bottom:0}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--hush)}
+tbody tr.atm{background:#eef5ff}
+td.k{font-weight:700;font-family:var(--mono)}
+.bar{height:8px;border-radius:5px;background:var(--line);overflow:hidden;min-width:60px}
+.bar i{display:block;height:100%;background:var(--blue)}
+
+.checker .row{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end}
+.checker input{font-family:inherit;font-size:16px;border:1.5px solid var(--line);border-radius:11px;padding:10px 13px;width:140px;outline:none}
+.checker input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.1)}
+.checkbtn{background:var(--blue);color:#fff;border:0;border-radius:980px;padding:12px 24px;font-size:15px;font-weight:600;cursor:pointer}
+#result{margin-top:18px;display:none}
+#result.show{display:block}
+.verdict{font-size:22px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px}
+.gates{display:flex;flex-direction:column;gap:8px}
+.grow{display:flex;gap:12px;align-items:flex-start;font-size:14px;padding:10px 12px;border-radius:10px;background:var(--hush)}
+.gstat{font-size:11px;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap}
+.g-pass{background:var(--greenbg);color:var(--green)} .g-caution{background:var(--amberbg);color:var(--amber)} .g-reject{background:var(--redbg);color:var(--red)}
+.glabel{font-weight:600;width:130px;flex-shrink:0}
+.gnote{color:var(--soft)}
+
+.explain{font-size:13px;color:var(--soft);line-height:1.6}
+.explain b{color:var(--ink)}
+.foot{margin-top:30px;font-size:12px;color:var(--soft);line-height:1.6;border-top:1px solid var(--line);padding-top:20px}
+.h2{font-size:15px;font-weight:700;margin:0 0 12px;letter-spacing:-.01em}
+.dim{color:var(--soft)}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">Market<span class="dot">Analyst</span> · Options</div>
+  <div class="right">
+    <a href="index.html">Dashboard</a>
+    <a href="account.html">My Portfolio</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <h1>Options Lens</h1>
+  <div class="sub">What the model thinks a call option is fairly worth — and whether a trade passes its safety gates.</div>
+
+  <div class="warn">
+    <b>⚠ Advanced & high-risk — research only.</b> Options can lose 100% of their cost, fast. These are the model's
+    <b>thesis-conditional</b> fair values (what the move is worth <i>if the model's judgment is right</i>) — <b>not</b> market prices.
+    They ignore implied volatility, so they cannot tell you if an option is mispriced by the market. <b>Not investment advice.</b>
+  </div>
+
+  <!-- selectors -->
+  <div class="panel">
+    <div class="controls">
+      <div class="ctl">
+        <label>Stock / fund</label>
+        <div class="ac">
+          <input id="nameInput" autocomplete="off" placeholder="Start typing… e.g. Nvidia"
+                 oninput="acFilter()" onfocus="acFilter()" onkeydown="acKey(event)">
+          <div class="ac-list" id="acList"></div>
+        </div>
+      </div>
+      <div class="ctl">
+        <label>Expiry (how long until it expires)</label>
+        <div class="seg" id="tenorSeg"></div>
+      </div>
+    </div>
+    <div class="gatecard" id="gatecard"></div>
+    <div class="likely" id="likely"></div>
+  </div>
+
+  <!-- strike table -->
+  <div class="panel">
+    <div class="h2">Call options by strike <span class="dim" id="tblmeta"></span></div>
+    <table>
+      <thead><tr>
+        <th>Strike (vs today's price)</th><th>Chance it pays</th><th>Model fair value<br>(% of stock price)</th><th></th>
+      </tr></thead>
+      <tbody id="strikeBody"></tbody>
+    </table>
+    <div class="explain" style="margin-top:12px">
+      <b>Strike</b> = the price level you're betting it passes (1.00× = today's price, 1.20× = 20% higher).
+      <b>Chance it pays</b> = odds the stock ends above the strike. <b>Fair value</b> = what the model thinks that option is worth, as a % of the stock price. Tap a row to test it below.
+    </div>
+  </div>
+
+  <!-- trade checker -->
+  <div class="panel checker">
+    <div class="h2">Check a trade</div>
+    <div class="row">
+      <div class="ctl"><label>Strike</label><select id="ckStrike"></select></div>
+      <div class="ctl"><label>Market premium (% of price)</label><input id="ckPrem" type="number" step="any" placeholder="e.g. 14"></div>
+      <button class="checkbtn" onclick="check()">Check it</button>
+    </div>
+    <div class="explain" style="margin-top:10px">The <b>market premium</b> is what the option actually costs to buy right now, as a % of the stock price. Your broker shows the dollar price — divide it by the stock price and ×100.</div>
+    <div id="result"></div>
+  </div>
+
+  <div class="foot" id="foot">Research model — not investment advice.</div>
+</div>
+
+<script>
+let LENS=null, STRESS={acute:0.25, score:0.48}, NAME=null, TENOR="24m";
+let NAMES=[], acItems=[], acActive=-1;
+const TENORS=["6m","12m","18m","24m","36m"];
+
+async function boot(){
+  try{
+    const r=await fetch("data/options_lens.json",{cache:"no-store"}); LENS=await r.json();
+  }catch(e){ document.getElementById("foot").textContent="Couldn't load options data."; return; }
+  try{
+    const s=await (await fetch("data/snapshot.json",{cache:"no-store"})).json();
+    if(s.stress){ STRESS={acute:s.stress.acute??0.25, score:s.stress.score??0.48}; }
+  }catch(e){}
+
+  NAMES=Object.keys(LENS.names);
+  NAME=NAMES[0];
+  document.getElementById("nameInput").value=NAME;
+
+  const seg=document.getElementById("tenorSeg"); seg.innerHTML="";
+  TENORS.forEach(t=>{ const b=document.createElement("button"); b.textContent=t; b.className=(t===TENOR?"on":"");
+    b.onclick=()=>{ TENOR=t; [...seg.children].forEach(c=>c.classList.remove("on")); b.classList.add("on"); render(); };
+    seg.appendChild(b); });
+
+  document.getElementById("foot").innerHTML=
+    `${LENS.paths?.toLocaleString?.()||LENS.paths} simulated paths · discounted at 10y ${(LENS.discount_10y*100).toFixed(1)}% · physical (thesis-conditional) measure, no implied-volatility. Macro stress now: ${(STRESS.score*100).toFixed(0)}/100 (acute ${(STRESS.acute*100).toFixed(0)}). <b>Research model — not investment advice.</b>`;
+  render();
+}
+
+// ---- gate logic (ported from premium_check.py) ----
+function archetypeGate(gate){
+  const g=(gate||"").toLowerCase();
+  if(g.includes("broken")) return ["REJECT", gate];
+  if(g.includes("survivability")||g.includes("watch")||g.includes("uncertain")) return ["CAUTION", gate||"watch"];
+  return ["PASS", gate||"secular"];
+}
+function tenorGate(tenor, gate){
+  const g=(gate||"").toLowerCase();
+  const short = (tenor==="6m"||tenor==="12m");
+  if(short && g.includes("cyclical") && g.includes("no short")) return ["REJECT", `${tenor} on a cyclical that bans short-dated calls (demand-trough risk)`];
+  if(short && g.includes("cyclical")) return ["CAUTION", `${tenor} is short for a cyclical name`];
+  return ["PASS", `${tenor}` + (g.includes("cyclical")?" on a cyclical":"")];
+}
+
+function render(){
+  const nd=LENS.names[NAME], row=nd[TENOR];
+  // gate / verdict
+  const [aSt, aNote]=archetypeGate(nd.gate);
+  const cls={PASS:"v-pass",CAUTION:"v-caution",REJECT:"v-reject"}[aSt];
+  document.getElementById("gatecard").innerHTML=
+    `<span class="vbadge ${cls}">${aSt==="REJECT"?"🔴 Model says avoid":aSt==="CAUTION"?"🟡 Caution":"🟢 Tradeable"}</span>
+     <span class="gatetext">${nd.gate||"secular"}</span>`;
+  // likely price
+  const q=row.S_T;
+  document.getElementById("likely").innerHTML=
+    `<div class="dim">Where the price may land by ${TENOR}:</div>
+     <div>Low (p10)<b>${q.p10.toFixed(2)}×</b></div>
+     <div>Middle<b>${q.median.toFixed(2)}×</b></div>
+     <div>High (p90)<b>${q.p90.toFixed(2)}×</b></div>`;
+
+  // strikes table
+  document.getElementById("tblmeta").textContent=`· ${NAME} · ${TENOR}`;
+  const strikes=row.strikes;
+  const maxFair=Math.max(...Object.values(strikes).map(s=>s.fair_value_pct_of_spot));
+  document.getElementById("strikeBody").innerHTML=Object.entries(strikes).map(([k,v])=>{
+    const atm = (k==="1.00");
+    return `<tr class="${atm?'atm':''}" onclick="useStrike('${k}')">
+      <td class="k">${(+k).toFixed(2)}×${atm?' <span class="dim">(today)</span>':''}</td>
+      <td>${(v.p_itm*100).toFixed(0)}%</td>
+      <td>${v.fair_value_pct_of_spot.toFixed(1)}%</td>
+      <td><div class="bar"><i style="width:${Math.max(2,v.fair_value_pct_of_spot/maxFair*100)}%"></i></div></td>
+    </tr>`;
+  }).join("");
+
+  // checker strike dropdown
+  const ck=document.getElementById("ckStrike");
+  ck.innerHTML=Object.keys(strikes).map(k=>`<option value="${k}" ${k==="1.00"?"selected":""}>${(+k).toFixed(2)}×</option>`).join("");
+  document.getElementById("result").className="";
+  document.getElementById("result").innerHTML="";
+}
+
+window.useStrike=(k)=>{ document.getElementById("ckStrike").value=k; document.getElementById("ckPrem").focus(); };
+
+// ---- search-and-pick for the stock/fund ----
+window.acFilter=()=>{
+  const q=document.getElementById("nameInput").value.trim().toLowerCase();
+  const list=document.getElementById("acList");
+  acItems=NAMES.filter(n=>!q||n.toLowerCase().includes(q)).slice(0,12);
+  acActive=-1;
+  if(!acItems.length){ list.innerHTML=`<div class="ac-empty">No match</div>`; list.classList.add("show"); return; }
+  list.innerHTML=acItems.map((n,i)=>`<div class="ac-item" data-i="${i}" onmousedown="acPick(${i})">${n}</div>`).join("");
+  list.classList.add("show");
+};
+window.acPick=(i)=>{ const n=acItems[i]; if(!n) return; NAME=n;
+  document.getElementById("nameInput").value=n; document.getElementById("acList").classList.remove("show"); render(); };
+window.acKey=(e)=>{
+  const list=document.getElementById("acList");
+  if(!list.classList.contains("show")) return;
+  if(e.key==="ArrowDown"||e.key==="ArrowUp"){ e.preventDefault();
+    acActive=Math.max(0,Math.min(acItems.length-1,acActive+(e.key==="ArrowDown"?1:-1)));
+    [...list.children].forEach((c,i)=>c.classList.toggle("active",i===acActive)); }
+  else if(e.key==="Enter"&&acActive>=0){ e.preventDefault(); acPick(acActive); }
+  else if(e.key==="Escape"){ list.classList.remove("show"); }
+};
+document.addEventListener("click",e=>{ if(!e.target.closest(".ac")) document.getElementById("acList")?.classList.remove("show"); });
+
+function gateRow(label, status, note){
+  const cls={PASS:"g-pass",CAUTION:"g-caution",REJECT:"g-reject"}[status];
+  return `<div class="grow"><span class="gstat ${cls}">${status}</span><span class="glabel">${label}</span><span class="gnote">${note}</span></div>`;
+}
+
+window.check=()=>{
+  const nd=LENS.names[NAME], row=nd[TENOR];
+  const k=document.getElementById("ckStrike").value;
+  const cell=row.strikes[k];
+  const prem=parseFloat(document.getElementById("ckPrem").value);
+  const fair=cell.fair_value_pct_of_spot;
+
+  const gates=[];
+  gates.push(["Model rating", ...archetypeGate(nd.gate)]);
+  gates.push(["Expiry vs cycle", ...tenorGate(TENOR, nd.gate)]);
+  if(!isNaN(prem)){
+    const edge=fair-prem;
+    gates.push(["Price vs fair value", edge>0?"PASS":"REJECT",
+      `model fair ${fair.toFixed(1)}% vs market ${prem.toFixed(1)}% — edge ${edge>=0?"+":""}${edge.toFixed(1)} pts ${edge>0?"(model thinks it's underpriced)":"(model thinks it's too expensive)"}`]);
+  } else {
+    gates.push(["Price vs fair value","CAUTION",`enter the market premium to compare (model fair ${fair.toFixed(1)}%)`]);
+  }
+  gates.push(["Market conditions", STRESS.acute<0.5?"PASS":"CAUTION",
+    `stress ${(STRESS.score*100).toFixed(0)}/100, acute ${(STRESS.acute*100).toFixed(0)}${STRESS.acute>=0.5?" — elevated, prefer longer expiries":""}`]);
+
+  let verdict="PASS";
+  gates.forEach(([,st])=>{ if(st==="REJECT") verdict="REJECT"; else if(st==="CAUTION"&&verdict==="PASS") verdict="PASS WITH CAUTION"; });
+
+  const breakeven = !isNaN(prem) ? (+k + prem/100) : null;
+  const vcls={ "PASS":"var(--green)", "PASS WITH CAUTION":"var(--amber)", "REJECT":"var(--red)" }[verdict];
+  const res=document.getElementById("result");
+  res.innerHTML=
+    `<div class="verdict" style="color:${vcls}">${verdict==="REJECT"?"🔴":verdict==="PASS"?"🟢":"🟡"} ${verdict}</div>
+     <div class="gates">${gates.map(g=>gateRow(...g)).join("")}</div>
+     ${breakeven!=null?`<div class="explain" style="margin-top:12px"><b>Breakeven:</b> the stock needs to reach about <b>${breakeven.toFixed(2)}×</b> today's price by ${TENOR} for this call to profit (strike ${(+k).toFixed(2)}× + premium ${prem.toFixed(1)}%). Chance it even finishes past the strike: ${(cell.p_itm*100).toFixed(0)}%.</div>`:""}
+     <div class="explain" style="margin-top:10px">Thesis-conditional edge only — no implied-volatility/vega. Position size and timing are yours. <b>Research model, not investment advice.</b></div>`;
+  res.className="show";
+};
+
+boot();
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reset password — Market Analyst</title>
+<style>
+:root{
+  --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#fff; --hush:#f5f5f7;
+  --blue:#0071e3; --green:#1a9c63; --red:#d2402f;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);background:var(--hush);color:var(--ink);min-height:100vh;
+  display:flex;align-items:center;justify-content:center;padding:24px;-webkit-font-smoothing:antialiased}
+.card{background:var(--paper);border-radius:24px;box-shadow:0 14px 50px rgba(0,0,0,.08);width:100%;max-width:420px;padding:40px 36px}
+.brand{font-size:22px;font-weight:700;letter-spacing:-.02em;text-align:center}
+.brand .dot{color:var(--blue)}
+.tag{text-align:center;color:var(--soft);font-size:15px;margin:6px 0 24px}
+label{display:block;font-size:13px;font-weight:600;color:var(--soft);margin:14px 0 6px}
+.pw-wrap{position:relative}
+input{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;font-size:16px;font-family:inherit;outline:none}
+.pw-wrap input{padding-right:70px}
+input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.12)}
+.toggle-pw{position:absolute;right:10px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--blue);font-size:13px;font-weight:600;cursor:pointer;padding:6px 8px}
+.meter{height:6px;border-radius:4px;background:var(--line);margin:12px 0 2px;overflow:hidden}
+.meter i{display:block;height:100%;width:0;border-radius:4px;transition:width .25s,background .25s}
+.hintline{display:flex;justify-content:space-between;gap:10px;font-size:12px;min-height:16px;margin-top:5px}
+.slabel{font-weight:700;white-space:nowrap} .shint{color:var(--soft);text-align:right}
+.btn{width:100%;margin-top:22px;background:var(--blue);color:#fff;border:0;border-radius:980px;padding:14px;font-size:16px;font-weight:600;cursor:pointer}
+.btn:hover{background:#0077ed}.btn:disabled{opacity:.6;cursor:default}
+.msg{margin-top:16px;font-size:14px;text-align:center;min-height:20px}
+.msg.err{color:var(--red)}.msg.ok{color:var(--green)}
+.foot{margin-top:22px;text-align:center;font-size:13px}.foot a{color:var(--blue);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="brand">Market<span class="dot">Analyst</span></div>
+  <div class="tag" id="tag">Set a new password</div>
+
+  <div id="form">
+    <label for="password">New password</label>
+    <div class="pw-wrap">
+      <input id="password" type="password" autocomplete="new-password" placeholder="••••••••" oninput="checkPw()">
+      <button type="button" class="toggle-pw" onclick="togglePw('password',this)">Show</button>
+    </div>
+    <div class="meter"><i id="fill"></i></div>
+    <div class="hintline"><span class="slabel" id="slabel"></span><span class="shint" id="shint"></span></div>
+
+    <label for="confirm">Confirm new password</label>
+    <div class="pw-wrap">
+      <input id="confirm" type="password" autocomplete="new-password" placeholder="••••••••" onkeydown="if(event.key==='Enter')save()">
+      <button type="button" class="toggle-pw" onclick="togglePw('confirm',this)">Show</button>
+    </div>
+
+    <button class="btn" id="go" onclick="save()">Update password</button>
+  </div>
+  <div class="msg" id="msg"></div>
+  <div class="foot"><a href="login.html">← Back to login</a></div>
+</div>
+
+<script type="module">
+import { sb } from "./auth.js";
+
+let ready = false;
+// Supabase puts a recovery session in the URL when the user clicks the email link
+sb.auth.onAuthStateChange((event) => { if(event === "PASSWORD_RECOVERY" || event === "SIGNED_IN") ready = true; });
+sb.auth.getSession().then(({data}) => { if(data?.session) ready = true; });
+
+function msg(t, kind=""){ const el=document.getElementById("msg"); el.textContent=t; el.className="msg "+kind; }
+
+window.togglePw = (id, btn) => { const i=document.getElementById(id); const s=i.type==="password"; i.type=s?"text":"password"; btn.textContent=s?"Hide":"Show"; };
+
+const RULES = { "8+ characters":p=>p.length>=8, "uppercase":p=>/[A-Z]/.test(p), "lowercase":p=>/[a-z]/.test(p), "number":p=>/[0-9]/.test(p), "symbol":p=>/[^A-Za-z0-9]/.test(p) };
+window.checkPw = () => {
+  const p=document.getElementById("password").value; const missing=[]; let met=0;
+  for(const [k,t] of Object.entries(RULES)){ if(t(p)) met++; else missing.push(k); }
+  const colors=["#d2402f","#d2402f","#c8841a","#c8841a","#1a9c63","#1a9c63"], labels=["","Weak","Weak","Fair","Good","Strong"];
+  document.getElementById("fill").style.width=(met/5*100)+"%";
+  document.getElementById("fill").style.background=colors[met];
+  const lbl=document.getElementById("slabel"); lbl.textContent=p?labels[met]:""; lbl.style.color=colors[met];
+  document.getElementById("shint").textContent=(p&&missing.length)?"Add: "+missing.join(", "):"";
+  return met===5;
+};
+
+window.save = async () => {
+  const p=document.getElementById("password").value, c=document.getElementById("confirm").value;
+  if(!checkPw()){ msg("Please meet all the password requirements.", "err"); return; }
+  if(p!==c){ msg("The passwords don't match.", "err"); return; }
+  if(!ready){ msg("This reset link is invalid or expired. Request a new one from the login page.", "err"); return; }
+  const btn=document.getElementById("go"); btn.disabled=true;
+  const { error } = await sb.auth.updateUser({ password: p });
+  btn.disabled=false;
+  if(error){ msg(error.message, "err"); return; }
+  document.getElementById("form").style.display="none";
+  document.getElementById("tag").textContent="Done!";
+  msg("Password updated. You can now log in.", "ok");
+  setTimeout(()=>{ window.location.href="login.html"; }, 1800);
+};
+</script>
+</body>
+</html>

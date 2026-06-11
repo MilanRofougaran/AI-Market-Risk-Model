@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio — Market Analyst</title>
+<style>
+:root{
+  --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#fff; --hush:#f5f5f7;
+  --blue:#0071e3; --green:#1a9c63; --greenbg:#eaf7f0; --red:#d2402f; --redbg:#fbeceb; --amber:#c8841a;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);background:var(--hush);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+
+.nav{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;
+  padding:14px max(20px,4vw);background:rgba(255,255,255,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);z-index:10}
+.brand{font-size:18px;font-weight:700;letter-spacing:-.02em}
+.brand .dot{color:var(--blue)}
+.nav .right{display:flex;align-items:center;gap:16px;font-size:14px}
+.logout{border:1px solid var(--line);background:#fff;border-radius:980px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer}
+.logout:hover{background:var(--hush)}
+
+.wrap{max-width:920px;margin:0 auto;padding:30px max(20px,4vw) 80px}
+.hello{font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.02em;margin:8px 0 2px}
+.plan{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  background:var(--hush);color:var(--soft);border-radius:980px;padding:4px 12px;margin-bottom:24px}
+.plan.paid{background:#fef3e0;color:var(--amber)}
+
+/* summary cards */
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:14px}
+.scard{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.scard .k{font-size:13px;color:var(--soft);font-weight:500}
+.scard .v{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-top:4px}
+.scard .v.pos{color:var(--green)}.scard .v.neg{color:var(--red)}
+.note{font-size:13px;color:var(--soft);background:#fff8ec;border:1px solid #f3e2c2;border-radius:14px;padding:12px 16px;margin-bottom:26px}
+
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin:30px 0 14px}
+.sec-head h2{font-size:20px;font-weight:700;letter-spacing:-.01em;margin:0}
+.add-btn{background:var(--blue);color:#fff;border:0;border-radius:980px;padding:9px 18px;font-size:14px;font-weight:600;cursor:pointer}
+.add-btn:hover{background:#0077ed}
+
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+th,td{text-align:right;padding:13px 16px;font-size:14px;border-bottom:1px solid var(--line)}
+th{font-size:12px;color:var(--soft);text-transform:uppercase;letter-spacing:.04em;font-weight:600;background:var(--hush)}
+th:first-child,td:first-child{text-align:left}
+tr:last-child td{border-bottom:0}
+td.nm{font-weight:600}
+.del{border:0;background:none;color:var(--soft);cursor:pointer;font-size:16px}
+.del:hover{color:var(--red)}
+.sell{border:1px solid var(--line);background:#fff;color:var(--blue);font-weight:600;cursor:pointer;font-size:12px;border-radius:8px;padding:5px 11px;margin-right:8px}
+.sell:hover{background:#eef5ff}
+.empty{text-align:center;color:var(--soft);padding:40px 20px;background:var(--paper);border:1px dashed var(--line);border-radius:18px}
+.rpill{font-size:11px;font-weight:700;border-radius:980px;padding:3px 11px;display:inline-block}
+.r-buy{background:var(--greenbg);color:var(--green)}
+.r-maybe{background:#fdf3e4;color:var(--amber)}
+.r-avoid{background:var(--redbg);color:var(--red)}
+.rsub{font-size:11px;color:var(--soft);margin-top:4px;text-transform:capitalize}
+
+/* modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
+.modal-bg.open{display:flex}
+.modal{background:var(--paper);border-radius:22px;width:100%;max-width:440px;padding:28px 28px 24px}
+.modal h3{margin:0 0 18px;font-size:20px;letter-spacing:-.01em}
+.modal label{display:block;font-size:13px;font-weight:600;color:var(--soft);margin:12px 0 5px}
+.modal input,.modal select{width:100%;border:1.5px solid var(--line);border-radius:11px;padding:11px 13px;font-size:15px;font-family:inherit;outline:none;background:#fff}
+.modal input:focus,.modal select:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.1)}
+.modal .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.modal .row{display:flex;gap:10px;margin-top:22px}
+.modal .btn{flex:1;border:0;border-radius:980px;padding:12px;font-size:15px;font-weight:600;cursor:pointer}
+.modal .btn.go{background:var(--blue);color:#fff}.modal .btn.cancel{background:var(--hush);color:var(--ink)}
+.mmsg{color:var(--red);font-size:13px;min-height:18px;margin-top:10px}
+.hint{font-size:12px;color:var(--soft);margin-top:4px}
+.ac{position:relative}
+.ac-list{position:absolute;left:0;right:0;top:calc(100% + 4px);background:#fff;border:1px solid var(--line);
+  border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.14);max-height:240px;overflow:auto;z-index:20;display:none}
+.ac-list.show{display:block}
+.ac-item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;cursor:pointer;font-size:15px}
+.ac-item:hover,.ac-item.active{background:var(--hush)}
+.ac-item .tk{font-size:12px;font-weight:700;color:var(--soft)}
+.ac-empty{padding:11px 14px;color:var(--soft);font-size:14px}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">Market<span class="dot">Analyst</span></div>
+  <div class="right">
+    <a href="index.html">Dashboard</a>
+    <a href="options.html">Options</a>
+    <button class="logout" id="logoutBtn">Log out</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="hello" id="hello">My Portfolio</div>
+  <span class="plan" id="plan">free plan</span>
+
+  <div class="summary">
+    <div class="scard"><div class="k">Total invested</div><div class="v" id="sInvested">$0</div></div>
+    <div class="scard"><div class="k">Current value</div><div class="v" id="sValue">—</div></div>
+    <div class="scard"><div class="k">Gain / loss (ROI)</div><div class="v" id="sRoi">—</div></div>
+    <div class="scard"><div class="k">Realized profit (sold)</div><div class="v" id="sRealized">$0</div></div>
+  </div>
+  <div class="note" id="roiNote">💡 Current value and ROI will turn on once we connect live prices (the next build step). For now your portfolio tracks what you put in.</div>
+
+  <div class="sec-head">
+    <h2>Your investments</h2>
+    <button class="add-btn" onclick="openAdd()">+ Add investment</button>
+  </div>
+  <div id="holdings"></div>
+
+  <div class="sec-head">
+    <h2>Your options <span style="font-size:13px;font-weight:500;color:var(--soft)">· advanced &amp; risky</span></h2>
+    <button class="add-btn" onclick="openAddOpt()">+ Add option</button>
+  </div>
+  <div id="options"></div>
+
+  <div class="sec-head">
+    <h2>Sold · history</h2>
+  </div>
+  <div id="closed"></div>
+</div>
+
+<!-- add modal -->
+<div class="modal-bg" id="addModal">
+  <div class="modal">
+    <h3>Add an investment</h3>
+    <label>What did you buy?</label>
+    <div class="ac">
+      <input id="m_name" autocomplete="off" placeholder="Start typing… e.g. Nvidia"
+             oninput="acFilter()" onfocus="acFilter()" onkeydown="acKey(event)">
+      <div class="ac-list" id="acList"></div>
+    </div>
+    <div class="hint">Start typing and pick from the list — that way there are no typos.</div>
+    <div class="two">
+      <div><label>Shares (optional)</label><input id="m_shares" type="number" step="any" placeholder="e.g. 10"></div>
+      <div><label>Price paid / share</label><input id="m_cost" type="number" step="any" placeholder="e.g. 120"></div>
+    </div>
+    <label>Or total amount invested ($)</label>
+    <input id="m_amount" type="number" step="any" placeholder="e.g. 1200">
+    <div class="hint">Use shares + price, or just the total — whatever you know.</div>
+    <label>Date bought (optional)</label>
+    <input id="m_date" type="date">
+    <div class="mmsg" id="m_msg"></div>
+    <div class="row">
+      <button class="btn cancel" onclick="closeAdd()">Cancel</button>
+      <button class="btn go" id="m_go" onclick="saveHolding()">Add</button>
+    </div>
+  </div>
+</div>
+
+<!-- sell modal -->
+<div class="modal-bg" id="sellModal">
+  <div class="modal">
+    <h3 id="sell-title">Sell</h3>
+    <label id="sell-plabel">Sell price per share ($)</label>
+    <input id="sell-price" type="number" step="any" placeholder="e.g. 210">
+    <div class="hint" id="sell-hint"></div>
+    <label>Date sold</label>
+    <input id="sell-date" type="date">
+    <div class="mmsg" id="sell-msg"></div>
+    <div class="row">
+      <button class="btn cancel" onclick="closeSell()">Cancel</button>
+      <button class="btn go" id="sell-go" onclick="saveSell()">Record sale</button>
+    </div>
+  </div>
+</div>
+
+<!-- add option modal -->
+<div class="modal-bg" id="optModal">
+  <div class="modal">
+    <h3>Add an option</h3>
+    <label>Stock / fund</label>
+    <select id="o_under"></select>
+    <div class="hint">Which company the option is on.</div>
+    <div class="two">
+      <div>
+        <label>Type</label>
+        <select id="o_kind"><option value="call">Call (bet it goes up)</option><option value="put">Put (bet it goes down)</option></select>
+        <div class="hint">Call = bet it rises. Put = bet it falls.</div>
+      </div>
+      <div>
+        <label>Strike price ($)</label>
+        <input id="o_strike" type="number" step="any" placeholder="e.g. 220">
+        <div class="hint">The price you're betting it reaches.</div>
+      </div>
+    </div>
+    <div class="two">
+      <div>
+        <label>Expiry date</label>
+        <input id="o_expiry" type="date">
+        <div class="hint">The deadline — after this it's over.</div>
+      </div>
+      <div>
+        <label>Contracts</label>
+        <input id="o_contracts" type="number" step="1" placeholder="e.g. 1">
+        <div class="hint">1 contract = 100 shares.</div>
+      </div>
+    </div>
+    <label>Premium paid — per share ($)</label>
+    <input id="o_prem" type="number" step="any" placeholder="e.g. 12.50">
+    <div class="hint">The option's price from your broker. Total cost = this × 100 × contracts.</div>
+    <div class="mmsg" id="o_msg"></div>
+    <div class="row">
+      <button class="btn cancel" onclick="closeAddOpt()">Cancel</button>
+      <button class="btn go" id="o_go" onclick="saveOption()">Add</button>
+    </div>
+  </div>
+</div>
+
+<script src="keys.js"></script>
+<script type="module">
+import { sb, requireAuth, signOut } from "./auth.js";
+
+const money = n => n==null ? "—" : "$" + Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
+let USER = null;
+let HOLDINGS = [], OPTIONS = [];   // current rows, so the Sell button can look them up
+
+// ---- live prices (Finnhub) -------------------------------------------------
+const FINNHUB_KEY = window.FINNHUB_KEY || "";   // loaded from keys.js (git-ignored); move server-side before launch
+
+// the pickable list of securities (name shown + ticker used for prices)
+const SECURITIES = [
+  {n:"NVIDIA",t:"NVDA"},{n:"Apple",t:"AAPL"},{n:"Microsoft",t:"MSFT"},{n:"Amazon",t:"AMZN"},
+  {n:"Alphabet (Google)",t:"GOOGL"},{n:"Meta",t:"META"},{n:"Tesla",t:"TSLA"},{n:"Broadcom",t:"AVGO"},
+  {n:"AMD",t:"AMD"},{n:"Micron",t:"MU"},{n:"Marvell",t:"MRVL"},{n:"Qualcomm",t:"QCOM"},{n:"ARM",t:"ARM"},
+  {n:"Astera Labs",t:"ALAB"},{n:"Palantir",t:"PLTR"},{n:"AppLovin",t:"APP"},{n:"CoreWeave",t:"CRWV"},
+  {n:"IonQ",t:"IONQ"},{n:"Lumentum",t:"LITE"},{n:"Coherent",t:"COHR"},{n:"Applied Optoelectronics",t:"AAOI"},
+  {n:"Vertiv",t:"VRT"},{n:"Oracle",t:"ORCL"},{n:"Cisco",t:"CSCO"},{n:"IBM",t:"IBM"},{n:"Texas Instruments",t:"TXN"},
+  {n:"VOO — S&P 500",t:"VOO"},{n:"QQQ — Nasdaq 100",t:"QQQ"},{n:"SCHD — Dividend",t:"SCHD"},
+  {n:"VGT — Info Tech",t:"VGT"},{n:"SMH — Semiconductors",t:"SMH"},{n:"SOXX — Semiconductors",t:"SOXX"},
+  {n:"AIQ — AI",t:"AIQ"},{n:"CHAT — Generative AI",t:"CHAT"},{n:"ARKK — ARK Innovation",t:"ARKK"},
+  {n:"QTUM — Quantum",t:"QTUM"},{n:"DRAM — Memory",t:"DRAM"},{n:"DTCR — Data Centers",t:"DTCR"},
+  {n:"GRID — Smart Grid",t:"GRID"},{n:"NUKE — Nuclear",t:"NUKE"},{n:"IGV — Software",t:"IGV"},
+  {n:"SOXL — 3x Semis",t:"SOXL"},{n:"TECL — 3x Tech",t:"TECL"},{n:"TQQQ — 3x Nasdaq",t:"TQQQ"},
+];
+const NAME2TICKER = Object.fromEntries(SECURITIES.map(s => [s.n, s.t]));
+function tickerFor(name){
+  if(!name) return null;
+  const q = name.trim();
+  if(NAME2TICKER[q]) return NAME2TICKER[q];
+  const base = q.split(/ [—(]/)[0].trim().toUpperCase();       // strip " — ..." or " (...)"
+  if(SECURITIES.some(s => s.t === base)) return base;           // base is a known ticker
+  if(/^[A-Za-z.]{1,6}$/.test(q)) return q.toUpperCase();        // they typed a ticker
+  return null;
+}
+const keyReady = () => !!FINNHUB_KEY;
+const priceCache = {};
+async function getPrice(ticker){
+  if(!ticker) return null;
+  if(ticker in priceCache) return priceCache[ticker];
+  priceCache[ticker] = await fetchStock(ticker);
+  return priceCache[ticker];
+}
+async function fetchStock(ticker){
+  // 1) secure server proxy (production) — key stays server-side
+  try{
+    const r = await fetch(`/.netlify/functions/quote?kind=stock&symbol=${encodeURIComponent(ticker)}`);
+    if(r.ok){ const j = await r.json(); return j.price!=null ? Number(j.price) : null; }
+  }catch(e){}
+  // 2) local-dev fallback: direct call using keys.js
+  if(!keyReady()) return null;
+  try{
+    const r = await fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${FINNHUB_KEY}`);
+    const j = await r.json(); return (j && j.c) ? Number(j.c) : null;
+  }catch(e){ return null; }
+}
+const sharesOf = h => h.shares!=null ? Number(h.shares)
+  : (h.amount_invested!=null && h.cost_basis ? Number(h.amount_invested)/Number(h.cost_basis) : null);
+const investedOf = h => h.amount_invested!=null ? Number(h.amount_invested)
+  : (h.shares!=null && h.cost_basis!=null ? Number(h.shares)*Number(h.cost_basis) : 0);
+
+// ---- live OPTION prices (Polygon / Massive) — paid key; move server-side before launch ----
+const POLYGON_KEY = window.POLYGON_KEY || "";   // loaded from keys.js (git-ignored)
+const polyReady = () => !!POLYGON_KEY;
+const optPriceCache = {};
+function occTicker(pos){
+  const t = tickerFor(pos.underlying); if(!t || !pos.strike || !pos.expiry) return null;
+  const d = new Date(pos.expiry);
+  const yy=String(d.getUTCFullYear()).slice(2), mm=String(d.getUTCMonth()+1).padStart(2,"0"), dd=String(d.getUTCDate()).padStart(2,"0");
+  const cp = pos.kind==="put" ? "P" : "C";
+  const strike8 = String(Math.round(Number(pos.strike)*1000)).padStart(8,"0");
+  return { ticker:t, occ:`O:${t}${yy}${mm}${dd}${cp}${strike8}` };
+}
+async function getOptionPrice(pos){
+  const o = occTicker(pos); if(!o) return null;
+  if(o.occ in optPriceCache) return optPriceCache[o.occ];
+  optPriceCache[o.occ] = await fetchOption(o.ticker, o.occ);
+  return optPriceCache[o.occ];
+}
+async function fetchOption(ticker, occ){
+  // 1) secure server proxy (production)
+  try{
+    const r = await fetch(`/.netlify/functions/quote?kind=option&underlying=${encodeURIComponent(ticker)}&occ=${encodeURIComponent(occ)}`);
+    if(r.ok){ const j = await r.json(); return j.price!=null ? Number(j.price) : null; }
+  }catch(e){}
+  // 2) local-dev fallback: direct call using keys.js
+  if(!polyReady()) return null;
+  try{
+    const r = await fetch(`https://api.polygon.io/v3/snapshot/options/${ticker}/${occ}?apiKey=${POLYGON_KEY}`);
+    const j = await r.json(); const res = j.results||{};
+    return res.last_trade?.price ?? res.last_quote?.midpoint ?? res.day?.close ?? null;
+  }catch(e){ return null; }
+}
+
+// ---- combined portfolio totals (stocks + options) ----
+let STOCK_TOT = {invested:0,valuedInvested:0,value:0,haveValue:false};
+let OPT_TOT   = {invested:0,valuedInvested:0,value:0,haveValue:false};
+function renderSummary(){
+  const invested = STOCK_TOT.invested + OPT_TOT.invested;
+  const valuedInvested = STOCK_TOT.valuedInvested + OPT_TOT.valuedInvested;
+  const value = STOCK_TOT.value + OPT_TOT.value;
+  const haveValue = STOCK_TOT.haveValue || OPT_TOT.haveValue;
+  document.getElementById("sInvested").textContent = money(invested);
+  document.getElementById("sValue").textContent = haveValue ? money(value) : "—";
+  const roiEl = document.getElementById("sRoi");
+  if(haveValue && valuedInvested > 0){
+    const tot=(value-valuedInvested)/valuedInvested, gain=value-valuedInvested;
+    roiEl.textContent = `${tot>=0?"+":""}${(tot*100).toFixed(1)}%  (${gain>=0?"+":""}${money(gain)})`;
+    roiEl.className = "v " + (tot>=0 ? "pos" : "neg");
+  } else { roiEl.textContent = "—"; roiEl.className = "v"; }
+}
+
+// ---- the model's rating + verdict for each security ------------------------
+let MODEL = {};   // baseKey -> { verdict, tier, tail, vssp, rank }
+const baseKey = name => (name||"").split(/ [—(]/)[0].trim().toLowerCase();
+const VCv = v => { v=(v||"").toLowerCase();
+  if(v.includes("brok")) return "broken"; if(v.includes("cyc")) return "cyclical";
+  if(v.includes("peg")||v.includes("secul")) return "secular"; if(v.includes("watch")) return "watch";
+  if(v.includes("lev")||v.includes("trad")) return "leveraged"; return "safe"; };
+async function loadModel(){
+  try{
+    const r = await fetch("data/snapshot.json", {cache:"no-store"});
+    if(!r.ok) return;
+    const s = await r.json();
+    const rows = (s.rows||[]).map(x => ({
+      name:x.name, tier:x.tier, verdict:x.verdict||x.crash_growth,
+      tail: x.tail==null ? null : (x.tail<=1.5 ? x.tail*100 : x.tail),
+      vssp: x.vssp,
+    }));
+    [...rows].filter(x=>x.vssp!=null).sort((a,b)=>b.vssp-a.vssp).forEach((x,i)=> x.rank=i+1);
+    rows.forEach(x => MODEL[baseKey(x.name)] = x);
+  }catch(e){}
+}
+function ratingFor(x){
+  const a = VCv(x.verdict);
+  if(a==="leveraged" || a==="broken" || (x.tail??0) >= 33) return {label:"Avoid", cls:"r-avoid"};
+  if((x.tail??99) <= 20) return {label:"Buy", cls:"r-buy"};
+  return {label:"Hold", cls:"r-maybe"};
+}
+function modelCell(mk){
+  if(!mk) return `<td><span style="color:var(--soft)">—</span></td>`;
+  const r = ratingFor(mk), a = VCv(mk.verdict);
+  return `<td><span class="rpill ${r.cls}">${r.label}</span><div class="rsub">${a}${mk.rank?` · #${mk.rank}`:""}</div></td>`;
+}
+
+// ---- options lens: the model's take on an option position -----------------
+let OPTLENS = {};   // baseKey -> { gate, "6m":{strikes:{...}}, ... }
+async function loadOptLens(){
+  try{
+    const r = await fetch("data/options_lens.json", {cache:"no-store"});
+    if(!r.ok) return;
+    const d = await r.json();
+    for(const [nm, nd] of Object.entries(d.names||{})) OPTLENS[baseKey(nm)] = nd;
+  }catch(e){}
+}
+const OPT_STRIKES = [0.50,0.60,0.70,0.75,0.80,0.85,0.90,1.00,1.10,1.20,1.50,1.75,2.00,2.25,2.50];
+const OPT_TENORS  = [["6m",6],["12m",12],["18m",18],["24m",24],["36m",36]];
+const nearest = (arr,x) => arr.reduce((a,b)=> Math.abs(b-x)<Math.abs(a-x)?b:a);
+function archetypeGate(g){ g=(g||"").toLowerCase();
+  if(g.includes("broken")) return "REJECT";
+  if(g.includes("survivability")||g.includes("watch")||g.includes("uncertain")) return "CAUTION";
+  return "PASS"; }
+function tenorGate(months,g){ g=(g||"").toLowerCase(); const short=months<=12;
+  if(short && g.includes("cyclical") && g.includes("no short")) return "REJECT";
+  if(short && g.includes("cyclical")) return "CAUTION";
+  return "PASS"; }
+function optVerdict(pos, price){
+  if(pos.kind !== "call") return {cls:"", label:"—", note:"puts aren't modeled yet"};
+  const nd = OPTLENS[baseKey(pos.underlying)];
+  if(!nd) return {cls:"", label:"—", note:"not in the model's option set"};
+  if(!price || !pos.strike) return {cls:"", label:"—", note:"need a live price + strike"};
+  const sk = nearest(OPT_STRIKES, Number(pos.strike)/price).toFixed(2);
+  let months = 24;
+  if(pos.expiry){ months = Math.max(1, (new Date(pos.expiry)-new Date())/(1000*3600*24*30.4)); }
+  const [tlab, tmonths] = OPT_TENORS.reduce((a,b)=> Math.abs(b[1]-months)<Math.abs(a[1]-months)?b:a);
+  const cell = nd[tlab]?.strikes?.[sk];
+  const fair = cell ? cell.fair_value_pct_of_spot : null;
+  const gates = [archetypeGate(nd.gate), tenorGate(tmonths, nd.gate)];
+  if(pos.premium_paid && fair!=null) gates.push((Number(pos.premium_paid)/price*100) < fair ? "PASS" : "REJECT");
+  let v="PASS"; gates.forEach(s=>{ if(s==="REJECT") v="REJECT"; else if(s==="CAUTION"&&v==="PASS") v="CAUTION"; });
+  const cls = {PASS:"r-buy",CAUTION:"r-maybe",REJECT:"r-avoid"}[v];
+  const label = {PASS:"Looks OK",CAUTION:"Caution",REJECT:"Avoid"}[v];
+  const note = fair!=null ? `model fair ≈${fair.toFixed(0)}% · ${tlab} · ${sk}×` : (nd.gate||"");
+  return {cls, label, note};
+}
+
+document.getElementById("logoutBtn").onclick = () => signOut();
+
+async function init(){
+  USER = await requireAuth();           // bounces to login.html if not signed in
+  if(!USER) return;
+
+  // load profile (name + plan)
+  const { data: prof } = await sb.from("profiles").select("full_name, plan").eq("id", USER.id).single();
+  const name = prof?.full_name || USER.email.split("@")[0];
+  document.getElementById("hello").textContent = `${name}'s Portfolio`;
+  const planEl = document.getElementById("plan");
+  planEl.textContent = (prof?.plan==="paid"?"pro plan":"free plan");
+  planEl.classList.toggle("paid", prof?.plan==="paid");
+
+  await loadModel();
+  await loadOptLens();
+  await loadHoldings();
+  await loadOptions();
+  await loadClosed();
+}
+
+async function loadHoldings(){
+  const { data, error } = await sb.from("holdings").select("*").order("created_at",{ascending:false});
+  const box = document.getElementById("holdings");
+  if(error){ box.innerHTML = `<div class="empty">Couldn't load your portfolio: ${error.message}</div>`; return; }
+  HOLDINGS = data || [];
+
+  if(keyReady()){
+    document.getElementById("roiNote").innerHTML =
+      "💡 Current value and ROI use live market prices, refreshed each time you open this page.";
+  }
+
+  if(!data.length){
+    STOCK_TOT = {invested:0,valuedInvested:0,value:0,haveValue:false}; renderSummary();
+    box.innerHTML = `<div class="empty">No investments yet.<br>Tap <b>+ Add investment</b> to start your portfolio.</div>`;
+    return;
+  }
+
+  // fetch a live price for every ticker we can resolve
+  const prices = {};
+  await Promise.all(data.map(async h => {
+    const t = tickerFor(h.security_name);
+    if(t && !(t in prices)) prices[t] = await getPrice(t);
+  }));
+
+  let invested = 0, valuedInvested = 0, value = 0, haveValue = false;
+  const rows = data.map(h => {
+    const inv = investedOf(h); invested += inv;
+    const t = tickerFor(h.security_name);
+    const price = t ? prices[t] : null;
+    const sh = sharesOf(h);
+    let val = null, roi = null;
+    if(price != null && sh != null){ val = price * sh; value += val; haveValue = true; valuedInvested += inv;
+      if(inv > 0) roi = (val - inv) / inv; }
+    return rowHtml(h, inv, price, val, roi, MODEL[baseKey(h.security_name)]);
+  });
+  STOCK_TOT = {invested, valuedInvested, value, haveValue};
+  renderSummary();
+
+  box.innerHTML = `<table><thead><tr>
+      <th>Investment</th><th>Shares</th><th>Price paid</th><th>Invested</th><th>Price now</th><th>Value</th><th>ROI</th><th>Model rating</th><th></th>
+    </tr></thead><tbody>${rows.join("")}</tbody></table>`;
+}
+
+function rowHtml(h, inv, price, val, roi, mk){
+  const roiTxt   = roi == null ? "—" : `${roi>=0?"+":""}${(roi*100).toFixed(1)}%`;
+  const roiStyle = roi == null ? "" : (roi >= 0 ? "color:var(--green);font-weight:600" : "color:var(--red);font-weight:600");
+  return `<tr>
+    <td class="nm">${h.security_name}</td>
+    <td>${h.shares ?? "—"}</td>
+    <td>${h.cost_basis!=null ? money(h.cost_basis) : "—"}</td>
+    <td>${money(inv)}</td>
+    <td>${price!=null ? money(price) : "—"}</td>
+    <td>${val!=null ? money(val) : "—"}</td>
+    <td style="${roiStyle}">${roiTxt}</td>
+    ${modelCell(mk)}
+    <td style="white-space:nowrap"><button class="sell" onclick="openSell('stock','${h.id}')">Sell</button><button class="del" title="Remove without recording" onclick="delHolding('${h.id}')">✕</button></td>
+  </tr>`;
+}
+
+// ---- add / delete ----
+window.openAdd = () => { document.getElementById("m_msg").textContent=""; document.getElementById("acList").classList.remove("show"); document.getElementById("addModal").classList.add("open"); };
+window.closeAdd = () => document.getElementById("addModal").classList.remove("open");
+
+// ---- search-and-pick dropdown for the investment name ----
+let acItems = [], acActive = -1;
+window.acFilter = () => {
+  const q = document.getElementById("m_name").value.trim().toLowerCase();
+  const list = document.getElementById("acList");
+  acItems = SECURITIES.filter(s => !q || s.n.toLowerCase().includes(q) || s.t.toLowerCase().includes(q)).slice(0,8);
+  acActive = -1;
+  if(!acItems.length){
+    list.innerHTML = `<div class="ac-empty">No match — you can still type it in.</div>`;
+    list.classList.add("show"); return;
+  }
+  list.innerHTML = acItems.map((s,i) =>
+    `<div class="ac-item" data-i="${i}" onmousedown="acPick(${i})"><span>${s.n}</span><span class="tk">${s.t}</span></div>`
+  ).join("");
+  list.classList.add("show");
+};
+window.acPick = (i) => {
+  const s = acItems[i]; if(!s) return;
+  document.getElementById("m_name").value = s.n;
+  document.getElementById("acList").classList.remove("show");
+};
+window.acKey = (e) => {
+  const list = document.getElementById("acList");
+  if(!list.classList.contains("show")) return;
+  if(e.key === "ArrowDown" || e.key === "ArrowUp"){
+    e.preventDefault();
+    acActive = Math.max(0, Math.min(acItems.length-1, acActive + (e.key==="ArrowDown"?1:-1)));
+    [...list.children].forEach((c,i) => c.classList.toggle("active", i===acActive));
+  } else if(e.key === "Enter" && acActive >= 0){
+    e.preventDefault(); acPick(acActive);
+  } else if(e.key === "Escape"){ list.classList.remove("show"); }
+};
+document.addEventListener("click", e => {
+  if(!e.target.closest(".ac")) document.getElementById("acList")?.classList.remove("show");
+});
+
+window.saveHolding = async () => {
+  const name = document.getElementById("m_name").value.trim();
+  const shares = document.getElementById("m_shares").value;
+  const cost = document.getElementById("m_cost").value;
+  const amount = document.getElementById("m_amount").value;
+  const date = document.getElementById("m_date").value;
+  if(!name){ document.getElementById("m_msg").textContent = "Please enter what you bought."; return; }
+
+  const row = {
+    user_id: USER.id,
+    security_name: name,
+    shares: shares ? Number(shares) : null,
+    cost_basis: cost ? Number(cost) : null,
+    amount_invested: amount ? Number(amount) : null,
+    purchase_date: date || null,
+  };
+  const btn = document.getElementById("m_go"); btn.disabled = true;
+  const { error } = await sb.from("holdings").insert(row);
+  btn.disabled = false;
+  if(error){ document.getElementById("m_msg").textContent = error.message; return; }
+  ["m_name","m_shares","m_cost","m_amount","m_date"].forEach(id=>document.getElementById(id).value="");
+  closeAdd();
+  loadHoldings();
+};
+
+window.delHolding = async (id) => {
+  if(!confirm("Remove this investment?")) return;
+  const { error } = await sb.from("holdings").delete().eq("id", id);
+  if(error){ alert(error.message); return; }
+  loadHoldings();
+};
+
+// ---- options positions ----
+window.openAddOpt = () => {
+  document.getElementById("o_msg").textContent = "";
+  const sel = document.getElementById("o_under");
+  if(!sel.options.length) sel.innerHTML = SECURITIES.map(s => `<option value="${s.n}">${s.n}</option>`).join("");
+  document.getElementById("optModal").classList.add("open");
+};
+window.closeAddOpt = () => document.getElementById("optModal").classList.remove("open");
+
+window.saveOption = async () => {
+  const row = {
+    user_id: USER.id,
+    underlying: document.getElementById("o_under").value,
+    kind: document.getElementById("o_kind").value,
+    strike: parseFloat(document.getElementById("o_strike").value) || null,
+    expiry: document.getElementById("o_expiry").value || null,
+    contracts: parseFloat(document.getElementById("o_contracts").value) || 1,
+    premium_paid: parseFloat(document.getElementById("o_prem").value) || null,
+  };
+  if(!row.underlying){ document.getElementById("o_msg").textContent = "Pick a stock."; return; }
+  const btn = document.getElementById("o_go"); btn.disabled = true;
+  const { error } = await sb.from("option_positions").insert(row);
+  btn.disabled = false;
+  if(error){ document.getElementById("o_msg").textContent = error.message; return; }
+  ["o_strike","o_expiry","o_contracts","o_prem"].forEach(id => document.getElementById(id).value = "");
+  closeAddOpt(); loadOptions();
+};
+
+window.delOption = async (id) => {
+  if(!confirm("Remove this option?")) return;
+  const { error } = await sb.from("option_positions").delete().eq("id", id);
+  if(error){ alert(error.message); return; }
+  loadOptions();
+};
+
+async function loadOptions(){
+  const box = document.getElementById("options");
+  const { data, error } = await sb.from("option_positions").select("*").order("created_at",{ascending:false});
+  if(error){ box.innerHTML = `<div class="empty">Couldn't load options: ${error.message}</div>`; return; }
+  OPTIONS = data || [];
+  if(!data.length){
+    OPT_TOT = {invested:0,valuedInvested:0,value:0,haveValue:false}; renderSummary();
+    box.innerHTML = `<div class="empty">No options yet.<br>Options are advanced &amp; risky — only if you know what you're doing.</div>`;
+    return;
+  }
+  // live underlying prices (for the model rating) + live option prices (for value/ROI)
+  const uprices = {};
+  await Promise.all(data.map(async p => { const t = tickerFor(p.underlying); if(t && !(t in uprices)) uprices[t] = await getPrice(t); }));
+  const oprices = await Promise.all(data.map(p => getOptionPrice(p)));
+
+  let invested=0, valuedInvested=0, value=0, haveValue=false;
+  const rows = data.map((p,i) => {
+    const cost = (p.premium_paid!=null && p.contracts!=null) ? Number(p.premium_paid)*100*Number(p.contracts) : null;
+    if(cost!=null) invested += cost;
+    const oprice = oprices[i];
+    let val=null, roi=null;
+    if(oprice!=null && p.contracts!=null){ val = oprice*100*Number(p.contracts); value += val; haveValue=true;
+      if(cost){ valuedInvested += cost; roi=(val-cost)/cost; } }
+    return optionRow(p, cost, val, roi, uprices[tickerFor(p.underlying)]);
+  });
+  OPT_TOT = {invested, valuedInvested, value, haveValue};
+  renderSummary();
+
+  box.innerHTML = `<table><thead><tr>
+      <th>Option on</th><th>Type</th><th>Strike</th><th>Expiry</th><th>Contracts</th><th>Cost</th><th>Value now</th><th>ROI</th><th>Model rating</th><th></th>
+    </tr></thead><tbody>${rows.join("")}</tbody></table>`;
+}
+
+function optionRow(p, cost, val, roi, underlyingPrice){
+  const v = optVerdict(p, underlyingPrice);
+  const rating = v.cls
+    ? `<span class="rpill ${v.cls}">${v.label}</span><div class="rsub">${v.note}</div>`
+    : `<span style="color:var(--soft)">—</span><div class="rsub">${v.note}</div>`;
+  const roiTxt = roi==null ? "—" : `${roi>=0?"+":""}${(roi*100).toFixed(1)}%`;
+  const roiStyle = roi==null ? "" : (roi>=0 ? "color:var(--green);font-weight:600" : "color:var(--red);font-weight:600");
+  return `<tr>
+    <td class="nm">${p.underlying}</td>
+    <td style="text-transform:capitalize">${p.kind}</td>
+    <td>${p.strike!=null ? money(p.strike) : "—"}</td>
+    <td>${p.expiry || "—"}</td>
+    <td>${p.contracts ?? "—"}</td>
+    <td>${cost!=null ? money(cost) : "—"}</td>
+    <td>${val!=null ? money(val) : "—"}</td>
+    <td style="${roiStyle}">${roiTxt}</td>
+    <td>${rating}</td>
+    <td style="white-space:nowrap"><button class="sell" onclick="openSell('option','${p.id}')">Sell</button><button class="del" title="Remove without recording" onclick="delOption('${p.id}')">✕</button></td>
+  </tr>`;
+}
+
+// ---- selling (realized profit) --------------------------------------------
+let SELL_CTX = null;   // { type:'stock'|'option', rec }
+window.openSell = (type, id) => {
+  const rec = type==="stock" ? HOLDINGS.find(x=>x.id===id) : OPTIONS.find(x=>x.id===id);
+  if(!rec) return;
+  SELL_CTX = {type, rec};
+  document.getElementById("sell-msg").textContent = "";
+  document.getElementById("sell-price").value = "";
+  document.getElementById("sell-date").value = "";
+  if(type==="stock"){
+    document.getElementById("sell-title").textContent = `Sell ${rec.security_name}`;
+    document.getElementById("sell-plabel").textContent = "Sell price per share ($)";
+    const sh = sharesOf(rec);
+    document.getElementById("sell-hint").textContent = sh!=null ? `You hold about ${(+sh).toLocaleString()} shares.` : "";
+  } else {
+    document.getElementById("sell-title").textContent = `Sell ${rec.underlying} ${rec.kind}`;
+    document.getElementById("sell-plabel").textContent = "Sell price — premium per share ($)";
+    document.getElementById("sell-hint").textContent = `${rec.contracts||1} contract(s) = ${(rec.contracts||1)*100} shares. Use the price your broker shows to close it.`;
+  }
+  document.getElementById("sellModal").classList.add("open");
+};
+window.closeSell = () => document.getElementById("sellModal").classList.remove("open");
+
+window.saveSell = async () => {
+  if(!SELL_CTX) return;
+  const price = parseFloat(document.getElementById("sell-price").value);
+  const date = document.getElementById("sell-date").value || null;
+  if(isNaN(price)){ document.getElementById("sell-msg").textContent = "Enter the sell price."; return; }
+  const {type, rec} = SELL_CTX;
+  let row;
+  if(type==="stock"){
+    const sh = sharesOf(rec) || 0, cost = investedOf(rec);
+    const proceeds = price * sh;
+    row = {user_id:USER.id, asset_type:"stock", name:rec.security_name, quantity:sh,
+           cost_total:cost, proceeds_total:proceeds, realized:proceeds-cost, sold_date:date};
+  } else {
+    const c = Number(rec.contracts||1), cost = (Number(rec.premium_paid)||0)*100*c;
+    const proceeds = price * 100 * c;
+    const name = `${rec.underlying} ${rec.kind} $${rec.strike} exp ${rec.expiry||"—"}`;
+    row = {user_id:USER.id, asset_type:"option", name, quantity:c,
+           cost_total:cost, proceeds_total:proceeds, realized:proceeds-cost, sold_date:date};
+  }
+  const btn = document.getElementById("sell-go"); btn.disabled = true;
+  const { error: e1 } = await sb.from("closed_positions").insert(row);
+  if(e1){ btn.disabled=false; document.getElementById("sell-msg").textContent = e1.message; return; }
+  // remove from active holdings/options now that it's recorded as sold
+  await sb.from(type==="stock" ? "holdings" : "option_positions").delete().eq("id", rec.id);
+  btn.disabled = false;
+  closeSell();
+  if(type==="stock") loadHoldings(); else loadOptions();
+  loadClosed();
+};
+
+async function loadClosed(){
+  const box = document.getElementById("closed");
+  const { data, error } = await sb.from("closed_positions").select("*").order("sold_date",{ascending:false});
+  const card = document.getElementById("sRealized");
+  if(error){ box.innerHTML = `<div class="empty">Couldn't load history: ${error.message}</div>`; return; }
+  let realized = 0; data.forEach(c => realized += Number(c.realized||0));
+  card.textContent = (realized>=0?"+":"") + money(realized);
+  card.className = "v " + (realized>0?"pos":realized<0?"neg":"");
+  if(!data.length){
+    box.innerHTML = `<div class="empty">Nothing sold yet.<br>When you sell something, your locked-in profit shows up here.</div>`;
+    return;
+  }
+  box.innerHTML = `<table><thead><tr>
+      <th>Sold</th><th>Type</th><th>Qty</th><th>Cost</th><th>Sold for</th><th>Profit</th><th>Date</th><th></th>
+    </tr></thead><tbody>${data.map(c=>{
+      const r = Number(c.realized||0);
+      const style = r>=0 ? "color:var(--green);font-weight:600" : "color:var(--red);font-weight:600";
+      return `<tr>
+        <td class="nm">${c.name}</td>
+        <td style="text-transform:capitalize">${c.asset_type}</td>
+        <td>${c.quantity ?? "—"}</td>
+        <td>${c.cost_total!=null?money(c.cost_total):"—"}</td>
+        <td>${c.proceeds_total!=null?money(c.proceeds_total):"—"}</td>
+        <td style="${style}">${r>=0?"+":""}${money(r)}</td>
+        <td>${c.sold_date||"—"}</td>
+        <td><button class="del" title="Delete record" onclick="delClosed('${c.id}')">✕</button></td>
+      </tr>`;
+    }).join("")}</tbody></table>`;
+}
+window.delClosed = async (id) => {
+  if(!confirm("Delete this history record? (This removes it from your realized profit.)")) return;
+  const { error } = await sb.from("closed_positions").delete().eq("id", id);
+  if(error){ alert(error.message); return; }
+  loadClosed();
+};
+
+init();
+</script>
+</body>
+</html>
