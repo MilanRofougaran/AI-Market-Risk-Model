@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Market Analyst</title>
+<style>
+:root{
+  --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#fff; --hush:#f5f5f7;
+  --blue:#0071e3; --green:#1a9c63; --red:#d2402f; --amber:#c8841a;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:var(--sans);background:var(--hush);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+
+.app{display:flex;height:100vh;overflow:hidden}
+
+/* sidebar */
+.side{width:280px;flex-shrink:0;background:var(--paper);border-right:1px solid var(--line);display:flex;flex-direction:column}
+.side-top{padding:16px;border-bottom:1px solid var(--line)}
+.brand{font-size:17px;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.brand .dot{color:var(--blue)}
+.newchat{width:100%;background:var(--blue);color:#fff;border:0;border-radius:980px;padding:11px;font-size:14px;font-weight:600}
+.newchat:hover{background:#0077ed}
+.convos{flex:1;overflow:auto;padding:8px}
+.clabel{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);padding:10px 10px 4px}
+.convo{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:8px;cursor:pointer;font-size:13.5px;color:var(--ink)}
+.convo:hover{background:rgba(127,127,127,.12)}
+.convo.on{background:rgba(127,127,127,.20);font-weight:600}
+.convo .t{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.convo .date{font-size:11px;color:var(--soft);flex-shrink:0}
+.convo .edit,.convo .x{display:none;border:0;background:none;color:var(--soft);font-size:13px;flex-shrink:0;cursor:pointer;padding:0 2px}
+.convo:hover .date{display:none}
+.convo:hover .edit,.convo:hover .x{display:block}
+.convo .edit:hover{color:var(--ink)} .convo .x:hover{color:var(--red)}
+.renameinput{flex:1;min-width:0;border:1.5px solid var(--blue);border-radius:6px;padding:3px 6px;font-size:13px;font-family:inherit;outline:none;background:var(--paper);color:var(--ink)}
+.noconvo{padding:10px 12px;color:var(--soft);font-size:13px}
+.side-foot{border-top:1px solid var(--line);padding:12px 16px;font-size:13px;display:flex;flex-direction:column;gap:8px}
+.side-foot a{color:var(--soft)} .side-foot a:hover{color:var(--ink)}
+.side-foot .who{font-size:12px;color:var(--soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.logout{align-self:flex-start;border:1px solid var(--line);background:var(--paper);border-radius:980px;padding:6px 14px;font-size:12.5px;font-weight:600;color:var(--ink)}
+.logout:hover{background:var(--hush)}
+
+/* main */
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+.topbar{height:52px;display:flex;align-items:center;gap:12px;padding:0 18px;border-bottom:1px solid var(--line);background:var(--paper)}
+.menu-btn{display:none;border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:6px 10px;font-size:16px}
+.topbar .title{font-weight:600;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.topnav{margin-left:auto;display:flex;gap:20px;font-size:14px;font-weight:500;align-items:center}
+.topnav a{color:var(--soft)} .topnav a:hover{color:var(--ink)}
+@media(max-width:760px){.topnav{gap:14px;font-size:13px}}
+.msgs{flex:1;overflow:auto;padding:24px 0}
+.mwrap{max-width:760px;margin:0 auto;padding:0 20px}
+.turn{padding:10px 0}
+.turn.user{display:flex;justify-content:flex-end}
+.turn.user .bubble{background:var(--hush);border-radius:16px;padding:11px 16px;max-width:85%;white-space:pre-wrap}
+.bubble{font-size:15px;line-height:1.7}
+.bubble.streaming{white-space:pre-wrap}
+.bubble .cur{white-space:pre-wrap}
+.bubble h3{font-size:16px;margin:14px 0 6px;font-weight:700}
+.bubble p{margin:0 0 10px}
+.bubble ul,.bubble ol{margin:0 0 10px;padding-left:22px}
+.bubble li{margin:3px 0}
+.bubble code{background:var(--hush);padding:1px 5px;border-radius:5px;font-family:var(--mono);font-size:13px}
+.bubble strong{font-weight:700}
+.bubble a{color:var(--blue)}
+.bubble table{border-collapse:collapse;margin:6px 0 12px;font-size:13.5px;width:100%}
+.bubble th,.bubble td{border:1px solid var(--line);padding:7px 10px;text-align:left}
+.bubble th{background:var(--hush);font-weight:700}
+.bubble pre.code{background:var(--hush);border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto;font-size:13px;margin:6px 0 12px}
+.bubble .chart{margin:8px 0 14px;max-width:520px}
+.bubble>:last-child{margin-bottom:0}
+.bubble .src{display:block;margin-top:8px;font-size:11px;color:var(--soft);font-family:var(--mono)}
+.welcome{max-width:620px;margin:8vh auto 0;text-align:center;padding:0 20px}
+.welcome h1{font-size:30px;letter-spacing:-.02em;margin:0 0 8px}
+.welcome p{color:var(--soft);font-size:16px;margin:0 0 26px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.chip{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:14px;text-align:left;max-width:240px}
+.chip:hover{border-color:var(--blue);background:#f7faff}
+
+/* composer */
+.composer{border-top:1px solid var(--line);background:var(--paper);padding:14px 0}
+.cwrap{max-width:760px;margin:0 auto;padding:0 20px;display:flex;gap:10px;align-items:flex-end}
+.cwrap textarea{flex:1;resize:none;border:1.5px solid var(--line);border-radius:16px;padding:13px 16px;font-size:15px;font-family:inherit;outline:none;max-height:160px;line-height:1.4}
+.cwrap textarea:focus{border-color:var(--blue)}
+.send{background:var(--blue);color:#fff;border:0;border-radius:50%;width:44px;height:44px;font-size:18px;flex-shrink:0}
+.send:hover{background:#0077ed}.send:disabled{opacity:.5}
+.disc{max-width:760px;margin:8px auto 0;padding:0 20px;font-size:11px;color:var(--soft);text-align:center}
+
+.backdrop{display:none}
+@media(max-width:760px){
+  .side{position:fixed;left:0;top:0;bottom:0;z-index:50;transform:translateX(-100%);transition:transform .2s}
+  .side.open{transform:none}
+  .menu-btn{display:block}
+  .backdrop.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:40}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="backdrop" id="backdrop" onclick="toggleSide(false)"></div>
+  <aside class="side" id="side">
+    <div class="side-top">
+      <div class="brand">Market<span class="dot">Analyst</span></div>
+      <button class="newchat" onclick="newChat()">+ New chat</button>
+    </div>
+    <div class="convos" id="convos"></div>
+    <div class="side-foot">
+      <div class="who" id="who"></div>
+      <button class="logout" id="logoutBtn">Log out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <button class="menu-btn" onclick="toggleSide(true)">☰</button>
+      <div class="title" id="title">Research</div>
+      <span id="aistatus" style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:980px"></span>
+      <div class="topnav">
+        <a href="index.html">Dashboard</a>
+        <a href="account.html">My Portfolio</a>
+        <a href="options.html">Options</a>
+      </div>
+    </div>
+    <div class="msgs" id="msgs"></div>
+    <div class="composer">
+      <div class="cwrap">
+        <textarea id="q" rows="1" placeholder="Ask anything about the model, a stock, options, or how investing risk works…" oninput="grow(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();send()}"></textarea>
+        <button class="send" id="sendBtn" onclick="send()">↑</button>
+      </div>
+      <div class="disc">Answers come from this research model — not investment advice.</div>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="keys.js?v=2"></script>
+<script type="module">
+import { sb, requireAuth, signOut } from "./auth.js";
+
+let USER=null, ROWS=[], MACRO={}, LENS={}, CONVO=null, MSGS=[];
+
+const MODEL_BRIEF = `This is a regime-switching Monte Carlo risk model for US AI/semiconductor stocks and ETFs. Core idea: a stock's BETA sets how deep it falls in a panic; its TAM-penetration (growth runway) sets whether it RECOVERS. The model's goal is avoiding permanent loss, not chasing returns. Key metrics: growth (expected 18-month revenue growth), P(>25% fall) (chance of a big drop in 18m), recover-by-2y, >3y tail (chance a big fall never recovers — the catastrophe signal), reward vs S&P. The whole AI universe is ~one correlated bet (correlation ~0.9), so diversifying across these names is partly an illusion. Leveraged 3x ETFs (SOXL/TECL/TQQQ) have ~100% odds of a >25% fall and are decay products. The macro stress index measures how dangerous the overall market is right now. Options are priced at thesis-conditional fair value (no implied volatility, so it can't spot market mispricing). Trust the rankings more than the exact numbers. Research model, not investment advice.`;
+
+const fmtP = x => x==null ? "—" : Math.round(x<=1.5 ? x*100 : x)+"%";
+const VC = v => { v=(v||"").toLowerCase();
+  if(v.includes("brok"))return"broken"; if(v.includes("cyc"))return"cyclical";
+  if(v.includes("peg")||v.includes("secul"))return"secular"; if(v.includes("watch"))return"watch";
+  if(v.includes("lev")||v.includes("trad"))return"leveraged"; return"safe"; };
+function normRow(r){ const pct=x=>x==null?null:(x<=1.5?x*100:x);
+  return {name:r.name,kind:r.kind,tier:r.tier,verdict:r.verdict||r.crash_growth,
+    growth:pct(r.growth),p25:pct(r.p25),rec2y:pct(r.rec2y),tail:pct(r.tail),vssp:r.vssp}; }
+
+async function boot(){
+  USER = await requireAuth();
+  if(!USER) return;
+  document.getElementById("who").textContent = USER.email;
+  document.getElementById("logoutBtn").onclick = () => signOut();
+  document.getElementById("msgs").addEventListener("scroll", ()=>{ stickBottom = nearBottom(); });
+  const ai = !!(typeof window!=="undefined" && window.ANTHROPIC_KEY);
+  const st = document.getElementById("aistatus");
+  if(st){ st.textContent = ai ? "AI connected" : "Built-in mode";
+    st.style.background = ai ? "#eaf7f0" : "#f0f0f2"; st.style.color = ai ? "#1a9c63" : "#6e6e73"; }
+  console.log("[research] AI key detected:", ai);
+  // model data for grounded offline answers
+  try{ const s=await (await fetch("data/snapshot.json",{cache:"no-store"})).json();
+    ROWS=(s.rows||[]).map(normRow); MACRO={...(s.macro||{}),...(s.stress||{})}; }catch(e){}
+  try{ LENS=(await (await fetch("data/options_lens.json",{cache:"no-store"})).json()).names||{}; }catch(e){}
+  await loadConvos();
+  newChat();
+}
+
+/* ---------- conversations ---------- */
+function fmtDate(iso){ if(!iso) return ""; const d=new Date(iso); return `${d.getMonth()+1}/${d.getDate()}/${String(d.getFullYear()).slice(2)}`; }
+async function loadConvos(){
+  const { data } = await sb.from("conversations").select("id,title,updated_at").order("updated_at",{ascending:false});
+  const box=document.getElementById("convos");
+  if(!data || !data.length){ box.innerHTML=`<div class="clabel">Recent</div><div class="noconvo">No chats yet.</div>`; return; }
+  box.innerHTML = `<div class="clabel">Recent</div>` + data.map(c=>
+    `<div class="convo ${CONVO===c.id?'on':''}" data-id="${c.id}" onclick="openConvo('${c.id}')" ondblclick="event.stopPropagation();renameConvo('${c.id}')" title="Double-click to rename">
+       <span class="t">${esc(c.title)}</span>
+       <span class="date">${fmtDate(c.updated_at)}</span>
+       <button class="x" title="Delete" onclick="event.stopPropagation();delConvo('${c.id}')">✕</button>
+     </div>`).join("");
+}
+function esc(s){ return (s||"").replace(/[<>&]/g, m=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[m])); }
+
+window.newChat = () => {
+  CONVO=null; MSGS=[];
+  document.getElementById("title").textContent="Research";
+  document.getElementById("msgs").innerHTML = `
+    <div class="welcome">
+      <h1>What do you want to research?</h1>
+      <p>Ask about any stock or ETF, options, the market, or how investing risk works — answered from the model.</p>
+      <div class="chips">
+        <div class="chip" onclick="quick(this)">What does this model do and how does it work?</div>
+        <div class="chip" onclick="quick(this)">Which names look safest right now?</div>
+        <div class="chip" onclick="quick(this)">What's the riskiest stock and why?</div>
+        <div class="chip" onclick="quick(this)">Explain what the &gt;3y tail means</div>
+      </div>
+    </div>`;
+  [...document.querySelectorAll(".convo")].forEach(c=>c.classList.remove("on"));
+  toggleSide(false);
+};
+window.quick = (el) => { document.getElementById("q").value = el.textContent; send(); };
+
+window.openConvo = async (id) => {
+  CONVO=id; toggleSide(false);
+  [...document.querySelectorAll(".convo")].forEach(c=>c.classList.toggle("on", c.dataset.id===id));
+  const { data:c } = await sb.from("conversations").select("title").eq("id",id).single();
+  document.getElementById("title").textContent = c?.title || "Research";
+  const { data, error } = await sb.from("messages").select("role,content").eq("conversation_id",id).order("created_at",{ascending:true});
+  console.log("[research] openConvo", id, "→ messages:", data?data.length:0, "error:", error);
+  MSGS = (data||[]).map(x=>({role:x.role, content:x.content}));
+  const m=document.getElementById("msgs"); m.innerHTML="";
+  if(error){ m.innerHTML=`<div class="mwrap" style="padding:30px;color:var(--red)">Couldn't load this chat: ${error.message}</div>`; return; }
+  if(!data || !data.length){ m.innerHTML=`<div class="mwrap" style="padding:30px;color:var(--soft)">This chat has no saved messages yet.</div>`; return; }
+  data.forEach(x=> addMsg(x.content, x.role==="user"?"u":"a"));
+  m.scrollTop=m.scrollHeight;
+};
+
+window.renameConvo = (id) => {
+  const row=[...document.querySelectorAll(".convo")].find(c=>c.dataset.id===id);
+  if(!row) return;
+  const span=row.querySelector(".t"); const cur=span.textContent;
+  const inp=document.createElement("input"); inp.className="renameinput"; inp.value=cur;
+  span.replaceWith(inp); inp.focus(); inp.select();
+  let finished=false;
+  const finish=async (save)=>{
+    if(finished) return; finished=true;
+    const v=inp.value.trim();
+    if(save && v && v!==cur){
+      await sb.from("conversations").update({title:v}).eq("id",id);
+      if(CONVO===id) document.getElementById("title").textContent=v;
+    }
+    loadConvos();
+  };
+  inp.onclick=(e)=>e.stopPropagation();
+  inp.onkeydown=(e)=>{ if(e.key==="Enter"){ e.preventDefault(); finish(true);} else if(e.key==="Escape"){ finish(false);} };
+  inp.onblur=()=>finish(true);
+};
+
+window.delConvo = async (id) => {
+  if(!confirm("Delete this chat?")) return;
+  await sb.from("conversations").delete().eq("id",id);
+  if(CONVO===id) newChat();
+  loadConvos();
+};
+
+/* ---------- messaging ---------- */
+// markdown -> HTML: paragraphs, bold/italic/code/links, headers, lists, TABLES, fenced code + ```chart blocks
+function mdToHtml(t){
+  t=t||"";
+  const esc=x=>x.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  const inline=x=>esc(x)
+    .replace(/`([^`]+)`/g,'<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>')
+    .replace(/(^|[^*])\*([^*\n]+)\*/g,'$1<em>$2</em>')
+    .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+  // pull out fenced blocks (```chart -> chart container; others -> code)
+  const blocks=[];
+  t=t.replace(/```(\w*)\n?([\s\S]*?)```/g,(m,lang,body)=>{
+    blocks.push(lang==="chart"
+      ? `<div class="chart" data-chart="${encodeURIComponent(body.trim())}"></div>`
+      : `<pre class="code"><code>${esc(body.replace(/\n$/,""))}</code></pre>`);
+    return ` ${blocks.length-1} `;
+  });
+  const lines=t.split("\n"); let html="", list=null, i=0;
+  const close=()=>{ if(list){ html+=`</${list}>`; list=null; } };
+  const isRow=s=>/^\s*\|.*\|\s*$/.test(s);
+  const isSep=s=>/^\s*\|?[\s:|-]+\|?\s*$/.test(s)&&s.includes("-");
+  const cells=r=>r.replace(/^\s*\|/,"").replace(/\|\s*$/,"").split("|").map(c=>c.trim());
+  while(i<lines.length){
+    const line=lines[i].replace(/\s+$/,""); let m;
+    if(isRow(line)&&i+1<lines.length&&isSep(lines[i+1])){           // table
+      close();
+      html+="<table><thead><tr>"+cells(line).map(c=>`<th>${inline(c)}</th>`).join("")+"</tr></thead><tbody>"; i+=2;
+      while(i<lines.length&&isRow(lines[i])){ html+="<tr>"+cells(lines[i]).map(c=>`<td>${inline(c)}</td>`).join("")+"</tr>"; i++; }
+      html+="</tbody></table>"; continue;
+    }
+    if(m=line.match(/^ (\d+) $/)){ close(); html+=blocks[+m[1]]; i++; continue; }   // fenced block
+    if(m=line.match(/^\s*[-*]\s+(.*)/)){ if(list!=="ul"){close();html+="<ul>";list="ul";} html+=`<li>${inline(m[1])}</li>`; i++; continue; }
+    if(m=line.match(/^\s*\d+\.\s+(.*)/)){ if(list!=="ol"){close();html+="<ol>";list="ol";} html+=`<li>${inline(m[1])}</li>`; i++; continue; }
+    close();
+    if(m=line.match(/^#{1,6}\s+(.*)/)){ html+=`<h3>${inline(m[1])}</h3>`; i++; continue; }
+    if(line.trim()===""){ i++; continue; }
+    html+=`<p>${inline(line)}</p>`; i++;
+  }
+  close();
+  return html.replace(/ (\d+) /g,(m,n)=>blocks[+n]||"");
+}
+
+// while typing we keep FULL formatting via mdToHtml, but hide only the half-typed
+// bits so nothing flashes (an unclosed **bold**, `code`, [link], or code/chart block)
+function streamSafe(s){
+  s=(s||"").replace(/```[\s\S]*?```/g,"").replace(/```[\s\S]*$/,"");        // only code/chart blocks render at the end
+  s=s.replace(/\n{3,}/g,"\n\n");                                            // tables now stream live, row by row
+  if(((s.match(/\*\*/g)||[]).length)%2) s=s.slice(0, s.lastIndexOf("**"));  // unclosed bold
+  if(((s.match(/`/g)||[]).length)%2)    s=s.slice(0, s.lastIndexOf("`"));   // unclosed inline code
+  const lb=s.lastIndexOf("["); if(lb>s.lastIndexOf("]")) s=s.slice(0,lb);   // unclosed link
+  return s;
+}
+// the currently-typing line: hide it entirely when inside a chart/code block or a table row
+function curLineSafe(vis, cur){
+  if(((vis.match(/```/g)||[]).length)%2) return "";   // inside an open ``` fence (e.g. a chart) → hide
+  if(/^\s*\|/.test(cur)) return "";                   // a table row → hide (table renders at the end)
+  let s=cur;
+  if(((s.match(/\*\*/g)||[]).length)%2) s=s.slice(0, s.lastIndexOf("**"));
+  if(((s.match(/`/g)||[]).length)%2)    s=s.slice(0, s.lastIndexOf("`"));
+  return s;
+}
+
+const CHARTCOLORS=["#0071e3","#1a9c63","#c8841a","#d2402f","#7b61c8","#0a9bb5"];
+function renderCharts(scope){
+  if(typeof Chart==="undefined"){ console.warn("[research] Chart.js not ready, retrying"); setTimeout(()=>renderCharts(scope),400); return; }
+  scope.querySelectorAll(".chart[data-chart]").forEach(div=>{
+    if(div.dataset.done) return; div.dataset.done="1";
+    let spec; try{ spec=JSON.parse(decodeURIComponent(div.dataset.chart)); }
+    catch(e){ console.warn("[research] bad chart json:", e); div.innerHTML='<span style="color:var(--soft);font-size:12px">[chart unavailable]</span>'; return; }
+    div.style.height="300px"; div.style.position="relative";          // give the chart a real size so it shows
+    const cv=document.createElement("canvas"); div.innerHTML=""; div.appendChild(cv);
+    const type=spec.type||"bar", pie=(type==="pie"||type==="doughnut");
+    const ds = Array.isArray(spec.series)
+      ? spec.series.map((s,i)=>({label:s.label||"", data:s.data||[], backgroundColor:CHARTCOLORS[i%6], borderColor:CHARTCOLORS[i%6], fill:false}))
+      : [{label:spec.title||"", data:spec.data||[], backgroundColor:pie?(spec.labels||[]).map((_,i)=>CHARTCOLORS[i%6]):CHARTCOLORS[0], borderColor:CHARTCOLORS[0], fill:false}];
+    try{ new Chart(cv,{type,data:{labels:spec.labels||[],datasets:ds},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:pie||Array.isArray(spec.series)},title:{display:!!spec.title,text:spec.title||""}}}}); }
+    catch(e){ console.warn("[research] chart error:", e); div.innerHTML='<span style="color:var(--soft);font-size:12px">[chart error]</span>'; }
+  });
+}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const scrollMsgs=()=>{ const m=document.getElementById("msgs"); m.scrollTop=m.scrollHeight; };
+let stickBottom=true;
+function nearBottom(){ const m=document.getElementById("msgs"); return m.scrollHeight - m.scrollTop - m.clientHeight < 80; }
+function autoScroll(){ if(stickBottom) scrollMsgs(); }   // only follow along if user is at the bottom
+function clearWelcome(){ const w=document.querySelector(".welcome"); if(w) document.getElementById("msgs").innerHTML=""; }
+function newBubble(who){
+  clearWelcome();
+  const m=document.getElementById("msgs");
+  const turn=document.createElement("div"); turn.className="turn mwrap "+(who==="u"?"user":"ai");
+  turn.innerHTML=`<div class="bubble ${who==="u"?"usr":"ai"}"></div>`;
+  m.appendChild(turn); scrollMsgs();
+  return turn.querySelector(".bubble");
+}
+function addSrc(bubble, src){ if(!src) return; const s=document.createElement("span"); s.className="src"; s.textContent=src; bubble.appendChild(s); }
+function addMsg(text, who, src){
+  const b=newBubble(who);
+  if(who==="a"){ b.innerHTML=mdToHtml(text); renderCharts(b); }
+  else b.textContent=text;
+  addSrc(b, src); scrollMsgs();
+}
+async function typewriter(bubble, text){
+  const tok=(text||"").split(/(\s+)/); let acc="";
+  for(let i=0;i<tok.length;i++){ acc+=tok[i]; bubble.innerHTML=mdToHtml(streamSafe(acc)); autoScroll(); if(i%2===0) await sleep(14); }
+  bubble.innerHTML=mdToHtml(text);
+}
+
+window.grow = (t) => { t.style.height="auto"; t.style.height=Math.min(160,t.scrollHeight)+"px"; };
+
+window.send = async () => {
+  const inp=document.getElementById("q"); const text=inp.value.trim(); if(!text) return;
+  inp.value=""; grow(inp);
+  stickBottom=true;            // jump to bottom for the new message + answer
+  addMsg(text,"u");
+  MSGS.push({role:"user", content:text});
+
+  // create a conversation on the first message (quick title now; AI refines it after replies)
+  if(!CONVO){
+    const { data, error:ec } = await sb.from("conversations").insert({user_id:USER.id, title:smartTitle(text)}).select("id").single();
+    if(ec) console.warn("[research] create conversation error:", ec);
+    CONVO=data?.id || null;
+    document.getElementById("title").textContent=smartTitle(text);
+    loadConvos();
+  }
+  // SAVE the user message (must await — Supabase queries don't run otherwise)
+  if(CONVO){ const {error:eu}=await sb.from("messages").insert({conversation_id:CONVO, user_id:USER.id, role:"user", content:text});
+    if(eu) console.warn("[research] save user message error:", eu); }
+
+  const btn=document.getElementById("sendBtn"); btn.disabled=true;
+  const bubble=newBubble("a"); bubble.innerHTML='<span style="color:var(--soft)">…</span>';
+  const result = await produceAnswer(bubble);
+  btn.disabled=false;
+  addSrc(bubble, result.src);
+  MSGS.push({role:"assistant", content:result.text});
+
+  if(CONVO){
+    const {error:ea}=await sb.from("messages").insert({conversation_id:CONVO, user_id:USER.id, role:"assistant", content:result.text});
+    if(ea) console.warn("[research] save assistant message error:", ea);
+    await sb.from("conversations").update({updated_at:new Date().toISOString()}).eq("id",CONVO);  // bump last-used
+    // name the chat from the first up-to-5 messages (the conversation's real subject)
+    if(MSGS.length<=6){
+      const transcript=MSGS.slice(0,5).map(m=>`${m.role==="user"?"User":"Assistant"}: ${m.content}`).join("\n").slice(0,1600);
+      genTitleFrom(transcript).then(t=>{ if(t){ document.getElementById("title").textContent=t;
+        sb.from("conversations").update({title:t}).eq("id",CONVO).then(()=>loadConvos()); } });
+    } else { loadConvos(); }
+  }
+};
+
+// short, readable title from the first question (like Claude's sidebar)
+function smartTitle(q){
+  let t=q.trim().replace(/\s+/g," ");
+  t=t.replace(/^(what(\s+is|\s+are|'?s)?|whats|how\s+(do|does|can|much|should|would)|can\s+you|could\s+you|tell\s+me\s+about|tell\s+me|explain|give\s+me|i\s+want\s+to\s+know|please|should\s+i)\s+/i,"");
+  t=t.replace(/[?.!]+$/,"");
+  if(!t) t=q.trim();
+  t=t.charAt(0).toUpperCase()+t.slice(1);
+  if(t.length>42) t=t.slice(0,42).replace(/\s\S*$/,"")+"…";
+  return t;
+}
+
+async function produceAnswer(bubble){
+  const question = MSGS[MSGS.length-1]?.content || "";
+  const prior = MSGS.slice(0,-1);
+  // 1) local direct Claude STREAMING (key in keys.js) — smooth, steady typing
+  if(typeof window!=="undefined" && window.ANTHROPIC_KEY){
+    bubble.innerHTML='<div class="done"></div><span class="cur"></span>';
+    const doneEl=bubble.querySelector(".done"), curEl=bubble.querySelector(".cur");
+    let target="", shown=0, streaming=true, lastDone="";
+    // smooth reveal: finished lines render once (stay put); only the current line updates
+    // as cheap plain text. tables/charts come in at the very end.
+    const reveal = new Promise(resolve=>{
+      const step=()=>{
+        if(shown < target.length){
+          shown += Math.max(2, Math.ceil((target.length - shown) / 22));
+          const vis=target.slice(0, shown), nl=vis.lastIndexOf("\n");
+          const done = nl>=0 ? vis.slice(0, nl+1) : "";
+          const cur  = nl>=0 ? vis.slice(nl+1) : vis;
+          if(done!==lastDone){ doneEl.innerHTML=mdToHtml(streamSafe(done)); lastDone=done; }
+          curEl.textContent=curLineSafe(vis, cur); autoScroll();
+        }
+        if(streaming || shown < target.length) requestAnimationFrame(step); else resolve();
+      };
+      requestAnimationFrame(step);
+    });
+    const ok = await streamClaude(MSGS, d => { target += d; });
+    streaming = false;
+    await reveal;
+    if(ok && target){ bubble.innerHTML = mdToHtml(target); renderCharts(bubble); autoScroll(); return {text:target, src:"Claude · model data"}; }
+  }
+  // 2) production server function (non-streaming) — typewriter reveal
+  try{
+    const r=await fetch("/.netlify/functions/ask-research",{method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({question, history:prior})});
+    if(r.ok){ const j=await r.json(); if(j.answer && !j.offline){ bubble.innerHTML=""; await typewriter(bubble, j.answer); renderCharts(bubble); return {text:j.answer, src:"Claude · model data"}; } }
+  }catch(e){}
+  // 3) built-in answer (typewriter)
+  const off=answerLocal(question); bubble.innerHTML=""; await typewriter(bubble, off); renderCharts(bubble);
+  return {text:off, src:"model answer · connect the AI for full conversation"};
+}
+
+// stream Claude's reply token-by-token into onDelta(textChunk)
+async function streamClaude(messages, onDelta){
+  const key=(typeof window!=="undefined" && window.ANTHROPIC_KEY)||""; if(!key) return false;
+  try{
+    const r=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{"x-api-key":key,"anthropic-version":"2023-06-01","content-type":"application/json","anthropic-dangerous-direct-browser-access":"true"},
+      body:JSON.stringify({ model:"claude-sonnet-4-6", max_tokens:1024, stream:true,
+        system:`${RESEARCH_SYSTEM}\n\nBRIEF:\n${MODEL_BRIEF}\n\nDATA:\n${buildContext()}`,
+        messages: messages.map(m=>({role:m.role, content:m.content})) })
+    });
+    if(!r.ok || !r.body){ console.warn("[research] stream HTTP", r.status); return false; }
+    const reader=r.body.getReader(), dec=new TextDecoder(); let buf="", any=false;
+    while(true){
+      const {done,value}=await reader.read(); if(done) break;
+      buf+=dec.decode(value,{stream:true});
+      let nl; while((nl=buf.indexOf("\n"))>=0){
+        const line=buf.slice(0,nl).trim(); buf=buf.slice(nl+1);
+        if(!line.startsWith("data:")) continue;
+        const p=line.slice(5).trim(); if(!p || p==="[DONE]") continue;
+        try{ const ev=JSON.parse(p);
+          if(ev.type==="content_block_delta" && ev.delta && ev.delta.text){ any=true; onDelta(ev.delta.text); }
+          else if(ev.type==="error"){ console.warn("[research] stream error", ev.error); }
+        }catch(e){}
+      }
+    }
+    return any;
+  }catch(e){ console.warn("[research] stream failed", e); return false; }
+}
+
+const RESEARCH_SYSTEM = `You are a friendly, sharp research assistant inside a stock-risk app. Talk like a knowledgeable human analyst — natural, warm, and clear, the way Claude does. Have a real conversation: use the full chat history so follow-ups build on earlier answers (e.g. "how much would I make from those?" refers to the stocks you just named).
+
+You have the app's MODEL DATA and a BRIEF below. Treat them as your source of truth for anything specific to this app — a stock's risk numbers, rankings, verdicts, the macro reading, which options are priced. For those specifics, never invent numbers or names; if it isn't in the data, say so. You CAN also teach general investing concepts from your own knowledge (what an ETF is, how options work, diversification, dollar-cost averaging, etc.) to help the user learn — just don't fabricate app-specific figures.
+
+Style: conversational and concise by default; go deeper when asked. Use light markdown — short paragraphs, **bold** for key terms, and bullet lists — so it's easy to read. Ask a clarifying question when it genuinely helps.
+
+Boundaries: explain what the model ranks higher or lower and why, but don't give personalized "buy this / sell this" commands. When you give concrete suggestions, work in a brief, natural reminder that it's research, not financial advice — don't bolt the same robotic disclaimer onto every message.
+
+Visuals: when it genuinely helps, use a **Markdown table** for comparisons, or include a chart as a fenced code block tagged \`chart\` with JSON. Single series: {"type":"bar"|"line"|"pie","title":"...","labels":["A","B"],"data":[1,2]}. Multiple series: {"type":"line","title":"...","labels":[...],"series":[{"label":"NVDA","data":[...]},{"label":"VOO","data":[...]}]}. Only chart real numbers from the model data, and keep tables/charts focused — don't overuse them.`;
+function buildContext(){
+  const M=MACRO||{}, lines=[];
+  lines.push(`MACRO: stress ${M.score!=null?Math.round(M.score*100):"—"}/100, CAPE ${M.shiller_cape??"—"}, real10y ${M.ust_10y_real??"—"}%, VIX ${M.vix??"—"}, S&P fwd P/E ${M.sp500_forward_pe??"—"}.`);
+  lines.push("STOCKS/ETFS (name | type | tier | verdict | growth | P(>25% fall) | rec2y | >3y tail | reward vs S&P):");
+  ROWS.forEach(r=>lines.push(`${r.name} | ${r.kind} | ${r.tier} | ${r.verdict} | ${fmtP(r.growth)} | ${fmtP(r.p25)} | ${fmtP(r.rec2y)} | ${fmtP(r.tail)} | ${r.vssp}`));
+  const opt=Object.keys(LENS||{}); if(opt.length) lines.push("OPTIONS (calls priced for): "+opt.join(", "));
+  return lines.join("\n");
+}
+async function callClaudeRaw(messages, system, maxTokens){
+  const key = (typeof window!=="undefined" && window.ANTHROPIC_KEY) || "";
+  if(!key){ console.warn("[research] no AI key — using built-in answers"); return null; }
+  try{
+    const r=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{"x-api-key":key, "anthropic-version":"2023-06-01", "content-type":"application/json", "anthropic-dangerous-direct-browser-access":"true"},
+      body:JSON.stringify({ model:"claude-sonnet-4-6", max_tokens:maxTokens, system, messages: messages.map(m=>({role:m.role, content:m.content})) })
+    });
+    const j=await r.json();
+    if(j?.error){ console.warn("[research] Claude error:", j.error); return null; }
+    return j?.content?.[0]?.text || null;
+  }catch(e){ console.warn("[research] Claude call failed:", e); return null; }
+}
+// 2–5 word AI summary title from the start of the conversation
+async function genTitleFrom(transcript){
+  const t = await callClaudeRaw(
+    [{role:"user", content:`Here is the start of a chat:\n\n${transcript}\n\nGive a short, specific 2-5 word title describing the main subject. Reply with ONLY the title — no quotes, no period.`}],
+    "You write short, specific chat titles (2-5 words).", 24);
+  return (t||"").replace(/^["']|["']$/g,"").replace(/[.?!]+$/,"").trim();
+}
+
+/* ---------- grounded offline engine ---------- */
+function answerLocal(q){
+  if(!ROWS.length) return "Give me a second to load the model data, then ask again.";
+  const ql=q.toLowerCase(); const adv="\n\nResearch model — not investment advice.";
+
+  if(/how.*(work|model)|what.*(this|the).*(model|app|do)|what is this/.test(ql)) return MODEL_BRIEF;
+
+  // definitions
+  if(/>?3y tail|permanent|never recover/.test(ql)) return "The >3y tail is the chance that — IF a stock falls more than 25% — it's STILL underwater about 3.5 years later. It's the model's catastrophe signal: a high tail means a fall may be permanent, not just temporary. Lower is safer."+adv;
+  if(/p\(?>?25|big.*(drop|fall)|drawdown/.test(ql)) return "P(>25% fall) is the chance a name drops more than 25% within 18 months. It measures how DEEP it can fall (driven by beta) — separate from whether it recovers."+adv;
+  if(/cape|shiller/.test(ql)) return `CAPE measures how expensive the whole market is vs history. It's currently ~${MACRO.shiller_cape??"—"} (high = pricey/risky). It feeds the macro stress score.`+adv;
+  if(/\bbeta\b/.test(ql)) return "Beta is how much a stock swings vs the market. In this model, beta drives how DEEP a name falls in a panic (not whether it recovers — that's the growth/TAM side)."+adv;
+  if(/what.*(call|option).*(mean|is)|explain.*(call|option)/.test(ql)) return "An option is a bet on where a stock goes by a deadline, without owning it. A CALL bets it goes up; a PUT bets it goes down. You pay a premium; guess right and it's worth more, guess wrong and it can expire worthless. Use the Options page for the model's view."+adv;
+
+  // specific name
+  const hit=ROWS.find(r=>ql.includes(r.name.split(/[ (]/)[0].toLowerCase()) && r.name.length>1);
+  if(hit){ const a=VC(hit.verdict);
+    return `${hit.name} — ${hit.kind}, ${hit.tier} growth tier, the model reads it as ${a}.\n• Expected 18m growth: ${fmtP(hit.growth)}\n• Chance of a >25% fall: ${fmtP(hit.p25)}\n• Recovers within 2y if it falls: ${fmtP(hit.rec2y)}\n• Never-recovers (>3y) tail: ${fmtP(hit.tail)}\n• Reward vs S&P: ${hit.vssp?.toFixed?.(2)??hit.vssp}\n${a==="broken"?"The model flags this as a broken thesis — avoid.":a==="leveraged"?"Leveraged product — decays over time, not for holding.":a==="secular"?"A durable grower that tends to recover.":a==="cyclical"?"Rises and falls with its industry cycle — recovery can take time.":""}`+adv; }
+
+  // safest / riskiest / top
+  if(/safe|safest|low.*risk|conservative/.test(ql)){
+    const t=[...ROWS].filter(r=>r.tier!=="Trading"&&VC(r.verdict)!=="broken").sort((x,y)=>(x.tail??99)-(y.tail??99)).slice(0,5);
+    return "Lowest permanent-loss risk right now (smallest >3y tail):\n"+t.map((r,i)=>`${i+1}. ${r.name} — tail ${fmtP(r.tail)}, P(>25% fall) ${fmtP(r.p25)}`).join("\n")+adv;
+  }
+  if(/risk|riskiest|worst|dangerous|avoid/.test(ql)){
+    const t=[...ROWS].sort((x,y)=>(y.tail??0)-(x.tail??0)).slice(0,5);
+    return "Highest-risk names (biggest never-recovers tail):\n"+t.map((r,i)=>`${i+1}. ${r.name} — tail ${fmtP(r.tail)} (${VC(r.verdict)})`).join("\n")+"\nLeveraged 3x ETFs and broken-thesis names are the model's clearest avoids."+adv;
+  }
+  if(/top|best|highest reward|good.*(stock|buy|invest)/.test(ql)){
+    const t=[...ROWS].filter(r=>r.tier!=="Trading"&&VC(r.verdict)!=="broken").sort((x,y)=>(y.vssp??0)-(x.vssp??0)).slice(0,5);
+    return "Top by reward vs S&P (growth per unit of long-term risk):\n"+t.map((r,i)=>`${i+1}. ${r.name} — ${r.vssp?.toFixed?.(2)} (${VC(r.verdict)}, tail ${fmtP(r.tail)})`).join("\n")+"\nA broken-thesis tag overrides a flattering number."+adv;
+  }
+  if(/macro|stress|market|economy|crash/.test(ql)){
+    return `Market stress is ~${MACRO.score!=null?Math.round(MACRO.score*100):"—"}/100 right now — how dangerous the overall market is. Drivers: CAPE ${MACRO.shiller_cape??"—"}, real 10y rate ${MACRO.ust_10y_real??"—"}%, VIX ${MACRO.vix??"—"}, margin debt growth ${MACRO.margin_debt_yoy??"—"}. Higher stress = the model assumes bigger, more frequent drops.`+adv;
+  }
+  if(/option/.test(ql)){
+    const names=Object.keys(LENS).slice(0,6).join(", ");
+    return `For options, the model prices CALLS on: ${names}… Use the Options page to pick a stock, expiry and strike and get its fair value + a PASS/AVOID check. (Thesis-conditional values, no volatility.)`+adv;
+  }
+  if(/should i (buy|invest)|what.*invest in/.test(ql)){
+    const t=[...ROWS].filter(r=>r.tier!=="Trading"&&VC(r.verdict)!=="broken").sort((x,y)=>(x.tail??99)-(y.tail??99)).slice(0,3);
+    return `I can't tell you what to do with your money — but for context, the model's lowest-risk names right now are: ${t.map(r=>r.name).join(", ")}. Beginners often start with broad baskets (like VOO) before single stocks. Use the simple wizard on the home page for a guided view.`+adv;
+  }
+
+  return `I can answer from the model: ask about a stock/ETF, "what's safest?", "riskiest?", "top by reward", "how does the model work?", options, or the macro/market read. What would you like to know?`;
+}
+
+/* ---------- mobile sidebar ---------- */
+window.toggleSide = (open) => {
+  document.getElementById("side").classList.toggle("open", open);
+  document.getElementById("backdrop").classList.toggle("show", open);
+};
+
+boot();
+</script>
+<script src="theme.js"></script>
+</body>
+</html>

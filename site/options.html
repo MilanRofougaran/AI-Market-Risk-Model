@@ -85,6 +85,20 @@ td.k{font-weight:700;font-family:var(--mono)}
 .foot{margin-top:30px;font-size:12px;color:var(--soft);line-height:1.6;border-top:1px solid var(--line);padding-top:20px}
 .h2{font-size:15px;font-weight:700;margin:0 0 12px;letter-spacing:-.01em}
 .dim{color:var(--soft)}
+/* chat dock */
+.chat-toggle{position:fixed;right:18px;bottom:18px;z-index:40;background:var(--blue);color:#fff;border:0;border-radius:980px;padding:12px 20px;font-weight:700;font-size:13px;box-shadow:0 8px 24px rgba(0,113,227,.3);cursor:pointer}
+.chat{position:fixed;right:18px;bottom:72px;width:390px;max-width:92vw;height:500px;max-height:74vh;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.18);display:none;flex-direction:column;z-index:41;overflow:hidden}
+.chat.open{display:flex}
+.chat-h{background:var(--paper);color:var(--ink);padding:12px 16px;font-size:14px;font-weight:700;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+.chat-h .mode{font-family:var(--mono);font-size:9.5px;color:var(--soft)}
+.chat-b{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:8px;background:var(--hush)}
+.cmsg{max-width:90%;padding:9px 13px;border-radius:14px;font-size:12.5px;line-height:1.5;white-space:pre-wrap}
+.cmsg.u{align-self:flex-end;background:var(--blue);color:#fff;border-bottom-right-radius:4px}
+.cmsg.a{align-self:flex-start;background:var(--paper);border:1px solid var(--line);border-bottom-left-radius:4px}
+.cmsg.a .src{display:block;margin-top:6px;font-family:var(--mono);font-size:9px;color:var(--soft)}
+.chat-i{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:var(--paper)}
+.chat-i input{flex:1;border:1.5px solid var(--line);border-radius:980px;padding:10px 14px;font-size:12.5px;outline:none;font-family:inherit}
+.chat-i button{background:var(--blue);color:#fff;border:0;border-radius:980px;padding:0 18px;font-weight:700;cursor:pointer}
 </style>
 </head>
 <body>
@@ -92,6 +106,7 @@ td.k{font-weight:700;font-family:var(--mono)}
   <div class="brand">Market<span class="dot">Analyst</span> · Options</div>
   <div class="right">
     <a href="index.html">Dashboard</a>
+    <a href="research.html">Research</a>
     <a href="account.html">My Portfolio</a>
   </div>
 </nav>
@@ -154,6 +169,19 @@ td.k{font-weight:700;font-family:var(--mono)}
   </div>
 
   <div class="foot" id="foot">Research model — not investment advice.</div>
+</div>
+
+<button class="chat-toggle" onclick="toggleChat()">💬 Ask about options</button>
+<div class="chat" id="chat">
+  <div class="chat-h"><span>Options analyst</span><span class="mode" id="chatmode">model answers</span></div>
+  <div class="chat-b" id="chatb">
+    <div class="cmsg a">Ask me about options — all answers come straight from this model. Try:
+• "best options right now"
+• "highest chance to pay"
+• "is an NVIDIA call worth it?"
+• "what should I avoid?"<span class="src">Model data only (16 names, calls). Research, not advice.</span></div>
+  </div>
+  <div class="chat-i"><input id="chatq" placeholder="Ask about options…" onkeydown="if(event.key==='Enter')chatSend()"><button onclick="chatSend()">Ask</button></div>
 </div>
 
 <script>
@@ -300,7 +328,86 @@ window.check=()=>{
   res.className="show";
 };
 
+/* ================= options chat ================= */
+function toggleChat(){ document.getElementById("chat").classList.toggle("open"); }
+function addCMsg(t, who, src){
+  const b=document.getElementById("chatb");
+  const d=document.createElement("div"); d.className="cmsg "+who; d.textContent=t;
+  if(src){ const s=document.createElement("span"); s.className="src"; s.textContent=src; d.appendChild(s); }
+  b.appendChild(d); b.scrollTop=b.scrollHeight;
+}
+async function chatSend(){
+  const inp=document.getElementById("chatq"); const q=inp.value.trim(); if(!q) return; inp.value="";
+  addCMsg(q,"u");
+  // try the live (Claude) endpoint; it's fed ONLY the model data server-side
+  try{
+    const r=await fetch("/.netlify/functions/ask-options",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:q})});
+    if(r.ok){ const j=await r.json(); if(j.answer && !j.offline){ document.getElementById("chatmode").textContent="Claude · model data"; addCMsg(j.answer,"a","Claude · options model"); return; } }
+  }catch(e){}
+  addCMsg(offlineOpt(q),"a","model answer");
+}
+
+const fmtP = x => Math.round(x)+"%";
+function gateClass(g){ g=(g||"").toLowerCase();
+  if(g.includes("broken")) return "avoid";
+  if(g.includes("cyclical")) return "cyclical";
+  if(g.includes("secular")) return "secular";
+  return "ok"; }
+function atmCell(name, t){ const row=LENS?.names?.[name]?.[t]; const s=row&&row.strikes&&row.strikes["1.00"]; return s?{p:s.p_itm, fair:s.fair_value_pct_of_spot}:null; }
+function nameMentioned(q){ const ql=q.toLowerCase();
+  return Object.keys(LENS?.names||{}).find(n => ql.includes(n.split(/[ (]/)[0].toLowerCase()) && n.length>1); }
+
+function offlineOpt(q){
+  if(!LENS||!LENS.names) return "The model data isn't loaded yet — give it a second and try again.";
+  const ql=q.toLowerCase(); const T=TENOR;
+  const adv="  Research model — not investment advice.";
+
+  // a specific name?
+  const nm=nameMentioned(q);
+  if(nm){
+    const g=LENS.names[nm].gate||"secular", cls=gateClass(g), a=atmCell(nm,T), row=LENS.names[nm][T];
+    if(cls==="avoid") return `${nm}: the model gates this as BROKEN — avoid. A longer expiry does NOT repair a broken thesis. (gate: ${g}).`+adv;
+    let s=`${nm} — gate: ${g}.\nAt ${T}, an at-the-money call: model fair value ≈${a?fmtP(a.fair):"?"} of the share price, ~${a?fmtP(a.p*100):"?"} chance it finishes in the money.`;
+    const otm=row&&row.strikes&&row.strikes["1.50"];
+    if(otm) s+=`\nCheaper, higher-upside 1.50× call: ~${fmtP(otm.p_itm*100)} chance, fair ≈${fmtP(otm.fair_value_pct_of_spot)}.`;
+    if(cls==="cyclical") s+=`\n⚠ Cyclical — avoid short (6–12m) expiries; the demand trough can keep it down.`;
+    s+=`\nThese are thesis-conditional values (no market price/volatility) — compare to the real premium on the page.`;
+    return s+adv;
+  }
+
+  // best / top opportunities
+  if(/best|top|highest|recommend|good|which/.test(ql)){
+    const byChance=/chance|likely|safe|probab|odds/.test(ql);
+    const rows=Object.entries(LENS.names).map(([n,nd])=>{ const a=atmCell(n,T); return a?{n,g:nd.gate||"",cls:gateClass(nd.gate),fair:a.fair,p:a.p}:null; })
+      .filter(Boolean).filter(r=>r.cls!=="avoid");
+    rows.sort((x,y)=> byChance ? (y.p-x.p) : (y.fair-x.fair));
+    const top=rows.slice(0,5);
+    const metric=byChance ? "chance the call finishes in the money" : "model fair value (size of the expected move if the thesis holds)";
+    return `Top ${T} calls by ${metric} (broken/leveraged excluded):\n`+
+      top.map((r,i)=>`${i+1}. ${r.n} — ${fmtP(r.p*100)} chance · fair ≈${fmtP(r.fair)} · ${r.cls}`).join("\n")+
+      `\n\nNote: these are the model's thesis-conditional values — no market price or volatility, so they can't tell you if the market has it mispriced. Compare to the real premium before acting.`+adv;
+  }
+
+  // safest underlyings
+  if(/safe|safest|low.*risk|durable|reliable/.test(ql)){
+    const sec=Object.entries(LENS.names).filter(([,nd])=>gateClass(nd.gate)==="secular").map(([n])=>n);
+    return `For options, the model's most durable underlyings are the SECULAR names (their business survives a downturn, so longer calls can recover): ${sec.slice(0,7).join(", ")}.\nStill high-risk — any option can expire worthless.`+adv;
+  }
+  // avoid
+  if(/avoid|worst|riskiest|broken|stay away/.test(ql)){
+    const broken=Object.entries(LENS.names).filter(([,nd])=>gateClass(nd.gate)==="avoid").map(([n])=>n);
+    return `The model says AVOID options on broken-thesis names (a longer expiry won't fix them): ${broken.join(", ")||"none in this set"}. Also avoid leveraged 3× ETFs. And avoid short-dated calls on cyclical names (demand-trough risk).`+adv;
+  }
+  // term help
+  if(/what.*call|call.*mean|explain.*call/.test(ql)) return "A CALL is a bet a stock goes UP by a deadline. You pay a premium; if the stock rises past your strike enough, the call gains value — if not, it can expire worthless. The model prices calls only."+adv;
+  if(/p\(itm\)|in the money|itm/.test(ql)) return "P(ITM) = the model's chance the stock ends ABOVE your strike at expiry. (Finishing in the money isn't the same as profit — you also need to beat the premium you paid.)"+adv;
+  if(/fair value|fair/.test(ql)) return "Fair value = what the model thinks the call is worth, as a % of the share price, IF its growth/TAM judgments are right. It's a thesis-conditional value, not a market price — it can't detect market mispricing."+adv;
+
+  return `I answer only from this model's option data (16 names, calls, expiries 6–36m). Try: "best options right now", "highest chance to pay at ${T}", "is an NVIDIA call worth it?", "what's safest?", or "what should I avoid?".`+adv;
+}
+
 boot();
 </script>
+<script src="theme.js"></script>
 </body>
 </html>

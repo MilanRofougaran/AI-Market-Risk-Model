@@ -27,7 +27,9 @@ header{background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px
 .badge.live{background:var(--greenbg);color:var(--green);border-color:#bfe6d2}
 .badge.static{background:var(--hush);color:var(--soft)}
 .h-meta{font-family:var(--mono);font-size:11px;color:var(--soft);margin-left:auto}
-.h-actions{display:flex;gap:8px;margin-left:8px;flex-wrap:wrap}
+.h-actions{display:flex;gap:20px;margin-left:8px;flex-wrap:wrap;align-items:center}
+.h-actions a.nlink{color:var(--soft);font-size:14px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center}
+.h-actions a.nlink:hover{color:var(--ink)}
 .btn{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:980px;padding:8px 15px;font-size:13px;font-weight:600;transition:background .15s,border-color .15s}
 .btn:hover{background:var(--hush)}
 .btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}
@@ -129,8 +131,9 @@ footer{padding:18px 22px;font-size:11px;color:var(--soft);border-top:1px solid v
     <span id="badge" class="badge static">STATIC SNAPSHOT</span>
     <span class="h-meta" id="asof">—</span>
     <div class="h-actions">
-      <a class="btn" href="options.html" style="text-decoration:none;display:inline-flex;align-items:center">Options</a>
-      <a class="btn" id="accountLink" href="login.html" style="text-decoration:none;display:inline-flex;align-items:center">Log in</a>
+      <a class="nlink" href="research.html">Research</a>
+      <a class="nlink" href="options.html">Options</a>
+      <a class="nlink" id="accountLink" href="login.html">Log in</a>
       <!-- admin-only tools — hidden from normal users; restore inside an admin area later:
       <button class="btn primary" onclick="openRun('followed')">Refresh followed universe</button>
       <button class="btn" onclick="openRun('discover')">Discover candidates</button>
@@ -502,5 +505,6 @@ currentUser().then(u=>{
   if(a && u){ a.textContent="My Portfolio"; a.href="account.html"; }
 }).catch(()=>{});
 </script>
+<script src="theme.js"></script>
 </body>
 </html>
