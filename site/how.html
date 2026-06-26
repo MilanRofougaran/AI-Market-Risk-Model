@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How it works — Market Analyst</title>
+<meta name="description" content="How the model works, in plain English: depth vs recovery, hidden correlation, and reward-for-risk ranking for AI &amp; semiconductor stocks.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MarketAnalyst">
+<meta property="og:title" content="How it works — MarketAnalyst">
+<meta property="og:description" content="How the model works, in plain English: depth vs recovery, hidden correlation, and reward-for-risk ranking for AI &amp; semiconductor stocks.">
+<meta property="og:image" content="og-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How it works — MarketAnalyst">
+<meta name="twitter:description" content="How the model works, in plain English: depth vs recovery, hidden correlation, and reward-for-risk ranking for AI &amp; semiconductor stocks.">
+<meta name="twitter:image" content="og-card.svg">
+<style>
+:root{
+  --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#fff; --hush:#f5f5f7;
+  --blue:#0071e3; --green:#1a9c63; --greenbg:#eaf7f0; --amber:#c8841a; --red:#d2402f;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--sans);background:var(--hush);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:var(--blue);text-decoration:none}
+.nav{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;padding:14px max(20px,4vw);
+  background:rgba(255,255,255,.82);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);z-index:10}
+.brand{font-size:18px;font-weight:700;letter-spacing:-.02em}.brand .dot{color:var(--blue)}
+.nav .right{display:flex;gap:16px;font-size:14px;align-items:center}.nav .right a{color:var(--soft)}.nav .right a:hover{color:var(--ink)}
+.wrap{max-width:760px;margin:0 auto;padding:36px max(20px,5vw) 90px}
+h1{font-size:clamp(28px,5vw,40px);letter-spacing:-.025em;margin:0 0 6px}
+.lede{font-size:18px;color:var(--soft);margin:0 0 14px}
+.upd{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--green);background:var(--greenbg);border:1px solid #bfe6d2;border-radius:980px;padding:4px 12px;margin-bottom:30px}
+h2{font-size:22px;letter-spacing:-.01em;margin:38px 0 10px}
+h3{font-size:16px;margin:22px 0 6px}
+p{margin:0 0 12px}
+.big{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px 24px;margin:18px 0;font-size:17px}
+.big b{color:var(--ink)}
+ul{margin:0 0 14px;padding-left:22px}li{margin:6px 0}
+.metric{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin:10px 0}
+.metric .n{font-weight:700} .metric .d{color:var(--soft);font-size:15px;margin-top:2px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:560px){.cols{grid-template-columns:1fr}}
+.tag{font-family:var(--mono);font-size:11px;font-weight:700;border-radius:6px;padding:2px 8px}
+.t-sec{background:var(--greenbg);color:var(--green)}.t-cyc{background:#fdf3e4;color:var(--amber)}.t-brk{background:#fbeceb;color:var(--red)}.t-lev{background:#f0ebfa;color:#7b61c8}
+.note{background:#fff8ec;border:1px solid #f3e2c2;border-radius:14px;padding:14px 18px;margin:18px 0;font-size:15px}
+.disc{margin-top:40px;border-top:1px solid var(--line);padding-top:22px;font-size:13px;color:var(--soft)}
+.step{display:flex;gap:14px;margin:12px 0}.step .num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700;font-size:14px}
+@media(max-width:600px){
+  .nav{flex-wrap:wrap;gap:8px;padding:12px 16px}
+  .nav .right{gap:14px;font-size:13px;flex-wrap:wrap;row-gap:6px}
+  .wrap{padding:26px 16px 70px}
+  h1{font-size:26px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">Market<span class="dot">Analyst</span></div>
+  <div class="right">
+    <a href="how.html">How it works</a>
+    <a href="index.html">Dashboard</a>
+    <a href="options.html">Options</a>
+    <a href="research.html">Research</a>
+    <a href="account.html">My Portfolio</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <h1>How it works</h1>
+  <p class="lede">What this model does, how the rankings are made, and what to trust.</p>
+  <div class="upd" id="upd">Updated daily</div>
+
+  <div class="big">
+    <b>The one big idea:</b> two separate questions about every stock. <b>How deep can it fall?</b> — set by how hard it moves with the market (its "beta"). And <b>does it come back?</b> — set by the strength of the business underneath. We keep these apart on purpose, because the goal is to avoid the <b>permanent loss</b>: a fall that never recovers.
+  </div>
+
+  <h2>What this model is</h2>
+  <p>It's a <b>risk model</b> for US AI and semiconductor stocks and funds. It reads the whole economy first (growth, interest rates, credit, market fear), then asks those two questions for each name by simulating <b>about 150,000 possible 7-year futures</b> and counting what happens. A "probability" here is a <b>frequency over those futures</b> — like a rain forecast, not a promise about one outcome. It never gives a single price target.</p>
+  <p style="margin-top:14px"><a href="methodology.html" style="display:inline-block;background:var(--ink);color:#fff;padding:10px 18px;border-radius:980px;font-size:14px;font-weight:600">Read the full methodology report →</a></p>
+
+  <h2>The numbers you see, in plain English</h2>
+  <div class="metric"><div class="n">Growth</div><div class="d">How fast the company's sales are expected to grow over the next ~18 months. Sets its "tier": High (&gt;40%), Moderate (15–40%), Safe (&lt;15%).</div></div>
+  <div class="metric"><div class="n">Chance of a big drop — P(&gt;25% fall)</div><div class="d">How often, across the simulated futures, it falls more than 25% within 18 months. This is the "how deep" side — driven by how jumpy the stock is.</div></div>
+  <div class="metric"><div class="n">Recovers within 2 years</div><div class="d">If it does fall hard, how often it climbs back to its old high within 2 years.</div></div>
+  <div class="metric"><div class="n">&gt;3-year tail — the catastrophe signal</div><div class="d">The chance a big fall is <b>still underwater 3+ years later</b> — i.e. it may never come back. Lower is safer. This is the number the model cares about most.</div></div>
+  <div class="metric"><div class="n">Reward vs S&amp;P</div><div class="d">Growth earned per unit of long-term risk, compared to the whole US market (the S&amp;P = 1.00). Higher means more reward for the risk. <b>This is the default ranking.</b></div></div>
+  <div class="metric"><div class="n">Valuation gap</div><div class="d">How far the price sits above the model's "fair" multiple. A big gap = more of the price is speculative (and more fragile in a sell-off). Shown on each stock's detail card.</div></div>
+  <div class="metric"><div class="n">Earn-back clock</div><div class="d">If the multiple reset to fair, how many years of growth it would take to earn that back. "0y" = no gap; many years = "dead money" risk.</div></div>
+  <div class="metric"><div class="n">Forward outlook (the cone)</div><div class="d">Click a stock to see a shaded cone of simulated prices over 3 years (worst-tenth · middle · best-tenth). A <b>range of futures, not a prediction</b> — recomputed every run.</div></div>
+
+  <h2>What decides the comeback</h2>
+  <p>A fall is set by the market. The <b>recovery</b> is set by the business — and this is the part the model now judges most carefully. It weighs five things:</p>
+  <ul>
+    <li><b>Room to grow</b> — how much of its market is still open, and how fast that market is growing.</li>
+    <li><b>Balance sheet</b> — cash cushions a fall; debt deepens it and slows the climb back.</li>
+    <li><b>Competition &amp; moat</b> — can it keep its lead and its pricing power over time?</li>
+    <li><b>Earnings cyclicality</b> — in a downturn, some companies' profits collapse far faster than their share price. That makes them look "cheap" right before earnings roll over — a trap the model flags.</li>
+    <li><b>Profit sensitivity</b> — how much higher interest rates (on debt) or input costs eat into profit.</li>
+  </ul>
+
+  <h2>Is the price "earned" or "floating"?</h2>
+  <p>The model splits each stock's price into three parts: the <b>base</b> (what an ordinary business is worth at today's interest rates), the <b>earned premium</b> (justified by real growth, margins, market size and moat), and the <b>floating premium</b> (the speculative part resting on hope). Only the floating part is treated as fragile. This is <b>not</b> a price target — it shows how much of today's price stands on substance vs sentiment.</p>
+
+  <h2>How a ranking is made</h2>
+  <div class="step"><div class="num">1</div><div><b>Inputs.</b> Today's market data (interest rates, market fear/VIX, credit stress) plus each company's growth, balance sheet, moat, and market size.</div></div>
+  <div class="step"><div class="num">2</div><div><b>Simulate.</b> The model runs ~150,000 possible 7-year futures, using how the overall market and each stock behave in calm, stressed, and crisis periods.</div></div>
+  <div class="step"><div class="num">3</div><div><b>Measure.</b> For each stock it measures how deep it tends to fall and how often (and how fast) it recovers — especially how often it <i>never</i> recovers.</div></div>
+  <div class="step"><div class="num">4</div><div><b>Stress-test &amp; rank.</b> Each name is re-checked under harsher assumptions (smaller market, weaker moat, thinner margins, a rate + cost shock). It's scored by reward-for-the-risk, ranked, and tagged with a verdict — and the rank carries <i>how</i> it recovers (steady vs cycle-dependent).</div></div>
+  <p style="margin-top:14px">The result is a <b>living league table</b>: the best ~125 names by reward-for-risk, with the <b>Top 50</b> shown by default. The model re-screens the whole AI/semis market and a name only <b>enters</b> when it genuinely out-ranks one already on the list — so the board stays stable unless something real changes. You can <b>click any column heading to re-sort</b> the view (a "default rank" badge marks the model's own order, with a one-tap reset).</p>
+
+  <h3>The verdicts</h3>
+  <div class="cols">
+    <div class="metric"><span class="tag t-sec">secular</span><div class="d">A durable grower — tends to recover well.</div></div>
+    <div class="metric"><span class="tag t-cyc">cyclical</span><div class="d">Rises and falls with its industry cycle — slower to recover.</div></div>
+    <div class="metric"><span class="tag t-brk">broken</span><div class="d">The model thinks its story is broken — often never recovers. Avoid.</div></div>
+    <div class="metric"><span class="tag t-lev">leveraged</span><div class="d">A "3×" turbo fund that decays over time. Not for holding.</div></div>
+  </div>
+
+  <h2>The market-stress reading</h2>
+  <p>The dial at the top of the dashboard is a 0–100 score for how <b>dangerous the overall market</b> is right now — not any one stock. It has two parts:</p>
+  <ul>
+    <li><b>Structural</b> — slow-building pressure (how expensive stocks are, debt levels). The "dry powder."</li>
+    <li><b>Acute</b> — immediate stress (market fear, credit spreads). The "lit match."</li>
+  </ul>
+  <p>Higher stress makes the model assume bigger, more frequent drops — so it raises everyone's crash odds.</p>
+
+  <h2>ETF horizons &amp; the stress ladder</h2>
+  <p>Below the main table the dashboard has two more tools:</p>
+  <ul>
+    <li><b>ETF horizons</b> — the best fund depends on <i>how long you hold</i>. A basket that heals in two years ranks low for a 1-year hold and high for a 3–5 year hold. Switch the horizon to watch the order change.</li>
+    <li><b>Stress ladder</b> — how the chance of a big fall widens as the overall market goes from benign to critical, with today's reading highlighted.</li>
+  </ul>
+
+  <h2>Where the data comes from &amp; how often it updates</h2>
+  <ul>
+    <li><b>Every day:</b> live market data — interest rates, market fear (VIX), credit spreads, oil — from the U.S. Federal Reserve (FRED). The model re-runs and re-ranks, and the date at the top updates.</li>
+    <li><b>Every week:</b> an AI (Claude) re-evaluates each company's <b>outlook</b> — growth, business strength, valuation — grounded in fresh financials pulled from Polygon. See exactly how below.</li>
+  </ul>
+  <p>So day-to-day you'll see the stress reading, prices and odds move; the deeper rankings drift slowly. That's intended — a risk model shouldn't flip its whole list every day.</p>
+
+  <h2>How the weekly AI review decides</h2>
+  <p>Once a week the model pulls each company's <b>latest revenue and price</b> from Polygon, then asks Claude to re-score that company's outlook on a fixed scale. It's told to make <b>small, well-reasoned changes only</b> — keep a number unless fresh data or a clear reason justifies moving it — so the rankings stay stable. Every score it touches comes with a one-line written reason, shown below.</p>
+  <p>These are the exact inputs the AI re-scores each week:</p>
+  <div class="metric"><div class="n">Growth</div><div class="d">Expected sales growth over the next ~18 months. Anchored to the company's fresh year-over-year revenue trend, adjusted for where it's clearly heading.</div></div>
+  <div class="metric"><div class="n">Revenue (relevant segment)</div><div class="d">The size of the company's AI-relevant business — nudged with fresh reported revenue (kept to the segment for diversified giants, not their whole company).</div></div>
+  <div class="metric"><div class="n">Market growth (TAM)</div><div class="d">How fast the company's addressable market is itself growing.</div></div>
+  <div class="metric"><div class="n">Valuation (forward P/E)</div><div class="d">How richly the stock is priced relative to expected earnings.</div></div>
+  <div class="metric"><div class="n">TAM credibility · earnings durability · dominance</div><div class="d">Three 0–1 business-strength scores: is the demand real and anchored now, are the earnings durable (not a one-off spike), and how strong is the moat / market-share lead.</div></div>
+
+  <div class="big" id="reviewCard" style="display:none">
+    <b>Latest weekly review <span id="reviewDate" style="color:var(--soft);font-weight:400"></span></b>
+    <div id="reviewBody" style="margin-top:10px;font-size:15px"></div>
+  </div>
+
+  <h2>Your portfolio's risk</h2>
+  <p>Add your holdings on the <b>Portfolio</b> page and the model reads your <i>whole basket</i>, not just each stock alone. The key number is <b>effective bets</b>: because these AI names move together (~91% in a crash), holding five of them isn't five bets — it can be close to <b>one</b>. So the page also shows the <b>chance most of your basket drops 25%+ at the same time</b>, plus your weighted growth, recovery and long-term-loss odds.</p>
+  <p>The takeaway it keeps repeating: spreading money <i>across</i> these names barely lowers a big drop — real diversification means owning things <i>outside</i> the sector. Beginners see plain cards; Expert mode adds the exact math and a per-holding breakdown.</p>
+
+  <h2>Options</h2>
+  <p>The Options page opens on <b>Top picks</b> — a ranked list of specific call contracts showing the live <b>market price</b> next to the model's <b>fair value</b>, a <b>buy / watch / skip</b> read, and the best <b>spread (the legs)</b> for each name. Switch to <b>Look up a stock</b> to search any company and see its single calls or spreads with a plain-English take.</p>
+  <p><b>Calls vs spreads (legs):</b> a <b>call</b> bets the stock rises by a deadline (cheaper, but can go to zero). A <b>spread</b> buys one call and sells a higher one — the two strikes are the "legs"; it costs less but caps the gain at the higher strike. The board covers the whole AI/semis league's optionable names and re-prices daily.</p>
+  <p>These are <b>thesis-conditional</b> values — what the move is worth <i>if the model is right</i> — and the model is <b>blind to implied volatility</b> unless you connect a live broker feed. "Passes the gates" is a conviction test, not a green light. <b>Calls and call-spreads only — no puts.</b></p>
+  <p><b>Tap any Top-picks row</b> for a fuller pop-up — simple or detailed depending on your Beginner/Expert toggle — with the contract, the chance it pays, and the suggested spread. Two live buttons sit there too: <b>live check</b> compares the model's value to what the market is actually charging in volatility, and <b>spread cost</b> measures how much the bid-ask would eat when you enter <i>both</i> legs (🟢 cheap, 🟡 meaningful, 🔴 costly — at which point a plain ETF is often the smarter way to express the same view).</p>
+
+  <div class="note">
+    <b>What to trust:</b> trust the <b>rankings and tiers</b> more than the exact decimals. The model orders risk well, but its precise percentages are estimates. Read "NVIDIA is safer than IonQ," not "exactly 53%."
+  </div>
+
+  <h2>Honest limits</h2>
+  <ul>
+    <li>The backtest (7 historical crashes) checks <b>how deep</b> falls go — not the recovery <b>timing</b>. So the depth/permanent-loss side is the most validated; recovery speed and how far earnings collapse are the <b>least certain</b> parts.</li>
+    <li>The company inputs (growth, balance sheet, moat) are <b>informed judgments</b> — "moat" is the single most sensitive one, and if it's wrong the output is wrong.</li>
+    <li>This whole group of AI stocks tends to move <b>together</b>, so spreading across them is less diversification than it looks — the model measures this directly.</li>
+    <li>It can't predict surprises — a single-company blow-up or a black-swan event.</li>
+  </ul>
+
+  <div class="disc">
+    <b>Research model — not investment advice.</b> The probabilities are frequencies over simulated futures based on documented assumptions. This is a tool to understand risk, not a recommendation to buy or sell. Never invest money you can't afford to lose, and consider a licensed advisor before real decisions.
+  </div>
+</div>
+
+<script>
+const pretty=s=>{ if(!s) return ""; const d=new Date(s+"T00:00:00");
+  return isNaN(d)?s:d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}); };
+fetch("data/snapshot.json",{cache:"no-store"}).then(r=>r.json()).then(s=>{
+  if(s.as_of) document.getElementById("upd").textContent="Updated "+pretty(s.as_of);
+}).catch(()=>{});
+
+// Latest weekly AI outlook review (what changed and why)
+fetch("data/outlook.json",{cache:"no-store"}).then(r=>r.json()).then(o=>{
+  const card=document.getElementById("reviewCard"); if(!card) return;
+  card.style.display="block";
+  document.getElementById("reviewDate").textContent="· "+pretty(o.as_of);
+  const fmt=v=>{ const n=Number(v); return (Math.abs(n)<1&&n!==0)?Math.round(n*100)+"%":(""+v); };
+  const labels={growth:"growth",rev_bn:"revenue",tam_cagr:"market growth",fwd_pe:"valuation",quality:"TAM credibility",earn_quality:"earnings durability",dominance:"dominance"};
+  let html;
+  if(o.changes && o.changes.length){
+    html="<p style='margin:0 0 8px'>The AI adjusted <b>"+o.changes.length+"</b> "+(o.changes.length===1?"input":"inputs")+" this week:</p><ul style='margin:0'>";
+    o.changes.forEach(c=>{
+      const why=(o.companies&&o.companies[c.name]&&o.companies[c.name].rationale)||"";
+      html+="<li><b>"+c.name+"</b> — "+(labels[c.field]||c.field)+" "+fmt(c.old)+" → "+fmt(c.new)+(why?"<br><span style='color:var(--soft)'>"+why+"</span>":"")+"</li>";
+    });
+    html+="</ul>";
+  } else {
+    html="<p style='margin:0'>No changes this week — fresh financials matched the existing outlook, so the rankings held steady.</p>";
+  }
+  document.getElementById("reviewBody").innerHTML=html;
+}).catch(()=>{});
+</script>
+<script src="theme.js"></script>
+</body>
+</html>

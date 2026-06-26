@@ -1,0 +1,77 @@
+name: weekly-outlook
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Anthropic model for the outlook re-evaluation"
+        default: "claude-opus-4-8"
+  schedule:
+    - cron: "0 23 * * 0"   # every Sunday 23:00 UTC — weekly AI re-evaluation of company outlook
+
+permissions:
+  contents: write
+
+jobs:
+  outlook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - name: Install deps
+        run: pip install numpy numba
+      - name: Re-screen the broad market (candidates for the ranked league)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          POLYGON_KEY: ${{ secrets.POLYGON_KEY }}
+          ANTHROPIC_MODEL: ${{ github.event.inputs.model || 'claude-opus-4-8' }}
+        run: |
+          cd systemic_model
+          # Cast a WIDE net: propose a broad slate of market candidates and price
+          # them into the pool. This is NOT a quota of names to add — it just feeds
+          # the screen. run_all.py then ranks EVERYONE by reward-vs-S&P and the
+          # league (league.py) decides membership: a name only ENTERS the Top-125
+          # if it genuinely out-ranks an incumbent (hysteresis), otherwise nothing
+          # changes. The pool is pruned back to the league + a buffer each run, so
+          # engine cost stays bounded while the board can still turn over.
+          python expand_universe.py --n 50 --merge || echo "discovery skipped"
+      - name: AI re-evaluation of company outlook (Claude + Polygon)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          POLYGON_KEY: ${{ secrets.POLYGON_KEY }}
+          ANTHROPIC_MODEL: ${{ github.event.inputs.model || 'claude-opus-4-8' }}
+        run: |
+          cd systemic_model
+          python fetch_monthly.py
+      - name: Pull today's live market data too (FRED), then re-run + rank
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: |
+          cd systemic_model
+          python fetch_live.py || echo "live fetch failed — using last-known macro"
+          python run_all.py --paths 30000
+          python options_lens.py --paths 30000 || echo "options lens skipped"
+          python spread_lens.py || echo "spread lens skipped"
+          python model_extras.py || echo "extras skipped"
+          python backtest_recovery.py || echo "recovery backtest skipped"
+      - name: Export snapshot + refresh site data
+        run: |
+          python export_snapshot.py
+          cp systemic_model/options_lens.json site/data/options_lens.json 2>/dev/null || true
+          cp systemic_model/spread_lens.json  site/data/spread_lens.json  2>/dev/null || true
+      - name: Build options "Top picks" leaderboard (model fair value × live option market)
+        env:
+          POLYGON_KEY: ${{ secrets.POLYGON_KEY }}
+        run: python options_leaderboard.py --top 20 || echo "leaderboard skipped"
+      - name: Commit refreshed outlook (triggers Pages deploy on push)
+        run: |
+          git config user.name "model-bot"
+          git config user.email "model-bot@users.noreply.github.com"
+          git add systemic_model/live_fundamentals.json systemic_model/discovery/expansion.json \
+                  systemic_model/league.json \
+                  site/data/outlook.json site/data/snapshot.json \
+                  site/data/options_lens.json site/data/spread_lens.json site/data/options_leaderboard.json \
+                  systemic_model/tier_table.csv systemic_model/results.json systemic_model/model_extras.json systemic_model/backtest_recovery.json || true
+          git commit -m "weekly re-rank: league standings as of $(date -u +%Y-%m-%d)" || echo "no changes"
+          git push

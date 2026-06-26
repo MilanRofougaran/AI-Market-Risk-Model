@@ -65,6 +65,75 @@ GATES = {"Palantir":"secular/watch","Astera Labs":"secular (PEG-fast, MC-uncerta
 EXPIRIES = [("6m", 126), ("12m", 252), ("18m", 378), ("24m", 504), ("36m", 756)]
 STRIKES = [0.50, 0.60, 0.70, 0.75, 0.80, 0.85, 0.90, 1.00, 1.10, 1.20, 1.50, 1.75, 2.00, 2.25, 2.50]
 
+# ---- expand the lens to the WHOLE AI/semis league's OPTIONABLE names ----
+# Same pricing as the core list; we just add the top league stocks that have
+# listed US options, so the lens (and the leaderboard) re-rank the whole tracked
+# AI/semis universe instead of a fixed handful. (Model is AI/semis-only by design.)
+BASE_TICKERS = {
+    "NVIDIA":"NVDA","Apple":"AAPL","Microsoft":"MSFT","Amazon":"AMZN","Alphabet":"GOOGL",
+    "Meta":"META","Tesla":"TSLA","Broadcom":"AVGO","AMD":"AMD","Micron":"MU","Marvell":"MRVL",
+    "Qualcomm":"QCOM","ARM":"ARM","Astera Labs":"ALAB","Palantir":"PLTR","AppLovin":"APP",
+    "CoreWeave":"CRWV","IonQ":"IONQ","Lumentum":"LITE","Coherent":"COHR",
+    "Applied Optoelectronics":"AAOI","Vertiv":"VRT","Oracle":"ORCL","Cisco":"CSCO","IBM":"IBM",
+    "Texas Instruments":"TXN",
+}
+_LEAGUE_CAP = 24   # how many league names to add (bounds the engine + Polygon cost)
+
+def _name_tickers():
+    """Display-name -> US ticker, from the base map plus expansion-pool tickers."""
+    tk = dict(BASE_TICKERS)
+    try:
+        exp = json.load(open(os.path.join(HERE, "discovery", "expansion.json")))
+        for nm, v in (exp.get("companies") or {}).items():
+            if v.get("ticker"):
+                tk[nm] = v["ticker"]
+    except Exception:
+        pass
+    return tk
+
+def _league_optionable():
+    """Top league STOCKS (by reward-vs-S&P) that have a US ticker (so options may
+    exist) and aren't broken — the optionable AI/semis universe to price.
+    Prefers the fresh league.json from this run; falls back to the published snapshot."""
+    tk = _name_tickers()
+    # 1) fresh league standings (written by run_all earlier in the pipeline)
+    try:
+        members = json.load(open(os.path.join(HERE, "league.json"))).get("members", [])
+        members = [m for m in members if m.get("kind") == "stock" and m.get("vs_sp") is not None]
+        members.sort(key=lambda m: -(m["vs_sp"] or 0))
+        out = [m["name"] for m in members
+               if m["name"] in tk and m["name"] in TB.STOCK_TAM_FACTS
+               and "broken" not in _gate_for(m["name"]).lower()]
+        if out:
+            return out[:_LEAGUE_CAP]
+    except Exception:
+        pass
+    # 2) fallback: the published snapshot rows
+    snap = os.path.join(os.path.dirname(HERE), "site", "data", "snapshot.json")
+    try:
+        rows = [r for r in json.load(open(snap)).get("rows", [])
+                if r.get("kind") == "stock" and r.get("in_league") and r.get("vssp") is not None
+                and "broken" not in (r.get("verdict", "") or "").lower()]
+        rows.sort(key=lambda r: -r["vssp"])
+        return [r["name"] for r in rows
+                if r["name"] in tk and r["name"] in TB.STOCK_TAM_FACTS][:_LEAGUE_CAP]
+    except Exception:
+        return []
+
+def _gate_for(nm):
+    """Archetype gate string. Hand-curated where known, else derived from the
+    model's own crash-growth archetype (secular / cyclical / broken)."""
+    if nm in GATES:
+        return GATES[nm]
+    try:
+        import crash_growth as CG
+        a = (CG.archetype(nm) or "").lower()
+        return {"broken": "BROKEN — avoid; duration does not repair the thesis",
+                "cyclical": "cyclical — no short calls",
+                "secular": "secular"}.get(a, a or "")
+    except Exception:
+        return ""
+
 
 def discount_rate():
     r = (C.MACRO.get("ust_10y") or 4.0) / 100.0
@@ -73,9 +142,15 @@ def discount_rate():
 
 def run(paths=30000, chunk=None):
     decomp = E.decompose_premium()
-    for nm in EXTENDED:
-        inp = dict(TB.STOCK_TAM_FACTS[nm]); inp["name"] = nm
-        decomp[nm] = E.decompose_premium({nm: inp})[nm]
+    # core EXTENDED names + the optionable AI/semis league (priced the SAME way)
+    for nm in list(EXTENDED) + _league_optionable():
+        if nm in decomp or nm not in TB.STOCK_TAM_FACTS:
+            continue
+        try:
+            inp = dict(TB.STOCK_TAM_FACTS[nm]); inp["name"] = nm
+            decomp[nm] = E.decompose_premium({nm: inp})[nm]
+        except Exception as e:
+            print(f"  [options_lens] skip {nm}: {e}", file=sys.stderr)
     facts = dict(C.COMPANIES); facts.update({k: dict(v) for k, v in TB.STOCK_TAM_FACTS.items()})
     for nm in ETFS:
         spec_inp, _info = TB.etf_spec(nm, facts)
@@ -109,7 +184,7 @@ def run(paths=30000, chunk=None):
            "note": "physical-measure fair values; thesis-conditional, not risk-neutral",
            "names": {}}
     for nm in names:
-        out["names"][nm] = {"gate": GATES.get(nm, "")}
+        out["names"][nm] = {"gate": _gate_for(nm)}
         for lab, d in EXPIRIES:
             s = np.concatenate(ST[nm][lab])
             T = d / 252.0

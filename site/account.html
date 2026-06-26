@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>My Portfolio — Market Analyst</title>
+<meta name="description" content="See your portfolio&#x27;s real risk: effective bets, the odds your holdings crash together, and reward-for-risk across your AI &amp; chip stocks.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MarketAnalyst">
+<meta property="og:title" content="Your portfolio&#x27;s real risk — MarketAnalyst">
+<meta property="og:description" content="See your portfolio&#x27;s real risk: effective bets, the odds your holdings crash together, and reward-for-risk across your AI &amp; chip stocks.">
+<meta property="og:image" content="og-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your portfolio&#x27;s real risk — MarketAnalyst">
+<meta name="twitter:description" content="See your portfolio&#x27;s real risk: effective bets, the odds your holdings crash together, and reward-for-risk across your AI &amp; chip stocks.">
+<meta name="twitter:image" content="og-card.svg">
 <style>
 :root{
   --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#fff; --hush:#f5f5f7;
@@ -18,10 +29,11 @@ a{color:var(--blue);text-decoration:none}
 .brand{font-size:18px;font-weight:700;letter-spacing:-.02em}
 .brand .dot{color:var(--blue)}
 .nav .right{display:flex;align-items:center;gap:16px;font-size:14px}
+.nav .right a{color:var(--soft)} .nav .right a:hover{color:var(--ink)}
 .logout{border:1px solid var(--line);background:#fff;border-radius:980px;padding:7px 16px;font-size:13px;font-weight:600;cursor:pointer}
 .logout:hover{background:var(--hush)}
 
-.wrap{max-width:920px;margin:0 auto;padding:30px max(20px,4vw) 80px}
+.wrap{max-width:1180px;margin:0 auto;padding:30px max(20px,4vw) 80px}
 .hello{font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.02em;margin:8px 0 2px}
 .plan{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
   background:var(--hush);color:var(--soft);border-radius:980px;padding:4px 12px;margin-bottom:24px}
@@ -34,6 +46,16 @@ a{color:var(--blue);text-decoration:none}
 .scard .v{font-size:28px;font-weight:700;letter-spacing:-.02em;margin-top:4px}
 .scard .v.pos{color:var(--green)}.scard .v.neg{color:var(--red)}
 .note{font-size:13px;color:var(--soft);background:#fff8ec;border:1px solid #f3e2c2;border-radius:14px;padding:12px 16px;margin-bottom:26px}
+.pr-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:6px 0 12px}
+.pr-c{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column}
+.pr-c .k{font-size:12px;color:var(--soft);font-weight:500}
+.pr-c .v{font-size:30px;font-weight:700;letter-spacing:-.03em;line-height:1;margin:8px 0 6px}
+.pr-c .s{font-size:11px;color:var(--soft);line-height:1.35;margin-top:auto}
+.pr-detail{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:12px;color:var(--soft);margin:14px 0 10px}
+.pr-detail b{color:var(--ink)}
+.pr-table{margin:0}
+.pr-table th,.pr-table td{font-size:12.5px;padding:9px 14px}
+[data-mode="beginner"] #portRiskExpert{display:none}
 
 .sec-head{display:flex;align-items:center;justify-content:space-between;margin:30px 0 14px}
 .sec-head h2{font-size:20px;font-weight:700;letter-spacing:-.01em;margin:0}
@@ -55,7 +77,7 @@ td.nm{font-weight:600}
 .r-buy{background:var(--greenbg);color:var(--green)}
 .r-maybe{background:#fdf3e4;color:var(--amber)}
 .r-avoid{background:var(--redbg);color:var(--red)}
-.rsub{font-size:11px;color:var(--soft);margin-top:4px;text-transform:capitalize}
+.rsub{font-size:11px;color:var(--soft);margin-top:4px;text-transform:capitalize;white-space:nowrap}
 
 /* modal */
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
@@ -79,15 +101,35 @@ td.nm{font-weight:600}
 .ac-item:hover,.ac-item.active{background:var(--hush)}
 .ac-item .tk{font-size:12px;font-weight:700;color:var(--soft)}
 .ac-empty{padding:11px 14px;color:var(--soft);font-size:14px}
+@media(max-width:600px){
+  .nav{flex-wrap:wrap;gap:8px;padding:12px 16px}
+  .nav .right{gap:14px;font-size:13px;flex-wrap:wrap;row-gap:6px}
+  .wrap{padding:22px 16px 72px}
+  h1{font-size:24px;line-height:1.2}
+  .summary{grid-template-columns:1fr 1fr;gap:10px}
+  .pr-cards{grid-template-columns:1fr 1fr;gap:10px}
+  .sec-head{flex-wrap:wrap;gap:8px}
+  table{display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+  .modal{padding:22px 18px}
+}
+.modeswitch{display:inline-flex;border:1.5px solid var(--line);border-radius:980px;overflow:hidden;background:var(--paper)}
+.modeswitch button{border:0;background:none;padding:6px 13px;font-size:12.5px;font-weight:600;color:var(--soft);cursor:pointer}
+.modeswitch button.on{background:var(--blue);color:#fff}
 </style>
 </head>
 <body>
 <nav class="nav">
   <div class="brand">Market<span class="dot">Analyst</span></div>
   <div class="right">
+    <div class="modeswitch" data-modeswitch title="Switch between a simple view and the full data">
+      <button data-mode-opt="beginner" onclick="setMode('beginner')">Beginner</button>
+      <button data-mode-opt="expert" onclick="setMode('expert')">Expert</button>
+    </div>
+    <a href="how.html">How it works</a>
     <a href="index.html">Dashboard</a>
-    <a href="research.html">Research</a>
     <a href="options.html">Options</a>
+    <a href="research.html">Research</a>
+    <a href="account.html">My Portfolio</a>
     <button class="logout" id="logoutBtn">Log out</button>
   </div>
 </nav>
@@ -109,6 +151,8 @@ td.nm{font-weight:600}
     <button class="add-btn" onclick="openAdd()">+ Add investment</button>
   </div>
   <div id="holdings"></div>
+
+  <div id="portRisk"></div>
 
   <div class="sec-head">
     <h2>Your options <span style="font-size:13px;font-weight:500;color:var(--soft)">· advanced &amp; risky</span></h2>
@@ -210,6 +254,7 @@ td.nm{font-weight:600}
 </div>
 
 <script src="keys.js"></script>
+<script src="mode.js?v=1"></script>
 <script type="module">
 import { sb, requireAuth, signOut } from "./auth.js";
 
@@ -334,14 +379,77 @@ async function loadModel(){
     const r = await fetch("data/snapshot.json", {cache:"no-store"});
     if(!r.ok) return;
     const s = await r.json();
+    const pct = v => v==null ? null : (v<=1.5 ? v*100 : v);
     const rows = (s.rows||[]).map(x => ({
       name:x.name, tier:x.tier, verdict:x.verdict||x.crash_growth,
-      tail: x.tail==null ? null : (x.tail<=1.5 ? x.tail*100 : x.tail),
+      tail: pct(x.tail), p25: pct(x.p25), rec2y: pct(x.rec2y), growth: pct(x.growth),
       vssp: x.vssp,
     }));
     [...rows].filter(x=>x.vssp!=null).sort((a,b)=>b.vssp-a.vssp).forEach((x,i)=> x.rank=i+1);
     rows.forEach(x => MODEL[baseKey(x.name)] = x);
+    const b = (s.correlation && s.correlation.baskets || [])[0];
+    if(b && b.rho_with!=null) CORR_RHO = b.rho_with;        // crisis correlation for the universe
   }catch(e){}
+}
+let CORR_RHO = 0.9;
+// inverse standard normal (Acklam) — for the copula portfolio sim
+function invNorm(p){
+  p=Math.min(0.999999,Math.max(1e-6,p));
+  const a=[-3.969683028665376e+1,2.209460984245205e+2,-2.759285104469687e+2,1.383577518672690e+2,-3.066479806614716e+1,2.506628277459239e+0];
+  const b=[-5.447609879822406e+1,1.615858368580409e+2,-1.556989798598866e+2,6.680131188771972e+1,-1.328068155288572e+1];
+  const c=[-7.784894002430293e-3,-3.223964580411365e-1,-2.400758277161838e+0,-2.549732539343734e+0,4.374664141464968e+0,2.938163982698783e+0];
+  const d=[7.784695709041462e-3,3.224671290700398e-1,2.445134137142996e+0,3.754408661907416e+0];
+  const pl=0.02425,q1=p; let q,r;
+  if(q1<pl){q=Math.sqrt(-2*Math.log(q1));return(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);}
+  if(q1<=1-pl){q=q1-0.5;r=q*q;return(((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q/(((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);}
+  q=Math.sqrt(-2*Math.log(1-q1));return-(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5])/((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+}
+function randn(){let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+/* Correlation-aware portfolio risk from the model's per-name odds (not a fresh
+   full-engine run): exact effective-N + a Gaussian-copula joint big-drop sim. */
+function portfolioRisk(items){
+  const ws=items.reduce((a,x)=>a+x.w,0)||1; items.forEach(x=>x.w/=ws);
+  const sumw2=items.reduce((a,x)=>a+x.w*x.w,0);
+  const rho=CORR_RHO, effN=1/(rho+(1-rho)*sumw2);
+  const wavg=k=>items.reduce((a,x)=>a+x.w*(x[k]||0),0);
+  const thr=items.map(x=>invNorm((x.p25||0)/100));
+  const sq=Math.sqrt(rho), sq1=Math.sqrt(1-rho); const M=4000; let big=0;
+  for(let m=0;m<M;m++){ const F=randn(); let fw=0;
+    items.forEach((x,i)=>{ if(sq*F+sq1*randn() < thr[i]) fw+=x.w; });
+    if(fw>=0.5) big++; }
+  return {effN, n:items.length, growth:wavg("growth"), p25:wavg("p25"),
+          tail:wavg("tail"), rec2y:wavg("rec2y"), jointBigDrop:100*big/M,
+          rho, sumw2, paths:M, parts:items};
+}
+function renderPortfolioRisk(){
+  const el=document.getElementById("portRisk"); if(!el) return;
+  const items=[]; let covered=0, total=0;
+  for(const h of (HOLDINGS||[])){ const inv=investedOf(h); if(!(inv>0)) continue; total+=inv;
+    const mk=MODEL[baseKey(h.security_name)];
+    if(mk && mk.p25!=null){ items.push({w:inv,p25:mk.p25,tail:mk.tail,rec2y:mk.rec2y,growth:mk.growth,name:h.security_name}); covered+=inv; } }
+  if(items.length<1){ el.innerHTML=""; return; }
+  const r=portfolioRisk(items.map(x=>({...x})));
+  const pc=x=>x==null?"—":Math.round(x)+"%";
+  const div=r.effN<1.6?"barely diversified — they move almost as one":(r.effN<3?"lightly diversified":"reasonably spread");
+  el.innerHTML=`<div class="sec-head" style="margin-top:10px"><h2>Portfolio risk <span style="font-size:13px;font-weight:500;color:var(--soft)">· the model's read on your basket</span></h2></div>
+   <div class="pr-cards">
+     <div class="pr-c"><div class="k">Effective bets</div><div class="v">${r.effN.toFixed(1)}</div><div class="s">${r.n} holdings · ${div}</div></div>
+     <div class="pr-c"><div class="k">Expected growth</div><div class="v">${pc(r.growth)}</div><div class="s">weighted · 18m</div></div>
+     <div class="pr-c"><div class="k">Big-drop risk together</div><div class="v">${pc(r.jointBigDrop)}</div><div class="s">chance most of the basket falls 25%+ at once</div></div>
+     <div class="pr-c"><div class="k">Recovers in 2y</div><div class="v">${pc(r.rec2y)}</div><div class="s">weighted</div></div>
+     <div class="pr-c"><div class="k">Long-term loss risk</div><div class="v">${pc(r.tail)}</div><div class="s">weighted</div></div>
+   </div>
+   <div class="note">${covered<total*0.9?`Covers the ${Math.round(covered/total*100)}% of your basket the model tracks. `:""}Because these AI/semis names move together (~${Math.round(CORR_RHO*100)}% correlated in a crash), your basket behaves like ~<b>${r.effN.toFixed(1)} independent bet${r.effN>=1.5?"s":""}</b> — diversifying <i>within</i> the sector barely lowers a big drop; spread across other sectors for that. Uses the model's per-name odds + crisis correlation (not a fresh full-engine run). Research model — not advice.</div>
+   <div id="portRiskExpert">
+     <div class="pr-detail">
+       <span><b>Crash correlation ρ</b> = ${r.rho.toFixed(2)}</span>
+       <span><b>Effective bets</b> = 1 ÷ (ρ + (1−ρ)·Σw²) = 1 ÷ (${r.rho.toFixed(2)} + ${(1-r.rho).toFixed(2)}·${r.sumw2.toFixed(3)}) = <b>${r.effN.toFixed(2)}</b></span>
+       <span><b>Joint big-drop</b> from ${r.paths.toLocaleString()} Gaussian-copula paths</span>
+     </div>
+     <table class="pr-table"><thead><tr><th style="text-align:left">Holding</th><th>Weight</th><th>Down-25% odds (p25)</th><th>Long-term loss (tail)</th><th>Recovers 2y</th><th>Growth</th></tr></thead><tbody>
+     ${r.parts.slice().sort((a,b)=>b.w-a.w).map(p=>`<tr><td style="text-align:left">${p.name}</td><td>${Math.round(p.w*100)}%</td><td>${pc(p.p25)}</td><td>${pc(p.tail)}</td><td>${pc(p.rec2y)}</td><td>${pc(p.growth)}</td></tr>`).join("")}
+     </tbody></table>
+   </div>`;
 }
 function ratingFor(x){
   const a = VCv(x.verdict);
@@ -454,6 +562,7 @@ async function loadHoldings(){
   });
   STOCK_TOT = {invested, valuedInvested, value, haveValue};
   renderSummary();
+  renderPortfolioRisk();
 
   box.innerHTML = `<table><thead><tr>
       <th>Investment</th><th>Shares</th><th>Price paid</th><th>Invested</th><th>Price now</th><th>Value</th><th>ROI</th><th>Model rating</th><th></th>

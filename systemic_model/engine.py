@@ -181,6 +181,61 @@ def _price_path(rng, factor, crisis, spec, n, days, tail_mult=1.0, subfactors=No
 #  PART B -- TAM PREMIUM DECOMPOSITION
 # ===========================================================================
 
+import math as _math
+
+def _growth_annuity(g, r, T):
+    """PV of supernormal growth over T years: sum_{t=1..T} ((1+g)/(1+r))^t. Convex in T."""
+    if T <= 0:
+        return 0.0
+    q = (1.0 + g) / (1.0 + r)
+    n = int(T)
+    frac = T - n
+    s = sum(q ** t for t in range(1, n + 1))
+    return s + (q ** (n + 1)) * frac
+
+
+def _years_to_saturation(rev, tam, s_star, g, m, cap):
+    """Years for revenue (growing at g) to reach a ceiling s_star*TAM that is itself
+    growing at m. If g<=m the ceiling rises as fast as revenue => runway ~ infinite (cap)."""
+    ceil = s_star * tam
+    if ceil <= rev:
+        return 0.0
+    if g <= m:
+        return cap
+    return min(cap, _math.log(ceil / rev) / _math.log((1.0 + g) / (1.0 + m)))
+
+
+def _effective_cogs_fragility(name):
+    """COGS fragility: weighted cost-driver buckets if USE_COGS_BUCKETS and a template exists,
+    else the scalar cogs_fragility. effective = sum(bucket_weight * bucket_shock). At baseline
+    (shocks=1.0) the buckets roll up to the original scalar, so baseline numbers are unchanged;
+    raise a bucket's shock to stress that cost driver (energy, wafers, packaging, ...)."""
+    ps = getattr(C, "PROFIT_SENSITIVITY", {}).get(name, {})
+    if getattr(C, "USE_COGS_BUCKETS", False):
+        buckets = getattr(C, "COGS_BUCKETS", {}).get(name)
+        shocks = getattr(C, "COGS_BUCKET_SHOCKS", {})
+        if buckets:
+            cf = sum(w * shocks.get(b, 1.0) for b, w in buckets.items())
+            return float(min(1.0, max(0.0, cf)))
+    return float(ps.get("cogs_fragility", 0.0))
+
+
+def _endogenous_cyclicality(op_margin, fixed_cost_ratio, rev_drawdown):
+    """Derive the EPS trough depth from operating leverage instead of a manual number.
+    Costs split into fixed (do not scale) and variable (scale with revenue). In a bust
+    revenue falls by `rev_drawdown`; variable costs fall with it, fixed costs do not, so
+    operating income (the EPS denominator) falls FASTER than revenue. Returns the fraction
+    EPS collapses (0..0.95); >=1 (EPS turns negative) clamps to 0.95. Inputs op_margin (m),
+    fixed_cost_ratio (f), rev_drawdown (d) are each more groundable in real financials than
+    a single cyclicality guess -- but note this sharpens trough DEPTH and recovery TIMING,
+    the model's least-validated axis."""
+    m = max(1e-6, float(op_margin)); f = float(fixed_cost_ratio); d = float(rev_drawdown)
+    base_oi = m
+    new_oi = (1.0 - d) * (1.0 - (1.0 - m) * (1.0 - f)) - (1.0 - m) * f
+    drop = 1.0 - new_oi / base_oi
+    return float(min(0.95, max(0.0, drop)))
+
+
 def decompose_premium(companies=None):
     """The bottom-up valuation layer. For each company, split its P/E premium
     into the part runway can JUSTIFY and the part that FLOATS free, then
@@ -227,15 +282,73 @@ def decompose_premium(companies=None):
     # second pass: premium split + composite scores
     for n, o in out.items():
         o["runway_norm"] = min(o["runway_raw"] / mx, 1.0)   # cap at 1.0 (can't exceed the ideal)
-        premium = max(o["fwd_pe"] - C.BASE_PE, 0)
+        # ---- cash / buyback adjustment to the EFFECTIVE multiple -------------
+        # Net cash is not part of the operating multiple; deploying BUYBACK_PCT of
+        # it into an ACCRETIVE buyback (E/P > after-tax cash yield) retires float
+        # and de-rates the P/E. Net DEBT gets no buyback credit. Static valuation
+        # effect; distinct from the crisis trough-buyback slingshot (recovery path).
+        eff_pe = o["fwd_pe"]
+        if getattr(C, "USE_CASH_ADJUSTMENT", False):
+            try:
+                ncash = max(X.net_cash(n), 0.0)             # net cash / mcap; only positive funds buybacks
+            except Exception:
+                ncash = 0.0
+            bb = getattr(C, "BUYBACK_PCT_BY_NAME", {}).get(n, getattr(C, "BUYBACK_PCT", 0.0))
+            cy = getattr(C, "CASH_YIELD_AFTER_TAX", 0.035)
+            accretive = (1.0 / o["fwd_pe"]) > cy if o["fwd_pe"] > 0 else False   # E/P > after-tax cash yield
+            eff_pe = o["fwd_pe"] * (1.0 - bb * ncash) if accretive else o["fwd_pe"]
+            o["net_cash_to_mcap"] = round(ncash, 3)
+            o["buyback_pct"] = bb
+            o["buyback_accretive"] = bool(accretive)
+            o["eff_pe"] = round(eff_pe, 2)
+        premium = max(eff_pe - C.BASE_PE, 0)
         justified = premium * o["runway_norm"]
         unsupported = premium - justified
         o["premium_pts"]      = premium
         o["justified_pts"]    = justified
         o["unsupported_pts"]  = unsupported
-        o["unsupported_frac"] = unsupported / o["fwd_pe"] if o["fwd_pe"] > 0 else 0.0
+        o["unsupported_frac"] = unsupported / eff_pe if eff_pe > 0 else 0.0
+        # ---- competitive / duration-aware justified premium (override) -------
+        # Replaces the slope-only justified premium with a duration- and
+        # competition-aware one when calibration provides inputs. Both versions
+        # are preserved in the output (auditable). See calibration.COMPETITIVE.
+        comp = getattr(C, "COMPETITIVE", {}).get(n)
+        if getattr(C, "USE_COMPETITIVE_PREMIUM", False) and comp:
+            o["justified_pts_slope"]    = justified
+            o["unsupported_pts_slope"]  = unsupported
+            o["unsupported_frac_slope"] = o["unsupported_frac"]
+            o["runway_norm_slope"]      = o["runway_norm"]
+            g = comp["g"]; m = comp["m"]; ss = comp["struct_share"]
+            moat = comp["moat"]; pp = comp["pricing_power"]
+            r_g = getattr(C, "R_GROWTH", 0.09)
+            cap = getattr(C, "GROWTH_DURATION_CAP", 15)
+            s_star = min(ss * moat + ss * (1 - moat) * 0.5, 0.95)   # ceiling set by structure, sharpened by moat
+            Tsat = _years_to_saturation(o["rev_bn"], o["tam_bn"], s_star, g, m, cap)
+            anchor = _growth_annuity(0.30, r_g, 8)
+            dur = min(_growth_annuity(g, r_g, Tsat) / anchor, 1.0) if anchor > 0 else 0.0
+            g_share = max(g - m, 0.0)
+            durab = (g - g_share + g_share * moat) / g if g > 0 else 0.0  # price-led share gain discounted by moat
+            gqual = (durab + pp + o["earn_quality"]) / 3.0               # averaged, not multiplied
+            justified = min(premium * dur * gqual, premium)              # cap at premium (fragility detector, no cheapness signal)
+            unsupported = premium - justified
+            o["s_star"] = s_star; o["T_sat"] = Tsat; o["duration_credit"] = dur
+            o["growth_quality"] = gqual; o["share_durability"] = durab
+            o["justified_pts"] = justified
+            o["unsupported_pts"] = unsupported
+            o["unsupported_frac"] = unsupported / eff_pe if eff_pe > 0 else 0.0
+            o["runway_norm"] = dur                                       # recovery uses duration credit as room-to-grow
         o["eq_fragility"]     = 1 - o["earn_quality"]
-        o["fragility"]        = 0.6 * o["unsupported_frac"] + 0.4 * o["eq_fragility"]
+        if getattr(C, "USE_CASH_ADJUSTMENT", False):
+            try:
+                bal = X.balance(n)                          # 0..1 balance-sheet strength (net cash, no debt = high)
+            except Exception:
+                bal = 0.55
+            o["balance_sheet"] = round(bal, 2)
+            o["fragility_precash"] = 0.6 * o["unsupported_frac"] + 0.4 * o["eq_fragility"]
+            # net-cash / no-debt cushion lowers fragility; net debt raises it
+            o["fragility"] = 0.5 * o["unsupported_frac"] + 0.3 * o["eq_fragility"] + 0.2 * (1 - bal)
+        else:
+            o["fragility"]        = 0.6 * o["unsupported_frac"] + 0.4 * o["eq_fragility"]
         rq = 0.5 * o["runway_norm"] + 0.5 * o["earn_quality"] - 0.4 * o["unsupported_frac"]
         # capex-elasticity scaling: inelastic (physical) demand keeps its floor
         # in a crisis; discretionary demand loses it. Centered so elastic=0.7
@@ -250,6 +363,53 @@ def decompose_premium(companies=None):
         except Exception:
             ci = 0.10
         rq = max(0.0, rq - max(0.0, ci - 0.15) * 0.8)
+        # ---- cyclical EARNINGS-COLLAPSE (denominator) drag -------------------
+        # operating leverage makes EPS fall faster than price in a bust -> the P/E
+        # EXPANDS when you need it to compress, and recovery must wait for the
+        # earnings denominator to heal first. Drags recovery_quality only (depth stays
+        # set by beta/correlation); distinct from the capex penalty and the two-phase
+        # demand trough. recovery_quality_precollapse preserved for audit.
+        ec = getattr(C, "EARNINGS_CYCLICALITY", {}).get(n)
+        # ENDOGENOUS operating leverage: derive the trough from op-margin / fixed-cost
+        # ratio / revenue drawdown instead of the manual cyclicality, when inputs exist.
+        ec_endo = None
+        ol_inp = getattr(C, "OPERATING_LEVERAGE", {}).get(n)
+        if getattr(C, "USE_ENDOGENOUS_EARNINGS", False) and ol_inp is not None:
+            ec_endo = _endogenous_cyclicality(ol_inp["op_margin"], ol_inp["fixed_cost_ratio"],
+                                              ol_inp["rev_drawdown"])
+        if getattr(C, "USE_EARNINGS_COLLAPSE", False) and (ec is not None or ec_endo is not None):
+            o["recovery_quality_precollapse"] = float(np.clip(rq, 0.0, 1.0))
+            o["earnings_cyclicality_manual"] = ec
+            if ec_endo is not None:
+                o["earnings_cyclicality_endogenous"] = ec_endo
+                o["earnings_cyclicality_source"] = "endogenous"
+                ec = ec_endo
+            else:
+                o["earnings_cyclicality_source"] = "manual"
+            # ---- PROFIT-SENSITIVITY addons (interest expense + input cost) -----
+            # Two drawdown-EPS channels the demand model misses: (1) levered names see
+            # interest expense rise in a rate shock; (2) high-COGS-fragility names eat
+            # input-cost shocks UNLESS pricing power lets them pass it on. Both DEEPEN
+            # the earnings trough (added to cyclicality, which already drives the
+            # recovery-quality drag AND tail depth). Net-cash / high-pricing-power names
+            # are ~immune. Each input is auditable via the provenance layer.
+            if getattr(C, "USE_PROFIT_SENSITIVITY", False):
+                ps = getattr(C, "PROFIT_SENSITIVITY", {}).get(n, {})
+                pp = getattr(C, "COMPETITIVE", {}).get(n, {}).get("pricing_power", 0.5)
+                nde = max(0.0, ps.get("net_debt_to_ebitda", 0.0))
+                fl  = ps.get("floating_rate_share", 0.0)
+                cf  = _effective_cogs_fragility(n)
+                ie_addon = min(0.30, nde * fl * getattr(C, "RATE_SHOCK_K", 0.06))
+                ic_addon = min(0.30, cf * (1.0 - pp) * getattr(C, "INPUT_SHOCK_K", 0.35))
+                o["interest_expense_addon"] = round(ie_addon, 4)
+                o["input_cost_addon"] = round(ic_addon, 4)
+                o["cyclicality_base_preprofit"] = ec
+                ec = min(0.95, ec + ie_addon + ic_addon)
+            o["earnings_cyclicality"] = ec
+            sev = getattr(C, "DOWNTURN_SEVERITY", 1.0)
+            o["eps_trough_depth"] = min(0.95, ec * sev)                 # illustrative EPS fall in a severe bust
+            o["pe_expansion_at_trough"] = round(1.0 / (1.0 - o["eps_trough_depth"]), 1)
+            rq = rq * (1.0 - ec * getattr(C, "EARNINGS_COLLAPSE_DRAG", 0.40))
         o["recovery_quality"] = float(np.clip(rq, 0.0, 1.0))
     return out
 
@@ -263,6 +423,12 @@ def company_to_spec(o, name=None):
     """
     drift_alpha = 0.06 * o["runway_norm"] - 0.05 * o["fragility"]
     tail_mult   = 1.0 + 0.5 * o["fragility"]          # bounded: max 1.5x in crisis
+    # cyclical earnings collapse erodes the valuation FLOOR in a bust (EPS craters ->
+    # P/E expands -> no earnings to anchor the price), deepening the crisis trough.
+    # Bounded add-on, high-cyclicality (memory) names only; depth still mostly beta.
+    ec = o.get("earnings_cyclicality")
+    if ec is not None:
+        tail_mult += min(0.30, ec * getattr(C, "EARNINGS_COLLAPSE_DEPTH", 0.30))
     recov_shift = 0.30 * o["recovery_quality"] - 0.25 * o["fragility"]
     # CRASH-CONDITIONAL GROWTH in the MC recovery channel: the same secular/cyclical/
     # broken growth response that drives the earn-back clock also speeds or slows the
@@ -697,6 +863,13 @@ def run_companies(thresholds=(0.15, 0.20, 0.25, 0.30, 0.40, 0.50), verbose=True)
                   for nm in names}
     store_mdd = {(nm, hz): [] for nm in names for hz in C.HORIZON_LABELS}
     store_rec = {(nm, hz): [] for nm in names for hz in C.HORIZON_LABELS}
+    # forward "fan chart" sampling: the price (as a multiple of today's) at a few
+    # months, kept per path so we can percentile it into a p10/median/p90 CONE of
+    # simulated futures at the end. This is a distribution, NOT a point forecast.
+    # float32 sampled at ~9 points ≈ one extra horizon's worth of memory.
+    TRAJ_MONTHS = [0, 3, 6, 9, 12, 18, 24, 30, 36]
+    _traj_days = [min(int(m * 21), DAYS - 1) for m in TRAJ_MONTHS]
+    store_traj = {nm: [] for nm in names}
 
     done = 0
     while done < N:
@@ -717,6 +890,7 @@ def run_companies(thresholds=(0.15, 0.20, 0.25, 0.30, 0.40, 0.50), verbose=True)
                                                   path_offset=done, freeze=freeze,
                                                   freeze_dep=spec.get("freeze_dep", 1.0))
                 store_mdd[(nm, hz)].append(mdd); store_rec[(nm, hz)].append(rec)
+            store_traj[nm].append(price[:, _traj_days].astype(np.float32))
         done += n
         if verbose:
             print(f"  companies: {done:,}/{N:,} paths")
@@ -769,6 +943,19 @@ def run_companies(thresholds=(0.15, 0.20, 0.25, 0.30, 0.40, 0.50), verbose=True)
                     row[f"recover_{mo}m"] = None
                 row["not_recovered_36m"] = None
             matrix[hz] = row
+        # FORWARD FAN CHART: percentile cone of the simulated price (as a multiple
+        # of today's). p10/median/p90 over the next 36 months — the spread of
+        # simulated futures, refreshed every run. NOT a price prediction.
+        traj_arr = np.concatenate(store_traj[nm], axis=0)        # (N, P)
+        _p10 = np.percentile(traj_arr, 10, axis=0)
+        _p50 = np.percentile(traj_arr, 50, axis=0)
+        _p90 = np.percentile(traj_arr, 90, axis=0)
+        trajectory = {                                           # t0 anchored to 1.0 (today)
+            "months": list(TRAJ_MONTHS),
+            "p10": [1.0] + [round(float(x), 4) for x in _p10[1:]],
+            "p50": [1.0] + [round(float(x), 4) for x in _p50[1:]],
+            "p90": [1.0] + [round(float(x), 4) for x in _p90[1:]],
+        }
         out["recovery_cond"][nm] = dict(
             p_dd25=float(mask.mean()), p_recover=p_rec,
             recovery_quality=decomp[nm]["recovery_quality"],
@@ -777,6 +964,7 @@ def run_companies(thresholds=(0.15, 0.20, 0.25, 0.30, 0.40, 0.50), verbose=True)
             p_deep_permanent=p_deep_permanent,# P(DD>25% AND never) -- comparable across betas
             recovery_curve=rc["curve"],       # P(recovered) at 6/9/12/15/18/24/30/36m
             dd_recovery_matrix=matrix,        # drawdown-horizon x recover-after-trough matrix
+            trajectory=trajectory,            # forward p10/median/p90 price cone (fan chart)
         )
     return out, list(thresholds)
 

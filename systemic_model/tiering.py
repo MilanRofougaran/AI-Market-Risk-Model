@@ -91,6 +91,40 @@ UNIVERSE = {
     "TQQQ (3x NDX)":               ("ETF",   "Nasdaq 3x leveraged",  0.45),
 }
 
+# ---- UNIVERSE EXPANSION (AI-assisted candidate pool) ----------------------
+# expand_universe.py writes discovery/expansion.json with the larger pool of
+# AI/tech names (made priceable in tam_bridge). Add them to the ranked universe
+# here so the dashboard's Top-N can include them. (Names enter/leave as scores move.)
+_EXP = os.path.join(HERE, "discovery", "expansion.json")
+if os.path.exists(_EXP):
+    try:
+        _exp = json.load(open(_EXP))
+        for _name, _rec in (_exp.get("companies") or {}).items():
+            if _name not in UNIVERSE:
+                UNIVERSE[_name] = (_rec.get("kind", "stock"),
+                                   _rec.get("theme", "AI / growth"),
+                                   float(_rec.get("growth", 0.0)))
+        print("[tiering] expansion.json merged;", len(_exp.get("companies") or {}), "pool names")
+    except Exception as _e:
+        print("[tiering] expansion.json ignored:", _e)
+
+# ---- MONTHLY AI OUTLOOK OVERRIDE (growth) ---------------------------------
+# fetch_monthly.py (live_fundamentals.json) carries Claude's refreshed 18-month
+# growth estimate per name. Override the growth element of each UNIVERSE entry so
+# the tiers and rankings reflect the latest outlook. (Other score fields are
+# merged in calibration.py.)
+_FUND = os.path.join(HERE, "live_fundamentals.json")
+if os.path.exists(_FUND):
+    try:
+        _fund = json.load(open(_FUND))
+        for _name, _rec in (_fund.get("companies") or {}).items():
+            if _name in UNIVERSE and _rec.get("growth") is not None:
+                _kind, _theme, _g = UNIVERSE[_name]
+                UNIVERSE[_name] = (_kind, _theme, float(_rec["growth"]))
+        print("[tiering] live_fundamentals.json growth merged")
+    except Exception as _e:
+        print("[tiering] live_fundamentals.json ignored:", _e)
+
 # Leveraged trading vehicles -- excluded from the growth tiers, flagged apart.
 LEVERAGED = ["SOXL (3x Semis)", "TECL (3x Tech)", "TQQQ (3x NDX)"]
 # (bug fixed: list previously held only a case-mismatched "TECL (3x tech)", so
@@ -144,6 +178,16 @@ PERMANENCE = {
     "CoreWeave": 0.80, "IonQ": 0.85,
 }
 DEFAULT_PERMANENCE = 0.50
+
+# expansion.json carries an AI-assigned permanence for each pool name (how likely a
+# deep drawdown is truly terminal) — merge so pool names aren't stuck on the default.
+if os.path.exists(_EXP):
+    try:
+        for _name, _rec in (json.load(open(_EXP)).get("companies") or {}).items():
+            if _rec.get("permanence") is not None:
+                PERMANENCE[_name] = float(_rec["permanence"])
+    except Exception:
+        pass
 
 
 def _risk(results, name):

@@ -2,7 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Systemic + TAM Risk — Live Dashboard</title>
+<title>MarketAnalyst — Dashboard</title>
+<meta name="description" content="Risk-first analysis of AI &amp; semiconductor stocks: how deep they could fall, how long they take to recover, and how correlated your holdings really are — ranked by reward for the risk, not hype.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MarketAnalyst">
+<meta property="og:title" content="MarketAnalyst — Risk-first analysis of AI &amp; chip stocks">
+<meta property="og:description" content="Risk-first analysis of AI &amp; semiconductor stocks: how deep they could fall, how long they take to recover, and how correlated your holdings really are — ranked by reward for the risk, not hype.">
+<meta property="og:image" content="og-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MarketAnalyst — Risk-first analysis of AI &amp; chip stocks">
+<meta name="twitter:description" content="Risk-first analysis of AI &amp; semiconductor stocks: how deep they could fall, how long they take to recover, and how correlated your holdings really are — ranked by reward for the risk, not hype.">
+<meta name="twitter:image" content="og-card.svg">
+<script src="keys.js?v=1"></script>
+<script src="mode.js?v=1"></script>
 <style>
 :root{
   --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#ffffff; --card:#ffffff; --hush:#f5f5f7;
@@ -13,7 +26,7 @@
   --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Helvetica,Arial,sans-serif;
 }
-*{box-sizing:border-box} html,body{margin:0;height:100%}
+*{box-sizing:border-box} html,body{margin:0;height:100%} html{scroll-behavior:smooth}
 body{background:var(--hush);color:var(--ink);font-family:var(--sans);font-size:14px;-webkit-font-smoothing:antialiased}
 button{font-family:var(--sans);cursor:pointer}
 .mono{font-family:var(--mono)}
@@ -23,10 +36,13 @@ a{color:var(--blue);text-decoration:none}
 header{background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);color:var(--ink);padding:14px 22px 0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
 .h-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
 .h-title{font-size:19px;font-weight:700;letter-spacing:-.02em}
+.h-title .dot{color:var(--blue)}
+.h-sub{font-size:12px;color:var(--soft);font-weight:500}
 .badge{font-family:var(--mono);font-size:10px;letter-spacing:.1em;padding:4px 10px;border-radius:980px;font-weight:600;border:1px solid var(--line)}
 .badge.live{background:var(--greenbg);color:var(--green);border-color:#bfe6d2}
 .badge.static{background:var(--hush);color:var(--soft)}
 .h-meta{font-family:var(--mono);font-size:11px;color:var(--soft);margin-left:auto}
+.updated{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--green);background:var(--greenbg);border:1px solid #bfe6d2;border-radius:980px;padding:4px 12px;margin-left:auto}
 .h-actions{display:flex;gap:20px;margin-left:8px;flex-wrap:wrap;align-items:center}
 .h-actions a.nlink{color:var(--soft);font-size:14px;font-weight:500;text-decoration:none;display:inline-flex;align-items:center}
 .h-actions a.nlink:hover{color:var(--ink)}
@@ -45,10 +61,11 @@ header{background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px
 .chip .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;color:var(--soft);text-transform:uppercase}
 .chip .v{font-size:16px;font-weight:700;color:var(--ink);margin-top:2px}
 .chip .v.warn{color:var(--amber)}.chip .v.calm{color:var(--green)}
+.dim{color:var(--soft)}
 
 /* controls */
 .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:14px 22px;border-bottom:1px solid var(--line);background:var(--paper)}
-.controls input[type=search]{padding:9px 14px;border:1.5px solid var(--line);border-radius:980px;font-size:13px;width:240px;background:var(--paper);outline:none}
+.controls input[type=search]{padding:9px 14px;border:1.5px solid var(--line);border-radius:980px;font-size:13px;width:290px;max-width:100%;background:var(--paper);outline:none}
 .controls input[type=search]:focus{border-color:var(--blue)}
 .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .seg button{border:0;background:var(--paper);padding:8px 12px;font-size:12px;color:var(--soft);border-right:1px solid var(--line)}
@@ -65,12 +82,16 @@ select{padding:9px 12px;border:1.5px solid var(--line);border-radius:10px;font-s
 .tablewrap{overflow:auto;background:var(--paper)}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
 th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
-th{position:sticky;top:0;background:var(--hush);font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--soft);cursor:pointer;z-index:2}
+th{position:sticky;top:0;background:var(--hush);font-family:var(--mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--soft);cursor:pointer;z-index:2;user-select:none}
+th:hover{color:var(--ink)}
+th.sorted{color:var(--blue)}
+th .ar{font-size:9px;margin-left:3px;color:var(--blue)}
 th:first-child,td:first-child{text-align:left;padding-left:18px}
 tbody tr{cursor:pointer}
 tbody tr:hover{background:var(--hush)}
 tbody tr.sel{background:#eef5ff}
 td.name{font-weight:600;color:var(--ink)}
+th.rnk{cursor:default} td.rnk{color:var(--soft);width:34px;font-variant-numeric:tabular-nums}
 .v-tag{font-family:var(--mono);font-size:9.5px;padding:3px 8px;border-radius:980px;font-weight:600;white-space:nowrap}
 .v-sec{background:var(--greenbg);color:var(--green)} .v-cyc{background:var(--amberbg);color:var(--amber)}
 .v-safe{background:#eaf2fb;color:var(--blue)} .v-brk{background:var(--redbg);color:var(--red)}
@@ -89,6 +110,24 @@ td.name{font-weight:600;color:var(--ink)}
 .mt th{position:static;cursor:default}
 .cap{font-size:11px;color:var(--soft);font-style:italic;line-height:1.45;margin:6px 0 14px}
 .curve{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:8px}
+.valcard{margin-top:14px;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:var(--paper)}
+.valcard-h{font-weight:700;font-size:13px;margin-bottom:6px}
+.vrow{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:7px 0;border-top:1px solid var(--line);font-size:13px}
+.vrow:first-of-type{border-top:0}
+.vk{color:var(--soft)}.vv{text-align:right}.vsub{color:var(--soft);font-size:11.5px}
+.xtra{max-width:1180px;margin:26px auto 0;padding:0 max(16px,3vw);scroll-margin-top:90px}
+#mainView{scroll-margin-top:90px}
+.dtabs{display:flex;gap:7px;flex-wrap:wrap;max-width:1180px;margin:16px auto 4px;padding:0 max(16px,3vw)}
+.dtab{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--paper);color:var(--soft);border-radius:980px;padding:8px 16px;font-size:13.5px;font-weight:600;cursor:pointer;transition:background .12s,color .12s}
+.dtab:hover{background:var(--hush)}
+.dtab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.dtab-sub{max-width:1180px;margin:2px auto 0;padding:0 max(16px,3vw);font-size:12.5px;color:var(--soft)}
+[data-mode="beginner"] #dashTabs,[data-mode="beginner"] #dashTabSub{display:none}
+.xtra-h{font-size:16px;font-weight:700;margin:0;letter-spacing:-.01em}
+.xtra-sub{font-size:12.5px;color:var(--soft);font-weight:400}
+.xtra .tablewrap{border:1px solid var(--line);border-radius:14px;margin-top:10px;overflow:auto}
+.st-now{background:#eef5ff}
+.corrwarn{max-width:1180px;margin:18px auto 0;padding:11px 16px;background:var(--amberbg,#fdf3e4);border:1px solid #f3e2c2;border-radius:12px;font-size:13px;line-height:1.5;color:#7a531a}
 .empty{color:var(--soft);font-size:13px;padding:30px 10px;text-align:center}
 
 /* chat dock */
@@ -121,18 +160,120 @@ td.name{font-weight:600;color:var(--ink)}
 
 footer{padding:18px 22px;font-size:11px;color:var(--soft);border-top:1px solid var(--line);background:var(--paper)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.qa-btns{display:flex;gap:6px;margin-top:9px}
+.qa-btns button{border:1px solid var(--line);background:var(--paper);color:var(--blue);border-radius:980px;padding:3px 11px;font-size:11.5px;font-weight:600;cursor:pointer}
+.qa-btns button:hover{background:var(--hush)}
+.modeswitch{display:inline-flex;border:1.5px solid var(--line);border-radius:980px;overflow:hidden;background:var(--paper)}
+.modeswitch button{border:0;background:none;padding:6px 13px;font-size:12.5px;font-weight:600;color:var(--soft);cursor:pointer}
+.modeswitch button.on{background:var(--blue);color:#fff}
+#beginnerView{display:none;padding:14px max(20px,4vw) 40px}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px;max-width:1100px;margin:0 auto}
+.bcard{display:flex;gap:14px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:15px 17px;cursor:pointer;transition:box-shadow .15s,transform .15s}
+.bcard:hover{box-shadow:0 8px 22px rgba(0,0,0,.08);transform:translateY(-1px)}
+.brank{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--hush);color:var(--soft);font-weight:800;display:grid;place-items:center;font-size:16px}
+.bcard.top .brank{background:var(--blue);color:#fff}
+.bcard h3{margin:0 0 6px;font-size:17px;letter-spacing:-.01em}
+.bchips{display:flex;gap:8px;flex-wrap:wrap}
+.bchip{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--soft)}
+.bchip b{color:var(--ink)}
+.bdot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.bgo{flex-shrink:0;color:var(--soft);font-size:22px;font-weight:300}
+.bguide{max-width:1100px;margin:0 auto 16px;background:var(--hush);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:14px;padding:15px 18px}
+.bg-h{font-weight:700;font-size:16px;margin-bottom:5px}
+.bg-t{font-size:14px;line-height:1.6;color:var(--ink)}
+.bg-dis{margin-top:7px;font-size:12px;color:var(--soft)}
+[data-mode="beginner"] #searchedToggle{display:none}
+.bhead{max-width:1100px;margin:0 auto 14px}
+.bhead .t{font-size:14px;color:var(--soft);line-height:1.55}
+/* keep the beginner view uncluttered — hide the expert filters/sort + abstract chart */
+[data-mode="beginner"] #segType,[data-mode="beginner"] #segTier,[data-mode="beginner"] #segArch,[data-mode="beginner"] #sort{display:none}
+[data-mode="beginner"] #env{display:none}
+[data-mode="beginner"] #chips{display:block;padding:0;border-bottom:0}
+/* keep the beginner view dead-simple: hide the advanced full-width sections */
+[data-mode="beginner"] #etfHorizonSec,[data-mode="beginner"] #stressSec{display:none}
+.bsort{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 14px}
+.bsort-l{font-size:12px;color:var(--soft);margin-right:4px}
+.bsort-b{font-size:12.5px;padding:6px 11px;border:1px solid var(--line);background:var(--paper);border-radius:999px;cursor:pointer;color:var(--ink)}
+.bsort-b.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+/* beginner table: same grid as expert, friendlier (readable headers, bigger text) */
+#btable-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+#btable{width:100%;border-collapse:collapse;font-size:14px}
+#btable th{position:sticky;top:0;background:var(--hush);font-family:inherit;font-size:12px;font-weight:600;
+  text-transform:none;letter-spacing:0;color:var(--soft);cursor:pointer;user-select:none;
+  padding:12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap;z-index:2}
+#btable th:hover{color:var(--ink)}
+#btable th:first-child,#btable td:first-child{text-align:right;padding-left:16px}
+#btable th:nth-child(2),#btable td:nth-child(2){text-align:left}
+#btable td{padding:12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+#btable td.name{font-weight:600}
+#btable .bnum{width:30px;text-align:right;color:var(--soft);font-variant-numeric:tabular-nums;cursor:default}
+#btable th.bnum{cursor:default}
+#btable th.bnum:hover{color:var(--soft)}
+#btable tbody tr{cursor:pointer}
+#btable tbody tr:hover{background:var(--hush)}
+.bview{margin:0 0 12px;font-size:13.5px;color:var(--ink)}
+.bview-sub{color:var(--soft)}
+.bview a{color:var(--blue);text-decoration:none}
+.qmark{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;margin-left:5px;
+  border:1px solid var(--line);border-radius:50%;font-size:9px;font-weight:700;color:var(--soft);
+  cursor:help;vertical-align:middle;line-height:1}
+.qmark:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.defbadge{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:999px;background:var(--blue);
+  color:#fff;font-size:9px;font-weight:700;text-transform:none;letter-spacing:.02em;vertical-align:middle}
+.bmacro{display:flex;flex-direction:column;gap:3px;padding:12px max(20px,4vw);background:var(--paper);border-bottom:1px solid var(--line)}
+.bm-l{display:flex;align-items:center;gap:8px;font-size:15px;flex-wrap:wrap}
+.bm-dot{width:11px;height:11px;border-radius:50%;display:inline-block;flex-shrink:0}
+.bm-score{font-family:var(--mono);color:var(--soft);font-size:13px}
+.bm-t{font-size:13px;color:var(--soft);line-height:1.5}
+/* expanded stock popup */
+.smodal-bg{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:80;padding:18px}
+.smodal-bg.open{display:flex}
+.smodal{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:20px;max-width:440px;width:100%;max-height:88vh;overflow:auto;padding:24px 24px 18px}
+.smodal h2{margin:0 0 2px;font-size:22px;letter-spacing:-.02em}
+.smodal .ssub{color:var(--soft);font-size:13px;margin-bottom:10px}
+.smodal .sstory{font-size:14px;line-height:1.55;margin-bottom:8px}
+.sclose{position:absolute;top:14px;right:14px;border:0;background:var(--hush);width:30px;height:30px;border-radius:50%;font-size:13px;cursor:pointer;color:var(--soft)}
+.smetric{padding:11px 0;border-top:1px solid var(--line)}
+.smetric .srow{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.slbl{font-weight:700;font-size:14px}.sval{font-weight:800;font-size:15px;font-family:var(--mono)}
+.sex{color:var(--soft);font-size:12.5px;line-height:1.5;margin-top:3px}
+.srow2{display:flex;gap:10px;margin-top:16px}
+.sfoot{font-size:11px;color:var(--soft);text-align:center;margin-top:12px}
+/* theme toggle (theme.js) defaults to bottom-left, which floats over the table here —
+   move it to the right, stacked above the chat button, so it never covers a row */
+#themeBtn{left:auto!important;right:18px!important;bottom:76px!important;top:auto!important}
+@media(max-width:640px){
+  #themeBtn{right:12px!important;bottom:74px!important;left:auto!important;top:auto!important;height:34px;padding:0 12px;font-size:12px}
+}
+@media(max-width:600px){
+  header{padding:12px 16px 0}
+  .h-actions{gap:14px;row-gap:6px}
+  .h-actions a.nlink{font-size:13px}
+  .controls{padding:12px 16px;gap:10px}
+  .controls input[type=search]{width:100%}
+  .detail{border-left:none;border-top:1px solid var(--line)}
+  .searched{margin-left:16px;margin-right:16px}
+  #searchedToggle{margin-left:0}
+}
 </style>
 </head>
 <body>
 
 <header>
   <div class="h-top">
-    <span class="h-title">Systemic + TAM Risk</span>
+    <span class="h-title">Market<span class="dot">Analyst</span></span>
+    <span class="h-sub">Systemic + TAM Risk model</span>
     <span id="badge" class="badge static">STATIC SNAPSHOT</span>
-    <span class="h-meta" id="asof">—</span>
+    <span class="updated" id="asof">—</span>
     <div class="h-actions">
-      <a class="nlink" href="research.html">Research</a>
+      <div class="modeswitch" data-modeswitch title="Switch between a simple view and the full data">
+        <button data-mode-opt="beginner" onclick="setMode('beginner')">Beginner</button>
+        <button data-mode-opt="expert" onclick="setMode('expert')">Expert</button>
+      </div>
+      <a class="nlink" href="how.html">How it works</a>
+      <a class="nlink" href="index.html">Dashboard</a>
       <a class="nlink" href="options.html">Options</a>
+      <a class="nlink" href="research.html">Research</a>
       <a class="nlink" id="accountLink" href="login.html">Log in</a>
       <!-- admin-only tools — hidden from normal users; restore inside an admin area later:
       <button class="btn primary" onclick="openRun('followed')">Refresh followed universe</button>
@@ -147,33 +288,84 @@ footer{padding:18px 22px;font-size:11px;color:var(--soft);border-top:1px solid v
 <div class="chips" id="chips"></div>
 
 <div class="controls">
-  <input type="search" id="q" placeholder="Search name… (e.g. Micron, SMH)" oninput="render()">
+  <input type="search" id="q" placeholder="Search any stock (off-list too)" oninput="render()">
   <div class="seg" id="segType"></div>
   <div class="seg" id="segTier"></div>
   <div class="seg" id="segArch"></div>
-  <select id="sort" onchange="render()">
-    <option value="vssp">Sort: reward vs S&P</option>
-    <option value="growth">Sort: growth</option>
-    <option value="tail">Sort: >3y tail (safest first)</option>
-    <option value="p25">Sort: P(>25% fall)</option>
-    <option value="name">Sort: name</option>
-  </select>
   <span class="count" id="count"></span>
+  <button class="btn" id="searchedToggle" style="display:none;margin-left:auto" onclick="toggleSearched()">🔎 Searched stocks (0)</button>
 </div>
 
-<div class="main">
+<div class="searched" id="searchedWrap" style="display:none;max-width:100%;margin:0 max(20px,4vw) 8px">
+  <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:6px 0 8px">
+    <b style="font-size:15px">Searched stocks</b>
+    <span class="count" id="searchedCount"></span>
+    <span style="color:var(--soft);font-size:12px">quick AI estimates · not full 150k-path simulations · click any to view</span>
+  </div>
   <div class="tablewrap">
     <table>
-      <thead><tr>
-        <th onclick="setSort('name')">Name</th><th>Type</th><th>Tier</th><th>Verdict</th>
-        <th onclick="setSort('growth')">Growth</th><th onclick="setSort('p25')">P(&gt;25% fall)</th>
-        <th>Rec 2y</th><th onclick="setSort('tail')">&gt;3y tail</th><th onclick="setSort('vssp')">vs S&amp;P</th>
+      <thead><tr><th>Name</th><th>Tier</th><th>Verdict</th><th>Growth</th><th>P(&gt;25% fall)</th><th>&gt;3y tail</th><th>vs S&amp;P</th></tr></thead>
+      <tbody id="searchedRows"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="smodal-bg" id="smodalBg" onclick="if(event.target===this)closeStock()">
+  <div class="smodal" id="smodal"></div>
+</div>
+
+<div class="modal-bg" id="infoBg" onclick="if(event.target===this)closeInfo()">
+  <div class="modal" id="infoModal" style="max-width:440px"></div>
+</div>
+
+<div id="beginnerView"></div>
+
+<nav id="dashTabs" class="dtabs" role="tablist">
+  <button class="dtab on" data-tab="rankings" onclick="showDashTab('rankings')">📊 Stock rankings</button>
+  <button class="dtab" data-tab="etf" onclick="showDashTab('etf')">⏳ ETF horizons</button>
+  <button class="dtab" data-tab="stress" onclick="showDashTab('stress')">🌡️ Stress ladder</button>
+</nav>
+<div class="dtab-sub" id="dashTabSub"></div>
+
+<div class="main" id="mainView">
+  <div class="tablewrap">
+    <table>
+      <thead><tr id="headrow">
+        <th class="rnk">#</th>
+        <th data-k="name" onclick="setSort('name')">Name<span class="ar"></span></th>
+        <th data-k="kind" onclick="setSort('kind')">Type<span class="ar"></span></th>
+        <th data-k="tier" onclick="setSort('tier')">Tier<span class="ar"></span><span class="qmark" onclick="event.stopPropagation();explainCol('tier')" title="What does this mean?">?</span></th>
+        <th data-k="verdict" onclick="setSort('verdict')">Verdict<span class="ar"></span><span class="qmark" onclick="event.stopPropagation();explainCol('verdict')" title="What does this mean?">?</span></th>
+        <th data-k="growth" onclick="setSort('growth')">Growth<span class="ar"></span><span class="qmark" onclick="event.stopPropagation();explainCol('growth')" title="What does this mean?">?</span></th>
+        <th data-k="p25" onclick="setSort('p25')">P(&gt;25% fall)<span class="ar"></span><span class="qmark" onclick="event.stopPropagation();explainCol('p25')" title="What does this mean?">?</span></th>
+        <th data-k="rec2y" onclick="setSort('rec2y')">Rec 2y<span class="ar"></span><span class="qmark" onclick="event.stopPropagation();explainCol('rec2y')" title="What does this mean?">?</span></th>
+        <th data-k="tail" onclick="setSort('tail')">&gt;3y tail<span class="ar"></span><span class="qmark" onclick="event.stopPropagation();explainCol('tail')" title="What does this mean?">?</span></th>
+        <th data-k="vssp" onclick="setSort('vssp')">vs S&amp;P<span class="ar"></span><span class="qmark" onclick="event.stopPropagation();explainCol('vssp')" title="What does this mean?">?</span><span class="defbadge" title="The overall ranking — the model's best-picks order">default rank</span></th>
       </tr></thead>
       <tbody id="rows"></tbody>
     </table>
   </div>
   <aside class="detail" id="detail"><div class="empty">Select a name to see its drawdown × recovery matrix and curve.</div></aside>
 </div>
+
+<div id="corrWarn" class="corrwarn" style="display:none"></div>
+
+<section class="xtra" id="etfHorizonSec">
+  <h3 class="xtra-h">ETF horizons <span class="xtra-sub">— the best basket changes with how long you hold</span></h3>
+  <div class="seg" id="ehSeg" style="margin:8px 0"></div>
+  <div class="tablewrap"><table>
+    <thead><tr id="ehHead"></tr></thead>
+    <tbody id="ehBody"></tbody></table></div>
+  <div class="cap">The same basket ranks differently by horizon: a drop that heals inside your window barely dents it; one that stays underwater is penalized hard. Tap a column to sort, the “?” to learn it, or any row for the full breakdown. Research model — not investment advice.</div>
+</section>
+
+<section class="xtra" id="stressSec">
+  <h3 class="xtra-h">Stress ladder <span class="xtra-sub">— how the odds of a big fall widen as the market gets scarier</span></h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Scenario</th><th>Stress</th><th>S&amp;P · P(&gt;25% fall)</th><th>Semis (SOXX)</th><th>3× Semis</th></tr></thead>
+    <tbody id="stBody"></tbody></table></div>
+  <div class="cap">Re-runs the model across macro environments (benign → critical). Today's reading is highlighted. Research model — not investment advice.</div>
+</section>
 
 <footer>
   Research model — not investment advice. Probabilities are frequencies over simulated futures; growth/TAM/archetype inputs are documented judgments the simulation sweeps.
@@ -270,18 +462,22 @@ const GH_REPO="MilanRofougaran/AI-Market-Risk-Model";   // e.g. "rezar/systemic-
 const ACTIONS_URL=()=>`https://github.com/${GH_REPO}/actions/workflows/refresh.yml`;
 
 /* ================= state ================= */
-let LIVE=false, ROWS=[], MATS={}, MACRO=FB_MACRO, ASOF="2026-06-05 snapshot";
-let f={q:"",type:"All",tier:"All",arch:"All",sort:"vssp",sel:null};
+let LIVE=false, ROWS=[], MATS={}, TRAJ={}, EH=null, ST=null, CORR=null, MACRO=FB_MACRO, ASOF="Updated — (sample)";
+const prettyDate=s=>{ if(!s) return "—"; const d=new Date(s+"T00:00:00"); return isNaN(d)?s:d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}); };
+let f={q:"",type:"All",tier:"All",arch:"All",sort:"vssp",sortDir:"desc",sel:null,showAll:false};
+const TOPN=50;
 const VC=v=>{v=(v||"").toLowerCase();
   if(v.includes("brok"))return["broken","v-brk"]; if(v.includes("cyc"))return["cyclical","v-cyc"];
   if(v.includes("peg")||v.includes("secul"))return["secular","v-sec"]; if(v.includes("watch"))return["watch","v-watch"];
   if(v.includes("lev")||v.includes("trad"))return["leveraged","v-lev"]; return["diversified","v-safe"];};
 
 function normRow(r){ // from arrays (fallback) or server objects
-  if(Array.isArray(r)) return {name:r[0],kind:r[1],tier:r[2],verdict:r[3],growth:r[4],p25:r[5],rec2y:r[6],tail:r[7],vssp:r[8]};
+  if(Array.isArray(r)) return {name:r[0],kind:r[1],tier:r[2],verdict:r[3],growth:r[4],p25:r[5],rec2y:r[6],tail:r[7],vssp:r[8],rank:null,top50:false,inLeague:true};
   const pct=x=>x==null?null:(x<=1.5? x*100 : x);
   return {name:r.name,kind:r.kind,tier:r.tier,verdict:r.verdict||r.crash_growth,
-    growth:pct(r.growth),p25:pct(r.p25),rec2y:pct(r.rec2y),tail:pct(r.tail),vssp:r.vssp};
+    growth:pct(r.growth),p25:pct(r.p25),rec2y:pct(r.rec2y),tail:pct(r.tail),vssp:r.vssp,
+    rank:r.rank??null, top50:!!r.top50, inLeague:r.in_league!==false,
+    val:r.val||null, earnback:r.earnback||null, decomp:r.decomp||null, extra:r.extra||null};
 }
 
 /* ================= boot ================= */
@@ -294,6 +490,8 @@ async function boot(){
     LIVE=true; ROWS=s.rows.map(normRow);
     MATS={}; for(const [k,v] of Object.entries(s.matrices||{})){MATS[k]={};
       for(const h of ["6m","12m","18m"]) if(v[h]) MATS[k][h]=[Math.round(v[h].p*100),...v[h].r.map(x=>Math.round(x*100))];}
+    TRAJ=s.trajectories||{};
+    EH=s.etf_horizon||null; ST=s.stress_ladder||null; CORR=s.correlation||null;
     const m=s.macro||{}, st=s.stress||{};
     MACRO={idx:st.score!=null?Math.round(st.score*100):FB_MACRO.idx,
       structural:st.structural!=null?Math.round(st.structural*100):FB_MACRO.structural,
@@ -301,7 +499,7 @@ async function boot(){
       cape:m.shiller_cape??FB_MACRO.cape, real10:m.ust_10y_real??FB_MACRO.real10,
       vix:m.vix??FB_MACRO.vix, hy:m.hy_oas_bps??FB_MACRO.hy, brent:m.brent_usd??FB_MACRO.brent,
       margin:m.margin_debt_yoy??FB_MACRO.margin, fwdpe:m.sp500_forward_pe??FB_MACRO.fwdpe, base_pe:st.base_pe??FB_MACRO.base_pe};
-    ASOF=`as of ${s.as_of} · regenerated ${s.generated}`;
+    ASOF="Updated "+prettyDate(s.as_of);
     document.getElementById("badge").className="badge live"; document.getElementById("badge").textContent="LIVE · published run";
     document.getElementById("chatmode").textContent="Claude via Netlify function";
   }catch(e){
@@ -309,6 +507,92 @@ async function boot(){
   }
   document.getElementById("asof").textContent=ASOF;
   buildSegs(); chips(); envelope(); render();
+  renderETFHorizon(); renderStress(); renderCorr();
+}
+function renderCorr(){
+  const el=document.getElementById("corrWarn"); if(!el) return;
+  const b=(CORR&&CORR.baskets)?CORR.baskets[0]:null;
+  window.CORR_OK=!!b;
+  if(!b){ el.style.display="none"; return; }
+  const n=b.neff_with||1, rho=Math.round((b.rho_with||0)*100);
+  el.innerHTML=`⚠ <b>These names move together.</b> In a crash the whole AI/semis group behaves like only ~<b>${n.toFixed(1)} independent bet${n>=1.5?"s":""}</b> (average correlation ${rho}%). Owning lots of them does <b>not</b> protect you from a sector-wide drop — spread across other sectors for that.`;
+  applyTabs();   // applyTabs decides where/whether it shows
+}
+/* ===== ETF horizons + stress ladder (extra model analyses, full-width sections) ===== */
+const EH_LABELS={"12m":"1 year","24m":"2 years","36m":"3 years","60m":"5 years"};
+let EH_H="24m";
+// ETF-horizon table: sortable columns (key, label, def-key for the "?")
+const EH_COLS=[["nm","ETF","eh_nm"],["er","Expected return","eh_er"],["rr","Reward / risk","eh_rr"],["pf","Chance of a big fall","eh_pf"]];
+let EH_SORT={k:"er",dir:"desc"};
+function ehDefaultDir(k){ return k==="nm"?"asc":"desc"; }
+window.sortEH=(k)=>{ if(EH_SORT.k===k) EH_SORT.dir=EH_SORT.dir==="asc"?"desc":"asc";
+  else { EH_SORT.k=k; EH_SORT.dir=ehDefaultDir(k); } renderETFHorizon(); };
+function renderETFHorizon(){
+  const sec=document.getElementById("etfHorizonSec"); if(!sec) return;
+  if(!EH){ sec.style.display="none"; return; }
+  const seg=document.getElementById("ehSeg");
+  if(seg && !seg.children.length){
+    ["12m","24m","36m","60m"].forEach(h=>{const b=document.createElement("button");b.textContent=EH_LABELS[h];
+      b.className=(h===EH_H?"on":"");b.onclick=()=>{EH_H=h;[...seg.children].forEach(c=>c.classList.remove("on"));b.classList.add("on");renderETFHorizon();};
+      seg.appendChild(b);});
+  }
+  const pc=x=>x==null?"—":(x>=0?"+":"")+Math.round(x*100)+"%";
+  // sortable header
+  const head=document.getElementById("ehHead");
+  if(head){
+    head.innerHTML=EH_COLS.map(([k,lbl,dk])=>{
+      const on=EH_SORT.k===k, ar=on?(EH_SORT.dir==="asc"?" ▲":" ▼"):"";
+      const q=`<span class="qmark" onclick="event.stopPropagation();explainCol('${dk}')" title="What does this mean?">?</span>`;
+      const def=k==="er"?` <span class="defbadge" title="The default order — best expected return first">default</span>`:"";
+      return `<th data-k="${k}" onclick="sortEH('${k}')">${lbl}${ar}${q}${def}</th>`;
+    }).join("");
+  }
+  let rows=Object.entries(EH).map(([nm,d])=>{const hz=(d.horizons||{})[EH_H];
+    return hz?{nm,er:hz.exp_return_horizon,rr:hz.reward_to_risk,pf:hz.p_fall,broken:d.crash_growth==="broken"}:null;}).filter(Boolean);
+  const dir=EH_SORT.dir==="asc"?1:-1, sk=EH_SORT.k;
+  rows.sort((a,b)=>{ if(sk==="nm") return dir*String(a.nm).localeCompare(String(b.nm));
+    const av=a[sk], bv=b[sk]; if(av==null&&bv==null)return 0; if(av==null)return 1; if(bv==null)return -1; return dir*(av-bv); });
+  document.getElementById("ehBody").innerHTML=rows.map(r=>`<tr onclick="openETF('${r.nm.replace(/'/g,"\\'")}')" style="cursor:pointer">
+    <td class="name">${r.nm}${r.broken?' <span class="dim">(broken)</span>':''}</td>
+    <td class="mono">${pc(r.er)}</td><td class="mono">${r.rr==null?"—":(+r.rr).toFixed(1)}</td>
+    <td class="mono">${r.pf==null?"—":Math.round(r.pf*100)+"%"}</td></tr>`).join("");
+}
+// click an ETF → full holding-period breakdown (real horizon data, no graph needed)
+window.openETF=(name)=>{
+  const d=EH&&EH[name]; if(!d) return;
+  const H=d.horizons||{}, order=["12m","24m","36m","60m"];
+  const pc=x=>x==null?"—":(x>=0?"+":"")+Math.round(x*100)+"%";
+  const rr=x=>x==null?"—":(+x).toFixed(1), p=x=>x==null?"—":Math.round(x*100)+"%";
+  const body=order.filter(h=>H[h]).map(h=>{const z=H[h];
+    return `<tr${h===EH_H?' class="st-now"':''}><td class="name">${EH_LABELS[h]||h}</td>
+      <td class="mono">${pc(z.exp_return_horizon)}</td><td class="mono">${rr(z.reward_to_risk)}</td>
+      <td class="mono">${p(z.p_fall)}</td><td class="mono">${p(z.p_rec_horizon)}</td><td class="mono">${p(z.unrec_loss)}</td></tr>`;}).join("");
+  const h1=H["12m"], h5=H["60m"];
+  let take="";
+  if(h1&&h5&&h1.reward_to_risk!=null&&h5.reward_to_risk!=null){
+    take=`Held <b>5 years</b>, ${name}'s reward-for-risk is about <b>${rr(h5.reward_to_risk)}</b> vs <b>${rr(h1.reward_to_risk)}</b> for just <b>1 year</b> — ${h5.reward_to_risk>h1.reward_to_risk*1.3?"it rewards patience: a short hold takes the fall with no time to heal.":"the longer hold adds less than usual here."}`;
+  }
+  const brokenTag=d.crash_growth==="broken"?` · <span style="color:var(--red);font-weight:700">⚠ broken — avoid</span>`:"";
+  document.getElementById("smodal").innerHTML=`
+    <button class="sclose" onclick="closeStock()">✕</button>
+    <h2>${name}</h2>
+    <div class="ssub">ETF (basket) · ~${Math.round((d.growth_ann||0)*100)}% annual growth${brokenTag}</div>
+    <div class="sstory">How this basket looks at each holding period — a drop that heals inside your window barely dents you; one that stays underwater is penalized hard.</div>
+    <div class="tablewrap" style="border:1px solid var(--line);border-radius:12px;margin-top:6px;overflow:auto">
+      <table><thead><tr><th>Hold</th><th>Exp. return</th><th>Reward/risk</th><th>Big-fall chance</th><th>Recovers</th><th>Unrec. loss</th></tr></thead>
+      <tbody>${body}</tbody></table></div>
+    ${take?`<div class="sstory" style="margin-top:12px">${take}</div>`:""}
+    <div class="cap" style="margin-top:10px">Your current view (${EH_LABELS[EH_H]||EH_H}) is highlighted. Research model — not investment advice.</div>`;
+  document.getElementById("smodalBg").classList.add("open");
+};
+function renderStress(){
+  const sec=document.getElementById("stressSec"); if(!sec) return;
+  if(!ST||!ST.ladder){ sec.style.display="none"; return; }
+  const ex=(row,k)=>{const e=(row.exposures||{})[k];return e&&e.dd25!=null?Math.round(e.dd25*100)+"%":"—";};
+  document.getElementById("stBody").innerHTML=ST.ladder.map(row=>`<tr class="${row.scenario==='Current'?'st-now':''}">
+    <td class="name">${row.scenario}${row.scenario==='Current'?' <span class="dim">(today)</span>':''}</td>
+    <td class="mono">${Math.round(row.stress*100)}</td>
+    <td class="mono">${ex(row,'S&P 500')}</td><td class="mono">${ex(row,'Semis (SOXX)')}</td><td class="mono">${ex(row,'SOXL (3x semis)')}</td></tr>`).join("");
 }
 function buildSegs(){
   seg("segType",["All","stock","ETF"],v=>{f.type=v;render()});
@@ -321,12 +605,23 @@ function seg(id,opts,cb){const el=document.getElementById(id);el.innerHTML="";
 
 function chips(){
   const M=MACRO, hot=(x,t)=>x>=t?"warn":"calm";
+  // beginner: one plain "market weather" line instead of the technical chips
+  if(window.MA_MODE==="beginner"){
+    const lvl = M.idx>=60 ? ["High danger","var(--red)","Markets are stressed right now — even strong stocks can fall harder. Be extra careful."]
+              : M.idx>=40 ? ["A bit tense","var(--amber)","Some pressure in the market — normal ups and downs. Stay aware."]
+              : ["Calm","var(--green)","The market looks calm right now — lower chance of a broad scare."];
+    document.getElementById("chips").innerHTML=
+      `<div class="bmacro"><div class="bm-l"><span class="bm-dot" style="background:${lvl[0]==='Calm'?'var(--green)':lvl[0]==='A bit tense'?'var(--amber)':'var(--red)'}"></span>
+        <b>Market weather: ${lvl[0]}</b> <span class="bm-score">${M.idx}/100</span></div>
+        <div class="bm-t">${lvl[2]}</div></div>`;
+    return;
+  }
   document.getElementById("chips").innerHTML=[
     ["Stress index",`${M.idx} / 100`, M.idx>=60?"warn":(M.idx>=40?"":"calm")],
     ["Structural / acute",`${M.structural} / ${M.acute}`,""],
     ["CAPE",M.cape,hot(M.cape,32)],["Real 10y",`${M.real10}%`,hot(M.real10,2)],
     ["VIX",M.vix,hot(M.vix,28)],["HY spread",`${M.hy} bps`,hot(M.hy,450)],
-    ["Margin debt YoY",M.margin,"warn"],["Fair PE",`${M.base_pe}×`,""],
+    ["Margin debt YoY",(typeof M.margin==="number"?(M.margin>=0?"+":"")+Math.round(M.margin*100)+"%":M.margin),"warn"],["Fair PE",`${M.base_pe}×`,""],
   ].map(([k,v,c])=>`<div class="chip"><div class="k">${k}</div><div class="v ${c}">${v}</div></div>`).join("");
 }
 function envelope(){
@@ -354,28 +649,121 @@ function filtered(){
     if(f.tier!=="All" && (r.tier||"")!==f.tier) return false;
     if(f.arch!=="All" && VC(r.verdict)[0]!==f.arch) return false;
     return true;
-  }).sort((a,b)=>{
-    const k=f.sort;
-    if(k==="name") return a.name.localeCompare(b.name);
-    if(k==="tail"||k==="p25") return (a[k]??99)-(b[k]??99);
-    return (b[k]??-99)-(a[k]??-99);
+  }).sort(cmpRows);
+}
+/* ----- sorting: every column, asc/desc toggle, reorders the DISPLAY only ----- */
+const DEFAULT_SORT={k:"vssp",dir:"desc"};   // the overall "best picks" ranking (reward vs market)
+function isDefaultSort(){ return f.sort===DEFAULT_SORT.k && f.sortDir===DEFAULT_SORT.dir; }
+function resetSort(){ f.sort=DEFAULT_SORT.k; f.sortDir=DEFAULT_SORT.dir;
+  const sel=document.getElementById("sort"); if(sel) sel.value=f.sort; render(); }
+const STRING_COLS=new Set(["name","kind","tier","verdict"]);
+const ASC_DEFAULT=new Set(["name","kind","tier","verdict","tail","p25"]); // A–Z / safer-first by default
+function defaultDir(k){ return ASC_DEFAULT.has(k)?"asc":"desc"; }
+function cmpRows(a,b){
+  const k=f.sort, dir=f.sortDir==="asc"?1:-1;
+  let av=a[k], bv=b[k];
+  if(STRING_COLS.has(k)) return dir*String(av||"").localeCompare(String(bv||""));
+  if(av==null&&bv==null) return 0;
+  if(av==null) return 1;            // missing values always sort last
+  if(bv==null) return -1;
+  return dir*(av-bv);
+}
+function setSort(k){
+  if(f.sort===k) f.sortDir = f.sortDir==="asc"?"desc":"asc";   // re-click toggles direction
+  else { f.sort=k; f.sortDir=defaultDir(k); }
+  const sel=document.getElementById("sort");
+  if(sel && [...sel.options].some(o=>o.value===k)) sel.value=k;
+  render();
+}
+function updateSortHeaders(){
+  document.querySelectorAll("#headrow th[data-k]").forEach(th=>{
+    const on = th.getAttribute("data-k")===f.sort;
+    th.classList.toggle("sorted",on);
+    const ar=th.querySelector(".ar"); if(ar) ar.textContent = on ? (f.sortDir==="asc"?"▲":"▼") : "";
   });
 }
-function setSort(k){f.sort=k;document.getElementById("sort").value=(["vssp","growth","tail","p25","name"].includes(k)?k:f.sort);render()}
 function fmt(x,suf=""){return x==null?"—":Math.round(x)+suf}
+// ---- expert dashboard tabs: Stock rankings / ETF horizons / Stress ladder ----
+let DASHTAB='rankings';
+const TAB_SUB={
+  rankings:"",
+  etf:"Which fund is best depends on how long you hold: a basket that heals inside your window barely dents you; one that stays underwater is penalized hard.",
+  stress:"How the chance of a big fall grows as the market goes from calm to crisis — today's reading is highlighted."
+};
+function applyTabs(){
+  const beginner=(window.MA_MODE||"beginner")==="beginner";
+  const mv=document.getElementById("mainView"), ehs=document.getElementById("etfHorizonSec"),
+        sts=document.getElementById("stressSec"), sub=document.getElementById("dashTabSub"),
+        cw=document.getElementById("corrWarn");
+  if(beginner){ if(ehs)ehs.style.display=""; if(sts)sts.style.display=""; if(sub)sub.textContent="";
+    if(cw) cw.style.display = window.CORR_OK ? "block" : "none";   // below the beginner list
+    return; }
+  if(mv) mv.style.display  = DASHTAB==='rankings' ? "" : "none";
+  if(ehs) ehs.style.display = DASHTAB==='etf'     ? "" : "none";
+  if(sts) sts.style.display = DASHTAB==='stress'  ? "" : "none";
+  if(cw) cw.style.display = (window.CORR_OK && DASHTAB==='rankings') ? "block" : "none";
+  if(sub) sub.textContent  = TAB_SUB[DASHTAB]||"";
+  document.querySelectorAll("#dashTabs .dtab").forEach(b=>b.classList.toggle("on", b.dataset.tab===DASHTAB));
+}
+window.showDashTab=(t)=>{ DASHTAB=t; applyTabs(); };
+
 function render(){
-  f.q=document.getElementById("q").value; f.sort=document.getElementById("sort").value;
-  const rows=filtered();
-  document.getElementById("count").textContent=`${rows.length} of ${ROWS.length} names · ${LIVE?"live data":"embedded 06-05 snapshot"}`;
-  document.getElementById("rows").innerHTML=rows.map(r=>{
+  f.q=document.getElementById("q").value;
+  let rows=filtered();
+  const noFilters = !(f.q||"").trim() && f.type==="All" && f.tier==="All" && f.arch==="All";
+  // Default view = the highlighted Top-50 of the model's ranked league.
+  // The league is decided server-side (Top-125 board with admission/eviction +
+  // hysteresis); the dashboard just shows its Top-50 slice. Sorting reorders this
+  // slice — it does NOT change who is in the league. "Show all" reveals the full
+  // priced universe. If no server league is present (offline/sample), fall back to
+  // a client-side Top-50 by reward-for-risk, excluding leveraged & broken names.
+  const hasLeague = ROWS.some(r=>r.top50);
+  const eligible = ROWS.filter(r=> r.tier!=="Trading" && VC(r.verdict)[0]!=="broken"
+    && !/avoid|broken/i.test(r.verdict||""));
+  const top50count = hasLeague ? ROWS.filter(r=>r.top50).length : Math.min(TOPN, eligible.length);
+  if(noFilters && !f.showAll){
+    if(hasLeague){
+      rows=rows.filter(r=>r.top50);
+    } else if(eligible.length>TOPN){
+      const top=new Set([...eligible].sort((a,b)=>(b.vssp??-99)-(a.vssp??-99)).slice(0,TOPN).map(r=>r.name));
+      rows=rows.filter(r=>top.has(r.name));
+    }
+  }
+  const cnt=document.getElementById("count");
+  const resetLink = isDefaultSort() ? "" : ` · <a href="#" onclick="resetSort();return false" style="color:var(--blue)">↺ back to default rank</a>`;
+  if(noFilters && (hasLeague || eligible.length>TOPN)){
+    cnt.innerHTML = (f.showAll
+      ? `All ${ROWS.length} names · <a href="#" onclick="f.showAll=false;render();return false" style="color:var(--blue)">show Top ${top50count}</a>`
+      : `<b>Top ${top50count}</b> by reward-for-risk · <a href="#" onclick="f.showAll=true;render();return false" style="color:var(--blue)">show all ${ROWS.length}</a>`) + resetLink;
+  } else {
+    cnt.textContent=`${rows.length} of ${ROWS.length} names`;
+  }
+  // ---- view mode: beginner cards vs expert table ----
+  const beginner = (window.MA_MODE==="beginner");
+  document.getElementById("mainView").style.display = beginner ? "none" : "";
+  document.getElementById("beginnerView").style.display = beginner ? "block" : "none";
+  applyTabs();
+  if(beginner){ renderBeginner(rows); return; }
+  if(!rows.length && (f.q||"").trim().length>=2){
+    const q=f.q.trim().replace(/"/g,"&quot;");
+    document.getElementById("rows").innerHTML=`<tr><td colspan="10" style="padding:26px 14px;text-align:center">
+      <div style="color:var(--soft);font-size:14px;margin-bottom:12px">“${q}” isn’t on the list.</div>
+      <button class="btn" style="background:var(--blue);color:#fff;border:none" onclick="lookupStock(document.getElementById('q').value)">Ask the model what it thinks about “${q}” →</button>
+      <div style="color:var(--soft);font-size:12px;margin-top:10px">Runs the model’s methodology on this stock live (an estimate, not a full simulation).</div>
+    </td></tr>`;
+    return;
+  }
+  document.getElementById("rows").innerHTML=rows.map((r,i)=>{
     const [vt,vc]=VC(r.verdict);
     return `<tr class="${f.sel===r.name?'sel':''}" onclick="select('${r.name.replace(/'/g,"\\'")}')">
+      <td class="rnk">${i+1}</td>
       <td class="name">${r.name}</td><td>${r.kind||""}</td><td>${r.tier||""}</td>
       <td style="text-align:left"><span class="v-tag ${vc}">${vt}</span></td>
       <td class="mono">${fmt(r.growth,"%")}</td><td class="mono">${fmt(r.p25,"%")}</td>
       <td class="mono">${fmt(r.rec2y,"%")}</td><td class="mono">${fmt(r.tail,"%")}</td>
       <td class="mono"><b>${r.vssp==null?"—":r.vssp.toFixed(2)}</b></td></tr>`;
   }).join("");
+  updateSortHeaders();
 }
 function select(name){
   f.sel=name; render();
@@ -395,25 +783,81 @@ function select(name){
   } else {
     mhtml=`<div class="cap" style="margin-top:12px">No full matrix for this name in the current artifacts ${r.tier==="Trading"?"(leveraged vehicles are excluded by design — read the raw odds: P(&gt;25% fall) ≈ "+fmt(r.p25,"%")+", a daily-reset decay product, not a growth holding)":"(matrices are emitted for the core simulated set; the headline columns above are complete)"}.</div>`;
   }
+  const t=TRAJ[name];
+  const fanhtml = t ? `<div class="curve" style="margin-top:6px">${fanSVG(t)}</div>
+    <div class="cap">Forward range of <b>simulated</b> futures — p10–median–p90 price (as % vs today) over 36 months. This is the spread the Monte-Carlo produces, recomputed every run; <b>not a price prediction</b>.</div>` : "";
   document.getElementById("detail").innerHTML=`
     <h2>${r.name}</h2><div class="d-sub">${r.kind||""} · ${r.tier||""} growth tier · <span class="v-tag ${vc}">${vt}</span></div>
     <div class="statrow">
       ${st("Growth 18m",fmt(r.growth,"%"))}${st("P(>25% fall)",fmt(r.p25,"%"))}
       ${st("Recover ≤2y",fmt(r.rec2y,"%"))}${st(">3y tail",fmt(r.tail,"%"))}
       ${st("vs S&P",r.vssp==null?"—":r.vssp.toFixed(2))}
-    </div>${mhtml}
+    </div>${valCard(r)}${fanhtml}${mhtml}
     <div class="cap">Ask the analyst (chat, bottom-right) for context on this name — e.g. “why is ${r.name.split(" ")[0]} ranked here?”</div>`;
   function st(k,v){return `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`}
 }
+/* Valuation & quality card — VAL-GAP, earn-back clock, premium decomposition (model analyses) */
+function valCard(r){
+  const v=r.val,e=r.earnback,d=r.decomp;
+  if(!v&&!e&&!d) return "";
+  const n1=x=>x==null?"—":(+x).toFixed(1);
+  const gp=(v&&v.val_gap!=null)?Math.round(v.val_gap*100):null;
+  const gapWord=gp==null?"":(gp>=40?"very stretched":gp>=15?"stretched":"reasonable");
+  let rows="";
+  if(v) rows+=`<div class="vrow"><span class="vk">Valuation</span><span class="vv"><b>P/E ${n1(v.fwd_pe)} → fair ${n1(v.fair_pe)}</b> <span class="vsub">gap ${gp==null?"—":gp+"% "+gapWord}</span></span></div>`;
+  if(e&&e.verdict) rows+=`<div class="vrow"><span class="vk">Earn-back clock</span><span class="vv"><b>${e.years==null?"—":(+e.years).toFixed(1)+"y"}</b> <span class="vsub">${e.verdict}</span></span></div>`;
+  if(d) rows+=`<div class="vrow"><span class="vk">Premium</span><span class="vv"><b>${n1(d.premium_pts)} P/E pts</b> <span class="vsub">${n1(d.justified_pts)} justified · ${d.unsupported_pct==null?"—":d.unsupported_pct+"% floating"} · fragility ${n1(d.fragility)}</span></span></div>`;
+  const x=r.extra||{}, tp=x.tier_panel, cf=x.confidence, rd=x.reverse_dcf, w=x.waterfall;
+  const pf=v=>v==null?"—":(+v).toFixed(2);
+  if(tp&&tp.fragility){ const f=tp.fragility;
+    rows+=`<div class="vrow"><span class="vk">Fragility by stress</span><span class="vv"><b>worst ${pf(tp.worst)}</b> <span class="vsub">base ${pf(f.base)} · TAM ${pf(f.TAM)} · moat ${pf(f["moat-.15"])} · margin ${pf(f.margin)}${f["rate+input"]!=null?" · rate+input "+pf(f["rate+input"]):""} → Tier ${(tp.tier||"").trim().charAt(0)}</span></span></div>`; }
+  if(rd){ let t=rd.g_star!=null?`market is pricing ~${Math.round(rd.g_star*100)}%/yr growth`
+           :(rd.max_justifiable!=null?`premium isn't fully justifiable by growth (best ~${Math.round(rd.max_justifiable*100)}% covered)`:(rd.note||""));
+    if(t) rows+=`<div class="vrow"><span class="vk">Implied growth (reverse-DCF)</span><span class="vv vsub" style="text-align:right">${t}</span></div>`; }
+  if(w&&w.eps_trough_depth!=null){ const a=w.attribution||{}; const dr=Object.entries(a).sort((p,q)=>q[1]-p[1])[0];
+    rows+=`<div class="vrow"><span class="vk">EPS in a downturn</span><span class="vv"><b>troughs ~${Math.round(w.eps_trough_depth*100)}%</b> <span class="vsub">${dr?("mostly "+dr[0].replace(/_/g," ")):""}</span></span></div>`; }
+  if(cf) rows+=`<div class="vrow"><span class="vk">Confidence</span><span class="vv vsub" style="text-align:right">risk ${cf.pnever} · options ${cf.option} · value ${cf.anchor}</span></div>`;
+  return `<div class="valcard"><div class="valcard-h">Valuation &amp; quality</div>${rows}
+    <div class="cap" style="margin-top:6px"><b>Gap</b> = how far price/earnings sits above the model's fair multiple (lower = safer). <b>Earn-back</b> = years of growth to absorb a valuation reset ("dead money" = stuck). <b>Floating</b> = share of the premium the model can't justify. Research model, not advice.</div></div>`;
+}
 function curveSVG(m){
   const a=m["12m"]; if(!a) return "";
+  const cs=getComputedStyle(document.documentElement);
+  const C_BLUE=(cs.getPropertyValue('--blue')||'#0071e3').trim();
+  const C_LINE=(cs.getPropertyValue('--line')||'#e3e3e6').trim();
+  const C_SOFT=(cs.getPropertyValue('--soft')||'#6e6e73').trim();
   const pts=[0,...a.slice(1)], xs=[0,6,12,18,24,36];
   const X=x=>30+(x/36)*300, Y=v=>96-(v/70)*84;
   let path="M"+X(0)+","+Y(0); xs.slice(1).forEach((x,i)=>path+=" L"+X(x)+","+Y(pts[i+1]));
-  const dots=xs.map((x,i)=>`<circle cx="${X(x)}" cy="${Y(pts[i])}" r="3" fill="#0071e3"/>`).join("");
-  const grid=[0,20,40,60].map(v=>`<line x1="30" y1="${Y(v)}" x2="330" y2="${Y(v)}" stroke="#e3e3e6"/><text x="26" y="${Y(v)+3}" font-size="8" fill="#6e6e73" text-anchor="end">${v}</text>`).join("");
-  const xl=xs.map(x=>`<text x="${X(x)}" y="108" font-size="8" fill="#6e6e73" text-anchor="middle">${x?x+"m":"0"}</text>`).join("");
-  return `<svg viewBox="0 0 345 114" style="width:100%;display:block">${grid}<path d="${path}" fill="none" stroke="#0071e3" stroke-width="2"/>${dots}${xl}</svg>`;
+  const dots=xs.map((x,i)=>`<circle cx="${X(x)}" cy="${Y(pts[i])}" r="3" fill="${C_BLUE}"/>`).join("");
+  const grid=[0,20,40,60].map(v=>`<line x1="30" y1="${Y(v)}" x2="330" y2="${Y(v)}" stroke="${C_LINE}"/><text x="26" y="${Y(v)+3}" font-size="8" fill="${C_SOFT}" text-anchor="end">${v}</text>`).join("");
+  const xl=xs.map(x=>`<text x="${X(x)}" y="108" font-size="8" fill="${C_SOFT}" text-anchor="middle">${x?x+"m":"0"}</text>`).join("");
+  return `<svg viewBox="0 0 345 114" style="width:100%;display:block">${grid}<path d="${path}" fill="none" stroke="${C_BLUE}" stroke-width="2"/>${dots}${xl}</svg>`;
+}
+/* forward FAN CHART: p10–median–p90 cone of simulated price (× today's), over 36m.
+   A distribution of simulated futures — NOT a price prediction. Theme-aware. */
+function fanSVG(t){
+  if(!t||!t.months||!t.p50) return "";
+  const cs=getComputedStyle(document.documentElement);
+  const C_BLUE=(cs.getPropertyValue('--blue')||'#0071e3').trim();
+  const C_SOFT=(cs.getPropertyValue('--soft')||'#6e6e73').trim();
+  const ms=t.months, lo=t.p10, mid=t.p50, hi=t.p90, maxM=ms[ms.length-1];
+  let yMin=Math.min(1,...lo), yMax=Math.max(1,...hi);
+  const padr=(yMax-yMin)*0.08||0.1; yMin-=padr; yMax+=padr;
+  const X=m=>36+(m/maxM)*298, Y=v=>96-((v-yMin)/(yMax-yMin))*86;
+  let band="M"+X(ms[0])+","+Y(hi[0]);
+  ms.forEach((m,i)=>band+=" L"+X(m)+","+Y(hi[i]));
+  for(let i=ms.length-1;i>=0;i--) band+=" L"+X(ms[i])+","+Y(lo[i]);
+  band+=" Z";
+  let medp="M"+X(ms[0])+","+Y(mid[0]); ms.forEach((m,i)=>{if(i)medp+=" L"+X(m)+","+Y(mid[i]);});
+  const pct=v=>(v>=1?"+":"")+Math.round((v-1)*100)+"%";
+  const base=`<line x1="36" y1="${Y(1)}" x2="334" y2="${Y(1)}" stroke="${C_SOFT}" stroke-dasharray="3 3" opacity=".7"/>`;
+  const yl=[yMax,1,yMin].map(v=>`<text x="32" y="${Y(v)+3}" font-size="8" fill="${C_SOFT}" text-anchor="end">${v===1?"now":pct(v)}</text>`).join("");
+  const showM=[0,6,12,18,24,36];
+  const xl=ms.filter(m=>showM.includes(m)).map(m=>`<text x="${X(m)}" y="110" font-size="8" fill="${C_SOFT}" text-anchor="middle">${m?m+"m":"0"}</text>`).join("");
+  return `<svg viewBox="0 0 345 116" style="width:100%;display:block">
+    <path d="${band}" fill="${C_BLUE}" opacity="0.15" stroke="none"/>${base}
+    <path d="${medp}" fill="none" stroke="${C_BLUE}" stroke-width="2"/>${yl}${xl}</svg>`;
 }
 
 /* ================= run jobs ================= */
@@ -448,7 +892,7 @@ async function startJob(){
     document.getElementById("rm-status").innerHTML='<span class="jstat run">GitHub Pages mode</span>';
     document.getElementById("rm-log").style.display="block";
     document.getElementById("rm-log").innerHTML=
-      'Run the engine from your repo\u2019s Actions tab:\n\n  1. Open <a href="'+ACTIONS_URL()+'" target="_blank" rel="noopener">'+ACTIONS_URL()+'</a>\n  2. \u201cRun workflow\u201d \u2192 mode '+RUNMODE+', paths '+body.paths+'\n  3. When it finishes, this page redeploys with fresh numbers automatically.\n\n(The weekly Monday run happens on its own. One-click runs from this button work if you later connect Netlify with GITHUB_TOKEN set.)';
+      'Run the engine from your repo\u2019s Actions tab:\n\n  1. Open <a href="'+ACTIONS_URL()+'" target="_blank" rel="noopener">'+ACTIONS_URL()+'</a>\n  2. \u201cRun workflow\u201d \u2192 mode '+RUNMODE+', paths '+body.paths+'\n  3. When it finishes, this page redeploys with fresh numbers automatically.\n\n(The daily weekday run happens on its own. One-click runs from this button work if you later connect Netlify with GITHUB_TOKEN set.)';
   }
 }
 
@@ -457,21 +901,75 @@ function toggleChat(){document.getElementById("chat").classList.toggle("open")}
 function addMsg(t,who,src){const b=document.getElementById("chatb");
   const d=document.createElement("div");d.className="msg "+who;d.textContent=t;
   if(src){const s=document.createElement("span");s.className="src";s.textContent=src;d.appendChild(s);}
-  b.appendChild(d);b.scrollTop=b.scrollHeight;}
+  b.appendChild(d);b.scrollTop=b.scrollHeight;return d;}
+function setMsg(d,t,src){ d.textContent=t; if(src){const s=document.createElement("span");s.className="src";s.textContent=src;d.appendChild(s);} document.getElementById("chatb").scrollTop=document.getElementById("chatb").scrollHeight; }
+// compact dump of the model's current numbers so Claude answers ONLY from the data
+function modelContext(){
+  const rowsTxt=ROWS.map(r=>`${r.name} [${r.kind}] tier:${r.tier} verdict:${r.verdict} growth:${fmt(r.growth,"%")} P(>25%fall):${fmt(r.p25,"%")} rec2y:${fmt(r.rec2y,"%")} >3yTail:${fmt(r.tail,"%")} rewardVsS&P:${r.vssp==null?"—":r.vssp.toFixed(2)}`).join("\n");
+  let m=""; try{ m=`Macro stress ${MACRO.idx}/100 (structural ${MACRO.structural}, acute ${MACRO.acute}).`; }catch(e){}
+  return `MODEL DATA — ${ROWS.length} names as of ${(typeof ASOF!=="undefined"?ASOF:"")}:\n${rowsTxt}\n\n${m}`;
+}
+async function askClaude(q, depth){
+  const tone = (window.MA_MODE==="beginner")
+    ? `THE USER IS A BEGINNER. Reply in plain, friendly language like you're explaining to a friend new to investing. NO tables. Avoid jargon and abbreviations (no "P(>25% fall)", "vssp", "tail", "secular/cyclical") — say things like "chance of a big drop", "reward for the risk", "tends to recover".`
+    : `Tables and the model's terms are fine for this expert user.`;
+  const depthInstr = depth==="simple"
+      ? `Re-explain your answer as SIMPLY as you can for a total beginner — plain everyday words, friendly. A little longer is fine if it helps it click.`
+    : depth==="deep"
+      ? `Give a THOROUGH, detailed answer: walk through the reasoning and the relevant numbers from the model, with clear structure.`
+      : `Answer BRIEFLY — 2 to 4 sentences, just the key point. Don't over-explain.`;
+  const sys=`You are the analyst for an AI/semiconductor stock RISK model. Answer ONLY from the model's data below plus its methodology — never invent numbers.
+${tone}
+${depthInstr}
+Methodology: a stock's beta sets how DEEP it falls in a panic; the business (growth runway, balance sheet, moat, earnings durability, profit-sensitivity to rates/costs) sets whether it RECOVERS. The goal is avoiding PERMANENT loss — the ">3y tail". "Reward vs S&P" = growth per unit of long-drawdown risk, where the S&P 500 = 1.00. Verdicts: secular (durable), cyclical (recovers with its cycle), broken (likely never recovers — avoid).
+Rules: never tell the user to buy or sell; this is research only. End every answer with "Research model — not investment advice."
+
+${modelContext()}`;
+  const max = depth==="deep"?1300:depth==="simple"?750:420;
+  const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",
+    headers:{"x-api-key":window.ANTHROPIC_KEY,"anthropic-version":"2023-06-01","content-type":"application/json","anthropic-dangerous-direct-browser-access":"true"},
+    body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:max,system:sys,messages:[{role:"user",content:q}]})});
+  if(!r.ok) throw new Error("api "+r.status);
+  const d=await r.json();
+  return (d.content||[]).map(b=>b.text||"").join("").trim() || "I couldn't find that in the model's data.";
+}
+// render an answer bubble with "Simpler / In depth" buttons under it
+function addAnswer(text, q){
+  const b=document.getElementById("chatb");
+  const d=document.createElement("div"); d.className="msg a"; d.textContent=text;
+  const src=document.createElement("span"); src.className="src"; src.textContent="Claude · live model data"; d.appendChild(src);
+  const row=document.createElement("div"); row.className="qa-btns";
+  const s=document.createElement("button"); s.textContent="↓ Simpler"; s.onclick=()=>followUp(q,"simple");
+  const dp=document.createElement("button"); dp.textContent="↑ In depth"; dp.onclick=()=>followUp(q,"deep");
+  row.appendChild(s); row.appendChild(dp); d.appendChild(row);
+  b.appendChild(d); b.scrollTop=b.scrollHeight;
+}
+async function followUp(q, depth){
+  const ph=addMsg(depth==="simple"?"Making it simpler…":"Adding detail…","a");
+  try{ const ans=await askClaude(q, depth); ph.remove(); addAnswer(ans, q); }
+  catch(e){ setMsg(ph,"Couldn't do that right now — try again.",""); }
+}
 async function send(){
   const inp=document.getElementById("chatq"), q=inp.value.trim(); if(!q)return;
   inp.value=""; addMsg(q,"u");
+  // 1. live Claude, grounded in the model data (local/preview key OR deployed server-side)
+  if(window.ANTHROPIC_KEY){
+    const ph=addMsg("Thinking…","a");
+    try{ const ans=await askClaude(q,"short"); ph.remove(); addAnswer(ans,q); return; }
+    catch(e){ setMsg(ph,offline(q),"offline answer"); return; }
+  }
+  // 2. deployed Netlify proxy (keeps the key server-side)
   if(LIVE){
     try{
       const r=await fetch("/.netlify/functions/ask",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:q})});
       const j=await r.json();
       if(j.answer && !j.offline){addMsg(j.answer,"a","Claude · live model data");return;}
-      if(j.note) addMsg(offline(q),"a","offline answer · "+j.note);
-      else addMsg(offline(q),"a","offline answer");
+      addMsg(offline(q),"a","offline answer"+(j.note?" · "+j.note:""));
       return;
     }catch(e){/* fall through */}
   }
-  addMsg(offline(q),"a","offline answer · embedded 06-05 snapshot");
+  // 3. built-in offline answer
+  addMsg(offline(q),"a","offline answer");
 }
 function offline(q){
   const ql=q.toLowerCase();
@@ -495,15 +993,321 @@ function offline(q){
   return "I can answer about any name in the table (try a ticker or company), compare two names, list the top by reward, or summarize the macro reading. For full reasoning, start dash_server.py with an ANTHROPIC_API_KEY so Claude answers live over the model's data.";
 }
 
+/* ================= look up ANY stock (on-demand model verdict) ================= */
+async function resolveTicker(query){
+  const K=window.POLYGON_KEY; let ticker=query.trim().toUpperCase(), name=query.trim();
+  if(K){ try{
+    const s=await fetch(`https://api.polygon.io/v3/reference/tickers?search=${encodeURIComponent(query)}&active=true&market=stocks&limit=1&apiKey=${K}`).then(r=>r.json());
+    if(s.results&&s.results[0]){ ticker=s.results[0].ticker; name=s.results[0].name||name; }
+  }catch(e){} }
+  return {ticker,name};
+}
+async function polyFacts(ticker){
+  const K=window.POLYGON_KEY, out={}; if(!K) return out;
+  try{ const d=await fetch(`https://api.polygon.io/v2/aggs/ticker/${ticker}/prev?apiKey=${K}`).then(r=>r.json());
+       if(d.results&&d.results[0]) out.price=+d.results[0].c.toFixed(2); }catch(e){}
+  try{
+    const d=await fetch(`https://api.polygon.io/vX/reference/financials?ticker=${ticker}&timeframe=quarterly&limit=6&order=desc&sort=period_of_report_date&apiKey=${K}`).then(r=>r.json());
+    const revs=(d.results||[]).map(x=>{try{return +x.financials.income_statement.revenues.value}catch(e){return null}}).filter(v=>v);
+    if(revs.length>=4){ const ttm=revs.slice(0,4).reduce((a,b)=>a+b,0); out.rev_ttm_bn=+(ttm/1e9).toFixed(2);
+      if(revs.length>=5){ const prior=revs.slice(1,5).reduce((a,b)=>a+b,0); if(prior>0) out.rev_yoy=+(ttm/prior-1).toFixed(3); } }
+  }catch(e){}
+  return out;
+}
+function renderLookup(rec, info){
+  info=info||{}; const det=document.getElementById("detail");
+  const pc=x=>x==null?"—":Math.round(x*100)+"%";
+  const [vt,vc]=VC(rec.verdict||"");
+  const tag = info.fromCache
+    ? "saved estimate"+(rec.updated_at?(" · updated "+new Date(rec.updated_at).toLocaleDateString()):"")+(rec.hits?(" · searched "+rec.hits+"×"):"")
+    : "live model estimate"+(rec.price?(" · last $"+rec.price):"");
+  det.innerHTML=`
+    <div style="background:var(--greenbg);border:1px solid #bfe6d2;border-radius:10px;padding:8px 12px;font-size:12px;color:var(--green);margin-bottom:12px">
+      ${tag} · not on the tracked list · a quick estimate, not a full 150k-path simulation.</div>
+    <h2>${rec.name||rec.ticker} <span style="color:var(--soft);font-weight:500;font-size:15px">${rec.ticker||""}</span></h2>
+    <div class="d-sub">${rec.tier||"—"} growth tier · <span class="v-tag ${vc}">${vt}</span></div>
+    <div class="statrow">
+      ${st2("Growth 18m",pc(rec.growth))}${st2("P(>25% fall)",pc(rec.p25))}
+      ${st2("Recover ≤2y",pc(rec.rec2y))}${st2(">3y tail",pc(rec.tail))}
+      ${st2("vs S&P",rec.vssp==null?"—":(+rec.vssp).toFixed(2))}
+    </div>
+    <div class="cap" style="margin-top:14px;font-size:13px;color:var(--ink);line-height:1.6">${rec.explanation||""}</div>
+    <div class="cap" style="margin-top:10px">${info.fromCache?`<a href="#" onclick="lookupStock('${rec.ticker}',true);return false">Re-run with fresh data →</a> · `:""}Research model, not investment advice.</div>`;
+  function st2(k,v){return `<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`}
+  det.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+async function lookupStock(query, force){
+  query=(query||"").trim(); if(query.length<2) return;
+  const det=document.getElementById("detail");
+  det.innerHTML=`<h2>Looking up “${query.replace(/</g,"")}”…</h2><div class="cap">Resolving the ticker…</div>`;
+  det.scrollIntoView({behavior:"smooth",block:"nearest"});
+  const {ticker,name}=await resolveTicker(query);
+  // shared cache first (unless a forced refresh)
+  if(!force && window.cacheGet){
+    try{ const c=await window.cacheGet(ticker); if(c){ renderLookup(c,{fromCache:true}); window.cacheBump&&window.cacheBump(ticker); return; } }catch(e){}
+  }
+  if(!window.ANTHROPIC_KEY){
+    det.innerHTML=`<h2>“${name}” <span style="color:var(--soft)">${ticker}</span></h2><div class="cap" style="margin-top:10px">No saved estimate yet, and a fresh look-up needs an API key not available on this public page. It works in the local/preview build, and will work here once the site is deployed with the key set server-side.</div>`;
+    return;
+  }
+  det.innerHTML=`<h2>Looking up “${name}”…</h2><div class="cap">Pulling fresh financials and running the model’s methodology.</div>`;
+  const facts=await polyFacts(ticker);
+  const fresh=Object.entries(facts).map(([k,v])=>`${k}=${v}`).join(", ")||"no fresh data";
+  const sys=`You are an AI/semiconductor RISK model. Judge ONE stock using this exact methodology and output its scores on the same scales the model uses.
+Methodology: beta sets how DEEP a stock falls in a panic; the business (growth runway, balance sheet, moat, earnings durability, profit-sensitivity to rates/input costs) sets whether it RECOVERS. The headline goal is avoiding PERMANENT loss (still underwater 3y+ after a deep fall).
+Output fields:
+- tier: "High" (>40% growth), "Moderate" (15-40%), or "Safe" (<15%), based on ~18m revenue growth.
+- growth: 18m revenue growth decimal (anchor to fresh YoY if present).
+- p25: probability (0-1) of a >25% fall within 18 months (higher beta / more speculative => higher).
+- rec2y: probability (0-1) it reclaims its prior peak within 2 years IF it falls.
+- tail: probability (0-1) a deep fall is still underwater 3y+ (the permanent-loss risk; durable mega-caps low, speculative high).
+- vssp: reward vs the S&P 500 (1.00 = same reward-per-risk as the index; >1 beats it).
+- verdict: one of "secular" (durable grower), "cyclical" (recovers with its cycle), "broken" (likely never recovers — avoid), "diversified".
+- explanation: 2-3 plain-English sentences a beginner understands.`;
+  const usr=`Stock: ${name} (${ticker}). Fresh data (Polygon): ${fresh}.
+Return ONLY JSON: {"name":"${name}","ticker":"${ticker}","tier":"...","growth":<n>,"p25":<n>,"rec2y":<n>,"tail":<n>,"vssp":<n>,"verdict":"...","explanation":"..."}`;
+  let j;
+  try{
+    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",
+      headers:{"x-api-key":window.ANTHROPIC_KEY,"anthropic-version":"2023-06-01","content-type":"application/json","anthropic-dangerous-direct-browser-access":"true"},
+      body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:1200,system:sys,messages:[{role:"user",content:usr}]})});
+    const d=await r.json();
+    let t=(d.content||[]).map(b=>b.text||"").join("").trim();
+    t=t.slice(t.indexOf("{"),t.lastIndexOf("}")+1);
+    j=JSON.parse(t);
+  }catch(e){ det.innerHTML=`<h2>“${name}”</h2><div class="cap" style="margin-top:10px">Couldn’t complete the look-up right now. ${facts.price?("Last price $"+facts.price+". "):""}Try again, or search a name on the list.</div>`; return; }
+  const rec={ticker,name:j.name||name,price:facts.price??null,tier:j.tier,growth:j.growth,p25:j.p25,rec2y:j.rec2y,tail:j.tail,vssp:j.vssp,verdict:j.verdict,explanation:j.explanation};
+  renderLookup(rec,{fromCache:false});
+  if(window.cacheSave) window.cacheSave(rec);
+}
+
+/* ---- browsable "searched stocks" list (shared cache) ---- */
+let SEARCHED=[];
+async function refreshSearched(){
+  if(!window.cacheList) return;
+  try{ SEARCHED=await window.cacheList(); }catch(e){ return; }
+  const btn=document.getElementById("searchedToggle");
+  if(SEARCHED.length){ btn.style.display=(window.MA_MODE==="beginner")?"none":"inline-block"; btn.textContent=`🔎 Searched stocks (${SEARCHED.length})`; }
+  const pc=x=>x==null?"—":Math.round(x*100)+"%";
+  document.getElementById("searchedCount").textContent=`${SEARCHED.length} looked up`;
+  document.getElementById("searchedRows").innerHTML=SEARCHED.map((r,i)=>{
+    const [vt,vc]=VC(r.verdict||"");
+    return `<tr onclick="openSearched(${i})" style="cursor:pointer">
+      <td class="name">${r.name||r.ticker}</td><td>${r.tier||""}</td>
+      <td style="text-align:left"><span class="v-tag ${vc}">${vt}</span></td><td class="mono">${pc(r.growth)}</td><td class="mono">${pc(r.p25)}</td>
+      <td class="mono">${pc(r.tail)}</td><td class="mono"><b>${r.vssp==null?"—":(+r.vssp).toFixed(2)}</b></td></tr>`;
+  }).join("");
+}
+function toggleSearched(){ const w=document.getElementById("searchedWrap"); w.style.display=w.style.display==="none"?"block":"none"; if(w.style.display==="block") w.scrollIntoView({behavior:"smooth",block:"start"}); }
+function openSearched(i){ const r=SEARCHED[i]; if(r) renderLookup(r,{fromCache:true}); }
+
+/* ================= beginner (simple) view ================= */
+function bGrowth(r){ return r.tier==="High"?"Fast grower":r.tier==="Moderate"?"Steady grower":r.tier==="Safe"?"Slow & steady":"Growth n/a"; }
+// risk is RELATIVE to the shown list (these are all growth stocks): ~thirds lower/medium/higher
+function riskCuts(rows){ const v=rows.map(r=>r.tail).filter(x=>x!=null).sort((a,b)=>a-b);
+  const q=p=>v.length?v[Math.min(v.length-1,Math.floor(p*v.length))]:1; return [q(0.34),q(0.67)]; }
+function bRiskRel(r,cuts){ const t=r.tail; if(t==null) return ["Risk unclear","var(--soft)"];
+  if(t<=cuts[0]) return ["Lower risk","var(--green)"]; if(t<=cuts[1]) return ["Medium risk","var(--amber)"]; return ["Higher risk","var(--red)"]; }
+function bWhyShort(r){
+  const story = VC(r.verdict)[0]==="cyclical" ? "moves up and down with its industry"
+              : VC(r.verdict)[0]==="broken" ? "a risky, unproven story" : "a durable business";
+  const rec = (r.rec2y!=null && r.rec2y>=50) ? "and usually bounces back after a drop"
+            : "but can be slow to recover after a drop";
+  return `It's ${story} ${rec}.`;
+}
+function askAbout(n){
+  const c=document.getElementById("chat"); if(c) c.classList.add("open");
+  const inp=document.getElementById("chatq"); if(inp){ inp.value="In simple terms, what are "+n+"'s strengths and risks for a beginner?"; }
+  send();
+}
+let BEG_CUTS=[0.2,0.3], begMore=false;
+function bGrowthWord(r){ const t=r.tier; const w=t==="High"?"High":t==="Moderate"?"Medium":t==="Safe"?"Low":"—";
+  return [w, w==="High"?"var(--green)":w==="Medium"?"var(--amber)":"var(--soft)"]; }
+function bSafety(r,cuts){ const t=r.tail; if(t==null) return ["—","var(--soft)"];
+  if(t<=cuts[0]) return ["High","var(--green)"]; if(t<=cuts[1]) return ["Medium","var(--amber)"]; return ["Low","var(--red)"]; }
+/* Beginner = the SAME sortable table as Expert, in plain English. Each column is
+   click-to-sort (tap again to flip), exactly like the expert grid; tapping a row
+   opens a plain-language breakdown. */
+const B_COLS=[
+  ["name",  "Stock",                 "Company or fund name"],
+  ["growth","Growth",                "How fast its sales may grow (~18 months). Higher = more upside."],
+  ["p25",   "Chance of a big drop",  "How often it falls 25%+ in a rough 18 months. Lower is calmer."],
+  ["rec2y", "Bounces back in 2 yrs", "If it does drop, how often it recovers within 2 years. Higher is better."],
+  ["tail",  "Long-term loss risk",   "Chance it's still underwater 3+ years later. Lower is safer."],
+  ["vssp",  "Reward vs market",      "Growth earned per unit of long-term risk. 1.0× = same as the S&P 500."],
+];
+// short, to-the-point: a definition + what you want. (shown on tapping a "?")
+const DEFS={
+  growth:{t:"Growth",
+    def:"Expected growth in the company's sales over the next ~18 months.",
+    want:"Higher = faster-growing business."},
+  p25:{t:"Chance of a big drop",
+    def:"The chance it falls 25%+ within 18 months.",
+    want:"Lower = steadier. (Says nothing about whether it recovers.)"},
+  rec2y:{t:"Bounces back in 2 years",
+    def:"If it falls 25%+, the chance it's back to its old high within 2 years.",
+    want:"Higher = recovers faster."},
+  tail:{t:"Long-term loss risk",
+    def:"The chance it's still below its old high 3+ years after a big drop.",
+    want:"Lower = safer. Colours: <b style=\"color:var(--green)\">green</b> = lower risk, <b style=\"color:var(--amber)\">amber</b> = medium, <b style=\"color:var(--red)\">red</b> = higher."},
+  vssp:{t:"Reward vs market",
+    def:"Growth per unit of long-term risk, vs the whole U.S. market (S&P 500 = 1.0×).",
+    want:"Higher = better. Above 1.0× = more reward per unit of risk than the market. This is the default ranking."},
+  tier:{t:"Growth tier",
+    def:"Buckets by expected sales growth: High (&gt;40%), Moderate (15–40%), Safe (&lt;15%), or Trading (leveraged).",
+    want:"Just a grouping by growth speed — not a quality score."},
+  verdict:{t:"Verdict (archetype)",
+    def:"The model's read: secular (durable grower), cyclical (rebound-dependent), diversified (basket/ETF), broken (avoid), or leveraged (3× trading vehicle).",
+    want:"A ‘broken / avoid’ tag overrides a flattering reward score."},
+  // ETF-horizon table columns
+  eh_nm:{t:"ETF",
+    def:"The fund (a basket of stocks). Owning the basket spreads out single-company risk, but it can't protect you from a whole-market or whole-sector fall.",
+    want:"Pick by what the fund holds and your time frame — see the other columns."},
+  eh_er:{t:"Expected return",
+    def:"The model's average simulated return if you hold the fund for the selected time frame (1, 2, 3 or 5 years), after accounting for the chance of a fall.",
+    want:"Higher = more expected reward over that hold. It usually rises with a longer hold."},
+  eh_rr:{t:"Reward / risk",
+    def:"Expected reward divided by the risk of an unrecovered loss over that hold — how much you're paid for the risk you take.",
+    want:"Higher = better paid for the risk. A slow-healing fund scores low for a short hold, high for a long one."},
+  eh_pf:{t:"Chance of a big fall",
+    def:"The odds of a 25%+ drop at some point during that time frame.",
+    want:"Lower = steadier. Longer holds naturally see a higher chance of hitting a drop somewhere along the way."},
+};
+function explainCol(k){
+  const d=DEFS[k]; if(!d) return;
+  document.getElementById("infoModal").innerHTML=
+    `<h3 style="margin-top:0">${d.t}</h3>
+     <div style="font-size:15px;line-height:1.5;color:var(--ink)">${d.def}</div>
+     <div style="margin-top:10px;font-size:14px;color:var(--ink)"><b>What you want:</b> ${d.want}</div>
+     <div class="row" style="margin-top:16px"><button class="btn" onclick="closeInfo()">Got it</button></div>`;
+  document.getElementById("infoBg").classList.add("open");
+}
+function closeInfo(){ document.getElementById("infoBg").classList.remove("open"); }
+function bHead(){
+  return "<tr><th class=\"bnum\">#</th>"+B_COLS.map(([k,lbl,tip])=>{
+    const on=f.sort===k, ar=on?(f.sortDir==="asc"?" ▲":" ▼"):"";
+    const q = k==="name" ? "" : `<span class="qmark" onclick="event.stopPropagation();explainCol('${k}')" title="What does this mean?">?</span>`;
+    const def = k===DEFAULT_SORT.k ? ` <span class="defbadge" title="The overall ranking — the model's best-picks order">default rank</span>` : "";
+    return `<th onclick="setSort('${k}')" title="${tip}">${lbl}${ar}${q}${def}</th>`;
+  }).join("")+"</tr>";
+}
+function renderBeginner(rows){
+  const wrap=document.getElementById("beginnerView");
+  document.getElementById("count").textContent="";
+  if(!rows.length && (f.q||"").trim().length>=2){
+    const q=f.q.trim().replace(/</g,"");
+    wrap.innerHTML=`<div style="text-align:center;padding:28px"><div style="color:var(--soft);margin-bottom:12px">“${q}” isn’t in the top list.</div>
+      <button class="btn" style="background:var(--blue);color:#fff;border:none" onclick="lookupStock(document.getElementById('q').value)">See what the model thinks about “${q}” →</button></div>`;
+    return;
+  }
+  BEG_CUTS=riskCuts(rows);
+  const guide=`<div class="bguide">
+    <div class="bg-h">👋 New to investing? Start here.</div>
+    <div class="bg-t"><b>We don't chase hype — we rank stocks by how much reward you get for the risk.</b> That means showing what most apps hide in AI &amp; chip stocks:
+      <b>how far a stock could fall</b>, <b>how long it'd take to recover</b>, and whether your &ldquo;different&rdquo; stocks are secretly <b>the same bet</b>.
+      <br>Below is that read as a ranked list — <b>#1 is the model's favorite</b> right now. For each one you see how fast it might
+      <b>grow</b>, how likely it is to <b>drop</b>, and how well it <b>recovers</b>.
+      The colour on <b>Long-term loss risk</b> is your quick guide: <b style="color:var(--green)">green = safer</b>,
+      <b style="color:var(--amber)">amber = medium</b>, <b style="color:var(--red)">red = riskier</b>.
+      <br><b>👉 Tap any row</b> for a plain-English breakdown. <b>Not sure what a column means? Tap the little “?”.</b>
+      Tap a heading to re-order the list.</div>
+    <div class="bg-dis">📊 Validated across <b>7 historical market crashes</b> · <b>125</b> stocks &amp; funds tracked · refreshed daily. &nbsp;This is research to help you learn — <b>not</b> advice to buy or sell.</div>
+  </div>`;
+  const body=rows.map((r,i)=>{
+    const [,sc]=bSafety(r,BEG_CUTS);              // color the long-term-risk cell green/amber/red
+    return `<tr onclick="openStock('${r.name.replace(/'/g,"\\'")}')">
+      <td class="bnum">${i+1}</td>
+      <td class="name">${r.name}</td>
+      <td class="mono">${fmt(r.growth,"%")}</td>
+      <td class="mono">${fmt(r.p25,"%")}</td>
+      <td class="mono">${fmt(r.rec2y,"%")}</td>
+      <td class="mono" style="color:${sc};font-weight:600">${fmt(r.tail,"%")}</td>
+      <td class="mono"><b>${r.vssp==null?"—":r.vssp.toFixed(1)+"×"}</b></td>
+    </tr>`;
+  }).join("");
+  // default-view label (with the descriptor in parentheses), mirroring the expert page
+  const noFilters = !(f.q||"").trim() && f.type==="All" && f.tier==="All" && f.arch==="All";
+  const resetLink = isDefaultSort() ? "" : ` · <a href="#" onclick="resetSort();return false">↺ back to default rank</a>`;
+  let viewLine="";
+  if(noFilters){
+    viewLine = f.showAll
+      ? `<div class="bview">All ${ROWS.length} names <span class="bview-sub">(every stock the model tracks)</span> · <a href="#" onclick="f.showAll=false;render();return false">show Top ${rows.length>50?50:rows.length}</a>${resetLink}</div>`
+      : `<div class="bview"><b>Top ${rows.length}</b> <span class="bview-sub">(ranked by reward vs the market)</span> · <a href="#" onclick="f.showAll=true;render();return false">show all ${ROWS.length}</a>${resetLink}</div>`;
+  }
+  wrap.innerHTML=guide+viewLine+
+    `<div id="btable-wrap"><table id="btable"><thead>${bHead()}</thead><tbody>${body}</tbody></table></div>
+     <div class="cap" style="margin-top:10px">Tap a column heading to sort · tap a row for a plain-English breakdown · the green/amber/red colour shows long-term risk. Research model — not investment advice.</div>`;
+}
+/* ---- expanded stock popup (plain-English breakdown) ---- */
+function openStock(name){
+  const r=ROWS.find(x=>x.name===name); if(!r) return;
+  const pc=x=>x==null?"—":Math.round(x)+"%";   // ROWS values are already 0–100 (scaled at load)
+  const [rk,rkColor]=bRiskRel(r,BEG_CUTS);
+  const rewardWord = r.vssp==null?"—":(r.vssp>=2?"Much more reward per risk":r.vssp>=1?"More reward per risk":"Below the market");
+  const M=(lbl,val,ex)=>`<div class="smetric"><div class="srow"><span class="slbl">${lbl}</span><span class="sval">${val}</span></div><div class="sex">${ex}</div></div>`;
+  document.getElementById("smodal").innerHTML=`
+    <button class="sclose" onclick="closeStock()">✕</button>
+    <h2>${r.name}</h2>
+    <div class="ssub">${r.kind||""} · ${bGrowth(r)} · <span style="color:${rkColor};font-weight:700">${rk}</span></div>
+    <div class="sstory">${bWhyShort(r)}</div>
+    ${M("Growth", fmt(r.growth,"%"), "How fast its sales are expected to grow over ~1.5 years. Higher = more upside.")}
+    ${M("Chance of a big drop", pc(r.p25), "How often it falls 25%+ in a rough 18 months. Growth stocks swing more than the market.")}
+    ${M("Bounces back within 2 years", pc(r.rec2y), "If it does fall, how often it climbs back to its old high within 2 years.")}
+    ${M("Stays down for years", pc(r.tail), "The scary one — chance it’s still underwater 3+ years later. Lower is safer.")}
+    ${M("Reward vs the market", r.vssp==null?"—":r.vssp.toFixed(1)+"×", rewardWord+". 1.0× = same reward-for-risk as the S&P 500.")}
+    ${r.val&&r.val.val_gap!=null?M("How pricey it is", Math.round(r.val.val_gap*100)+"% above fair", "How far its price sits above what the model thinks is fair. Lower = cheaper and safer."):""}
+    ${r.earnback&&r.earnback.verdict?M("Time to earn back a drop", (r.earnback.years==null?r.earnback.verdict:(+r.earnback.years).toFixed(1)+" years"), "Roughly how long its growth needs to work off a price reset. Fewer years = recovers faster; many years = 'dead money'."):""}
+    <div class="srow2">
+      <button class="btn" style="flex:1;background:var(--blue);color:#fff;border:none" onclick="closeStock();askAbout('${r.name.replace(/'/g,"\\'")}')">💬 Ask the assistant</button>
+    </div>
+    <div class="sfoot">Research model — not investment advice.</div>`;
+  document.getElementById("smodalBg").classList.add("open");
+}
+function closeStock(){ document.getElementById("smodalBg").classList.remove("open"); }
+document.addEventListener("modechange", ()=>{ render(); chips();
+  const sb=document.getElementById("searchedToggle");
+  if(sb) sb.style.display=(SEARCHED&&SEARCHED.length&&window.MA_MODE!=="beginner")?"inline-block":"none"; });
+
 boot();
+if(window.refreshSearched) setTimeout(()=>refreshSearched(),400);
+if(window.syncModeSwitch) window.syncModeSwitch();
 </script>
 <script type="module">
 /* show "My Portfolio" when signed in, "Log in" when not */
-import { currentUser } from "./auth.js";
+import { currentUser, sb } from "./auth.js";
 currentUser().then(u=>{
   const a=document.getElementById("accountLink");
   if(a && u){ a.textContent="My Portfolio"; a.href="account.html"; }
 }).catch(()=>{});
+
+/* shared "searched stocks" cache (public table stock_lookups) */
+window.cacheGet = async (ticker)=>{
+  if(!ticker) return null;
+  const { data } = await sb.from("stock_lookups").select("*").eq("ticker", ticker).maybeSingle();
+  return data || null;
+};
+window.cacheSave = async (rec)=>{
+  try{
+    await sb.from("stock_lookups").upsert({
+      ticker:rec.ticker, name:rec.name, price:rec.price, tier:rec.tier,
+      growth:rec.growth, p25:rec.p25, rec2y:rec.rec2y, tail:rec.tail,
+      vssp:rec.vssp, verdict:rec.verdict, explanation:rec.explanation,
+      updated_at:new Date().toISOString()
+    }, { onConflict:"ticker" });
+    if(window.refreshSearched) window.refreshSearched();
+  }catch(e){ console.warn("cacheSave failed", e); }
+};
+window.cacheBump = async (ticker)=>{
+  try{
+    const { data } = await sb.from("stock_lookups").select("hits").eq("ticker", ticker).maybeSingle();
+    if(data) await sb.from("stock_lookups").update({ hits:(data.hits||1)+1, updated_at:new Date().toISOString() }).eq("ticker", ticker);
+  }catch(e){}
+};
+window.cacheList = async ()=>{
+  const { data } = await sb.from("stock_lookups").select("*").order("updated_at",{ascending:false}).limit(200);
+  return (data || []).filter(r => r.ticker && !r.ticker.startsWith("_"));  // hide internal/test rows
+};
+if(window.refreshSearched) window.refreshSearched();
 </script>
 <script src="theme.js"></script>
 </body>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Systemic + TAM Risk Model — Complete Methodology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F7F8; --card:#FFFFFF; --ink:#13202B; --ink-soft:#46586A; --ink-faint:#7B8a99;
+    --line:#DBE2E8; --line-soft:#EAEEF2;
+    --macro:#0F5D77; --macro-2:#1B89AA; --macro-soft:#E2EEF2;
+    --prem:#A86E16; --prem-2:#CC9234; --prem-soft:#F7ECD7;
+    --freeze:#9E2B3C; --freeze-soft:#F2E1E3;
+    --good:#2C7A55;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --serif:'IBM Plex Serif',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:880px;margin:0 auto;padding:0 28px;}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--macro);font-weight:500;}
+  h1,h2,h3{line-height:1.18;letter-spacing:-.01em;font-weight:600;}
+  p{margin:0 0 1.05em;}
+  a{color:var(--macro);}
+  strong{font-weight:600;}
+  .lede{font-size:19px;color:var(--ink-soft);}
+
+  /* ---- HERO ---- */
+  .hero{background:var(--ink);color:#EAF1F5;padding:64px 0 0;overflow:hidden;
+    border-bottom:3px solid var(--prem-2);}
+  .hero .wrap{position:relative;z-index:2;}
+  .hero .eyebrow{color:var(--macro-2);}
+  .hero h1{font-size:clamp(34px,5.4vw,56px);margin:.35em 0 .3em;color:#fff;font-weight:700;
+    letter-spacing:-.022em;}
+  .hero h1 .amp{color:var(--prem-2);font-family:var(--serif);font-style:italic;font-weight:400;}
+  .hero .lede{color:#AEC4D0;font-size:clamp(17px,2.3vw,21px);max-width:660px;}
+  .hero-meta{font-family:var(--mono);font-size:12.5px;color:#7E97a6;margin-top:26px;
+    display:flex;flex-wrap:wrap;gap:8px 26px;border-top:1px solid #2A3B47;padding:18px 0 30px;}
+  .hero-meta b{color:#C9DBE4;font-weight:500;}
+  .hero-svg{display:block;width:100%;height:auto;margin-top:6px;}
+
+  /* ---- SECTIONS ---- */
+  section{padding:54px 0;border-bottom:1px solid var(--line);}
+  section:nth-of-type(even){background:linear-gradient(180deg,#fff,#FBFCFD);}
+  .sec-head{display:flex;gap:18px;align-items:baseline;margin-bottom:8px;}
+  .sec-num{font-family:var(--mono);font-size:13px;color:var(--ink-faint);font-weight:500;
+    border:1px solid var(--line);border-radius:3px;padding:3px 8px;white-space:nowrap;margin-top:4px;}
+  h2{font-size:clamp(25px,3.4vw,33px);margin:.1em 0 .5em;}
+  h3{font-size:19px;margin:1.9em 0 .5em;color:var(--ink);}
+  h3 .tick{font-family:var(--mono);font-size:12px;color:var(--macro);margin-right:8px;}
+
+  /* ---- READOUT PANELS ---- */
+  .readout{background:#0F1C26;color:#D7E4EB;border-radius:8px;padding:20px 22px;margin:26px 0;
+    font-family:var(--mono);font-size:13.5px;line-height:1.85;}
+  .readout .rt{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--macro-2);
+    margin-bottom:10px;display:block;}
+  .readout .row{display:flex;justify-content:space-between;gap:14px;border-bottom:1px dotted #2B3C47;
+    padding:3px 0;}
+  .readout .row:last-child{border-bottom:0;}
+  .readout .v{color:#fff;font-weight:500;}
+  .readout .hi{color:var(--prem-2);}
+  .readout .lo{color:#5F94A8;}
+  .readout .note{color:#8AA3B1;font-size:12px;margin-top:12px;font-family:var(--sans);
+    line-height:1.5;border-top:1px solid #24333d;padding-top:10px;}
+
+  /* ---- CALLOUT ---- */
+  .callout{border-left:3px solid var(--prem-2);background:var(--prem-soft);padding:16px 20px;
+    margin:24px 0;border-radius:0 6px 6px 0;}
+  .callout.macro{border-left-color:var(--macro-2);background:var(--macro-soft);}
+  .callout.freeze{border-left-color:var(--freeze);background:var(--freeze-soft);}
+  .callout p{margin:0;font-size:16px;}
+  .callout .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    display:block;margin-bottom:6px;color:var(--prem);}
+  .callout.macro .k{color:var(--macro);}
+  .callout.freeze .k{color:var(--freeze);}
+
+  /* ---- FIGURE ---- */
+  figure{margin:30px 0;}
+  figure svg{display:block;width:100%;height:auto;background:var(--card);border:1px solid var(--line);
+    border-radius:8px;}
+  figcaption{font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-top:10px;
+    line-height:1.55;padding-left:2px;}
+  .svg-label{font-family:var(--mono);font-size:11px;fill:var(--ink-soft);}
+  .svg-title{font-family:var(--sans);font-size:13px;font-weight:600;fill:var(--ink);}
+  .svg-small{font-family:var(--mono);font-size:9.5px;fill:var(--ink-faint);}
+
+  /* ---- TABLE ---- */
+  table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14.5px;}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-faint);font-weight:500;background:var(--line-soft);}
+  td.num{font-family:var(--mono);text-align:right;}
+  tr td:first-child{font-weight:500;}
+  .tag{font-family:var(--mono);font-size:11px;padding:2px 7px;border-radius:3px;white-space:nowrap;}
+  .tag.sec{background:var(--good);color:#fff;}
+  .tag.cyc{background:var(--prem-2);color:#fff;}
+  .tag.brk{background:var(--freeze);color:#fff;}
+
+  /* ---- TWO-COL ---- */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:24px 0;}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px 20px;}
+  .panel h4{margin:0 0 8px;font-size:15px;font-family:var(--mono);font-weight:600;letter-spacing:.02em;}
+  .panel.reject h4{color:var(--freeze);}
+  .panel.accept h4{color:var(--good);}
+  .panel ul{margin:0;padding-left:18px;font-size:14.5px;color:var(--ink-soft);line-height:1.55;}
+  .panel li{margin-bottom:7px;}
+
+  /* ---- TOC ---- */
+  .toc{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 26px;margin:40px 0 0;}
+  .toc .eyebrow{margin-bottom:12px;display:block;}
+  .toc ol{margin:0;padding:0;list-style:none;counter-reset:t;}
+  .toc li{counter-increment:t;padding:7px 0;border-bottom:1px solid var(--line-soft);
+    display:flex;gap:14px;align-items:baseline;}
+  .toc li:last-child{border-bottom:0;}
+  .toc li::before{content:counter(t,decimal-leading-zero);font-family:var(--mono);font-size:12px;
+    color:var(--macro);min-width:22px;}
+  .toc a{text-decoration:none;color:var(--ink);font-weight:500;}
+  .toc a:hover{color:var(--macro);}
+  .toc .d{color:var(--ink-faint);font-weight:400;font-size:14px;}
+
+  footer{background:var(--ink);color:#9FB4C0;padding:40px 0;font-size:13.5px;line-height:1.6;}
+  footer .wrap{max-width:880px;}
+  footer .disc{font-family:var(--mono);font-size:12px;color:#6E8896;border-top:1px solid #2A3B47;
+    padding-top:18px;margin-top:18px;}
+
+  @media(max-width:680px){
+    body{font-size:16px;}
+    .cols{grid-template-columns:1fr;}
+    .sec-head{flex-direction:column;gap:6px;}
+    .readout{font-size:12.5px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Quantitative Risk Methodology &middot; Research Model</span>
+    <h1>The Systemic <span class="amp">&amp;</span> TAM Risk Model</h1>
+    <p class="lede">A probabilistic framework that reads the macro economy first — the envelope every market lives inside — and then asks, name by name, two separate questions: how deep can it fall, and whether (and how fast) it climbs back.</p>
+    <div class="hero-meta">
+      <span><b>Universe</b> AI-semiconductor &amp; tech equities + sector ETFs</span>
+      <span><b>Engine</b> regime-switching Monte Carlo, ~150k paths &times; 7yr</span>
+      <span><b>Output</b> drawdown &times; recovery probability matrix</span>
+      <span><b>Validation</b> 101 invariant tests &middot; 7-crash backtest</span>
+    </div>
+  </div>
+  <svg class="hero-svg" viewBox="0 0 960 250" preserveAspectRatio="xMidYMid meet" role="img" aria-label="The macro envelope containing market signals, then collapsing">
+    <defs>
+      <linearGradient id="env" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#1B89AA" stop-opacity="0.05"/>
+        <stop offset="0.55" stop-color="#1B89AA" stop-opacity="0.16"/>
+        <stop offset="0.8" stop-color="#9E2B3C" stop-opacity="0.22"/>
+        <stop offset="1" stop-color="#9E2B3C" stop-opacity="0.10"/>
+      </linearGradient>
+    </defs>
+    <!-- envelope band: wide (premium era) then pinched/crushed (collapse) -->
+    <path d="M0,70 C200,40 360,30 480,55 C600,80 700,90 760,150 C810,200 870,210 960,205
+             L960,250 L0,250 Z" fill="url(#env)"/>
+    <!-- upper envelope -->
+    <path d="M0,70 C200,40 360,30 480,55 C600,80 700,90 760,150 C810,200 870,210 960,205"
+          fill="none" stroke="#1B89AA" stroke-width="2"/>
+    <!-- lower envelope -->
+    <path d="M0,185 C200,200 360,205 480,195 C600,185 700,180 760,200 C810,218 870,222 960,225"
+          fill="none" stroke="#1B89AA" stroke-width="1.4" stroke-opacity="0.55"/>
+    <!-- market signal inside -->
+    <path d="M0,128 C40,100 60,150 90,120 C120,90 140,160 170,118 C200,80 220,165 255,110
+             C290,70 310,170 345,112 C380,72 400,150 430,120 C470,95 500,150 540,135
+             C580,120 610,175 645,165 C685,155 705,205 740,198 C780,190 820,212 860,212
+             C900,212 930,214 960,214"
+          fill="none" stroke="#EAF1F5" stroke-width="1.4" stroke-opacity="0.92"/>
+    <line x1="760" y1="20" x2="760" y2="240" stroke="#9E2B3C" stroke-width="1" stroke-dasharray="3 4" stroke-opacity="0.7"/>
+    <text x="14" y="34" font-family="IBM Plex Mono, monospace" font-size="11" fill="#1B89AA">MACRO ENVELOPE — the boundary that contains every market</text>
+    <text x="770" y="34" font-family="IBM Plex Mono, monospace" font-size="11" fill="#D98592">systemic collapse: the envelope crushes all sub-markets together</text>
+  </svg>
+</header>
+
+<div class="wrap">
+  <div class="toc">
+    <span class="eyebrow">What this document covers</span>
+    <ol>
+      <li><a href="#s1">Why we read the macro economy first — the envelope</a> <span class="d">&mdash; the organizing idea</span></li>
+      <li><a href="#s2">How the envelope presses sub-markets</a> <span class="d">&mdash; transmission</span></li>
+      <li><a href="#s3">Systemic failure is the dominant risk</a> <span class="d">&mdash; the keystone &amp; the freeze</span></li>
+      <li><a href="#s4">Why we reject the Warren Buffett indicator</a> <span class="d">&mdash; the aggregate fallacy</span></li>
+      <li><a href="#s5">The growth premium is real</a> <span class="d">&mdash; why you can&rsquo;t price everything the same</span></li>
+      <li><a href="#s6">The spine: depth and recovery are different questions</a></li>
+      <li><a href="#s7">The engine: regime-switching Monte Carlo</a></li>
+      <li><a href="#s8">Recovery dynamics — the differentiated layers</a></li>
+      <li><a href="#s9">The headline output: drawdown &times; recovery matrix</a></li>
+      <li><a href="#s10">ETFs: baskets diversify execution, not the envelope</a></li>
+      <li><a href="#s11">Validation and honest limits</a></li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============ 1 ============ -->
+<section id="s1">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">01</span><div>
+      <span class="eyebrow">The organizing idea</span>
+      <h2>Why we read the macro economy first — the envelope</h2>
+    </div></div>
+
+    <p>Every market lives inside an envelope drawn by the macro economy. Think of it the way an engineer thinks of a signal: individual stocks oscillate, rise, and fall on their own news, but the <strong>envelope</strong> — growth, rates, liquidity, credit, leverage — sets the ceiling and the floor that contain all of that motion. Sub-markets are the signal; the macro economy is the boundary curve. You cannot understand where the signal can go without first knowing the shape of the envelope it is trapped inside.</p>
+
+    <p>That is why the model computes the macro state <strong>before</strong> it looks at a single company. The macro reading sets the regime probabilities for everything downstream — how often the market enters a crisis, how hard correlations spike, whether a collapse freezes recovery for years. No amount of individual quality protects a name when the envelope itself collapses: when the macro economy deteriorates enough to take down the S&amp;P and the broad market, that collapse presses down on <em>all</em> markets at once. So the first question is never &ldquo;is this stock good?&rdquo; It is &ldquo;what is the envelope doing, and how much room does it leave?&rdquo;</p>
+
+    <p>The macro stress index splits its inputs into two families, because they behave differently in time. <strong>Structural</strong> signals are slow-burn fragility — stretched valuations, high real rates, leverage build-up, debt loads — the conditions that make a fall deeper and a recovery slower if something tips. <strong>Acute</strong> signals are the trigger — credit spreads, volatility, a liquidity drain — the things that fire when the system is actually seizing. A market can slide into a long de-rating from structural fragility while the acute triggers stay fast asleep; that decoupling was the lesson of 2022, and the model encodes it by driving the slow grind regime from structural stress and the sharp crisis regime from acute stress.</p>
+
+    <div class="readout">
+      <span class="rt">Macro stress — current reading</span>
+      <div class="row"><span>Composite stress score</span><span class="v">0.482</span></div>
+      <div class="row"><span>&nbsp;&nbsp;Structural (slow-burn fragility)</span><span class="v hi">0.583 &nbsp;elevated</span></div>
+      <div class="row"><span>&nbsp;&nbsp;Acute (seizure trigger)</span><span class="v lo">0.246 &nbsp;dormant</span></div>
+      <div class="row"><span>margin-debt growth (leverage)</span><span class="v hi">+45% YoY &nbsp;&middot; score 1.00</span></div>
+      <div class="row"><span>valuation — Shiller CAPE</span><span class="v hi">39.4 &nbsp;&middot; score 0.73</span></div>
+      <div class="row"><span>real 10-year yield</span><span class="v hi">2.25% &nbsp;&middot; score 0.85</span></div>
+      <div class="row"><span>high-yield credit spread</span><span class="v lo">312 bps &nbsp;&middot; score 0.02</span></div>
+      <div class="row"><span>equity volatility (VIX)</span><span class="v lo">24 &nbsp;&middot; score 0.39</span></div>
+      <p class="note">Read it as: the powder is dry (high valuations, leverage, real rates) but no match is lit (credit and volatility calm). The structural channel widens the tail; the acute channel decides whether it fires.</p>
+    </div>
+
+    <p>This is the reason the whole model is ordered the way it is. The macro envelope is computed first because it is the constraint within which every other calculation happens. Everything that follows — depth, recovery, the growth premium, the systemic freeze — is downstream of the envelope.</p>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="s2">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><div>
+      <span class="eyebrow">Transmission</span>
+      <h2>How the envelope presses sub-markets</h2>
+    </div></div>
+
+    <p>The macro state does not stay abstract — it flows into every name through four mechanisms, each modeling a different way the envelope reaches down and squeezes.</p>
+
+    <p><strong>Regime-switching.</strong> The market occupies one of four moods at any moment — calm, stress, crisis, or a slow de-rating grind. Macro stress raises the probability of entering the bad regimes: acute stress feeds crisis-entry, structural stress feeds grind-entry. The worse the envelope, the more time the market spends in regimes that fall hard and heal slowly.</p>
+
+    <p><strong>Correlation spike.</strong> In calm times, names move on their own stories and diversification works. In a macro crisis, cross-correlations jump toward 0.9 — everything falls together because the shock is to the envelope itself, not to any one company. This is the envelope pressing every signal down at once, and it is why &ldquo;I&rsquo;m diversified across ten tech names&rdquo; offers far less protection in a true macro event than in a normal pullback.</p>
+
+    <p><strong>The systemic freeze.</strong> At the extreme — a total collapse — the envelope does not just push prices down, it freezes the recovery of the entire market for a period, because the financial plumbing seizes. This is the dominant tail risk and it gets its own section below.</p>
+
+    <p><strong>The liquidity gate.</strong> Whether a collapse becomes a multi-year freeze or a months-long scare depends on the macro authorities. Draining liquidity (2008) lets the freeze run; a central-bank flood (2020) breaks it. The same panic produces a very different recovery depending on the backstop.</p>
+
+    <figure>
+      <svg viewBox="0 0 860 300" role="img" aria-label="The macro envelope compressing four sub-market layers">
+        <text x="24" y="32" class="svg-title">The envelope reaches down through the layers</text>
+        <text x="24" y="50" class="svg-small">calm: each layer moves on its own &nbsp;|&nbsp; collapse: the envelope crushes them together, unevenly by dependence</text>
+        <!-- left: calm -->
+        <text x="120" y="88" class="svg-label" text-anchor="middle" fill="#0F5D77">CALM ENVELOPE</text>
+        <g>
+          <rect x="40" y="105" width="160" height="22" rx="3" fill="#E2EEF2" stroke="#1B89AA"/>
+          <rect x="55" y="140" width="150" height="22" rx="3" fill="#E2EEF2" stroke="#1B89AA"/>
+          <rect x="45" y="175" width="158" height="22" rx="3" fill="#E2EEF2" stroke="#1B89AA"/>
+          <rect x="60" y="210" width="140" height="22" rx="3" fill="#E2EEF2" stroke="#1B89AA"/>
+          <text x="120" y="121" class="svg-small" text-anchor="middle">AI-infra (keystone)</text>
+          <text x="130" y="156" class="svg-small" text-anchor="middle">AI-platform</text>
+          <text x="124" y="191" class="svg-small" text-anchor="middle">disruptive</text>
+          <text x="130" y="226" class="svg-small" text-anchor="middle">defensive</text>
+        </g>
+        <!-- arrow -->
+        <path d="M430,168 L500,168" stroke="#9E2B3C" stroke-width="2" marker-end="url(#ar)"/>
+        <defs><marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#9E2B3C"/></marker></defs>
+        <text x="465" y="158" class="svg-small" text-anchor="middle" fill="#9E2B3C">collapse</text>
+        <!-- right: collapsed (compressed, freeze months by dependency) -->
+        <text x="700" y="88" class="svg-label" text-anchor="middle" fill="#9E2B3C">SYSTEMIC COLLAPSE</text>
+        <rect x="540" y="95" width="320" height="150" rx="6" fill="#F2E1E3" stroke="#9E2B3C" stroke-opacity="0.4"/>
+        <rect x="560" y="112" width="270" height="22" rx="3" fill="#fff" stroke="#9E2B3C"/>
+        <rect x="560" y="142" width="225" height="22" rx="3" fill="#fff" stroke="#C25C6A"/>
+        <rect x="560" y="172" width="190" height="22" rx="3" fill="#fff" stroke="#C25C6A"/>
+        <rect x="560" y="202" width="130" height="22" rx="3" fill="#fff" stroke="#D98592"/>
+        <text x="838" y="128" class="svg-small" text-anchor="end" fill="#9E2B3C">~62 mo</text>
+        <text x="793" y="158" class="svg-small" text-anchor="end" fill="#9E2B3C">~57 mo</text>
+        <text x="758" y="188" class="svg-small" text-anchor="end" fill="#9E2B3C">~52 mo</text>
+        <text x="698" y="218" class="svg-small" text-anchor="end" fill="#9E2B3C">~45 mo</text>
+      </svg>
+      <figcaption>FIG 2 — Recovery time after a 2008-type collapse scales with each layer&rsquo;s dependence on the keystone. The plumbing (AI-infra) stays frozen longest; the defensive layer thaws first. &ldquo;All layers, but unevenly.&rdquo;</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="s3">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">03</span><div>
+      <span class="eyebrow">The keystone &amp; the freeze</span>
+      <h2>Systemic failure is the dominant risk</h2>
+    </div></div>
+
+    <p>Most recovery logic in the model assumes <em>no</em> total collapse — each name heals at its own fundamental speed once the dust settles. But that assumption breaks in the one case that matters most. When the macro envelope causes a true systemic collapse — the broad market down past roughly 55% — the financial system itself freezes. Credit stops rolling, intermediation breaks, and even healthy companies cannot reclaim their value, not because anything is wrong with them, but because the market they trade in is broken. This is the 2008 case: frozen for years, across all layers.</p>
+
+    <p>The model represents this explicitly as a <strong>systemic-freeze layer</strong>. On the paths where the broad market collapses past the threshold, recovery is suspended market-wide — the recovery clock is <em>paused</em> while the plumbing is seized, then resumes. Three properties make it faithful to how systemic failures actually behave:</p>
+
+    <p><strong>It propagates by dependency on the keystone.</strong> A systemic collapse does not freeze every sector equally. It freezes hardest the markets most dependent on the broken core. In this universe the keystone is the compute / data-center / AI-infrastructure layer — the plumbing that the platform and application layers run on. So the freeze length scales by dependence: AI-infra at full weight, the platform layer somewhat less, disruptive names less again, and defensive names least. This is the literal meaning of &ldquo;a financial collapse affects all layers&rdquo; — but it affects them unevenly, in proportion to how much each one leans on the frozen core.</p>
+
+    <p><strong>The liquidity gate decides 2008 from 2020.</strong> Panic alone does not freeze a system — the response does. In 2008 liquidity was draining as the crisis hit, so the freeze ran for years. In 2020 the same magnitude of panic was met by a massive central-bank flood, and the freeze was averted — months, not years. The model computes freeze severity as panic multiplied by a liquidity-backstop gate, so a deep collapse with draining liquidity produces a long freeze, while the same collapse with a flood produces a short one.</p>
+
+    <p><strong>It is causal.</strong> A freeze can only delay a recovery that is still in progress when the freeze starts. A collapse in year five cannot reach back and delay a recovery that already completed in year one — there is no look-ahead. The delay is precisely the part of the freeze that overlaps the recovery window.</p>
+
+    <div class="readout">
+      <span class="rt">Systemic-freeze — the liquidity gate</span>
+      <div class="row"><span>2008 seizure &mdash; liquidity draining</span><span class="v hi">severity 0.71 &rarr; ~25 mo freeze</span></div>
+      <div class="row"><span>2020 crash &mdash; central-bank flood</span><span class="v lo">severity 0.12 &rarr; ~14 mo, averted</span></div>
+      <div class="row"><span>today &mdash; calm, no credit stress</span><span class="v lo">severity 0.02 &rarr; dormant</span></div>
+      <div class="row"><span>collapse trigger (broad-market drawdown)</span><span class="v">&ge; 55%</span></div>
+      <div class="row"><span>keystone &rarr; defensive dependency</span><span class="v">1.00 &rarr; 0.35</span></div>
+      <p class="note">Calibration check: on a 2008-state path the keystone takes ~62 months to recover, against the S&amp;P&rsquo;s real ~66 months to reclaim its 2007 peak. The layer is dormant today and only shapes the deep tail.</p>
+    </div>
+
+    <div class="callout freeze">
+      <span class="k">Why this is the dominant risk</span>
+      <p>Individual fundamentals govern the ordinary case. But a systemic collapse overrides them — it presses every market down together and freezes them all from healing. That is why the model checks the macro envelope first and treats systemic failure as the risk that, when it fires, matters more than anything specific to any one name.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="s4">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">04</span><div>
+      <span class="eyebrow">The aggregate fallacy</span>
+      <h2>Why we reject the Warren Buffett indicator</h2>
+    </div></div>
+
+    <p>The Buffett indicator — total stock-market capitalization divided by GDP — is the best-known &ldquo;is the market overvalued&rdquo; gauge. It draws one line across the whole market and says: when the ratio is high, stocks are expensive and must revert. The model does not use it as a signal, and the reason is the same reason the model exists: <strong>treating the entire market as one undifferentiated asset measured against one fixed fair line throws away everything that actually determines risk.</strong></p>
+
+    <div class="cols">
+      <div class="panel reject">
+        <h4>What the indicator ignores</h4>
+        <ul>
+          <li><strong>Composition.</strong> Today&rsquo;s index is dominated by high-margin, capital-light, high-growth businesses — software, platforms, AI infrastructure. They legitimately earn higher multiples than the asset-heavy industrial economy the ratio was calibrated on. Comparing 2026 to the 1970s compares different organisms.</li>
+          <li><strong>Interest rates.</strong> Valuation is rate-dependent. At low real rates a higher multiple is justified; at high real rates, less. The ratio has no rates term at all.</li>
+          <li><strong>Globalization.</strong> US large-caps earn a large share of revenue abroad. Dividing global earnings (the numerator) by domestic output (GDP) is a mismatch that widens every year.</li>
+          <li><strong>Its own track record.</strong> It has read &ldquo;overvalued&rdquo; for over a decade while the market compounded. A signal that has been wrong for ten years is not a timing tool.</li>
+        </ul>
+      </div>
+      <div class="panel accept">
+        <h4>What we do instead</h4>
+        <ul>
+          <li>We never ask whether the <em>aggregate</em> sits above a fixed line.</li>
+          <li>We decompose <strong>each name&rsquo;s</strong> valuation into a base (what an average business is worth, set by a rates-aware fair multiple), a <strong>justified premium</strong> (earned by growth, margins, TAM, dominance), and an <strong>unsupported premium</strong> (the floating, speculative part).</li>
+          <li>Only the unsupported float is treated as fragility. The justified premium is not a sin to be punished — it is value the business has earned.</li>
+          <li>The fair multiple itself moves with real rates, so the baseline is honest about the macro environment rather than frozen in a single historical average.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="readout">
+      <span class="rt">The rates-aware fair multiple, vs. a fixed line</span>
+      <div class="row"><span>fair base multiple today (real rate 2.25%)</span><span class="v">15.8&times;</span></div>
+      <div class="row"><span>fair base multiple at a 1.5% real-rate anchor</span><span class="v">18.0&times;</span></div>
+      <div class="row"><span>fair base multiple in 2020 (near-zero real rates)</span><span class="v">~24.6&times;</span></div>
+      <div class="row"><span>market CAPE today (the &ldquo;expensive&rdquo; headline)</span><span class="v hi">39.4</span></div>
+      <p class="note">A single fixed line would call the market uniformly expensive. The model instead moves its own baseline with rates and then asks, per name, how much of the premium above that baseline is earned versus floating.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="s5">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">05</span><div>
+      <span class="eyebrow">Why you can&rsquo;t price everything the same</span>
+      <h2>The growth premium is real</h2>
+    </div></div>
+
+    <p>Some assets deserve a premium, and pretending they don&rsquo;t is the mistake the aggregate view makes. The clearest analogy is real estate. A home with an ocean view, or one in a scarce prime district, sells for far more than the median price per square foot — and that premium is <strong>real</strong>, not overvaluation. It reflects a scarce, durable, desirable attribute that buyers compete for. No one prices every house at the city average and calls the waterfront homes &ldquo;overpriced&rdquo; for trading above it.</p>
+
+    <p>Equities work the same way. A company with a large and growing <strong>TAM</strong> (total addressable market), strong execution, high margins, and durable demand deserves a higher multiple than the average company. It is supply and demand applied to growth itself: high-quality compounding is scarce, so the market bids it up. In a good economy that premium <em>expands</em> — risk appetite is high and growth is scarce, so the scarce thing commands more. In a crisis the floating part of it deflates. But the earned core of the premium is not fragility; it is the equity-market equivalent of the ocean view.</p>
+
+    <figure>
+      <svg viewBox="0 0 860 270" role="img" aria-label="Premium decomposition across three kinds of company">
+        <text x="24" y="30" class="svg-title">Every valuation is decomposed, not compared to one line</text>
+        <text x="24" y="48" class="svg-small">base = average business (rates-aware) &nbsp;|&nbsp; justified = earned by TAM/growth/margins &nbsp;|&nbsp; unsupported = speculative float (the only fragile part)</text>
+        <!-- legend -->
+        <rect x="600" y="60" width="12" height="12" fill="#5B6B7A"/><text x="618" y="70" class="svg-small">base</text>
+        <rect x="660" y="60" width="12" height="12" fill="#CC9234"/><text x="678" y="70" class="svg-small">justified</text>
+        <rect x="735" y="60" width="12" height="12" fill="#9E2B3C"/><text x="753" y="70" class="svg-small">unsupported</text>
+
+        <!-- bars -->
+        <g font-family="IBM Plex Mono, monospace" font-size="11" fill="#46586A">
+          <!-- secular leader -->
+          <text x="24" y="108" >Secular leader</text>
+          <text x="24" y="122" class="svg-small">large durable TAM, fat margins</text>
+          <rect x="200" y="98"  width="120" height="26" fill="#5B6B7A"/>
+          <rect x="320" y="98"  width="300" height="26" fill="#CC9234"/>
+          <rect x="620" y="98"  width="55"  height="26" fill="#9E2B3C"/>
+          <!-- average -->
+          <text x="24" y="168">Average business</text>
+          <text x="24" y="182" class="svg-small">market-average growth</text>
+          <rect x="200" y="158" width="120" height="26" fill="#5B6B7A"/>
+          <rect x="320" y="158" width="70"  height="26" fill="#CC9234"/>
+          <rect x="390" y="158" width="35"  height="26" fill="#9E2B3C"/>
+          <!-- speculative -->
+          <text x="24" y="228">Speculative name</text>
+          <text x="24" y="242" class="svg-small">story &gt; fundamentals</text>
+          <rect x="200" y="218" width="120" height="26" fill="#5B6B7A"/>
+          <rect x="320" y="218" width="60"  height="26" fill="#CC9234"/>
+          <rect x="380" y="218" width="300" height="26" fill="#9E2B3C"/>
+        </g>
+      </svg>
+      <figcaption>FIG 5 — The secular leader carries a large <span style="color:#A86E16">earned premium</span> and only a thin <span style="color:#9E2B3C">float</span>; the speculative name is mostly float. Same headline &ldquo;expensive,&rdquo; opposite fragility. This is why they cannot be modeled the same way.</figcaption>
+    </figure>
+
+    <p>The TAM does double duty. It justifies the premium on the way up, and it powers the recovery on the way back: a company with a large serviceable runway recovers because demand keeps growing into it, while a name whose story has outrun its market does not. This is the bridge between the valuation side of the model and the recovery side — the same quality that earns the premium is the quality that brings the price back.</p>
+
+    <div class="callout">
+      <span class="k">The principle</span>
+      <p>You cannot model every name on one multiple any more than you can price every house at the city average. The model respects the earned premium, isolates the speculative float, and lets the size and durability of the TAM drive both the premium and the recovery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section id="s6">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">06</span><div>
+      <span class="eyebrow">The spine</span>
+      <h2>Depth and recovery are different questions</h2>
+    </div></div>
+
+    <p>The single principle that holds the whole model together is that <strong>how deep a name falls and whether it recovers are governed by different forces, and must never be crossed.</strong></p>
+
+    <p><strong>Depth is market-driven.</strong> How far a name falls in a shock is set by its beta to the market and by how correlations spike in a crisis — it is a property of the envelope and the name&rsquo;s sensitivity to it. A high-beta name falls hard in a crisis whether it is the best company in the world or the worst.</p>
+
+    <p><strong>Recovery is fundamental.</strong> Whether the name climbs back, and how fast, is set by its TAM, growth, demand cycle, balance sheet, and — in the extreme — whether a systemic freeze has the whole market locked. Two names can fall exactly as far and have completely different futures: one reclaims its peak in a year, the other never does.</p>
+
+    <figure>
+      <svg viewBox="0 0 860 290" role="img" aria-label="Depth and recovery as orthogonal axes">
+        <text x="24" y="30" class="svg-title">Two orthogonal questions</text>
+        <line x1="120" y1="240" x2="800" y2="240" stroke="#13202B" stroke-width="1.4"/>
+        <line x1="120" y1="240" x2="120" y2="60" stroke="#13202B" stroke-width="1.4"/>
+        <text x="455" y="272" class="svg-label" text-anchor="middle">DEPTH &rarr; set by beta &amp; crisis correlation (the envelope)</text>
+        <text x="60" y="150" class="svg-label" text-anchor="middle" transform="rotate(-90,60,150)">RECOVERY &rarr; set by TAM, growth, cycle</text>
+        <!-- quadrant points -->
+        <circle cx="640" cy="110" r="7" fill="#2C7A55"/><text x="654" y="106" class="svg-small">deep fall, fast recovery</text><text x="654" y="120" class="svg-small" fill="#2C7A55">secular leader, big TAM</text>
+        <circle cx="640" cy="205" r="7" fill="#9E2B3C"/><text x="654" y="201" class="svg-small">deep fall, no recovery</text><text x="654" y="215" class="svg-small" fill="#9E2B3C">broken thesis / impaired</text>
+        <circle cx="250" cy="110" r="7" fill="#1B89AA"/><text x="266" y="106" class="svg-small">shallow fall, fast recovery</text><text x="266" y="120" class="svg-small" fill="#0F5D77">low-beta defensive</text>
+        <circle cx="250" cy="205" r="7" fill="#CC9234"/><text x="266" y="201" class="svg-small">shallow fall, slow recovery</text><text x="266" y="215" class="svg-small" fill="#A86E16">cyclical, demand-cycle wait</text>
+      </svg>
+      <figcaption>FIG 6 — Beta places a name left-to-right; fundamentals place it top-to-bottom. The two are independent, so a deep fall says nothing on its own about whether the name comes back.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section id="s7">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">07</span><div>
+      <span class="eyebrow">The engine</span>
+      <h2>Regime-switching Monte Carlo</h2>
+    </div></div>
+
+    <p>The model does not produce a forecast — it produces a distribution. It rolls the market forward roughly 150,000 times, each a distinct seven-year future, and counts what happens. A &ldquo;probability&rdquo; in this model is a frequency over those futures, the way a rain forecast is a frequency over similar weather days — not a guess about one outcome.</p>
+
+    <p>Each simulated future is built in layers. First the market mood walks through the four regimes, with transition odds set by the macro stress reading. Then each name reacts: its price moves with the market factor scaled by its beta, plus its own idiosyncratic noise, with fat tails so extreme moves are not understated and a crisis correlation spike so names move together when the envelope is hit. From each path the model measures the deepest drawdown inside each horizon — 6, 12, and 18 months — and then searches forward for the day the name reclaims its prior peak. Aggregated over all paths, that becomes a probability of falling and, conditional on falling, a probability of having recovered by each later horizon.</p>
+
+    <div class="readout">
+      <span class="rt">The four regimes</span>
+      <div class="row"><span>calm</span><span class="v">drift up, low volatility — the default</span></div>
+      <div class="row"><span>stress</span><span class="v">elevated volatility, mild negative drift</span></div>
+      <div class="row"><span>crisis</span><span class="v">sharp drawdown, correlations &rarr; 0.9 (acute-driven)</span></div>
+      <div class="row"><span>grind</span><span class="v">slow de-rating, sticky negative drift (structural-driven)</span></div>
+      <p class="note">The grind regime is what stops a crisis from always V-shaping; the crisis regime is what makes the deep falls. Both entry rates rise with macro stress.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8 ============ -->
+<section id="s8">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">08</span><div>
+      <span class="eyebrow">The differentiated layers</span>
+      <h2>Recovery dynamics</h2>
+    </div></div>
+
+    <p>Once a name has fallen, the model does not let it heal on a single generic curve. Recovery is shaped by what kind of business it is — the same differentiation that runs through the valuation side.</p>
+
+    <p><strong>Crash-conditional growth.</strong> A <em>secular</em> business (durable, growing TAM) keeps compounding through a selloff and recovers smoothly. A <em>cyclical</em> business sees its actual demand fall during the down-cycle, so it recovers later and along a different shape. A <em>broken</em> business — whose demand thesis is invalidated — steps down and may not recover at all.</p>
+
+    <p><strong>Per-theme cyclical demand troughs.</strong> Cyclical recovery is not merely slower — it is <em>back-loaded</em>, because demand keeps falling for a period after the price rolls over and the price cannot reclaim its peak until the cycle clears. The wait is calibrated per theme: memory is the deepest and longest cycle, optical and broad-semis are shorter. The result is a recovery curve that is flat early and steep late, which is the demand-rebound picture rather than a constant slowdown.</p>
+
+    <p><strong>Solvency and dilution.</strong> The growth-premium logic also runs on the downside. A company with weak financials survives a deep crash <em>if</em> its revenue stays durable, but becomes a permanent impairment if revenue craters at the same time — and a cash-poor, levered name forced to raise equity at the lows takes a permanent per-share haircut. Durable-revenue businesses are spared; the fragile ones are not. This is why a levered name with sticky enterprise revenue is treated very differently from a levered name with cyclical revenue.</p>
+
+    <figure>
+      <svg viewBox="0 0 860 320" role="img" aria-label="Recovery curves by business type">
+        <text x="24" y="30" class="svg-title">Conditional recovery, given a &gt;25% fall</text>
+        <text x="24" y="48" class="svg-small">P(reclaimed prior peak) over months since the fall &mdash; current model output</text>
+        <!-- axes -->
+        <line x1="80" y1="280" x2="800" y2="280" stroke="#13202B" stroke-width="1.2"/>
+        <line x1="80" y1="80" x2="80" y2="280" stroke="#13202B" stroke-width="1.2"/>
+        <!-- y gridlines -->
+        <g class="svg-small" fill="#7B8a99">
+          <line x1="80" y1="80"  x2="800" y2="80"  stroke="#EAEEF2"/><text x="74" y="84" text-anchor="end">80%</text>
+          <line x1="80" y1="180" x2="800" y2="180" stroke="#EAEEF2"/><text x="74" y="184" text-anchor="end">40%</text>
+          <text x="74" y="284" text-anchor="end">0%</text>
+        </g>
+        <!-- x labels (6,12,18,24,36 mapped 80..800) -->
+        <g class="svg-small" fill="#7B8a99" text-anchor="middle">
+          <text x="80" y="298">0</text><text x="200" y="298">6m</text><text x="320" y="298">12m</text>
+          <text x="440" y="298">18m</text><text x="560" y="298">24m</text><text x="800" y="298">36m</text>
+        </g>
+        <!-- helper: y = 280 - pct*2.5 ; x: 6m=200,12m=320,18m=440,24m=560,36m=800 -->
+        <!-- NVIDIA secular 17/34/45/51/61 -->
+        <polyline fill="none" stroke="#2C7A55" stroke-width="2.4"
+          points="80,280 200,237.5 320,195 440,167.5 560,152.5 800,127.5"/>
+        <circle cx="800" cy="127.5" r="3.5" fill="#2C7A55"/>
+        <text x="806" y="124" class="svg-small" fill="#2C7A55">NVIDIA &mdash; secular (smooth)</text>
+        <!-- Marvell broad-semis 0/30/39/46/56 -->
+        <polyline fill="none" stroke="#CC9234" stroke-width="2.4"
+          points="80,280 200,280 320,205 440,182.5 560,165 800,140"/>
+        <circle cx="800" cy="140" r="3.5" fill="#CC9234"/>
+        <text x="806" y="150" class="svg-small" fill="#A86E16">Marvell &mdash; broad-semis</text>
+        <!-- Micron memory 0/0/42/47/56 -->
+        <polyline fill="none" stroke="#9E2B3C" stroke-width="2.4"
+          points="80,280 200,280 320,280 440,175 560,162.5 800,140"/>
+        <circle cx="800" cy="140" r="3.5" fill="#9E2B3C"/>
+        <text x="806" y="164" class="svg-small" fill="#9E2B3C">Micron &mdash; memory (back-loaded)</text>
+      </svg>
+      <figcaption>FIG 8 — Three names that fall to similar depths recover on very different curves. The secular leader climbs from the start; the broad-semis name waits out a short cycle; the memory name is flat for over a year while demand bottoms, then catches up. Same depth, different recovery — the spine of the model.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ 9 ============ -->
+<section id="s9">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">09</span><div>
+      <span class="eyebrow">The headline output</span>
+      <h2>The drawdown &times; recovery matrix</h2>
+    </div></div>
+
+    <p>The model&rsquo;s primary output, per name, is a matrix that answers exactly the two questions in the order they matter. For each drawdown horizon — 6, 12, 18 months — it gives the probability of a fall, and then, conditional on that fall, the probability that the name has reclaimed its prior peak within 6, 12, 18, 24, or 36 months, plus the residual that is still underwater past three years (the slow, cyclical-wait, impaired, or permanent tail). These are probabilities; the model makes no claim about exact timing.</p>
+
+    <table>
+      <thead><tr><th>NVIDIA &mdash; if it falls &gt;25%</th><th class="num">P(fall)</th><th class="num">rec &le;6m</th><th class="num">&le;12m</th><th class="num">&le;18m</th><th class="num">&le;24m</th><th class="num">&le;36m</th></tr></thead>
+      <tbody>
+        <tr><td>within 6 months</td><td class="num">13%</td><td class="num">17%</td><td class="num">34%</td><td class="num">45%</td><td class="num">51%</td><td class="num">61%</td></tr>
+        <tr><td>within 12 months</td><td class="num">34%</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">~45%</td><td class="num">~51%</td><td class="num">~61%</td></tr>
+        <tr><td>within 18 months</td><td class="num">53%</td><td class="num">&mdash;</td><td class="num">&mdash;</td><td class="num">~45%</td><td class="num">~51%</td><td class="num">~61%</td></tr>
+      </tbody>
+    </table>
+
+    <p>The names are then ranked, and the ranking is deliberately not a single number — it carries the kind of recovery with it, because a high expected return that depends on a cyclical rebound is a different proposition from one backed by secular compounding.</p>
+
+    <table>
+      <thead><tr><th>Rank label</th><th>Meaning</th><th>Examples</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tag sec">HIGH</span></td><td>secular growth, clean recovery — earns the premium and climbs back smoothly</td><td>NVIDIA, Astera Labs</td></tr>
+        <tr><td><span class="tag cyc">HIGH&#42;</span></td><td>high growth but rebound-dependent — recovery waits on a demand cycle</td><td>Micron, AMD, Marvell</td></tr>
+        <tr><td><span class="tag brk">AVOID</span></td><td>broken thesis — does not rank high regardless of how cheap it looks</td><td>speculative pre-revenue names</td></tr>
+      </tbody>
+    </table>
+    <p>The asterisk is doing real work: a cyclical name can screen as cheap precisely <em>because</em> its earnings are at a cyclical peak, right before they roll over. The model prices it on through-cycle earnings and flags the recovery as conditional, rather than waving it through as a clean value name.</p>
+  </div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">10</span><div>
+      <span class="eyebrow">Baskets</span>
+      <h2>ETFs diversify execution, not the envelope</h2>
+    </div></div>
+
+    <p>An ETF is treated as a holdings-weighted basket, and the key insight is about <em>which</em> risks a basket removes and which it cannot. A basket diversifies away <strong>idiosyncratic execution and survival risk</strong> — the &ldquo;did I pick the one company that mismanaged the cycle or got disrupted&rdquo; risk. Owning all the memory makers instead of one means you no longer carry the bet on which of them executes best; their individual stumbles are largely independent and wash out.</p>
+
+    <p>But a basket does <strong>not</strong> diversify two things. It cannot diversify the macro envelope — when the broad market collapses, the whole basket falls with it, because that risk is common to every holding. And it cannot diversify a <em>cyclical theme&rsquo;s</em> demand cycle — a pure memory ETF is exposed to the memory cycle no matter how many memory names it holds, because the down-cycle hits all of them at once. So a thematic ETF is more predictable on the <em>recovery</em> side (execution noise averages out) while still carrying the full envelope and the full theme cycle. The model damps each basket&rsquo;s idiosyncratic risk in proportion to how concentrated it is — a three-name basket gets far less diversification credit than a thirty-name one — and classifies baskets by predictability from broad index down to narrow or leveraged.</p>
+  </div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">11</span><div>
+      <span class="eyebrow">Honesty</span>
+      <h2>Validation and limits</h2>
+    </div></div>
+
+    <p>The model is checked, and it is checked honestly — including about what the checks do <em>not</em> prove.</p>
+
+    <p><strong>The seven-crash backtest validates depth, not timing.</strong> Setting the macro dial to the eve of each of seven historical crises — 2000, 2008, 2011, 2015&ndash;16, 2018-Q4, 2020, 2022 — the simulated 90th-percentile tail brackets the realized fall in six of seven, with 2008 grazing the edge (a realized &minus;57% against a &minus;56% tail). This validates that the stress-to-depth mechanism behaves across very different regimes. It does <em>not</em> validate recovery timing, and it is not a claim of foresight — the macro inputs are historical, documented approximations used to test the mechanism, not predictions made in advance.</p>
+
+    <p><strong>The recovery side is where the systemic-freeze layer earns its place.</strong> The reason 2008 is interesting is not the one-point miss on depth — it is that a systemic collapse takes years to heal, and a model that lets every name bounce independently would understate that. The systemic-freeze layer is precisely what represents the long, frozen, all-layers recovery, calibrated so a 2008-type keystone collapse reads as roughly the S&amp;P&rsquo;s real five-and-a-half-year heal. The model represents the systemic recovery explicitly; the depth backtest simply does not score it.</p>
+
+    <p>Other checks: the solvency-impairment channel is validated against real 2021&ndash;2024 outcomes (it separates the companies that became permanent impairments from those that recovered, keyed on revenue durability). The whole system is held in place by <strong>101 invariant tests</strong> that fail loudly if any mechanism drifts.</p>
+
+    <div class="callout macro">
+      <span class="k">What this model is — and isn&rsquo;t</span>
+      <p>It is a probability engine: it tells you how likely a fall is over a horizon, and how likely a recovery is given a fall, with the macro envelope read first and each name&rsquo;s growth premium and recovery treated on its own terms. It is not a price target, not a market-timing signal, and not a promise. It is a disciplined way to reason about depth, recovery, and the one collapse that overrides everything.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="color:#C9DBE4;font-weight:500;margin-bottom:4px;">The Systemic &amp; TAM Risk Model — Complete Methodology</p>
+    <p>Macro envelope first &middot; differentiated sub-market dynamics &middot; the growth premium respected &middot; systemic collapse as the dominant tail.</p>
+    <p class="disc">RESEARCH MODEL — NOT INVESTMENT ADVICE. All figures are outputs of a simulation built on documented assumptions and are illustrative of method, not recommendations. Probabilities are frequencies over simulated futures and carry model and calibration uncertainty. Nothing here is a solicitation to buy or sell any security.</p>
+  </div>
+</footer>
+
+</body>
+</html>

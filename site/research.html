@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Research — Market Analyst</title>
+<meta name="description" content="Ask the AI research assistant about AI &amp; semiconductor stocks and the systemic risk model.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MarketAnalyst">
+<meta property="og:title" content="Research assistant — MarketAnalyst">
+<meta property="og:description" content="Ask the AI research assistant about AI &amp; semiconductor stocks and the systemic risk model.">
+<meta property="og:image" content="og-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Research assistant — MarketAnalyst">
+<meta name="twitter:description" content="Ask the AI research assistant about AI &amp; semiconductor stocks and the systemic risk model.">
+<meta name="twitter:image" content="og-card.svg">
 <style>
 :root{
   --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#fff; --hush:#f5f5f7;
@@ -97,6 +108,13 @@ button{font-family:inherit;cursor:pointer}
   .menu-btn{display:block}
   .backdrop.show{display:block;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:40}
 }
+/* theme toggle (from theme.js) defaults to bottom-left, which overlaps the chat-history
+   sidebar footer here — move it clear to the bottom-right, above the message composer */
+.qa-btns{display:flex;gap:6px;margin-top:10px}
+.qa-btns button{border:1px solid var(--line);background:var(--paper);color:var(--blue);border-radius:980px;padding:4px 12px;font-size:12px;font-weight:600;cursor:pointer}
+.qa-btns button:hover{background:var(--hush)}
+#themeBtn{left:auto!important;right:18px!important;bottom:88px!important;top:auto!important}
+@media(max-width:640px){#themeBtn{right:12px!important;bottom:84px!important;top:auto!important;left:auto!important;height:34px;padding:0 12px;font-size:12px}}
 </style>
 </head>
 <body>
@@ -120,9 +138,11 @@ button{font-family:inherit;cursor:pointer}
       <div class="title" id="title">Research</div>
       <span id="aistatus" style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:980px"></span>
       <div class="topnav">
+        <a href="how.html">How it works</a>
         <a href="index.html">Dashboard</a>
-        <a href="account.html">My Portfolio</a>
         <a href="options.html">Options</a>
+        <a href="research.html">Research</a>
+        <a href="account.html">My Portfolio</a>
       </div>
     </div>
     <div class="msgs" id="msgs"></div>
@@ -266,7 +286,7 @@ function mdToHtml(t){
     blocks.push(lang==="chart"
       ? `<div class="chart" data-chart="${encodeURIComponent(body.trim())}"></div>`
       : `<pre class="code"><code>${esc(body.replace(/\n$/,""))}</code></pre>`);
-    return ` ${blocks.length-1} `;
+    return `${blocks.length-1}`;
   });
   const lines=t.split("\n"); let html="", list=null, i=0;
   const close=()=>{ if(list){ html+=`</${list}>`; list=null; } };
@@ -281,7 +301,7 @@ function mdToHtml(t){
       while(i<lines.length&&isRow(lines[i])){ html+="<tr>"+cells(lines[i]).map(c=>`<td>${inline(c)}</td>`).join("")+"</tr>"; i++; }
       html+="</tbody></table>"; continue;
     }
-    if(m=line.match(/^ (\d+) $/)){ close(); html+=blocks[+m[1]]; i++; continue; }   // fenced block
+    if(m=line.match(/^(\d+)$/)){ close(); html+=blocks[+m[1]]; i++; continue; }   // fenced block
     if(m=line.match(/^\s*[-*]\s+(.*)/)){ if(list!=="ul"){close();html+="<ul>";list="ul";} html+=`<li>${inline(m[1])}</li>`; i++; continue; }
     if(m=line.match(/^\s*\d+\.\s+(.*)/)){ if(list!=="ol"){close();html+="<ol>";list="ol";} html+=`<li>${inline(m[1])}</li>`; i++; continue; }
     close();
@@ -290,7 +310,7 @@ function mdToHtml(t){
     html+=`<p>${inline(line)}</p>`; i++;
   }
   close();
-  return html.replace(/ (\d+) /g,(m,n)=>blocks[+n]||"");
+  return html.replace(/(\d+)/g,(m,n)=>blocks[+n]||"");
 }
 
 // while typing we keep FULL formatting via mdToHtml, but hide only the half-typed
@@ -360,6 +380,18 @@ async function typewriter(bubble, text){
 
 window.grow = (t) => { t.style.height="auto"; t.style.height=Math.min(160,t.scrollHeight)+"px"; };
 
+// "Simpler / In depth" buttons under each answer (send a natural follow-up)
+function addAskButtonsR(bubble){
+  const row=document.createElement("div"); row.className="qa-btns";
+  const s=document.createElement("button"); s.textContent="↓ Simpler"; s.onclick=()=>followUpResearch("simple");
+  const d=document.createElement("button"); d.textContent="↑ In depth"; d.onclick=()=>followUpResearch("deep");
+  row.appendChild(s); row.appendChild(d); bubble.appendChild(row);
+}
+function followUpResearch(kind){
+  const inp=document.getElementById("q");
+  inp.value = kind==="simple" ? "Explain that more simply, for a beginner." : "Go more in depth on that — include the key numbers and reasoning.";
+  window.send();
+}
 window.send = async () => {
   const inp=document.getElementById("q"); const text=inp.value.trim(); if(!text) return;
   inp.value=""; grow(inp);
@@ -384,6 +416,7 @@ window.send = async () => {
   const result = await produceAnswer(bubble);
   btn.disabled=false;
   addSrc(bubble, result.src);
+  addAskButtonsR(bubble);
   MSGS.push({role:"assistant", content:result.text});
 
   if(CONVO){
@@ -484,7 +517,7 @@ const RESEARCH_SYSTEM = `You are a friendly, sharp research assistant inside a s
 
 You have the app's MODEL DATA and a BRIEF below. Treat them as your source of truth for anything specific to this app — a stock's risk numbers, rankings, verdicts, the macro reading, which options are priced. For those specifics, never invent numbers or names; if it isn't in the data, say so. You CAN also teach general investing concepts from your own knowledge (what an ETF is, how options work, diversification, dollar-cost averaging, etc.) to help the user learn — just don't fabricate app-specific figures.
 
-Style: conversational and concise by default; go deeper when asked. Use light markdown — short paragraphs, **bold** for key terms, and bullet lists — so it's easy to read. Ask a clarifying question when it genuinely helps.
+Style: keep answers SHORT by default — a few sentences or a couple of bullets, just the key point. The user has buttons under each answer to ask for a "simpler" or "in depth" version, so don't over-explain unless they ask. Use light markdown — short paragraphs, **bold** for key terms, and bullet lists — so it's easy to read. Ask a clarifying question when it genuinely helps.
 
 Boundaries: explain what the model ranks higher or lower and why, but don't give personalized "buy this / sell this" commands. When you give concrete suggestions, work in a brief, natural reminder that it's research, not financial advice — don't bolt the same robotic disclaimer onto every message.
 

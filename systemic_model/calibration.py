@@ -72,6 +72,24 @@ MACRO = {
 #     the crisis-entry transition probabilities so the macro environment
 #     mechanically moves the tail. See macro_stress.py for the bands.
 # ---------------------------------------------------------------------------
+# ---- LIVE DATA OVERRIDE (daily) -------------------------------------------
+# fetch_live.py writes live_inputs.json with today's market numbers (from FRED).
+# Merge them into MACRO and stamp AS_OF_DATE to today BEFORE the stress index is
+# computed below, so the model re-evaluates against today's market on every run.
+import os as _os, json as _json
+_LIVE = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "live_inputs.json")
+if _os.path.exists(_LIVE):
+    try:
+        _live = _json.load(open(_LIVE))
+        for _k, _v in (_live.get("macro") or {}).items():
+            if _v is not None:
+                MACRO[_k] = _v
+        if _live.get("as_of"):
+            AS_OF_DATE = _live["as_of"]
+        print("[calibration] live_inputs.json merged; as_of", AS_OF_DATE)
+    except Exception as _e:
+        print("[calibration] live_inputs.json ignored:", _e)
+
 SYSTEMIC_STRESS = MS.compute(MACRO)
 STRESS_CRISIS_MULT = MS.crisis_mult(SYSTEMIC_STRESS["score"])
 
@@ -285,6 +303,29 @@ COMPANIES = {
                   role="licensing/royalty; near-universal penetration, thin per-unit"),
 }
 
+# ---- MONTHLY AI OUTLOOK OVERRIDE ------------------------------------------
+# fetch_monthly.py writes live_fundamentals.json: Claude's monthly re-evaluation
+# of each company's outlook (growth + quality/dominance/valuation), grounded in
+# fresh Polygon financials. Merge the per-company fields into COMPANIES so the
+# model runs against the refreshed outlook. (growth lives in tiering.UNIVERSE.)
+_FUND = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "live_fundamentals.json")
+if _os.path.exists(_FUND):
+    try:
+        _fund = _json.load(open(_FUND))
+        _FIELDS = ("rev_bn", "tam_bn", "tam_cagr", "fwd_pe",
+                   "quality", "earn_quality", "dominance", "capex_elastic")
+        _n = 0
+        for _name, _rec in (_fund.get("companies") or {}).items():
+            if _name in COMPANIES and isinstance(COMPANIES[_name], dict):
+                for _f in _FIELDS:
+                    if _rec.get(_f) is not None:
+                        COMPANIES[_name][_f] = _rec[_f]
+                _n += 1
+        print("[calibration] live_fundamentals.json merged;", _n, "companies updated")
+    except Exception as _e:
+        print("[calibration] live_fundamentals.json ignored:", _e)
+
+
 # Baseline "no growth premium" multiple. Premium above this is what TAM must justify.
 def _dynamic_base_pe(macro_dict):
     """v3: the no-growth base multiple FLOATS with the real rate. Anchored 18.0x
@@ -441,6 +482,16 @@ GROUP = {
     "SCHD (Dividend)": "defensive",
 }
 
+# Expansion pool names (discovery/expansion.json) carry an AI-assigned correlation group.
+_EXP_G = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "discovery", "expansion.json")
+if _os.path.exists(_EXP_G):
+    try:
+        for _name, _rec in (_json.load(open(_EXP_G)).get("companies") or {}).items():
+            if _rec.get("group"):
+                GROUP[_name] = _rec["group"]
+    except Exception:
+        pass
+
 # ---------------------------------------------------------------------------
 # 8. LIQUIDITY -- the remaining failure mode in a profitable, low-credit-risk
 #    market (2026 != 2000/2008: real earnings, cash-rich balance sheets, no
@@ -449,3 +500,197 @@ GROUP = {
 # (liquidity fields now live in the MACRO dict above so SYSTEMIC_STRESS — computed
 #  right after it — actually includes them. The earlier bug computed stress BEFORE
 #  this update, so the engine ran on a stale score while reports showed the new one.)
+
+# ============================================================================
+# COMPETITIVE + GROWTH-DURATION LAYER  (added 2026-06-13)
+# ----------------------------------------------------------------------------
+# Upgrades the justified-premium term from "headroom x instantaneous slope"
+# to a duration-aware, competition-aware model:
+#   - years-to-saturation uses GROWING TAM (company growth g vs market m); if the
+#     ceiling rises as fast as revenue (g<=m) the runway is effectively infinite.
+#   - justified premium = premium_pts x duration_credit x growth_quality, capped
+#     at premium_pts.  duration_credit = PV-of-supernormal-growth annuity / anchor.
+#     growth_quality = mean(share_durability, pricing_power, earn_quality).
+#   - share_durability discounts share TAKEN from rivals by the moat (price-led
+#     share gain is reversible); pricing_power gates margin conversion.
+#
+# *** THESE INPUTS ARE RESEARCH JUDGMENTS — REVIEW / OVERRIDE BEFORE RELYING. ***
+# *** "moat" is the dangerous knob: it can justify almost any multiple. Keep    ***
+# *** conservative, document per name, and never let it override survivability. ***
+# Flip USE_COMPETITIVE_PREMIUM=False to restore the original slope-only behavior.
+# ============================================================================
+USE_COMPETITIVE_PREMIUM = True
+R_GROWTH            = 0.09     # equity discount rate for the growth annuity
+GROWTH_DURATION_CAP = 15       # max yrs of supernormal growth credibly priced
+
+# per name: g=company rev CAGR, m=market/TAM growth, struct_share=structural
+# ceiling share, moat=durability of share, pricing_power=margin/price-setting.
+COMPETITIVE = {
+ "NVIDIA":     dict(g=0.45, m=0.45, struct_share=0.85, moat=0.90, pricing_power=0.90),
+ "Micron":     dict(g=0.18, m=0.10, struct_share=0.33, moat=0.30, pricing_power=0.20),
+ "AMD":        dict(g=0.35, m=0.25, struct_share=0.45, moat=0.50, pricing_power=0.45),
+ "Broadcom":   dict(g=0.20, m=0.12, struct_share=0.55, moat=0.75, pricing_power=0.70),
+ "Qualcomm":   dict(g=0.08, m=0.06, struct_share=0.45, moat=0.55, pricing_power=0.55),
+ "Kioxia":     dict(g=0.10, m=0.10, struct_share=0.30, moat=0.25, pricing_power=0.20),
+ "Marvell":    dict(g=0.28, m=0.18, struct_share=0.40, moat=0.55, pricing_power=0.55),
+ "ARM":        dict(g=0.25, m=0.15, struct_share=0.90, moat=0.85, pricing_power=0.70),
+ "Palantir":   dict(g=0.40, m=0.18, struct_share=0.55, moat=0.65, pricing_power=0.60),
+ "Astera Labs":dict(g=0.55, m=0.25, struct_share=0.45, moat=0.55, pricing_power=0.55),
+ "CoreWeave":  dict(g=0.60, m=0.30, struct_share=0.40, moat=0.45, pricing_power=0.40),
+}
+
+# ============================================================================
+# CURRENT PRICES  (added 2026-06-13) — for the dollar-based stock_premium layer
+# ----------------------------------------------------------------------------
+# Only needed to convert the (scale-free) premium decomposition into $/share.
+# NVDA verified ~$205 (Jun 2026); OTHERS ARE PLACEHOLDERS — OVERWRITE WITH YOUR
+# BROKER'S LIVE QUOTES. Names left None compute scale-free metrics only.
+# EPS is derived as price / fwd_pe (model already carries fwd_pe per name).
+# ============================================================================
+PRICES = {
+ "NVIDIA": 205.00, "Broadcom": 382.07, "AMD": 511.57, "Micron": 981.61,
+ "Palantir": 127.99, "Astera Labs": 367.15, "Marvell": None, "Qualcomm": None,
+ "Kioxia": None, "ARM": None, "CoreWeave": None,
+}
+
+# ============================================================================
+# CASH / BUYBACK / BALANCE-SHEET ADJUSTMENT  (added 2026-06-13)
+# ----------------------------------------------------------------------------
+# Net cash is NOT part of the operating multiple. Deploying BUYBACK_PCT of net
+# cash into an ACCRETIVE buyback (E/P > after-tax cash yield) retires float and
+# de-rates the effective P/E -> less premium to justify. Net DEBT gets no buyback
+# credit. A strong (net-cash, no-debt) balance sheet also lowers fragility.
+# This is a STATIC valuation effect, distinct from the crisis trough-buyback
+# slingshot (which acts on the recovery PATH in the Monte Carlo).
+# net-cash/mcap and balance scores live in extension_data.py (NET_CASH_TO_MCAP, balance()).
+# Flip USE_CASH_ADJUSTMENT=False to restore prior behavior.
+# ============================================================================
+USE_CASH_ADJUSTMENT = True
+BUYBACK_PCT = 0.0                 # global: fraction of NET CASH assumed deployed to buybacks.
+                                  # set 0.50 or 0.80 to test "what if they buy back half/most of their cash".
+BUYBACK_PCT_BY_NAME = {}          # optional per-name override, e.g. {"NVIDIA": 0.5}
+# CASH_YIELD_AFTER_TAX already used by the slingshot; default 0.035 if unset.
+
+# ============================================================================
+# CYCLICAL EARNINGS-COLLAPSE (DENOMINATOR) LAYER  (added 2026-06-13)
+# ----------------------------------------------------------------------------
+# In a bust, operating leverage makes EPS (the denominator) fall faster than price,
+# so the trailing P/E EXPANDS exactly when you are counting on it to compress, and
+# recovery must wait for the earnings denominator to heal BEFORE the multiple
+# re-rates. High-cyclicality (memory/commodity) names therefore recover slower than
+# multiple-compression alone implies. This DRAGS recovery_quality only (depth stays
+# set by beta/correlation), and is DISTINCT from (a) the capex-intensity penalty and
+# (b) the cyclical two-phase demand trough -- it is the earnings denominator itself.
+#
+# earnings_cyclicality (0..1): how much EPS collapses in a severe downturn.
+#   ~0.85 memory/NAND (ASP collapse, fixed costs, EPS can go negative)
+#   ~0.50 cyclical compute (AMD/Marvell)   ~0.20 pricing-power/asset-light (NVDA/ARM)
+# *** RESEARCH JUDGMENTS -- REVIEW / OVERWRITE. *** Flip USE_EARNINGS_COLLAPSE=False to disable.
+# ============================================================================
+USE_EARNINGS_COLLAPSE = True
+EARNINGS_COLLAPSE_DRAG = 0.40     # max fraction of recovery_quality removed (at cyclicality=1)
+DOWNTURN_SEVERITY      = 1.0      # severity for the illustrative EPS-trough / P/E-expansion display
+EARNINGS_COLLAPSE_DEPTH = 0.30    # max crisis-trough deepening from earnings collapse (depth add-on)
+EARNINGS_CYCLICALITY = {
+ "NVIDIA": 0.20, "Broadcom": 0.30, "AMD": 0.50, "Micron": 0.85, "Qualcomm": 0.30,
+ "Kioxia": 0.85, "Marvell": 0.50, "ARM": 0.20, "Palantir": 0.35, "Astera Labs": 0.55,
+ "CoreWeave": 0.70,
+}
+
+# ============================================================================
+# ENDOGENOUS OPERATING-LEVERAGE LAYER  (added 2026-06-13)
+# ----------------------------------------------------------------------------
+# Derives earnings_cyclicality from operating leverage instead of a single manual
+# number: costs split into FIXED (do not scale with revenue) and VARIABLE (scale).
+# In a bust revenue falls by rev_drawdown; variable costs fall with it, fixed costs
+# do not, so operating income (the EPS denominator) falls FASTER than revenue. Each
+# input is more groundable in real financials than a lone cyclicality guess -- BUT
+# this sharpens trough DEPTH and recovery TIMING, the model's LEAST-VALIDATED axis,
+# and trades one judgment (cyclicality) for three (margin, fixed-cost ratio, revenue
+# drawdown). *** RESEARCH JUDGMENTS -- REVIEW. *** Flip USE_ENDOGENOUS_EARNINGS=False
+# to fall back to the manual EARNINGS_CYCLICALITY dict.
+#   op_margin (m)        baseline operating margin
+#   fixed_cost_ratio (f) fraction of total costs that are fixed (fabs/depreciation/R&D)
+#   rev_drawdown (d)     peak-to-trough revenue fall this name sees in a severe bust
+# ============================================================================
+USE_ENDOGENOUS_EARNINGS = True
+OPERATING_LEVERAGE = {
+ "NVIDIA":      {"op_margin": 0.60, "fixed_cost_ratio": 0.42, "rev_drawdown": 0.18},
+ "Broadcom":    {"op_margin": 0.55, "fixed_cost_ratio": 0.45, "rev_drawdown": 0.20},
+ "AMD":         {"op_margin": 0.45, "fixed_cost_ratio": 0.50, "rev_drawdown": 0.26},
+ "Micron":      {"op_margin": 0.28, "fixed_cost_ratio": 0.66, "rev_drawdown": 0.36},
+ "Qualcomm":    {"op_margin": 0.50, "fixed_cost_ratio": 0.46, "rev_drawdown": 0.20},
+ "Kioxia":      {"op_margin": 0.25, "fixed_cost_ratio": 0.68, "rev_drawdown": 0.38},
+ "Marvell":     {"op_margin": 0.42, "fixed_cost_ratio": 0.50, "rev_drawdown": 0.28},
+ "ARM":         {"op_margin": 0.55, "fixed_cost_ratio": 0.38, "rev_drawdown": 0.14},
+ "Palantir":    {"op_margin": 0.30, "fixed_cost_ratio": 0.55, "rev_drawdown": 0.22},
+ "Astera Labs": {"op_margin": 0.40, "fixed_cost_ratio": 0.52, "rev_drawdown": 0.30},
+ "CoreWeave":   {"op_margin": 0.30, "fixed_cost_ratio": 0.70, "rev_drawdown": 0.30},
+}
+
+# ============================================================================
+# PROFIT-SENSITIVITY LAYER  (added 2026-06-13)
+# ----------------------------------------------------------------------------
+# Two drawdown-EPS channels the demand model (capex_elastic) misses:
+#  (1) INTEREST EXPENSE: in a rate shock, levered names with floating-rate debt see
+#      interest expense rise, deepening the EPS trough. ie_addon = net_debt_to_ebitda
+#      * floating_rate_share * RATE_SHOCK_K (net-cash names -> 0).
+#  (2) INPUT COST: a commodity/inflation shock hits COGS (wafers, HBM, substrates,
+#      energy). High pricing_power passes it on; low pricing_power eats it.
+#      ic_addon = cogs_fragility * (1 - pricing_power) * INPUT_SHOCK_K.
+# Both ADD to earnings_cyclicality (so they flow through the recovery drag AND the
+# crisis-trough depth already wired in 5d). Taxes deliberately NOT modeled: slow,
+# telegraphed, cause re-ratings not the 6-18m liquidity panics this engine targets;
+# the after-tax cash yield in the accretion gate already captures the one place tax
+# matters here. *** RESEARCH JUDGMENTS -- REVIEW. *** Flip USE_PROFIT_SENSITIVITY=False
+# to disable. net_debt_to_ebitda<=0 means net cash (no interest drag).
+# ============================================================================
+USE_PROFIT_SENSITIVITY = True
+RATE_SHOCK_K  = 0.06    # interest-expense addon scale (per unit leverage*floating)
+INPUT_SHOCK_K = 0.35    # input-cost addon scale (per unit cogs_fragility*(1-pricing_power))
+PROFIT_SENSITIVITY = {
+ "NVIDIA":      {"net_debt_to_ebitda": 0.0, "floating_rate_share": 0.00, "cogs_fragility": 0.45},
+ "Broadcom":    {"net_debt_to_ebitda": 2.5, "floating_rate_share": 0.20, "cogs_fragility": 0.40},
+ "AMD":         {"net_debt_to_ebitda": 0.0, "floating_rate_share": 0.10, "cogs_fragility": 0.50},
+ "Micron":      {"net_debt_to_ebitda": 1.0, "floating_rate_share": 0.20, "cogs_fragility": 0.80},
+ "Qualcomm":    {"net_debt_to_ebitda": 0.5, "floating_rate_share": 0.10, "cogs_fragility": 0.45},
+ "Kioxia":      {"net_debt_to_ebitda": 2.5, "floating_rate_share": 0.30, "cogs_fragility": 0.80},
+ "Marvell":     {"net_debt_to_ebitda": 1.5, "floating_rate_share": 0.20, "cogs_fragility": 0.50},
+ "ARM":         {"net_debt_to_ebitda": 0.0, "floating_rate_share": 0.00, "cogs_fragility": 0.30},
+ "Palantir":    {"net_debt_to_ebitda": 0.0, "floating_rate_share": 0.00, "cogs_fragility": 0.20},
+ "Astera Labs": {"net_debt_to_ebitda": 0.0, "floating_rate_share": 0.00, "cogs_fragility": 0.50},
+ "CoreWeave":   {"net_debt_to_ebitda": 5.0, "floating_rate_share": 0.50, "cogs_fragility": 0.75},
+}
+
+# ============================================================================
+# COGS BUCKET SPLIT  (added 2026-06-13)  -- granularity for the input-cost channel
+# ----------------------------------------------------------------------------
+# Replaces the scalar cogs_fragility with weighted COST DRIVERS so the input-cost shock
+# distinguishes (e.g.) NVIDIA's foundry/HBM exposure-with-pricing-power from memory's ASP/
+# fab-utilization dominance from CoreWeave's power+GPU-depreciation. effective_cogs_fragility
+# = sum(bucket_weight * bucket_shock). Defaults: weights SUM to the prior scalar cogs_fragility
+# and all shocks = 1.0, so baseline numbers (and P(never)) are UNCHANGED -- the split adds
+# composition + per-driver stress levers, not new baseline risk. Raise a shock (e.g. energy 1.5)
+# to model that cost spike. *** JUDGMENT-HEAVY until calibrated -- audited via provenance;
+# stays tagged judgment until the historical-calibration data project (#2/#3) is done. ***
+# Flip USE_COGS_BUCKETS=False to revert to the scalar.
+# ============================================================================
+USE_COGS_BUCKETS = True
+COGS_BUCKET_SHOCKS = {   # baseline 1.0 each; raise to stress a driver. (sub-1.0 = easing)
+ "wafer_foundry": 1.0, "advanced_packaging": 1.0, "hbm": 1.0, "asp_cycle": 1.0,
+ "fab_utilization": 1.0, "energy_power": 1.0, "gpu_depreciation": 1.0,
+ "optical_components": 1.0, "cloud_opex": 1.0, "labor": 1.0, "customer_capex": 1.0,
+}
+COGS_BUCKETS = {   # weights sum ~= prior scalar cogs_fragility (validation: baseline unchanged)
+ "NVIDIA":      {"wafer_foundry": 0.18, "advanced_packaging": 0.15, "hbm": 0.12},                 # 0.45
+ "AMD":         {"wafer_foundry": 0.20, "advanced_packaging": 0.15, "hbm": 0.15},                 # 0.50
+ "Broadcom":    {"wafer_foundry": 0.18, "advanced_packaging": 0.12, "customer_capex": 0.10},      # 0.40
+ "Qualcomm":    {"wafer_foundry": 0.20, "advanced_packaging": 0.15, "customer_capex": 0.10},      # 0.45
+ "Marvell":     {"wafer_foundry": 0.20, "advanced_packaging": 0.18, "customer_capex": 0.12},      # 0.50
+ "Micron":      {"asp_cycle": 0.30, "fab_utilization": 0.25, "energy_power": 0.15, "gpu_depreciation": 0.10},  # 0.80 (depreciation=fab capex)
+ "Kioxia":      {"asp_cycle": 0.30, "fab_utilization": 0.25, "energy_power": 0.15, "gpu_depreciation": 0.10},  # 0.80
+ "ARM":         {"labor": 0.20, "cloud_opex": 0.10},                                              # 0.30
+ "Palantir":    {"labor": 0.12, "cloud_opex": 0.08},                                              # 0.20
+ "Astera Labs": {"advanced_packaging": 0.25, "wafer_foundry": 0.15, "customer_capex": 0.10},      # 0.50
+ "CoreWeave":   {"gpu_depreciation": 0.35, "energy_power": 0.25, "fab_utilization": 0.15},        # 0.75
+}

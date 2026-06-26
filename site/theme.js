@@ -24,6 +24,7 @@
   [data-theme="dark"] .r-maybe{background:var(--amberbg)!important;color:var(--amber)}
   [data-theme="dark"] .plan.paid{background:var(--amberbg)!important;color:var(--amber)}
   [data-theme="dark"] .note{background:#22240f!important;border-color:#4a3f1e!important;color:var(--amber)}
+  [data-theme="dark"] .corrwarn{background:#22240f!important;border-color:#4a3f1e!important;color:var(--amber)!important}
   [data-theme="dark"] .warn{color:var(--red)!important;border-color:#5a2a25!important}
   [data-theme="dark"] .logout, [data-theme="dark"] .sell{background:var(--paper)!important;color:var(--ink)}
   [data-theme="dark"] .sell{color:var(--blue)}
@@ -34,7 +35,7 @@
     font:600 13px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;cursor:pointer;
     box-shadow:0 6px 18px rgba(0,0,0,.18);display:flex;align-items:center;gap:8px}
   #themeBtn:hover{filter:brightness(1.06)}
-  @media(max-width:640px){#themeBtn{bottom:auto;top:8px;left:8px;height:34px;padding:0 12px;font-size:12px}}
+  @media(max-width:640px){#themeBtn{bottom:14px;top:auto;left:12px;height:34px;padding:0 12px;font-size:12px}}
   `;
   const st = document.createElement("style");
   st.textContent = css;

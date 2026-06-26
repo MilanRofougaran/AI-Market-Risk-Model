@@ -5,8 +5,8 @@
 | Epoch | stress | base P/E | sim median DD | sim p90 DD | realized | captured? |
 |---|--:|--:|--:|--:|--:|:--:|
 | 2000 Dot-Com peak | 59/100 | 12.1 | -43% | -69% | -49% | yes |
-| 2007 GFC eve | 41/100 | 15.5 | -37% | -64% | -57% | yes |
-| 2011 EU debt / US downgrade | 45/100 | 23.5 | -38% | -64% | -19% | yes |
+| 2007 GFC eve | 41/100 | 15.5 | -38% | -64% | -57% | yes |
+| 2011 EU debt / US downgrade | 45/100 | 23.5 | -37% | -64% | -19% | yes |
 | 2015-16 China deval / oil | 40/100 | 22.9 | -36% | -63% | -14% | yes |
 | 2018 Q4 tightening | 40/100 | 19.4 | -37% | -63% | -20% | yes |
 | 2020 COVID shock | 39/100 | 24.6 | -36% | -62% | -34% | yes |

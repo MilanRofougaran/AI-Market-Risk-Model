@@ -105,6 +105,51 @@ def simulate(names, n_paths=20000, group_corr=True, seed=None):
     return name_mdd, np.concatenate(port_mdd)
 
 
+def basket_terminal(weights, n_paths=8000, seed=None):
+    """Weighted-basket P(never) using the CANONICAL definition (P(never recover | drawdown>DEPTH),
+    via E._drawdown_and_recovery + E.recovery_curve on the weighted portfolio price path) -- so it
+    is apples-to-apples with single-name / real-ETF P(never). Same joint-sim machinery as simulate()
+    (crisis-spiking rho, tail widening, grind). RESEARCH MODEL -- NOT INVESTMENT ADVICE."""
+    names = [n for n in weights if n in _specs(list(weights))]
+    specs = _specs(names)
+    names = [n for n in names if n in specs]
+    if not names:
+        return {"error": "no priceable names"}
+    tot = sum(weights[n] for n in names) or 1.0
+    w = {n: weights[n] / tot for n in names}
+    DEPTH = getattr(E, "DEPTH", getattr(C, "DEPTH", 0.25))
+    DAYS = C.SIM["days"]; CH = C.SIM["chunk"]
+    rng = np.random.default_rng(seed if seed is not None else C.SIM["seed"])
+    mdds, recs, name_mdd, done = [], [], {nm: [] for nm in names}, 0
+    while done < n_paths:
+        n = min(CH, n_paths - done)
+        factor, crisis, grind = E._simulate_factor(rng, n, DAYS, return_grind=True)
+        freeze = E._systemic_freeze(factor, DAYS)
+        sub = {g: rng.standard_normal((n, DAYS)) for g in GROUP_RHO}
+        port_price = np.zeros((n, DAYS))
+        for nm in names:
+            s = specs[nm]
+            price = E._price_path(rng, factor, crisis, s, n, DAYS,
+                                  tail_mult=s.get("tail_mult", 1.0), subfactors=sub, grind=grind)
+            port_price += w[nm] * (price / price[:, [0]])     # weighted portfolio index, start=1.0
+            pk = np.maximum.accumulate(price, axis=1)
+            name_mdd[nm].append((price / pk - 1).min(axis=1))
+        mdd, rec = E._drawdown_and_recovery(port_price, 378, path_offset=done, freeze=freeze)
+        mdds.append(mdd); recs.append(rec); done += n
+    mdd = np.concatenate(mdds); rec = np.concatenate(recs)
+    rc = E.recovery_curve(mdd, rec, DEPTH)
+    name_mdd = {nm: np.concatenate(v) for nm, v in name_mdd.items()}
+    if len(names) < 2:
+        rho, neff = float("nan"), 1.0
+    else:
+        rho, neff, _ = _avg_corr_and_neff(name_mdd, names)
+    return {"p_never": rc["p_never"],                          # canonical: P(never | DD>DEPTH)
+            "p_fall_25pct": float((mdd <= -DEPTH).mean()),
+            "correlation_adjusted_effN": (round(neff, 1) if neff == neff else 1.0),
+            "avg_crisis_correlation": (round(rho, 2) if rho == rho else None),
+            "n_names": len(names)}
+
+
 def _avg_corr_and_neff(name_mdd, names):
     M = np.vstack([name_mdd[nm] for nm in names])
     cm = np.corrcoef(M)

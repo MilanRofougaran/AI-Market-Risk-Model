@@ -170,6 +170,25 @@ STOCK_TAM_FACTS = {
              "largely floating — the high-growth/high-fragility archetype."),
 }
 
+# ---- UNIVERSE EXPANSION (AI-assisted candidate pool) ----------------------
+# expand_universe.py writes discovery/expansion.json: a larger pool of AI/tech
+# names whose model inputs were researched by Claude + grounded in Polygon.
+# Merge their TAM-facts here so the whole pool is priceable through one engine;
+# the dashboard then shows the Top N by reward. (Names enter/leave as scores move.)
+import os as _os, json as _json
+_EXP = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "expansion.json")
+if _os.path.exists(_EXP):
+    try:
+        _exp = _json.load(open(_EXP))
+        _TF = ("rev_bn", "tam_bn", "tam_cagr", "fwd_pe", "beta",
+               "quality", "earn_quality", "dominance", "capex_elastic", "role")
+        for _name, _rec in (_exp.get("companies") or {}).items():
+            if _name not in STOCK_TAM_FACTS:
+                STOCK_TAM_FACTS[_name] = {_k: _rec[_k] for _k in _TF if _k in _rec}
+        print("[tam_bridge] expansion.json merged;", len(_exp.get("companies") or {}), "pool names")
+    except Exception as _e:
+        print("[tam_bridge] expansion.json ignored:", _e)
+
 # Names where the P/E is a sentinel (no real earnings); flagged so downstream
 # code and humans treat their decomposition as 'premium ~ all floating'.
 PRE_EARNINGS = {"IonQ"}

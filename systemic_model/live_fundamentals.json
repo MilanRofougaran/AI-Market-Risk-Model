@@ -1,0 +1,152 @@
+{
+  "as_of": "2026-06-26",
+  "source": "Claude (claude-opus-4-8) + Polygon financials",
+  "companies": {
+    "IonQ": {
+      "growth": 0.6,
+      "rationale": "Lowered growth from 0.8 toward fresh 43.9% YoY; quantum still early but trend below prior assumption."
+    },
+    "Astera Labs": {
+      "growth": 0.55,
+      "rationale": "Lowered growth from 0.7; fresh YoY is 17.5%, well below prior, though forward AI connectivity ramp keeps it elevated above trailing."
+    },
+    "CoreWeave": {
+      "growth": 0.6,
+      "rationale": "unchanged: no fresh YoY; $6bn TTM consistent with prior high-growth assumption."
+    },
+    "Palantir": {
+      "growth": 0.45,
+      "rationale": "Lowered from 0.55; fresh 16.7% trailing YoY, but US commercial/AIP momentum justifies forward above trailing."
+    },
+    "Lumentum": {
+      "growth": 0.4,
+      "rationale": "Lowered from 0.55; fresh 18.2% YoY, modest forward uplift from datacom optics ramp."
+    },
+    "Applied Optoelectronics": {
+      "growth": 0.45,
+      "rationale": "Lowered from 0.55; fresh 11.3% YoY remains soft despite datacenter optics optionality."
+    },
+    "Micron": {
+      "growth": 0.45,
+      "rev_bn": 8.0,
+      "tam_cagr": 0.4,
+      "fwd_pe": 12.0,
+      "quality": 0.65,
+      "earn_quality": 0.45,
+      "dominance": 0.3,
+      "rationale": "Nudged growth down slightly; 37.4% YoY strong but HBM cycle maturing, otherwise unchanged."
+    },
+    "AMD": {
+      "growth": 0.4,
+      "rev_bn": 16.6,
+      "tam_cagr": 0.5,
+      "fwd_pe": 27.0,
+      "quality": 0.75,
+      "earn_quality": 0.8,
+      "dominance": 0.25,
+      "rationale": "Lowered growth modestly; fresh 8.1% total YoY weak though AI GPU ramp supports higher forward segment growth."
+    },
+    "NVIDIA": {
+      "growth": 0.45,
+      "rev_bn": 193.7,
+      "tam_cagr": 0.45,
+      "fwd_pe": 30.0,
+      "quality": 0.9,
+      "earn_quality": 0.85,
+      "dominance": 0.85,
+      "rationale": "unchanged: 17.4% trailing reflects tough comps but forward datacenter demand supports prior 0.45."
+    },
+    "Broadcom": {
+      "growth": 0.38,
+      "rev_bn": 20.0,
+      "tam_cagr": 0.4,
+      "fwd_pe": 29.0,
+      "quality": 0.85,
+      "earn_quality": 0.85,
+      "dominance": 0.7,
+      "rationale": "unchanged: total YoY 10.5% but custom AI ASIC segment growing faster, prior segment assumptions intact."
+    },
+    "Marvell": {
+      "growth": 0.35,
+      "rev_bn": 6.0,
+      "tam_cagr": 0.35,
+      "fwd_pe": 24.0,
+      "quality": 0.7,
+      "earn_quality": 0.8,
+      "dominance": 0.4,
+      "rationale": "unchanged: 6.4% total trailing weak but AI custom silicon forward ramp supports prior growth."
+    },
+    "AppLovin": {
+      "growth": 0.3,
+      "rationale": "unchanged: fresh 6.2% total YoY low but ad-engine AI scaling supports forward growth above trailing."
+    },
+    "Vertiv": {
+      "growth": 0.28,
+      "rationale": "unchanged: 6% trailing but datacenter cooling/power backlog supports prior forward growth."
+    },
+    "Coherent": {
+      "growth": 0.25,
+      "rationale": "unchanged: 4.9% trailing offset by datacom transceiver ramp, prior value reasonable."
+    },
+    "ARM": {
+      "growth": 0.25,
+      "rev_bn": 4.0,
+      "tam_cagr": 0.3,
+      "fwd_pe": 70.0,
+      "quality": 0.8,
+      "earn_quality": 0.9,
+      "dominance": 0.9,
+      "rationale": "unchanged: no fresh data available."
+    },
+    "Meta": {
+      "growth": 0.18,
+      "rationale": "unchanged: 6.1% trailing total but AI-driven ad and infra investment supports prior forward assumption."
+    },
+    "Oracle": {
+      "growth": 0.18,
+      "rationale": "Nudged growth up slightly; OCI/cloud backlog accelerating despite 8.1% trailing total."
+    },
+    "Microsoft": {
+      "growth": 0.14,
+      "rationale": "unchanged: 4.2% total trailing but Azure AI growth supports prior forward value."
+    },
+    "Texas Instruments": {
+      "growth": 0.14,
+      "rationale": "unchanged: 6.1% trailing recovery in analog cycle consistent with prior."
+    },
+    "Amazon": {
+      "growth": 0.13,
+      "rationale": "unchanged: 3.7% total trailing but AWS AI reacceleration supports prior."
+    },
+    "Alphabet": {
+      "growth": 0.12,
+      "rationale": "unchanged: 4.5% total trailing, cloud AI momentum supports prior forward value."
+    },
+    "Qualcomm": {
+      "growth": 0.08,
+      "rev_bn": 44.3,
+      "tam_cagr": 0.2,
+      "fwd_pe": 14.0,
+      "quality": 0.35,
+      "earn_quality": 0.7,
+      "dominance": 0.45,
+      "rationale": "unchanged: fresh -0.8% YoY confirms flat handset trajectory matching prior low growth."
+    },
+    "Apple": {
+      "growth": 0.07,
+      "rationale": "unchanged: 3.6% trailing consistent with prior modest growth."
+    },
+    "Cisco": {
+      "growth": 0.06,
+      "rationale": "unchanged: 2.4% trailing consistent with prior."
+    },
+    "IBM": {
+      "growth": 0.05,
+      "rationale": "unchanged: 1.5% trailing consistent with prior low growth."
+    },
+    "Tesla": {
+      "growth": 0.15,
+      "rationale": "Lowered slightly from 0.17; 3.2% trailing weak, AI/robotaxi optionality keeps forward elevated but trimmed."
+    }
+  }
+}

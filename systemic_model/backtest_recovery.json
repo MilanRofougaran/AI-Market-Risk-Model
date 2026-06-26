@@ -1,0 +1,304 @@
+{
+ "as_of": "2026-06-26",
+ "since": "2008",
+ "n_names": 25,
+ "n_episodes": 160,
+ "horizons_m": [
+  6,
+  12,
+  18,
+  24,
+  36
+ ],
+ "realized": {
+  "6": 0.487,
+  "12": 0.662,
+  "18": 0.825,
+  "24": 0.903,
+  "36": 0.948
+ },
+ "n_at_horizon": {
+  "6": 154,
+  "12": 154,
+  "18": 154,
+  "24": 154,
+  "36": 154
+ },
+ "predicted": {
+  "6": 0.07,
+  "12": 0.225,
+  "18": 0.328,
+  "24": 0.394,
+  "36": 0.481
+ },
+ "names": [
+  "NVIDIA",
+  "AMD",
+  "Micron",
+  "Broadcom",
+  "Qualcomm",
+  "Marvell",
+  "Applied Optoelectronics",
+  "Lumentum",
+  "Coherent",
+  "Texas Instruments",
+  "Cisco",
+  "IBM",
+  "Meta",
+  "Tesla",
+  "Amazon",
+  "Alphabet",
+  "Oracle",
+  "Apple",
+  "Microsoft",
+  "Vertiv",
+  "ARM",
+  "SMH (VanEck Semis)",
+  "SOXX (iShares Semis)",
+  "QQQ (Nasdaq-100)",
+  "VOO (S&P 500)"
+ ],
+ "episodes": [
+  {
+   "name": "Applied Optoelectronics",
+   "depth": 0.985,
+   "recovery_months": 43.7,
+   "censored": false
+  },
+  {
+   "name": "AMD",
+   "depth": 0.841,
+   "recovery_months": 16.4,
+   "censored": false
+  },
+  {
+   "name": "NVIDIA",
+   "depth": 0.821,
+   "recovery_months": 84.4,
+   "censored": false
+  },
+  {
+   "name": "Micron",
+   "depth": 0.809,
+   "recovery_months": 10.7,
+   "censored": false
+  },
+  {
+   "name": "AMD",
+   "depth": 0.775,
+   "recovery_months": 12.3,
+   "censored": false
+  },
+  {
+   "name": "Meta",
+   "depth": 0.767,
+   "recovery_months": 14.5,
+   "censored": false
+  },
+  {
+   "name": "Micron",
+   "depth": 0.738,
+   "recovery_months": 16.5,
+   "censored": false
+  },
+  {
+   "name": "Tesla",
+   "depth": 0.736,
+   "recovery_months": 23.3,
+   "censored": false
+  },
+  {
+   "name": "Marvell",
+   "depth": 0.735,
+   "recovery_months": 12.5,
+   "censored": false
+  },
+  {
+   "name": "Coherent",
+   "depth": 0.722,
+   "recovery_months": 16.9,
+   "censored": false
+  },
+  {
+   "name": "Vertiv",
+   "depth": 0.712,
+   "recovery_months": 13.1,
+   "censored": false
+  },
+  {
+   "name": "Applied Optoelectronics",
+   "depth": 0.694,
+   "recovery_months": 23.9,
+   "censored": false
+  },
+  {
+   "name": "Marvell",
+   "depth": 0.684,
+   "recovery_months": 58.8,
+   "censored": false
+  },
+  {
+   "name": "Coherent",
+   "depth": 0.682,
+   "recovery_months": 21.4,
+   "censored": false
+  },
+  {
+   "name": "Lumentum",
+   "depth": 0.669,
+   "recovery_months": 21.1,
+   "censored": false
+  },
+  {
+   "name": "NVIDIA",
+   "depth": 0.664,
+   "recovery_months": 7.3,
+   "censored": false
+  },
+  {
+   "name": "AMD",
+   "depth": 0.654,
+   "recovery_months": 15.1,
+   "censored": false
+  },
+  {
+   "name": "Amazon",
+   "depth": 0.636,
+   "recovery_months": 10.8,
+   "censored": false
+  },
+  {
+   "name": "Micron",
+   "depth": 0.633,
+   "recovery_months": 19.8,
+   "censored": false
+  },
+  {
+   "name": "AMD",
+   "depth": 0.63,
+   "recovery_months": 6.0,
+   "censored": false
+  },
+  {
+   "name": "Coherent",
+   "depth": 0.63,
+   "recovery_months": 25.3,
+   "censored": false
+  },
+  {
+   "name": "Alphabet",
+   "depth": 0.624,
+   "recovery_months": 45.1,
+   "censored": false
+  },
+  {
+   "name": "Marvell",
+   "depth": 0.621,
+   "recovery_months": 22.1,
+   "censored": false
+  },
+  {
+   "name": "Vertiv",
+   "depth": 0.613,
+   "recovery_months": 5.9,
+   "censored": false
+  },
+  {
+   "name": "Marvell",
+   "depth": 0.608,
+   "recovery_months": 11.6,
+   "censored": false
+  },
+  {
+   "name": "Tesla",
+   "depth": 0.606,
+   "recovery_months": 2.7,
+   "censored": false
+  },
+  {
+   "name": "SOXX (iShares Semis)",
+   "depth": 0.602,
+   "recovery_months": 25.7,
+   "censored": false
+  },
+  {
+   "name": "Coherent",
+   "depth": 0.601,
+   "recovery_months": 7.8,
+   "censored": false
+  },
+  {
+   "name": "Apple",
+   "depth": 0.599,
+   "recovery_months": 9.0,
+   "censored": false
+  },
+  {
+   "name": "Vertiv",
+   "depth": 0.586,
+   "recovery_months": 2.5,
+   "censored": false
+  },
+  {
+   "name": "Oracle",
+   "depth": 0.584,
+   "recovery_months": null,
+   "censored": true
+  },
+  {
+   "name": "Texas Instruments",
+   "depth": 0.579,
+   "recovery_months": 21.0,
+   "censored": false
+  },
+  {
+   "name": "Micron",
+   "depth": 0.578,
+   "recovery_months": 5.3,
+   "censored": false
+  },
+  {
+   "name": "Microsoft",
+   "depth": 0.572,
+   "recovery_months": 50.8,
+   "censored": false
+  },
+  {
+   "name": "NVIDIA",
+   "depth": 0.561,
+   "recovery_months": 13.7,
+   "censored": false
+  },
+  {
+   "name": "IBM",
+   "depth": 0.561,
+   "recovery_months": 53.6,
+   "censored": false
+  },
+  {
+   "name": "Amazon",
+   "depth": 0.561,
+   "recovery_months": 15.4,
+   "censored": false
+  },
+  {
+   "name": "SMH (VanEck Semis)",
+   "depth": 0.559,
+   "recovery_months": 25.7,
+   "censored": false
+  },
+  {
+   "name": "Coherent",
+   "depth": 0.548,
+   "recovery_months": 4.1,
+   "censored": false
+  },
+  {
+   "name": "ARM",
+   "depth": 0.54,
+   "recovery_months": 12.5,
+   "censored": false
+  }
+ ],
+ "note": "Validates recovery TIMING against real history. Small, survivorship-biased sample; realized paths are single draws; censored episodes counted only where the outcome at that horizon is known. Research model \u2014 not investment advice."
+}

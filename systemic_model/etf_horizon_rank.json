@@ -5,44 +5,44 @@
   "crash_growth": "broken",
   "horizons": {
    "12m": {
-    "p_fall": 0.558,
-    "depth": 0.525,
-    "p_rec_horizon": 0.14043754410726889,
-    "p_rec_24m": 0.26040931545518703,
-    "exp_return_horizon": -0.055,
-    "exp_return_24m": -0.01,
-    "reward_to_risk": 1.05,
-    "unrec_loss": 0.252
+    "p_fall": 0.5628333333333333,
+    "depth": 0.526,
+    "p_rec_horizon": 0.12923781024467523,
+    "p_rec_24m": 0.25266678401689846,
+    "exp_return_horizon": -0.062,
+    "exp_return_24m": -0.016,
+    "reward_to_risk": 1.02,
+    "unrec_loss": 0.258
    },
    "24m": {
-    "p_fall": 0.8466666666666667,
-    "depth": 0.525,
-    "p_rec_horizon": 0.26040931545518703,
-    "p_rec_24m": 0.26040931545518703,
-    "exp_return_horizon": 0.071,
-    "exp_return_24m": 0.071,
-    "reward_to_risk": 1.81,
-    "unrec_loss": 0.329
+    "p_fall": 0.8494666666666667,
+    "depth": 0.526,
+    "p_rec_horizon": 0.25266678401689846,
+    "p_rec_24m": 0.25266678401689846,
+    "exp_return_horizon": 0.063,
+    "exp_return_24m": 0.063,
+    "reward_to_risk": 1.79,
+    "unrec_loss": 0.334
    },
    "36m": {
-    "p_fall": 0.9446666666666667,
-    "depth": 0.525,
-    "p_rec_horizon": 0.33803810868031053,
-    "p_rec_24m": 0.26040931545518703,
-    "exp_return_horizon": 0.354,
-    "exp_return_24m": 0.277,
-    "reward_to_risk": 3.1,
-    "unrec_loss": 0.328
+    "p_fall": 0.9468333333333333,
+    "depth": 0.526,
+    "p_rec_horizon": 0.32645660975180424,
+    "p_rec_24m": 0.25266678401689846,
+    "exp_return_horizon": 0.34,
+    "exp_return_24m": 0.266,
+    "reward_to_risk": 3.03,
+    "unrec_loss": 0.335
    },
    "60m": {
-    "p_fall": 0.9933333333333333,
-    "depth": 0.525,
-    "p_rec_horizon": 0.42836979534227243,
-    "p_rec_24m": 0.26040931545518703,
-    "exp_return_horizon": 1.259,
-    "exp_return_24m": 0.977,
-    "reward_to_risk": 7.44,
-    "unrec_loss": 0.298
+    "p_fall": 0.9931,
+    "depth": 0.526,
+    "p_rec_horizon": 0.4111248019714839,
+    "p_rec_24m": 0.25266678401689846,
+    "exp_return_horizon": 1.228,
+    "exp_return_24m": 0.962,
+    "reward_to_risk": 7.21,
+    "unrec_loss": 0.308
    }
   }
  },
@@ -52,44 +52,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.23066666666666666,
-    "depth": 0.42,
-    "p_rec_horizon": 0.14118792599805258,
-    "p_rec_24m": 0.314508276533593,
-    "exp_return_horizon": 0.012,
-    "exp_return_24m": 0.031,
-    "reward_to_risk": 1.25,
-    "unrec_loss": 0.083
+    "p_fall": 0.2332,
+    "depth": 0.423,
+    "p_rec_horizon": 0.13723004923706916,
+    "p_rec_24m": 0.2931799346755716,
+    "exp_return_horizon": 0.01,
+    "exp_return_24m": 0.027,
+    "reward_to_risk": 1.22,
+    "unrec_loss": 0.085
    },
    "24m": {
-    "p_fall": 0.5053333333333333,
-    "depth": 0.42,
-    "p_rec_horizon": 0.314508276533593,
-    "p_rec_24m": 0.314508276533593,
-    "exp_return_horizon": 0.041,
-    "exp_return_24m": 0.041,
-    "reward_to_risk": 1.5,
-    "unrec_loss": 0.146
+    "p_fall": 0.5050333333333333,
+    "depth": 0.423,
+    "p_rec_horizon": 0.2931799346755716,
+    "p_rec_24m": 0.2931799346755716,
+    "exp_return_horizon": 0.035,
+    "exp_return_24m": 0.035,
+    "reward_to_risk": 1.45,
+    "unrec_loss": 0.151
    },
    "36m": {
-    "p_fall": 0.6846666666666666,
-    "depth": 0.42,
-    "p_rec_horizon": 0.4050632911392405,
-    "p_rec_24m": 0.314508276533593,
-    "exp_return_horizon": 0.115,
-    "exp_return_24m": 0.08,
-    "reward_to_risk": 2.02,
-    "unrec_loss": 0.171
+    "p_fall": 0.6837666666666666,
+    "depth": 0.423,
+    "p_rec_horizon": 0.3794179300931117,
+    "p_rec_24m": 0.2931799346755716,
+    "exp_return_horizon": 0.104,
+    "exp_return_24m": 0.07,
+    "reward_to_risk": 1.92,
+    "unrec_loss": 0.18
    },
    "60m": {
-    "p_fall": 0.8633333333333333,
-    "depth": 0.42,
-    "p_rec_horizon": 0.5170399221032133,
-    "p_rec_24m": 0.314508276533593,
-    "exp_return_horizon": 0.353,
-    "exp_return_24m": 0.232,
-    "reward_to_risk": 3.65,
-    "unrec_loss": 0.175
+    "p_fall": 0.8707666666666667,
+    "depth": 0.423,
+    "p_rec_horizon": 0.48135328815872863,
+    "p_rec_24m": 0.2931799346755716,
+    "exp_return_horizon": 0.326,
+    "exp_return_24m": 0.213,
+    "reward_to_risk": 3.35,
+    "unrec_loss": 0.191
    }
   }
  },
@@ -99,44 +99,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.164,
+    "p_fall": 0.16756666666666667,
     "depth": 0.402,
-    "p_rec_horizon": 0.11045828437132785,
-    "p_rec_24m": 0.26321974148061106,
-    "exp_return_horizon": -0.003,
-    "exp_return_24m": 0.008,
-    "reward_to_risk": 1.01,
-    "unrec_loss": 0.059
+    "p_rec_horizon": 0.10752069917203312,
+    "p_rec_24m": 0.2537373505059798,
+    "exp_return_horizon": -0.005,
+    "exp_return_24m": 0.006,
+    "reward_to_risk": 0.98,
+    "unrec_loss": 0.06
    },
    "24m": {
-    "p_fall": 0.39066666666666666,
+    "p_fall": 0.4055666666666667,
     "depth": 0.402,
-    "p_rec_horizon": 0.26321974148061106,
-    "p_rec_24m": 0.26321974148061106,
-    "exp_return_horizon": -0.008,
-    "exp_return_24m": -0.008,
-    "reward_to_risk": 1.05,
-    "unrec_loss": 0.116
+    "p_rec_horizon": 0.2537373505059798,
+    "p_rec_24m": 0.2537373505059798,
+    "exp_return_horizon": -0.015,
+    "exp_return_24m": -0.015,
+    "reward_to_risk": 1.0,
+    "unrec_loss": 0.122
    },
    "36m": {
-    "p_fall": 0.5673333333333334,
+    "p_fall": 0.5797333333333333,
     "depth": 0.402,
-    "p_rec_horizon": 0.36780258519388953,
-    "p_rec_24m": 0.26321974148061106,
-    "exp_return_horizon": 0.017,
-    "exp_return_24m": -0.012,
-    "reward_to_risk": 1.3,
-    "unrec_loss": 0.144
+    "p_rec_horizon": 0.3455036798528059,
+    "p_rec_24m": 0.2537373505059798,
+    "exp_return_horizon": 0.007,
+    "exp_return_24m": -0.018,
+    "reward_to_risk": 1.23,
+    "unrec_loss": 0.152
    },
    "60m": {
-    "p_fall": 0.776,
+    "p_fall": 0.7885333333333333,
     "depth": 0.402,
-    "p_rec_horizon": 0.48531139835487663,
-    "p_rec_24m": 0.26321974148061106,
-    "exp_return_horizon": 0.119,
-    "exp_return_24m": 0.026,
-    "reward_to_risk": 2.07,
-    "unrec_loss": 0.161
+    "p_rec_horizon": 0.45342686292548295,
+    "p_rec_24m": 0.2537373505059798,
+    "exp_return_horizon": 0.102,
+    "exp_return_24m": 0.018,
+    "reward_to_risk": 1.92,
+    "unrec_loss": 0.173
    }
   }
  },
@@ -146,44 +146,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.11666666666666667,
-    "depth": 0.384,
-    "p_rec_horizon": 0.0865533230293663,
-    "p_rec_24m": 0.2581143740340031,
-    "exp_return_horizon": -0.003,
-    "exp_return_24m": 0.005,
-    "reward_to_risk": 0.97,
-    "unrec_loss": 0.041
+    "p_fall": 0.1144,
+    "depth": 0.382,
+    "p_rec_horizon": 0.08668341708542714,
+    "p_rec_24m": 0.2231746970144842,
+    "exp_return_horizon": -0.002,
+    "exp_return_24m": 0.004,
+    "reward_to_risk": 0.99,
+    "unrec_loss": 0.04
    },
    "24m": {
-    "p_fall": 0.28,
-    "depth": 0.384,
-    "p_rec_horizon": 0.2581143740340031,
-    "p_rec_24m": 0.2581143740340031,
-    "exp_return_horizon": -0.005,
-    "exp_return_24m": -0.005,
-    "reward_to_risk": 1.01,
-    "unrec_loss": 0.08
+    "p_fall": 0.2964,
+    "depth": 0.382,
+    "p_rec_horizon": 0.2231746970144842,
+    "p_rec_24m": 0.2231746970144842,
+    "exp_return_horizon": -0.014,
+    "exp_return_24m": -0.014,
+    "reward_to_risk": 0.92,
+    "unrec_loss": 0.088
    },
    "36m": {
-    "p_fall": 0.43133333333333335,
-    "depth": 0.384,
-    "p_rec_horizon": 0.366306027820711,
-    "p_rec_24m": 0.2581143740340031,
-    "exp_return_horizon": 0.006,
-    "exp_return_24m": -0.014,
-    "reward_to_risk": 1.18,
-    "unrec_loss": 0.105
+    "p_fall": 0.45106666666666667,
+    "depth": 0.382,
+    "p_rec_horizon": 0.3257463789535915,
+    "p_rec_24m": 0.2231746970144842,
+    "exp_return_horizon": -0.007,
+    "exp_return_24m": -0.027,
+    "reward_to_risk": 1.06,
+    "unrec_loss": 0.116
    },
    "60m": {
-    "p_fall": 0.6533333333333333,
-    "depth": 0.384,
-    "p_rec_horizon": 0.500772797527048,
-    "p_rec_24m": 0.2581143740340031,
-    "exp_return_horizon": 0.062,
-    "exp_return_24m": -0.011,
-    "reward_to_risk": 1.71,
-    "unrec_loss": 0.125
+    "p_fall": 0.6636666666666666,
+    "depth": 0.382,
+    "p_rec_horizon": 0.440659178244162,
+    "p_rec_24m": 0.2231746970144842,
+    "exp_return_horizon": 0.042,
+    "exp_return_24m": -0.025,
+    "reward_to_risk": 1.51,
+    "unrec_loss": 0.142
    }
   }
  },
@@ -193,44 +193,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.18266666666666667,
-    "depth": 0.406,
-    "p_rec_horizon": 0.09361702127659574,
-    "p_rec_24m": 0.22872340425531915,
-    "exp_return_horizon": 0.018,
-    "exp_return_24m": 0.029,
-    "reward_to_risk": 1.36,
-    "unrec_loss": 0.067
+    "p_fall": 0.18756666666666666,
+    "depth": 0.405,
+    "p_rec_horizon": 0.09824990690994202,
+    "p_rec_24m": 0.22687376988137667,
+    "exp_return_horizon": 0.017,
+    "exp_return_24m": 0.027,
+    "reward_to_risk": 1.33,
+    "unrec_loss": 0.068
    },
    "24m": {
-    "p_fall": 0.454,
-    "depth": 0.406,
-    "p_rec_horizon": 0.22872340425531915,
-    "p_rec_24m": 0.22872340425531915,
-    "exp_return_horizon": 0.022,
-    "exp_return_24m": 0.022,
-    "reward_to_risk": 1.34,
-    "unrec_loss": 0.142
+    "p_fall": 0.44416666666666665,
+    "depth": 0.405,
+    "p_rec_horizon": 0.22687376988137667,
+    "p_rec_24m": 0.22687376988137667,
+    "exp_return_horizon": 0.025,
+    "exp_return_24m": 0.025,
+    "reward_to_risk": 1.37,
+    "unrec_loss": 0.139
    },
    "36m": {
-    "p_fall": 0.6266666666666667,
-    "depth": 0.406,
-    "p_rec_horizon": 0.3351063829787234,
-    "p_rec_24m": 0.22872340425531915,
-    "exp_return_horizon": 0.08,
+    "p_fall": 0.6266333333333334,
+    "depth": 0.405,
+    "p_rec_horizon": 0.3066652481514974,
+    "p_rec_24m": 0.22687376988137667,
+    "exp_return_horizon": 0.071,
     "exp_return_24m": 0.045,
-    "reward_to_risk": 1.77,
-    "unrec_loss": 0.169
+    "reward_to_risk": 1.7,
+    "unrec_loss": 0.176
    },
    "60m": {
-    "p_fall": 0.824,
-    "depth": 0.406,
-    "p_rec_horizon": 0.425531914893617,
-    "p_rec_24m": 0.22872340425531915,
-    "exp_return_horizon": 0.25,
-    "exp_return_24m": 0.149,
-    "reward_to_risk": 2.85,
-    "unrec_loss": 0.192
+    "p_fall": 0.8291,
+    "depth": 0.405,
+    "p_rec_horizon": 0.40310654822065,
+    "p_rec_24m": 0.22687376988137667,
+    "exp_return_horizon": 0.238,
+    "exp_return_24m": 0.146,
+    "reward_to_risk": 2.74,
+    "unrec_loss": 0.2
    }
   }
  },
@@ -240,44 +240,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.22933333333333333,
-    "depth": 0.415,
-    "p_rec_horizon": 0.14009661835748793,
-    "p_rec_24m": 0.3178743961352657,
+    "p_fall": 0.2286,
+    "depth": 0.418,
+    "p_rec_horizon": 0.13771579050034136,
+    "p_rec_24m": 0.2905003413635034,
     "exp_return_horizon": 0.025,
-    "exp_return_24m": 0.044,
+    "exp_return_24m": 0.041,
     "reward_to_risk": 1.42,
     "unrec_loss": 0.082
    },
    "24m": {
-    "p_fall": 0.5093333333333333,
-    "depth": 0.415,
-    "p_rec_horizon": 0.3178743961352657,
-    "p_rec_24m": 0.3178743961352657,
-    "exp_return_horizon": 0.067,
-    "exp_return_24m": 0.067,
-    "reward_to_risk": 1.71,
-    "unrec_loss": 0.144
+    "p_fall": 0.5034666666666666,
+    "depth": 0.418,
+    "p_rec_horizon": 0.2905003413635034,
+    "p_rec_24m": 0.2905003413635034,
+    "exp_return_horizon": 0.061,
+    "exp_return_24m": 0.061,
+    "reward_to_risk": 1.65,
+    "unrec_loss": 0.149
    },
    "36m": {
-    "p_fall": 0.69,
-    "depth": 0.415,
-    "p_rec_horizon": 0.4067632850241546,
-    "p_rec_24m": 0.3178743961352657,
-    "exp_return_horizon": 0.156,
-    "exp_return_24m": 0.12,
-    "reward_to_risk": 2.31,
-    "unrec_loss": 0.17
+    "p_fall": 0.6835333333333333,
+    "depth": 0.418,
+    "p_rec_horizon": 0.3744269969764947,
+    "p_rec_24m": 0.2905003413635034,
+    "exp_return_horizon": 0.143,
+    "exp_return_24m": 0.11,
+    "reward_to_risk": 2.19,
+    "unrec_loss": 0.179
    },
    "60m": {
-    "p_fall": 0.8633333333333333,
-    "depth": 0.415,
-    "p_rec_horizon": 0.4966183574879227,
-    "p_rec_24m": 0.3178743961352657,
-    "exp_return_horizon": 0.423,
-    "exp_return_24m": 0.312,
-    "reward_to_risk": 4.08,
-    "unrec_loss": 0.181
+    "p_fall": 0.8712666666666666,
+    "depth": 0.418,
+    "p_rec_horizon": 0.47415390617380276,
+    "p_rec_24m": 0.2905003413635034,
+    "exp_return_horizon": 0.404,
+    "exp_return_24m": 0.287,
+    "reward_to_risk": 3.84,
+    "unrec_loss": 0.192
    }
   }
  },
@@ -287,44 +287,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.36133333333333334,
-    "depth": 0.452,
-    "p_rec_horizon": 0.20113085621970922,
-    "p_rec_24m": 0.3772213247172859,
-    "exp_return_horizon": -0.007,
-    "exp_return_24m": 0.026,
-    "reward_to_risk": 1.09,
-    "unrec_loss": 0.131
+    "p_fall": 0.3549333333333333,
+    "depth": 0.453,
+    "p_rec_horizon": 0.2036961819658814,
+    "p_rec_24m": 0.3618196588139724,
+    "exp_return_horizon": -0.005,
+    "exp_return_24m": 0.024,
+    "reward_to_risk": 1.11,
+    "unrec_loss": 0.128
    },
    "24m": {
-    "p_fall": 0.6613333333333333,
-    "depth": 0.452,
-    "p_rec_horizon": 0.3772213247172859,
-    "p_rec_24m": 0.3772213247172859,
-    "exp_return_horizon": 0.061,
-    "exp_return_24m": 0.061,
-    "reward_to_risk": 1.63,
-    "unrec_loss": 0.186
+    "p_fall": 0.6591,
+    "depth": 0.453,
+    "p_rec_horizon": 0.3618196588139724,
+    "p_rec_24m": 0.3618196588139724,
+    "exp_return_horizon": 0.055,
+    "exp_return_24m": 0.055,
+    "reward_to_risk": 1.59,
+    "unrec_loss": 0.191
    },
    "36m": {
-    "p_fall": 0.8253333333333334,
-    "depth": 0.452,
-    "p_rec_horizon": 0.46365105008077545,
-    "p_rec_24m": 0.3772213247172859,
-    "exp_return_horizon": 0.19,
-    "exp_return_24m": 0.142,
-    "reward_to_risk": 2.44,
-    "unrec_loss": 0.2
+    "p_fall": 0.8206666666666667,
+    "depth": 0.453,
+    "p_rec_horizon": 0.44281072298943946,
+    "p_rec_24m": 0.3618196588139724,
+    "exp_return_horizon": 0.18,
+    "exp_return_24m": 0.135,
+    "reward_to_risk": 2.36,
+    "unrec_loss": 0.207
    },
    "60m": {
-    "p_fall": 0.954,
-    "depth": 0.452,
-    "p_rec_horizon": 0.5444264943457189,
-    "p_rec_24m": 0.3772213247172859,
-    "exp_return_horizon": 0.559,
-    "exp_return_24m": 0.419,
-    "reward_to_risk": 4.78,
-    "unrec_loss": 0.197
+    "p_fall": 0.9482666666666667,
+    "depth": 0.453,
+    "p_rec_horizon": 0.5338342810722989,
+    "p_rec_24m": 0.3618196588139724,
+    "exp_return_horizon": 0.551,
+    "exp_return_24m": 0.408,
+    "reward_to_risk": 4.69,
+    "unrec_loss": 0.2
    }
   }
  },
@@ -334,44 +334,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.23466666666666666,
-    "depth": 0.425,
-    "p_rec_horizon": 0.14897760467380722,
-    "p_rec_24m": 0.31158714703018503,
-    "exp_return_horizon": 0.005,
-    "exp_return_24m": 0.022,
-    "reward_to_risk": 1.15,
-    "unrec_loss": 0.085
+    "p_fall": 0.2397,
+    "depth": 0.424,
+    "p_rec_horizon": 0.1484183746939951,
+    "p_rec_24m": 0.3017808284932559,
+    "exp_return_horizon": 0.003,
+    "exp_return_24m": 0.02,
+    "reward_to_risk": 1.13,
+    "unrec_loss": 0.087
    },
    "24m": {
-    "p_fall": 0.514,
-    "depth": 0.425,
-    "p_rec_horizon": 0.31158714703018503,
-    "p_rec_24m": 0.31158714703018503,
-    "exp_return_horizon": 0.024,
-    "exp_return_24m": 0.024,
-    "reward_to_risk": 1.36,
-    "unrec_loss": 0.15
+    "p_fall": 0.5192,
+    "depth": 0.424,
+    "p_rec_horizon": 0.3017808284932559,
+    "p_rec_24m": 0.3017808284932559,
+    "exp_return_horizon": 0.02,
+    "exp_return_24m": 0.02,
+    "reward_to_risk": 1.33,
+    "unrec_loss": 0.154
    },
    "36m": {
-    "p_fall": 0.6846666666666666,
-    "depth": 0.425,
-    "p_rec_horizon": 0.4206426484907498,
-    "p_rec_24m": 0.31158714703018503,
-    "exp_return_horizon": 0.1,
-    "exp_return_24m": 0.058,
-    "reward_to_risk": 1.91,
-    "unrec_loss": 0.169
+    "p_fall": 0.6944333333333333,
+    "depth": 0.424,
+    "p_rec_horizon": 0.3884222147554361,
+    "p_rec_24m": 0.3017808284932559,
+    "exp_return_horizon": 0.084,
+    "exp_return_24m": 0.051,
+    "reward_to_risk": 1.79,
+    "unrec_loss": 0.18
    },
    "60m": {
-    "p_fall": 0.8753333333333333,
-    "depth": 0.425,
-    "p_rec_horizon": 0.5170399221032133,
-    "p_rec_24m": 0.31158714703018503,
-    "exp_return_horizon": 0.307,
-    "exp_return_24m": 0.185,
-    "reward_to_risk": 3.3,
-    "unrec_loss": 0.18
+    "p_fall": 0.8767333333333334,
+    "depth": 0.424,
+    "p_rec_horizon": 0.488503816061057,
+    "p_rec_24m": 0.3017808284932559,
+    "exp_return_horizon": 0.29,
+    "exp_return_24m": 0.18,
+    "reward_to_risk": 3.12,
+    "unrec_loss": 0.19
    }
   }
  },
@@ -381,44 +381,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.30333333333333334,
-    "depth": 0.439,
-    "p_rec_horizon": 0.16463414634146342,
-    "p_rec_24m": 0.32578397212543553,
-    "exp_return_horizon": 0.004,
-    "exp_return_24m": 0.028,
-    "reward_to_risk": 1.16,
-    "unrec_loss": 0.111
+    "p_fall": 0.2950333333333333,
+    "depth": 0.441,
+    "p_rec_horizon": 0.16308282810659921,
+    "p_rec_24m": 0.3143455314694465,
+    "exp_return_horizon": 0.006,
+    "exp_return_24m": 0.029,
+    "reward_to_risk": 1.19,
+    "unrec_loss": 0.109
    },
    "24m": {
-    "p_fall": 0.5973333333333334,
-    "depth": 0.439,
-    "p_rec_horizon": 0.32578397212543553,
-    "p_rec_24m": 0.32578397212543553,
-    "exp_return_horizon": 0.05,
-    "exp_return_24m": 0.05,
-    "reward_to_risk": 1.56,
-    "unrec_loss": 0.177
+    "p_fall": 0.5917333333333333,
+    "depth": 0.441,
+    "p_rec_horizon": 0.3143455314694465,
+    "p_rec_24m": 0.3143455314694465,
+    "exp_return_horizon": 0.047,
+    "exp_return_24m": 0.047,
+    "reward_to_risk": 1.54,
+    "unrec_loss": 0.179
    },
    "36m": {
-    "p_fall": 0.7653333333333333,
-    "depth": 0.439,
-    "p_rec_horizon": 0.4094076655052265,
-    "p_rec_24m": 0.32578397212543553,
-    "exp_return_horizon": 0.154,
-    "exp_return_24m": 0.114,
-    "reward_to_risk": 2.22,
-    "unrec_loss": 0.199
+    "p_fall": 0.7642333333333333,
+    "depth": 0.441,
+    "p_rec_horizon": 0.39555982029921055,
+    "p_rec_24m": 0.3143455314694465,
+    "exp_return_horizon": 0.147,
+    "exp_return_24m": 0.107,
+    "reward_to_risk": 2.16,
+    "unrec_loss": 0.204
    },
    "60m": {
-    "p_fall": 0.9153333333333333,
-    "depth": 0.439,
-    "p_rec_horizon": 0.5078397212543554,
-    "p_rec_24m": 0.32578397212543553,
-    "exp_return_horizon": 0.473,
-    "exp_return_24m": 0.339,
-    "reward_to_risk": 4.23,
-    "unrec_loss": 0.198
+    "p_fall": 0.9202333333333333,
+    "depth": 0.441,
+    "p_rec_horizon": 0.48593361538797053,
+    "p_rec_24m": 0.3143455314694465,
+    "exp_return_horizon": 0.453,
+    "exp_return_24m": 0.326,
+    "reward_to_risk": 4.01,
+    "unrec_loss": 0.209
    }
   }
  },
@@ -428,44 +428,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.302,
-    "depth": 0.438,
-    "p_rec_horizon": 0.2515391380826737,
-    "p_rec_24m": 0.45382585751978893,
-    "exp_return_horizon": 0.073,
-    "exp_return_24m": 0.105,
-    "reward_to_risk": 1.93,
-    "unrec_loss": 0.099
+    "p_fall": 0.3050333333333333,
+    "depth": 0.439,
+    "p_rec_horizon": 0.24364416050409138,
+    "p_rec_24m": 0.42523957467290946,
+    "exp_return_horizon": 0.071,
+    "exp_return_24m": 0.1,
+    "reward_to_risk": 1.89,
+    "unrec_loss": 0.101
    },
    "24m": {
-    "p_fall": 0.588,
-    "depth": 0.438,
-    "p_rec_horizon": 0.45382585751978893,
-    "p_rec_24m": 0.45382585751978893,
-    "exp_return_horizon": 0.219,
-    "exp_return_24m": 0.219,
-    "reward_to_risk": 2.98,
-    "unrec_loss": 0.141
+    "p_fall": 0.5925333333333334,
+    "depth": 0.439,
+    "p_rec_horizon": 0.42523957467290946,
+    "p_rec_24m": 0.42523957467290946,
+    "exp_return_horizon": 0.207,
+    "exp_return_24m": 0.207,
+    "reward_to_risk": 2.8,
+    "unrec_loss": 0.149
    },
    "36m": {
-    "p_fall": 0.758,
-    "depth": 0.438,
-    "p_rec_horizon": 0.5470536499560247,
-    "p_rec_24m": 0.45382585751978893,
-    "exp_return_horizon": 0.436,
-    "exp_return_24m": 0.383,
-    "reward_to_risk": 4.59,
-    "unrec_loss": 0.15
+    "p_fall": 0.7617666666666667,
+    "depth": 0.439,
+    "p_rec_horizon": 0.5180939045201943,
+    "p_rec_24m": 0.42523957467290946,
+    "exp_return_horizon": 0.418,
+    "exp_return_24m": 0.365,
+    "reward_to_risk": 4.28,
+    "unrec_loss": 0.161
    },
    "60m": {
-    "p_fall": 0.9153333333333333,
-    "depth": 0.438,
-    "p_rec_horizon": 0.6455584872471416,
-    "p_rec_24m": 0.45382585751978893,
-    "exp_return_horizon": 1.057,
-    "exp_return_24m": 0.872,
-    "reward_to_risk": 9.83,
-    "unrec_loss": 0.142
+    "p_fall": 0.9166666666666666,
+    "depth": 0.439,
+    "p_rec_horizon": 0.6137487419594801,
+    "p_rec_24m": 0.42523957467290946,
+    "exp_return_horizon": 1.025,
+    "exp_return_24m": 0.843,
+    "reward_to_risk": 9.0,
+    "unrec_loss": 0.155
    }
   }
  },
@@ -475,44 +475,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.2966666666666667,
+    "p_fall": 0.2956,
     "depth": 0.436,
-    "p_rec_horizon": 0.24392439243924394,
-    "p_rec_24m": 0.43564356435643564,
+    "p_rec_horizon": 0.23964996446339729,
+    "p_rec_24m": 0.4185323383084577,
     "exp_return_horizon": 0.063,
-    "exp_return_24m": 0.093,
-    "reward_to_risk": 1.83,
+    "exp_return_24m": 0.09,
+    "reward_to_risk": 1.82,
     "unrec_loss": 0.098
    },
    "24m": {
-    "p_fall": 0.5633333333333334,
+    "p_fall": 0.5815,
     "depth": 0.436,
-    "p_rec_horizon": 0.43564356435643564,
-    "p_rec_24m": 0.43564356435643564,
-    "exp_return_horizon": 0.197,
-    "exp_return_24m": 0.197,
-    "reward_to_risk": 2.81,
-    "unrec_loss": 0.139
+    "p_rec_horizon": 0.4185323383084577,
+    "p_rec_24m": 0.4185323383084577,
+    "exp_return_horizon": 0.185,
+    "exp_return_24m": 0.185,
+    "reward_to_risk": 2.64,
+    "unrec_loss": 0.148
    },
    "36m": {
-    "p_fall": 0.7406666666666667,
+    "p_fall": 0.7504,
     "depth": 0.436,
-    "p_rec_horizon": 0.5211521152115212,
-    "p_rec_24m": 0.43564356435643564,
-    "exp_return_horizon": 0.385,
-    "exp_return_24m": 0.34,
-    "reward_to_risk": 4.12,
-    "unrec_loss": 0.155
+    "p_rec_horizon": 0.5132818052594172,
+    "p_rec_24m": 0.4185323383084577,
+    "exp_return_horizon": 0.377,
+    "exp_return_24m": 0.326,
+    "reward_to_risk": 4.01,
+    "unrec_loss": 0.159
    },
    "60m": {
-    "p_fall": 0.9106666666666666,
+    "p_fall": 0.9111333333333334,
     "depth": 0.436,
-    "p_rec_horizon": 0.630963096309631,
-    "p_rec_24m": 0.43564356435643564,
-    "exp_return_horizon": 0.943,
-    "exp_return_24m": 0.766,
-    "reward_to_risk": 8.71,
-    "unrec_loss": 0.147
+    "p_rec_horizon": 0.6100302061122956,
+    "p_rec_24m": 0.4185323383084577,
+    "exp_return_horizon": 0.924,
+    "exp_return_24m": 0.751,
+    "reward_to_risk": 8.24,
+    "unrec_loss": 0.155
    }
   }
  },
@@ -522,44 +522,44 @@
   "crash_growth": "cyclical",
   "horizons": {
    "12m": {
-    "p_fall": 0.396,
+    "p_fall": 0.4008333333333333,
     "depth": 0.474,
     "p_rec_horizon": 0.0,
-    "p_rec_24m": 0.4142857142857143,
-    "exp_return_horizon": 0.041,
-    "exp_return_24m": 0.14,
-    "reward_to_risk": 1.5,
-    "unrec_loss": 0.188
+    "p_rec_24m": 0.4092240403014801,
+    "exp_return_horizon": 0.038,
+    "exp_return_24m": 0.137,
+    "reward_to_risk": 1.48,
+    "unrec_loss": 0.19
    },
    "24m": {
-    "p_fall": 0.6906666666666667,
+    "p_fall": 0.7060666666666666,
     "depth": 0.474,
-    "p_rec_horizon": 0.4142857142857143,
-    "p_rec_24m": 0.4142857142857143,
-    "exp_return_horizon": 0.326,
-    "exp_return_24m": 0.326,
-    "reward_to_risk": 3.34,
-    "unrec_loss": 0.192
+    "p_rec_horizon": 0.4092240403014801,
+    "p_rec_24m": 0.4092240403014801,
+    "exp_return_horizon": 0.317,
+    "exp_return_24m": 0.317,
+    "reward_to_risk": 3.24,
+    "unrec_loss": 0.198
    },
    "36m": {
-    "p_fall": 0.84,
+    "p_fall": 0.8535666666666667,
     "depth": 0.474,
-    "p_rec_horizon": 0.49523809523809526,
-    "p_rec_24m": 0.4142857142857143,
-    "exp_return_horizon": 0.68,
-    "exp_return_24m": 0.612,
-    "reward_to_risk": 5.49,
-    "unrec_loss": 0.201
+    "p_rec_horizon": 0.49377123442808607,
+    "p_rec_24m": 0.4092240403014801,
+    "exp_return_horizon": 0.672,
+    "exp_return_24m": 0.6,
+    "reward_to_risk": 5.39,
+    "unrec_loss": 0.205
    },
    "60m": {
-    "p_fall": 0.96,
+    "p_fall": 0.9633666666666667,
     "depth": 0.474,
-    "p_rec_horizon": 0.6031746031746031,
-    "p_rec_24m": 0.4142857142857143,
-    "exp_return_horizon": 1.827,
-    "exp_return_24m": 1.531,
-    "reward_to_risk": 13.57,
-    "unrec_loss": 0.181
+    "p_rec_horizon": 0.5858944819775842,
+    "p_rec_24m": 0.4092240403014801,
+    "exp_return_horizon": 1.798,
+    "exp_return_24m": 1.52,
+    "reward_to_risk": 12.96,
+    "unrec_loss": 0.189
    }
   }
  },
@@ -569,44 +569,44 @@
   "crash_growth": "broken",
   "horizons": {
    "12m": {
-    "p_fall": 0.33266666666666667,
-    "depth": 0.445,
-    "p_rec_horizon": 0.10338835794960903,
-    "p_rec_24m": 0.26672458731537796,
-    "exp_return_horizon": -0.01,
-    "exp_return_24m": 0.018,
-    "reward_to_risk": 1.07,
-    "unrec_loss": 0.133
+    "p_fall": 0.32453333333333334,
+    "depth": 0.443,
+    "p_rec_horizon": 0.11713464140730717,
+    "p_rec_24m": 0.27236975642760486,
+    "exp_return_horizon": -0.003,
+    "exp_return_24m": 0.022,
+    "reward_to_risk": 1.12,
+    "unrec_loss": 0.127
    },
    "24m": {
-    "p_fall": 0.6153333333333333,
-    "depth": 0.445,
-    "p_rec_horizon": 0.26672458731537796,
-    "p_rec_24m": 0.26672458731537796,
+    "p_fall": 0.6217333333333334,
+    "depth": 0.443,
+    "p_rec_horizon": 0.27236975642760486,
+    "p_rec_24m": 0.27236975642760486,
     "exp_return_horizon": 0.042,
     "exp_return_24m": 0.042,
     "reward_to_risk": 1.51,
-    "unrec_loss": 0.201
+    "unrec_loss": 0.2
    },
    "36m": {
-    "p_fall": 0.7673333333333333,
-    "depth": 0.445,
-    "p_rec_horizon": 0.3779322328410078,
-    "p_rec_24m": 0.26672458731537796,
-    "exp_return_horizon": 0.172,
-    "exp_return_24m": 0.115,
-    "reward_to_risk": 2.3,
-    "unrec_loss": 0.213
+    "p_fall": 0.7882666666666667,
+    "depth": 0.443,
+    "p_rec_horizon": 0.3768183355886333,
+    "p_rec_24m": 0.27236975642760486,
+    "exp_return_horizon": 0.164,
+    "exp_return_24m": 0.11,
+    "reward_to_risk": 2.24,
+    "unrec_loss": 0.218
    },
    "60m": {
-    "p_fall": 0.924,
-    "depth": 0.445,
-    "p_rec_horizon": 0.5039096437880104,
-    "p_rec_24m": 0.26672458731537796,
-    "exp_return_horizon": 0.544,
-    "exp_return_24m": 0.355,
-    "reward_to_risk": 4.6,
-    "unrec_loss": 0.204
+    "p_fall": 0.9313666666666667,
+    "depth": 0.443,
+    "p_rec_horizon": 0.49598274695534506,
+    "p_rec_24m": 0.27236975642760486,
+    "exp_return_horizon": 0.537,
+    "exp_return_24m": 0.358,
+    "reward_to_risk": 4.52,
+    "unrec_loss": 0.208
    }
   }
  },
@@ -616,44 +616,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.2886666666666667,
+    "p_fall": 0.2841,
     "depth": 0.433,
-    "p_rec_horizon": 0.23232323232323232,
-    "p_rec_24m": 0.43067033976124885,
-    "exp_return_horizon": 0.049,
-    "exp_return_24m": 0.078,
-    "reward_to_risk": 1.67,
-    "unrec_loss": 0.096
+    "p_rec_horizon": 0.22985236353785723,
+    "p_rec_24m": 0.4091381100726895,
+    "exp_return_horizon": 0.051,
+    "exp_return_24m": 0.076,
+    "reward_to_risk": 1.69,
+    "unrec_loss": 0.095
    },
    "24m": {
-    "p_fall": 0.564,
+    "p_fall": 0.5658666666666666,
     "depth": 0.433,
-    "p_rec_horizon": 0.43067033976124885,
-    "p_rec_24m": 0.43067033976124885,
-    "exp_return_horizon": 0.159,
-    "exp_return_24m": 0.159,
-    "reward_to_risk": 2.49,
-    "unrec_loss": 0.139
+    "p_rec_horizon": 0.4091381100726895,
+    "p_rec_24m": 0.4091381100726895,
+    "exp_return_horizon": 0.152,
+    "exp_return_24m": 0.152,
+    "reward_to_risk": 2.4,
+    "unrec_loss": 0.145
    },
    "36m": {
-    "p_fall": 0.726,
+    "p_fall": 0.7383,
     "depth": 0.433,
-    "p_rec_horizon": 0.5151515151515151,
-    "p_rec_24m": 0.43067033976124885,
-    "exp_return_horizon": 0.324,
-    "exp_return_24m": 0.283,
-    "reward_to_risk": 3.69,
-    "unrec_loss": 0.153
+    "p_rec_horizon": 0.5042665583096302,
+    "p_rec_24m": 0.4091381100726895,
+    "exp_return_horizon": 0.315,
+    "exp_return_24m": 0.268,
+    "reward_to_risk": 3.55,
+    "unrec_loss": 0.158
    },
    "60m": {
-    "p_fall": 0.896,
+    "p_fall": 0.9041333333333333,
     "depth": 0.433,
-    "p_rec_horizon": 0.6161616161616161,
-    "p_rec_24m": 0.43067033976124885,
-    "exp_return_horizon": 0.79,
-    "exp_return_24m": 0.639,
-    "reward_to_risk": 7.4,
-    "unrec_loss": 0.149
+    "p_rec_horizon": 0.604045329360242,
+    "p_rec_24m": 0.4091381100726895,
+    "exp_return_horizon": 0.778,
+    "exp_return_24m": 0.618,
+    "reward_to_risk": 7.13,
+    "unrec_loss": 0.155
    }
   }
  },
@@ -663,44 +663,44 @@
   "crash_growth": "secular",
   "horizons": {
    "12m": {
-    "p_fall": 0.30133333333333334,
-    "depth": 0.433,
-    "p_rec_horizon": 0.24440465532676814,
-    "p_rec_24m": 0.4288272157564906,
-    "exp_return_horizon": 0.085,
+    "p_fall": 0.29506666666666664,
+    "depth": 0.434,
+    "p_rec_horizon": 0.23842798646964572,
+    "p_rec_24m": 0.41846181235534985,
+    "exp_return_horizon": 0.086,
     "exp_return_24m": 0.114,
-    "reward_to_risk": 2.06,
-    "unrec_loss": 0.099
+    "reward_to_risk": 2.09,
+    "unrec_loss": 0.097
    },
    "24m": {
-    "p_fall": 0.5773333333333334,
-    "depth": 0.433,
-    "p_rec_horizon": 0.4288272157564906,
-    "p_rec_24m": 0.4288272157564906,
-    "exp_return_horizon": 0.241,
-    "exp_return_24m": 0.241,
-    "reward_to_risk": 3.14,
-    "unrec_loss": 0.143
+    "p_fall": 0.5776,
+    "depth": 0.434,
+    "p_rec_horizon": 0.41846181235534985,
+    "p_rec_24m": 0.41846181235534985,
+    "exp_return_horizon": 0.237,
+    "exp_return_24m": 0.237,
+    "reward_to_risk": 3.08,
+    "unrec_loss": 0.146
    },
    "36m": {
-    "p_fall": 0.7446666666666667,
-    "depth": 0.433,
-    "p_rec_horizon": 0.5308863025962399,
-    "p_rec_24m": 0.4288272157564906,
-    "exp_return_horizon": 0.479,
-    "exp_return_24m": 0.422,
-    "reward_to_risk": 4.91,
-    "unrec_loss": 0.151
+    "p_fall": 0.7489333333333333,
+    "depth": 0.434,
+    "p_rec_horizon": 0.5127737226277372,
+    "p_rec_24m": 0.41846181235534985,
+    "exp_return_horizon": 0.467,
+    "exp_return_24m": 0.413,
+    "reward_to_risk": 4.69,
+    "unrec_loss": 0.158
    },
    "60m": {
-    "p_fall": 0.9106666666666666,
-    "depth": 0.433,
-    "p_rec_horizon": 0.6338406445837064,
-    "p_rec_24m": 0.4288272157564906,
-    "exp_return_horizon": 1.159,
-    "exp_return_24m": 0.955,
-    "reward_to_risk": 10.56,
-    "unrec_loss": 0.144
+    "p_fall": 0.9105333333333333,
+    "depth": 0.434,
+    "p_rec_horizon": 0.6118924692896563,
+    "p_rec_24m": 0.41846181235534985,
+    "exp_return_horizon": 1.136,
+    "exp_return_24m": 0.944,
+    "reward_to_risk": 9.94,
+    "unrec_loss": 0.153
    }
   }
  }

@@ -3,6 +3,19 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Options Lens — Market Analyst</title>
+<meta name="description" content="Options analysis for AI &amp; chip stocks: model fair value vs the live market, spreads, and risk gates. Research, not advice.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MarketAnalyst">
+<meta property="og:title" content="Options — MarketAnalyst">
+<meta property="og:description" content="Options analysis for AI &amp; chip stocks: model fair value vs the live market, spreads, and risk gates. Research, not advice.">
+<meta property="og:image" content="og-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Options — MarketAnalyst">
+<meta name="twitter:description" content="Options analysis for AI &amp; chip stocks: model fair value vs the live market, spreads, and risk gates. Research, not advice.">
+<meta name="twitter:image" content="og-card.svg">
+<script src="keys.js?v=1"></script>
+<script src="mode.js?v=1"></script>
 <style>
 :root{
   --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#fff; --hush:#f5f5f7;
@@ -20,12 +33,13 @@ a{color:var(--blue);text-decoration:none}
 .brand{font-size:18px;font-weight:700;letter-spacing:-.02em}
 .brand .dot{color:var(--blue)}
 .nav .right{display:flex;gap:16px;font-size:14px;align-items:center}
+.nav .right a{color:var(--soft)} .nav .right a:hover{color:var(--ink)}
 
 .wrap{max-width:960px;margin:0 auto;padding:26px max(20px,4vw) 80px}
 h1{font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.02em;margin:6px 0 4px}
 .sub{color:var(--soft);font-size:15px;margin-bottom:18px}
 
-.warn{background:var(--redbg);border:1px solid #f1c5bf;color:#8a2c20;border-radius:14px;padding:13px 16px;font-size:13.5px;line-height:1.55;margin-bottom:22px}
+.warn{background:var(--redbg);border:1px solid #f1c5bf;color:#8a2c20;border-radius:12px;padding:10px 14px;font-size:11.5px;line-height:1.5;margin:26px 0 4px}
 .warn b{color:#6f221a}
 
 .panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin-bottom:18px}
@@ -99,50 +113,183 @@ td.k{font-weight:700;font-family:var(--mono)}
 .chat-i{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:var(--paper)}
 .chat-i input{flex:1;border:1.5px solid var(--line);border-radius:980px;padding:10px 14px;font-size:12.5px;outline:none;font-family:inherit}
 .chat-i button{background:var(--blue);color:#fff;border:0;border-radius:980px;padding:0 18px;font-weight:700;cursor:pointer}
+.updated{display:inline-block;vertical-align:middle;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--green);background:var(--greenbg);border:1px solid #bfe6d2;border-radius:980px;padding:3px 11px;margin-left:8px}
+.qa-btns{display:flex;gap:6px;margin-top:9px}
+.qa-btns button{border:1px solid var(--line);background:var(--paper);color:var(--blue);border-radius:980px;padding:3px 11px;font-size:11.5px;font-weight:600;cursor:pointer}
+.qa-btns button:hover{background:var(--hush)}
+.modeswitch{display:inline-flex;border:1.5px solid var(--line);border-radius:980px;overflow:hidden;background:var(--paper)}
+.modeswitch button{border:0;background:none;padding:6px 13px;font-size:12.5px;font-weight:600;color:var(--soft);cursor:pointer}
+.modeswitch button.on{background:var(--blue);color:#fff}
+.beginner-only{display:none}
+[data-mode="beginner"] .beginner-only{display:block}
+[data-mode="beginner"] .expert-only{display:none}
+.bsteps{font-size:13.5px;color:var(--soft);margin:0 0 14px;line-height:1.5}
+.bsteps b{color:var(--ink)}
+/* two modes: Top picks (ranked list) vs Look up a stock (search -> calls/spreads).
+   hide-only rules so they never override the beginner/expert display rules. */
+[data-optview="lookup"] .view-top{display:none}
+[data-optview="top"] .view-calls,[data-optview="top"] .view-spreads,[data-optview="top"] .needs-stock{display:none}
+[data-lookview="spreads"] .view-calls{display:none}
+[data-lookview="calls"] .view-spreads{display:none}
+.lead-tag{font-size:10px;font-weight:700;border-radius:6px;padding:2px 8px;white-space:nowrap;text-transform:uppercase;letter-spacing:.03em}
+.lead-buy{background:var(--greenbg);color:var(--green)} .lead-watch{background:var(--amberbg);color:var(--amber)} .lead-skip{background:var(--redbg);color:var(--red)}
+.leadrow{cursor:pointer;transition:background .12s} .leadrow:hover{background:var(--hush)}
+.edge-pos{color:var(--green);font-weight:700} .edge-neg{color:var(--red);font-weight:700}
+.livewrap{margin-top:5px}
+.livebtn{font-size:11px;border:1px solid var(--line);background:var(--paper);color:var(--blue);border-radius:980px;padding:2px 10px;cursor:pointer;font-weight:600}
+.livebtn:hover{background:var(--hush)} .livebtn:disabled{opacity:.6;cursor:default}
+.lv-pass{color:var(--green);font-weight:700} .lv-cond{color:var(--amber);font-weight:700} .lv-reject{color:var(--red);font-weight:700}
+.lvline{font-size:11px;color:var(--soft);margin-top:3px;white-space:normal;max-width:260px}
+/* leaderboard detail modal */
+.lmodal{display:none;position:fixed;inset:0;z-index:50;background:rgba(20,20,22,.42);backdrop-filter:blur(3px);align-items:center;justify-content:center;padding:20px}
+.lmodal.open{display:flex}
+.lmodal-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;width:100%;max-width:560px;max-height:86vh;overflow:auto;padding:26px 28px 22px;position:relative;box-shadow:0 24px 70px rgba(0,0,0,.22)}
+.lmodal-x{position:absolute;top:16px;right:18px;border:none;background:none;font-size:17px;color:var(--soft);cursor:pointer;line-height:1}
+.om-head{font-size:22px;font-weight:700;letter-spacing:-.02em;margin:0 28px 2px 0}
+.om-sub{font-size:13px;color:var(--soft);margin-bottom:14px}
+.om-verdict{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.om-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 16px}
+.om-cell{background:var(--hush);border-radius:12px;padding:11px 13px}
+.om-cell .k{font-size:11px;color:var(--soft);font-weight:500}
+.om-cell .v{font-size:19px;font-weight:700;letter-spacing:-.02em;margin-top:1px}
+.om-cell .s{font-size:10.5px;color:var(--soft);margin-top:1px}
+.om-sec{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--soft);margin:0 0 7px}
+.om-leg{font-size:13px;line-height:1.55;background:var(--hush);border-radius:12px;padding:12px 14px;margin-bottom:14px}
+.om-explain{font-size:13px;line-height:1.55;color:var(--ink);margin-bottom:14px}
+.om-live{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.om-warn{font-size:11.5px;line-height:1.5;color:var(--amber);background:#fff8ec;border:1px solid #f3e2c2;border-radius:10px;padding:9px 13px}
+@media(max-width:520px){.lmodal-card{padding:22px 18px}}
+.leadhint{font-size:13px;color:var(--soft);margin:0 0 14px;line-height:1.5}
+/* top-picks tables span the FULL page width so every column fits on one line
+   without scrolling — the table breaks out of the narrow text column. */
+.leadfull{width:96vw;position:relative;left:50%;margin-left:-48vw}
+@media(max-width:1000px){ .leadfull{width:auto;left:auto;margin-left:0} }
+.ltable-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}
+.ltable{width:100%;border-collapse:collapse;font-size:13.5px}
+.ltable th{position:sticky;top:0;background:var(--hush);font-size:12px;font-weight:600;text-transform:none;letter-spacing:0;color:var(--soft);cursor:pointer;user-select:none;padding:11px 14px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+.ltable th:hover{color:var(--ink)}
+.ltable th:first-child,.ltable td:first-child{text-align:right;width:30px}
+.ltable th:nth-child(2),.ltable td:nth-child(2){text-align:left}
+/* the two text columns (Spread legs, Read) are left-aligned data — align their headers to match */
+.ltable th:nth-child(7),.ltable th:nth-child(8){text-align:left}
+.ltable td{padding:11px 14px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap;vertical-align:top}
+.ltable tbody tr:hover{background:var(--hush)}
+.lnum{color:var(--soft);font-variant-numeric:tabular-nums}
+.qmark{display:inline-flex;align-items:center;justify-content:center;width:15px;height:15px;margin-left:5px;border:1px solid var(--line);border-radius:50%;font-size:9px;font-weight:700;color:var(--soft);cursor:help;vertical-align:middle;line-height:1}
+.qmark:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.defbadge{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:999px;background:var(--blue);color:#fff;font-size:9px;font-weight:700;text-transform:none;vertical-align:middle}
+.omodal-bg{position:fixed;inset:0;background:rgba(10,20,28,.4);display:none;align-items:center;justify-content:center;z-index:60;padding:20px}
+.omodal-bg.open{display:flex}
+.omodal{background:var(--paper);border-radius:18px;max-width:420px;width:100%;padding:22px 24px;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.sprd-tag{font-size:10px;font-weight:700;border-radius:6px;padding:2px 7px;white-space:nowrap}
+#bspread ul{margin:0;padding-left:18px;line-height:1.7}
+#bspread li{margin-bottom:6px}
+.bread{background:var(--hush);border-radius:12px;padding:12px 14px;margin-top:6px}
+.bnote{font-size:12.5px;line-height:1.5;color:var(--amber);background:#fff8ec;border:1px solid #f3e2c2;border-radius:10px;padding:9px 13px;margin-bottom:16px}
+.bnote a{color:var(--blue)}
+.bexplain{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:16px;font-size:14px;line-height:1.6}
+.bexplain h3{margin:0 0 8px;font-size:16px}
+.bexplain .warnline{color:var(--amber);font-weight:600;margin-top:8px}
+.bread{font-size:15px;line-height:1.6;margin-top:12px}
+@media(max-width:600px){
+  .nav{flex-wrap:wrap;gap:8px;padding:12px 16px}
+  .nav .right{gap:14px;font-size:13px;flex-wrap:wrap;row-gap:6px}
+  .wrap{padding:20px 16px 72px}
+  h1{font-size:24px;line-height:1.2}
+  .panel{padding:16px 14px;border-radius:14px}
+  .controls{gap:12px}
+  table{display:block;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+  .glabel{width:104px}
+  .chat{right:10px;left:10px;width:auto;max-width:none}
+}
 </style>
 </head>
 <body>
 <nav class="nav">
   <div class="brand">Market<span class="dot">Analyst</span> · Options</div>
   <div class="right">
+    <div class="modeswitch" data-modeswitch title="Switch between a simple view and the full data">
+      <button data-mode-opt="beginner" onclick="setMode('beginner')">Beginner</button>
+      <button data-mode-opt="expert" onclick="setMode('expert')">Expert</button>
+    </div>
+    <a href="how.html">How it works</a>
     <a href="index.html">Dashboard</a>
+    <a href="options.html">Options</a>
     <a href="research.html">Research</a>
     <a href="account.html">My Portfolio</a>
   </div>
 </nav>
 
 <div class="wrap">
-  <h1>Options Lens</h1>
+  <h1>Options Lens <span class="updated" id="optUpdated"></span></h1>
   <div class="sub">What the model thinks a call option is fairly worth — and whether a trade passes its safety gates.</div>
 
-  <div class="warn">
-    <b>⚠ Advanced & high-risk — research only.</b> Options can lose 100% of their cost, fast. These are the model's
-    <b>thesis-conditional</b> fair values (what the move is worth <i>if the model's judgment is right</i>) — <b>not</b> market prices.
-    They ignore implied volatility, so they cannot tell you if an option is mispriced by the market. <b>Not investment advice.</b>
-  </div>
+  <div class="bnote beginner-only">👋 <b>New to options?</b> They're an advanced, high-risk bet — if you're starting out, regular stocks (<a href="index.html">Dashboard</a>) are usually the better choice. Research only — not advice.</div>
+
 
   <!-- selectors -->
   <div class="panel">
     <div class="controls">
       <div class="ctl">
-        <label>Stock / fund</label>
+        <label>View</label>
+        <div class="seg" id="viewSeg">
+          <button data-v="top" class="on" onclick="setOptView('top')">Top picks</button>
+          <button data-v="lookup" onclick="setOptView('lookup')">Look up a stock</button>
+        </div>
+      </div>
+      <div class="ctl needs-stock">
+        <label>Company (type &amp; pick from the list)</label>
         <div class="ac">
-          <input id="nameInput" autocomplete="off" placeholder="Start typing… e.g. Nvidia"
+          <input id="nameInput" autocomplete="off" placeholder="Type a company… e.g. Nvidia, AMD, Micron"
                  oninput="acFilter()" onfocus="acFilter()" onkeydown="acKey(event)">
           <div class="ac-list" id="acList"></div>
         </div>
       </div>
-      <div class="ctl">
-        <label>Expiry (how long until it expires)</label>
+      <div class="ctl needs-stock">
+        <label>How long until it expires</label>
         <div class="seg" id="tenorSeg"></div>
       </div>
+      <div class="ctl needs-stock">
+        <label>Calls or spreads</label>
+        <div class="seg" id="lookSeg">
+          <button data-l="calls" class="on" onclick="setLookView('calls')">Single calls</button>
+          <button data-l="spreads" onclick="setLookView('spreads')">Spreads</button>
+        </div>
+      </div>
     </div>
-    <div class="gatecard" id="gatecard"></div>
-    <div class="likely" id="likely"></div>
+    <div class="bsteps beginner-only needs-stock"><b>1.</b> Pick a company &nbsp;·&nbsp; <b>2.</b> Pick how long &nbsp;·&nbsp; <b>3.</b> Calls or spreads &nbsp;·&nbsp; the model's plain take appears below ↓</div>
+    <div class="bnote beginner-only needs-stock" style="margin-top:10px">💡 <b>Call</b> = a bet the stock goes <b>up</b> by the deadline (cheaper, but can go to zero). <b>Spread</b> = buy one call and sell a higher one — <b>cheaper</b>, but your gain is <b>capped</b> at the higher price.</div>
+    <div class="gatecard needs-stock" id="gatecard"></div>
+    <div class="likely expert-only needs-stock" id="likely"></div>
   </div>
 
+  <!-- TOP PICKS leaderboard (model fair value × live option market) -->
+  <div class="leadhint view-top leadfull">A ranked, decision-oriented list of <b>specific call contracts</b>: the live option <b>market price</b> vs the model's <b>thesis-conditional fair value</b> (IV-blind), with a <b>buy / watch / skip</b> read. <span id="leadAsOf"></span></div>
+  <div class="panel view-top expert-only leadfull">
+    <div class="h2">Top call ideas <span class="dim" id="leadmeta"></span></div>
+    <div class="ltable-wrap"><table class="ltable">
+      <thead><tr id="leadHead"></tr></thead>
+      <tbody id="leadBody"></tbody>
+    </table></div>
+    <div class="explain" style="margin-top:12px">
+      <b>Contract</b> = ticker, expiry, strike (a deep-in-the-money call, the model's higher-confidence zone).
+      <b>Market</b> = the option's live price (% is of the share price). <b>Model fair</b> = what the move is worth <i>if the model's thesis is right</i> — IV-blind, <b>not</b> a market price.
+      <b>Edge</b> = model fair − market (green = model sees value; red = looks rich vs the model). <b>Chance pays</b> = odds it finishes above the strike. Prices as of the date shown.
+      <br><b>BUY / WATCH / SKIP</b> is the model's view of the <i>idea</i>. The <b>⟳ live check</b> is a separate question — can you trade <i>this exact contract</i> well right now (implied volatility + liquidity)? A great idea can still be a <i>poor entry</i> if the contract is thinly traded (low open interest) or its IV is rich — so the two can disagree, and that's the point.
+    </div>
+  </div>
+  <div class="bexplain view-top beginner-only leadfull" id="leadBeginner"></div>
+
+  <div class="bexplain beginner-only view-calls">
+    <p style="margin:0 0 8px;font-size:13px;color:var(--soft)">Type a stock above — here's the model's plain take:</p>
+    <div class="bread" id="bread"></div>
+  </div>
+
+  <!-- beginner spreads explainer -->
+  <div class="bexplain beginner-only view-spreads" id="bspread"></div>
+
   <!-- strike table -->
-  <div class="panel">
+  <div class="panel expert-only view-calls">
     <div class="h2">Call options by strike <span class="dim" id="tblmeta"></span></div>
     <table>
       <thead><tr>
@@ -156,8 +303,25 @@ td.k{font-weight:700;font-family:var(--mono)}
     </div>
   </div>
 
+  <!-- spreads table (expert) -->
+  <div class="panel expert-only view-spreads">
+    <div class="h2">Call spreads <span class="dim" id="sprdmeta"></span></div>
+    <table>
+      <thead><tr>
+        <th>Spread (buy / sell)</th><th>Width</th><th>Cost<br>(% of price)</th><th>Chance of max</th><th>Tail given up</th><th></th>
+      </tr></thead>
+      <tbody id="sprdBody"></tbody>
+    </table>
+    <div class="explain" style="margin-top:12px">
+      A <b>spread</b> = buy one call and sell a higher one, so it costs less but caps the upside.
+      <b>Cost</b> = the model's fair debit (% of share price). <b>Chance of max</b> = odds it reaches the higher (sell) strike.
+      <b>Tail given up</b> = how much of the bought call's value you sell away. The model's rule: cyclicals tolerate spreads (bounded rebound);
+      durable "secular" names get a <b>caution</b> above 35% give-up (large above 55%). Butterflies and tail-kickers are shown where the model prices them; naked upper shorts are banned.
+    </div>
+  </div>
+
   <!-- trade checker -->
-  <div class="panel checker">
+  <div class="panel checker expert-only view-calls">
     <div class="h2">Check a trade</div>
     <div class="row">
       <div class="ctl"><label>Strike</label><select id="ckStrike"></select></div>
@@ -168,8 +332,17 @@ td.k{font-weight:700;font-family:var(--mono)}
     <div id="result"></div>
   </div>
 
+  <div class="warn">
+    <b>⚠ Advanced & high-risk — research only.</b> Options can lose 100% of their cost, fast. These are the model's
+    <b>thesis-conditional</b> fair values (what the move is worth <i>if the model's judgment is right</i>) — <b>not</b> market prices.
+    They ignore implied volatility, so they cannot tell you if an option is mispriced by the market.
+    <b>Calls and call-spreads only</b> — the model is IV-blind and does not price puts. <b>Not investment advice.</b>
+  </div>
+
   <div class="foot" id="foot">Research model — not investment advice.</div>
 </div>
+
+<div class="omodal-bg" id="oinfoBg" onclick="if(event.target===this)oCloseInfo()"><div class="omodal" id="oinfoModal"></div></div>
 
 <button class="chat-toggle" onclick="toggleChat()">💬 Ask about options</button>
 <div class="chat" id="chat">
@@ -179,23 +352,31 @@ td.k{font-weight:700;font-family:var(--mono)}
 • "best options right now"
 • "highest chance to pay"
 • "is an NVIDIA call worth it?"
-• "what should I avoid?"<span class="src">Model data only (16 names, calls). Research, not advice.</span></div>
+• "what should I avoid?"<span class="src">Model data only (the AI &amp; chip league, calls). Research, not advice.</span></div>
   </div>
   <div class="chat-i"><input id="chatq" placeholder="Ask about options…" onkeydown="if(event.key==='Enter')chatSend()"><button onclick="chatSend()">Ask</button></div>
 </div>
 
 <script>
-let LENS=null, STRESS={acute:0.25, score:0.48}, NAME=null, TENOR="24m";
+let LENS=null, SPREADS=null, LEAD=null, STRESS={acute:0.25, score:0.48}, NAME=null, TENOR="24m", VIEW="top";
+document.documentElement.dataset.optview="top";      // default: ranked Top picks
+document.documentElement.dataset.lookview="calls";   // when looking up a stock: calls first
 let NAMES=[], acItems=[], acActive=-1;
 const TENORS=["6m","12m","18m","24m","36m"];
+const TENOR_LABELS={"6m":"6 mo","12m":"1 yr","18m":"18 mo","24m":"2 yr","36m":"3 yr"};
 
 async function boot(){
   try{
     const r=await fetch("data/options_lens.json",{cache:"no-store"}); LENS=await r.json();
   }catch(e){ document.getElementById("foot").textContent="Couldn't load options data."; return; }
+  try{ SPREADS=await (await fetch("data/spread_lens.json",{cache:"no-store"})).json(); }catch(e){ SPREADS=null; }
+  try{ LEAD=await (await fetch("data/options_leaderboard.json",{cache:"no-store"})).json(); }catch(e){ LEAD=null; }
+  document.documentElement.dataset.optview="top";
   try{
     const s=await (await fetch("data/snapshot.json",{cache:"no-store"})).json();
     if(s.stress){ STRESS={acute:s.stress.acute??0.25, score:s.stress.score??0.48}; }
+    if(s.as_of){ const d=new Date(s.as_of+"T00:00:00"); const u=document.getElementById("optUpdated");
+      if(u){ u.textContent="Updated "+(isNaN(d)?s.as_of:d.toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"})); } }
   }catch(e){}
 
   NAMES=Object.keys(LENS.names);
@@ -203,20 +384,284 @@ async function boot(){
   document.getElementById("nameInput").value=NAME;
 
   const seg=document.getElementById("tenorSeg"); seg.innerHTML="";
-  TENORS.forEach(t=>{ const b=document.createElement("button"); b.textContent=t; b.className=(t===TENOR?"on":"");
+  TENORS.forEach(t=>{ const b=document.createElement("button"); b.textContent=TENOR_LABELS[t]||t; b.className=(t===TENOR?"on":"");
     b.onclick=()=>{ TENOR=t; [...seg.children].forEach(c=>c.classList.remove("on")); b.classList.add("on"); render(); };
     seg.appendChild(b); });
 
   document.getElementById("foot").innerHTML=
     `${LENS.paths?.toLocaleString?.()||LENS.paths} simulated paths · discounted at 10y ${(LENS.discount_10y*100).toFixed(1)}% · physical (thesis-conditional) measure, no implied-volatility. Macro stress now: ${(STRESS.score*100).toFixed(0)}/100 (acute ${(STRESS.acute*100).toFixed(0)}). <b>Research model — not investment advice.</b>`;
-  render();
+  try{ render(); }catch(e){ console.error("render failed:", e); }
+  try{ renderLeaderboard(); }catch(e){ console.error("leaderboard failed:", e); }
+}
+
+// ---- Top picks leaderboard (precomputed: model fair value × live option market) ----
+function leadUSD(x){ return x==null?"—":"$"+(+x).toFixed(2); }
+// time-to-expiry in plain months (more intuitive than a calendar date)
+function tenorLabel(expiry){
+  if(!expiry) return "";
+  const d=new Date(expiry+"T00:00:00"); if(isNaN(d)) return "";
+  const now=new Date();
+  const m=(d.getFullYear()-now.getFullYear())*12+(d.getMonth()-now.getMonth());
+  if(m<=0) return "under 1 month";
+  return "~"+m+" month"+(m===1?"":"s");
+}
+function legCell(leg){ return leg ? `buy ${leg.k1}× / sell ${leg.k2}× <span class="dim">· ${Math.round(leg.cost_pct)}%</span>` : "—"; }
+
+/* ===== LIVE broker-bridge check: pull the real option quote + IV and apply the
+   model's market vetoes (liquidity / IV-richness / edge). Server function keeps
+   the key server-side; falls back to client-side Polygon for local dev. ===== */
+const BV={SPREAD_C:0.08,SPREAD_V:0.15,OI:100,VOL:25,RICH_C:1.2,RICH_V:1.5};
+async function fetchOptionMetrics(underlying, occ){
+  try{ const r=await fetch(`/.netlify/functions/option-check?underlying=${encodeURIComponent(underlying)}&occ=${encodeURIComponent(occ)}`);
+    if(r.ok){ const j=await r.json(); if(!j.error) return j; } }catch(e){}
+  if(window.POLYGON_KEY){                                   // local fallback (key already client-side here)
+    const K=window.POLYGON_KEY, fmt=d=>new Date(d).toISOString().slice(0,10);
+    const sj=await (await fetch(`https://api.polygon.io/v3/snapshot/options/${underlying}/${occ}?apiKey=${K}`)).json();
+    const r=sj.results||{}, day=r.day||{}, lq=r.last_quote||{};
+    const market=r.last_trade?.price ?? lq.midpoint ?? day.close ?? null;
+    let spread_pct=null; if(lq.bid!=null&&lq.ask!=null){const mid=(lq.bid+lq.ask)/2; if(mid>0) spread_pct=(lq.ask-lq.bid)/mid;}
+    const aj=await (await fetch(`https://api.polygon.io/v2/aggs/ticker/${underlying}/range/1/day/${fmt(Date.now()-55*864e5)}/${fmt(Date.now())}?adjusted=true&sort=asc&limit=60&apiKey=${K}`)).json();
+    const closes=(aj.results||[]).map(b=>b.c).filter(x=>x>0);
+    const spot=closes.length?closes[closes.length-1]:(r.underlying_asset?.price??null);
+    let rv=null; const c=closes.slice(-30);
+    if(c.length>=6){const ret=[];for(let i=1;i<c.length;i++)ret.push(Math.log(c[i]/c[i-1]));const m=ret.reduce((a,b)=>a+b,0)/ret.length;const v=ret.reduce((a,b)=>a+(b-m)*(b-m),0)/(ret.length-1);rv=Math.sqrt(v)*Math.sqrt(252);}
+    return {market,iv:r.implied_volatility??null,oi:r.open_interest??null,volume:day.volume??null,spread_pct,spot,realized_vol:rv};
+  }
+  return null;
+}
+function brokerVerdict(d, fairPct){
+  const reasons=[]; let worst="PASS";
+  const bump=s=>{ if(s==="VETO") worst="VETO"; else if(s==="CAUTION"&&worst!=="VETO") worst="CAUTION"; };
+  let liq="PASS";
+  if(d.oi!=null&&d.oi<BV.OI){liq="VETO";reasons.push(`thin open interest (${d.oi})`);}
+  if(d.volume!=null&&d.volume<BV.VOL&&liq!=="VETO"){liq="CAUTION";reasons.push(`low volume (${d.volume})`);}
+  if(d.spread_pct!=null){ if(d.spread_pct>=BV.SPREAD_V){liq="VETO";reasons.push(`wide bid/ask (${Math.round(d.spread_pct*100)}%)`);}
+    else if(d.spread_pct>=BV.SPREAD_C&&liq!=="VETO"){liq="CAUTION";reasons.push(`bid/ask ${Math.round(d.spread_pct*100)}%`);} }
+  bump(liq);
+  let rich=null; if(d.iv!=null&&d.realized_vol){ rich=d.iv/d.realized_vol;
+    if(rich>=BV.RICH_V){bump("VETO");reasons.push(`IV very rich (${rich.toFixed(1)}× typical)`);}
+    else if(rich>=BV.RICH_C){bump("CAUTION");reasons.push(`IV elevated (${rich.toFixed(1)}× typical)`);} }
+  const market_pct=(d.market!=null&&d.spot)?d.market/d.spot*100:null;
+  const vrp=(fairPct!=null&&market_pct!=null)?fairPct-market_pct:null;
+  const edge=vrp!=null?vrp>0:null;
+  if(edge===false) reasons.push("priced above the model's fair value");
+  let verdict = worst==="VETO" ? "REJECT" : (edge===false||worst==="CAUTION") ? "CONDITIONAL" : "PASS";
+  return {verdict, rich, vrp, edge, reasons};
+}
+async function liveCheck(occ, underlying, fairPct, btn){
+  btn.disabled=true; btn.textContent="checking live…";
+  try{
+    const d=await fetchOptionMetrics(underlying, occ);
+    if(!d){ btn.textContent="live check unavailable here"; btn.disabled=false; return; }
+    const v=brokerVerdict(d, fairPct);
+    const cls={PASS:"lv-pass",CONDITIONAL:"lv-cond",REJECT:"lv-reject"}[v.verdict];
+    // tradeability of THIS contract (not a second buy/sell call — the model already rated the idea)
+    const label={PASS:"🟢 good to trade now",CONDITIONAL:"🟡 tradeable — caveats",REJECT:"🔴 poor entry right now"}[v.verdict];
+    btn.parentNode.innerHTML=`<span class="${cls}">${label}</span> <span class="dim" style="font-size:10px">(live contract check)</span>
+      <div class="lvline">IV ${d.iv!=null?Math.round(d.iv*100)+"%":"—"}${v.rich?` (${v.rich.toFixed(1)}× typical)`:""} · OI ${d.oi??"—"} · edge ${v.vrp==null?"—":(v.vrp>0?"+":"")+Math.round(v.vrp)+"pts"}${v.reasons.length?" · "+v.reasons.slice(0,2).join(", "):""}</div>`;
+  }catch(e){ btn.textContent="live check failed"; btn.disabled=false; }
+}
+/* spread cost = live two-leg slippage you'd cross entering the debit spread,
+   as a % of the share price. Activates on the live site (serverless fn with the
+   Polygon key); shows a graceful note when run from the static preview. */
+async function execCost(occ, underlying, shortStrike, expiry, btn){
+  btn.disabled=true; btn.textContent="checking spread…";
+  let d=null;
+  try{
+    const rr=await fetch(`/.netlify/functions/exec-cost?underlying=${underlying}&long_occ=${encodeURIComponent(occ)}&short_strike=${shortStrike}&expiry=${expiry}`);
+    if(rr.ok){ const j=await rr.json(); if(!j.error) d=j; }
+  }catch(e){}
+  if(!d){ btn.textContent="spread cost — available on the live site"; btn.disabled=false; return; }
+  const s=d.slippage_pts;
+  const cls = s==null?"lv-cond":(s<=2?"lv-pass":s<=5?"lv-cond":"lv-reject");
+  const label = s==null?"🟡 spread cost: incomplete quotes"
+    :s<=2?`🟢 cheap to enter ~${s}%`
+    :s<=5?`🟡 meaningful cost ~${s}%`
+    :`🔴 costly ~${s}% — consider the ETF`;
+  btn.parentNode.innerHTML=`<span class="${cls}">${label}</span> <span class="dim" style="font-size:10px">(2-leg slippage)</span>
+    <div class="lvline">slippage ${s==null?"—":s+"% of share price"} · long OI ${d.long?.oi??"—"} · short OI ${d.short?.oi??"—"}. ${d.etf_note||""}</div>`;
+}
+/* click a Top-picks row → expanded detail modal (works in beginner + expert) */
+function leadById(rank){ return ((LEAD&&LEAD.rows)||[]).find(r=>r.rank===rank); }
+let _leadOpenRank=null;
+window.openLeadDetail=function(rank){
+  const r=leadById(rank); if(!r) return;
+  _leadOpenRank=rank;
+  const beg=(window.MA_MODE||"beginner")==="beginner";
+  document.getElementById("leadModalBody").innerHTML = beg ? leadDetailBeginner(r) : leadDetailExpert(r);
+  document.getElementById("leadModal").classList.add("open");
+};
+document.addEventListener("modechange",()=>{ const m=document.getElementById("leadModal");
+  if(m&&m.classList.contains("open")&&_leadOpenRank!=null) window.openLeadDetail(_leadOpenRank); });
+// — EXPERT: full data (verdict pills, edge, spread legs, both live checks) —
+function leadDetailExpert(r){
+  const [gSt]=archetypeGate(r.gate);
+  const gcls={PASS:"lead-buy",CAUTION:"lead-watch",REJECT:"lead-skip"}[gSt];
+  const glabel={PASS:"🟢 Tradeable",CAUTION:"🟡 Caution",REJECT:"🔴 Model says avoid"}[gSt];
+  const bcls={buy:"lead-buy",watch:"lead-watch",skip:"lead-skip"}[r.bucket]||"";
+  const edge=r.edge==null?"—":`<span class="${r.edge>0?'edge-pos':'edge-neg'}">${r.edge>0?'+':''}${(+r.edge).toFixed(2)}</span>`;
+  const leg=r.leg;
+  const legHTML = leg ? `<div class="om-sec">Suggested structure — debit spread</div>
+    <div class="om-leg"><b>Buy</b> the ${leg.k1}× strike call, <b>sell</b> the ${leg.k2}× strike call.<br>
+    Net cost ≈ <b>${Math.round(leg.cost_pct)}%</b> of the share price · best-case payoff odds ≈ <b>${Math.round(leg.p_max*100)}%</b> · tail give-up above ${leg.k2}× ≈ <b>${Math.round(leg.giveup*100)}%</b>.<br>
+    <span class="dim">Selling the higher strike caps upside at ${leg.k2}× spot but cuts the cost and risk vs buying the call outright.</span></div>` : "";
+  const live = r.occ ? `<div class="om-live">
+    <span><button class="livebtn" onclick="liveCheck('${r.occ}','${r.ticker}',${r.fair_pct},this)">⟳ live check (IV)</button></span>
+    ${leg?`<span><button class="livebtn" onclick="execCost('${r.occ}','${r.ticker}',${(leg.k2*r.spot).toFixed(2)},'${r.expiry}',this)">⟳ spread cost</button></span>`:""}
+   </div>`:"";
+  return `
+    <div class="om-head">${r.ticker} · $${r.strike} call</div>
+    <div class="om-sub">${r.name||""} · expires in ${tenorLabel(r.expiry)} (${r.expiry_label}) · strike is ${r.strike_mult}× today's $${(+r.spot).toFixed(2)} · rank #${r.rank}</div>
+    <div class="om-verdict"><span class="lead-tag ${bcls}">${r.bucket}</span><span class="lead-tag ${gcls}">${glabel}</span><span class="dim" style="font-size:12px">${r.gate||""}</span></div>
+    <div class="om-grid">
+      <div class="om-cell"><div class="k">Costs now</div><div class="v">${leadUSD(r.market)}</div><div class="s">live market price</div></div>
+      <div class="om-cell"><div class="k">Model's value</div><div class="v">${leadUSD(r.fair)}</div><div class="s">IV-blind fair value</div></div>
+      <div class="om-cell"><div class="k">Edge</div><div class="v">${edge}</div><div class="s">value − cost</div></div>
+      <div class="om-cell"><div class="k">Chance it pays (ITM)</div><div class="v">${r.p_itm}%</div><div class="s">finishes above strike by expiry</div></div>
+    </div>
+    <div class="om-explain">${r.action||""}</div>
+    ${legHTML}
+    ${live}
+    <div class="om-warn">⚠ Options are advanced &amp; high-risk — you can lose your entire premium. "Model's value" assumes the thesis is right and ignores the live IV the market charges; run the live check before trading. Research only — not advice.</div>`;
+}
+// — BEGINNER: plain English, no jargon, the essentials only —
+function leadDetailBeginner(r){
+  const deal = (r.fair!=null && r.market!=null)
+    ? (r.fair>r.market
+        ? `The model thinks it's worth about <b>${leadUSD(r.fair)}</b> — more than it costs right now, so it sees a <b>possible deal</b>.`
+        : `The model thinks it's worth about <b>${leadUSD(r.fair)}</b> — less than it costs right now, so it looks <b>pricey</b>.`)
+    : "";
+  const verdict={buy:["🟢 The model likes this one","lead-buy"],
+                 watch:["🟡 The model says be careful","lead-watch"],
+                 skip:["🔴 The model would skip this","lead-skip"]}[r.bucket]||["",""];
+  const live = r.occ ? `<div class="om-live"><span><button class="livebtn" onclick="liveCheck('${r.occ}','${r.ticker}',${r.fair_pct},this)">⟳ check today's live price</button></span></div>`:"";
+  return `
+    <div class="om-head">${r.ticker} — $${r.strike} call</div>
+    <div class="om-sub">${r.name||r.ticker} · deadline in ${tenorLabel(r.expiry)} (${r.expiry_label})</div>
+    <div class="om-verdict"><span class="lead-tag ${verdict[1]}">${verdict[0]}</span></div>
+    <div class="om-explain">This is a <b>call option</b> — a bet that ${r.name||r.ticker} climbs above <b>$${r.strike}</b> within <b>${tenorLabel(r.expiry)}</b> (by ${r.expiry_label}). ${deal}</div>
+    <div class="om-grid">
+      <div class="om-cell"><div class="k">Costs now</div><div class="v">${leadUSD(r.market)}</div><div class="s">per share to buy in</div></div>
+      <div class="om-cell"><div class="k">Chance it pays</div><div class="v">${r.p_itm}%</div><div class="s">odds it's above $${r.strike} by the deadline</div></div>
+    </div>
+    <div class="om-explain dim">${r.action||""}</div>
+    ${live}
+    <div class="om-warn">⚠ Options are advanced &amp; high-risk — you can lose everything you put in, fast. New to investing? Plain stocks on the <a href="index.html">Dashboard</a> are a better starting point. Research only — not advice.</div>`;
+}
+window.closeLeadDetail=function(){ document.getElementById("leadModal").classList.remove("open"); };
+document.addEventListener("keydown",e=>{ if(e.key==="Escape")window.closeLeadDetail(); });
+
+function renderLeaderboard(){
+  const exp=document.getElementById("leadBody"), beg=document.getElementById("leadBeginner");
+  const meta=document.getElementById("leadmeta"), asof=document.getElementById("leadAsOf");
+  const rows=(LEAD&&LEAD.rows)||[];
+  if(!rows.length){
+    const msg="The Top-picks list refreshes with the daily run — check back shortly.";
+    if(exp) exp.innerHTML=`<tr><td colspan="8" style="text-align:left;color:var(--soft)">${msg}</td></tr>`;
+    if(beg) beg.innerHTML=`<h3>Top picks</h3><p>${msg}</p>`;
+    return;
+  }
+  const dlabel=LEAD.as_of?new Date(LEAD.as_of+"T00:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):"";
+  if(meta) meta.textContent=`· deep-in-the-money ${LEAD.tenor||""} calls`;
+  if(asof) asof.textContent=`Prices as of ${dlabel}. Tap any row for full detail.`;
+  const edgeCell=e=> e==null?"—":`<span class="${e>0?'edge-pos':'edge-neg'}">${e>0?'+':''}${(+e).toFixed(2)}</span>`;
+  const tag=b=>`<span class="lead-tag lead-${b}">${b}</span>`;
+  const exHead=document.getElementById("leadHead");
+  if(exHead){
+    exHead.innerHTML=EXPERT_COLS.map(([k,lbl])=>{
+      const on=LEADSORT.k===k, ar=on?(LEADSORT.dir==="asc"?" ▲":" ▼"):"";
+      const def=k==="rank"?` <span class="defbadge" title="The model's default order — its best picks first">default</span>`:"";
+      return `<th onclick="sortLead('${k}')">${lbl}${ar}${def}</th>`;
+    }).join("");
+  }
+  if(exp){
+    exp.innerHTML=[...rows].sort(cmpLead).map((r,i)=>`<tr class="leadrow" onclick="openLeadDetail(${r.rank})">
+      <td>${i+1}</td>
+      <td style="text-align:left"><b>${r.ticker}</b> $${r.strike}C <span class="dim">${tenorLabel(r.expiry)} · ${r.strike_mult}×</span></td>
+      <td>${leadUSD(r.market)}</td>
+      <td>${leadUSD(r.fair)}</td>
+      <td>${edgeCell(r.edge)}</td>
+      <td>${r.p_itm}%</td>
+      <td style="text-align:left">${legCell(r.leg)}</td>
+      <td style="text-align:left">${tag(r.bucket)} <span class="dim" style="font-size:12px">${r.action}</span>
+        ${r.occ?`<div class="livewrap" onclick="event.stopPropagation()"><span><button class="livebtn" onclick="liveCheck('${r.occ}','${r.ticker}',${r.fair_pct},this)">⟳ live check (IV)</button></span>${r.leg?` <span><button class="livebtn" onclick="execCost('${r.occ}','${r.ticker}',${(r.leg.k2*r.spot).toFixed(2)},'${r.expiry}',this)">⟳ spread cost</button></span>`:""}</div>`:""}</td>
+    </tr>`).join("");
+  }
+  renderLeadBeginner();
+}
+
+/* beginner Top picks = a simple SORTABLE table (mirrors the dashboard):
+   tap a heading to sort, "?" explains it, the default order is badged. */
+let LEADSORT={k:"rank",dir:"asc"};
+const LEAD_COLS=[["rank","#"],["contract","Option"],["market","Costs now"],
+  ["fair","Model's value"],["p_itm","Chance it pays"],["bucket","Verdict"]];
+// expert table columns (same sort keys cmpLead already understands)
+const EXPERT_COLS=[["rank","#"],["contract","Contract"],["market","Market"],
+  ["fair","Model fair"],["edge","Edge"],["p_itm","Chance pays"],["leg","Spread (legs)"],["bucket","Read"]];
+const LEAD_DEFS={
+  rank:{t:"Rank",def:"The model's overall ranking of these option ideas.",want:"#1 is its top pick. This is the default order."},
+  contract:{t:"Option",def:"The exact call: ticker, strike price, and expiry month. These are deep-in-the-money calls (the model's higher-confidence zone).",want:"You're betting the stock stays above the strike."},
+  market:{t:"Costs now",def:"What the option costs to buy right now — the live market price.",want:"Lower cost for the same upside is better."},
+  fair:{t:"Model's value",def:"What the model thinks the option is worth IF its thesis is right. It's IV-blind — NOT a market price.",want:"If this is above 'Costs now', the model sees value."},
+  p_itm:{t:"Chance it pays",def:"The odds the stock finishes above the strike by expiry.",want:"Higher is better."},
+  bucket:{t:"Verdict",def:"The model's read on the contract.",want:"BUY = durable + good value · WATCH = time-sensitive or pricey · SKIP = avoid."},
+  leg:{t:"Spread (the legs)",def:"A cheaper alternative to the plain call: buy one call and sell a higher one. The two strike prices are the 'legs' (e.g. buy 0.75× / sell 1.50× of today's price).",want:"Costs less than the plain call, but your gain is capped at the higher (sell) strike."},
+};
+function oExplain(k){ const d=LEAD_DEFS[k]; if(!d) return;
+  document.getElementById("oinfoModal").innerHTML=
+    `<h3 style="margin:0 0 8px">${d.t}</h3>
+     <div style="font-size:15px;line-height:1.5">${d.def}</div>
+     <div style="margin-top:10px;font-size:14px"><b>What you want:</b> ${d.want}</div>
+     <div style="margin-top:16px"><button class="checkbtn" onclick="oCloseInfo()">Got it</button></div>`;
+  document.getElementById("oinfoBg").classList.add("open"); }
+function oCloseInfo(){ document.getElementById("oinfoBg").classList.remove("open"); }
+function leadDefaultDir(k){ return ({rank:"asc",market:"asc",bucket:"asc",contract:"asc"})[k]||"desc"; }
+function cmpLead(a,b){
+  const k=LEADSORT.k, dir=LEADSORT.dir==="asc"?1:-1;
+  if(k==="bucket"){ const o={buy:0,watch:1,skip:2}; return dir*((o[a.bucket]??9)-(o[b.bucket]??9)); }
+  if(k==="contract"){ return dir*String(a.ticker).localeCompare(String(b.ticker)); }
+  if(k==="leg"){ const av=a.leg?a.leg.cost_pct:null, bv=b.leg?b.leg.cost_pct:null;
+    if(av==null&&bv==null) return 0; if(av==null) return 1; if(bv==null) return -1; return dir*(av-bv); }
+  let av=a[k], bv=b[k];
+  if(av==null&&bv==null) return 0; if(av==null) return 1; if(bv==null) return -1;
+  return dir*(av-bv);
+}
+window.sortLead=(k)=>{ if(LEADSORT.k===k) LEADSORT.dir=LEADSORT.dir==="asc"?"desc":"asc";
+  else { LEADSORT.k=k; LEADSORT.dir=leadDefaultDir(k); } renderLeaderboard(); };
+window.resetLead=()=>{ LEADSORT={k:"rank",dir:"asc"}; renderLeaderboard(); };
+function renderLeadBeginner(){
+  const bs=document.getElementById("leadBeginner"); if(!bs) return;
+  const rows=(LEAD&&LEAD.rows)||[];
+  if(!rows.length){ bs.innerHTML=`<h3>Top picks</h3><p>Refreshes with the daily run — check back shortly.</p>`; return; }
+  const dlabel=LEAD.as_of?new Date(LEAD.as_of+"T00:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):"";
+  const sorted=[...rows].sort(cmpLead);
+  const head="<tr>"+LEAD_COLS.map(([k,lbl])=>{
+    const on=LEADSORT.k===k, ar=on?(LEADSORT.dir==="asc"?" ▲":" ▼"):"";
+    const q=`<span class="qmark" onclick="event.stopPropagation();oExplain('${k}')" title="What does this mean?">?</span>`;
+    const def=k==="rank"?` <span class="defbadge" title="The model's default order — its best picks first">default</span>`:"";
+    return `<th onclick="sortLead('${k}')">${lbl}${ar}${q}${def}</th>`;
+  }).join("")+"</tr>";
+  const tagcls={buy:"lead-buy",watch:"lead-watch",skip:"lead-skip"};
+  const body=sorted.map((r,i)=>`<tr class="leadrow" onclick="openLeadDetail(${r.rank})">
+    <td class="lnum">${i+1}</td>
+    <td><b>${r.ticker}</b> $${r.strike} call <span class="dim">${tenorLabel(r.expiry)}</span></td>
+    <td>${leadUSD(r.market)}</td>
+    <td>${leadUSD(r.fair)}</td>
+    <td>${r.p_itm}%</td>
+    <td><span class="lead-tag ${tagcls[r.bucket]||''}">${r.bucket}</span></td>
+  </tr>`).join("");
+  const reset=(LEADSORT.k==="rank"&&LEADSORT.dir==="asc")?"":` · <a href="#" onclick="resetLead();return false">↺ back to default order</a>`;
+  bs.innerHTML=`<h3 style="margin:0 0 4px">Top option picks — in plain English</h3>
+    <p class="leadhint" style="margin:0 0 10px">A <b>call</b> is a bet a stock will rise by a deadline. Each row shows what it <b>costs now</b>, what the model thinks it's <b>worth</b> (if worth &gt; cost, the model sees a deal), and the <b>chance it pays off</b>. <b style="color:var(--green)">Green BUY</b> = the model likes it; <b style="color:var(--amber)">amber/red</b> = be careful. Tap a <b>?</b> on any heading to learn it, or <b>tap a row</b> for full detail. Prices as of ${dlabel}.${reset}</p>
+    <div class="ltable-wrap"><table class="ltable"><thead>${head}</thead><tbody>${body}</tbody></table></div>
+    <p class="warnline" style="margin-top:10px">⚠ Options are advanced &amp; high-risk — you can lose everything you put in, fast. New to this? Plain stocks (the <a href="index.html">Dashboard</a>) are usually the better place to start. Research only, not advice.</p>`;
 }
 
 // ---- gate logic (ported from premium_check.py) ----
 function archetypeGate(gate){
   const g=(gate||"").toLowerCase();
   if(g.includes("broken")) return ["REJECT", gate];
-  if(g.includes("survivability")||g.includes("watch")||g.includes("uncertain")) return ["CAUTION", gate||"watch"];
+  if(g.includes("survivability")||g.includes("watch")||(g.includes("uncertain")&&!g.includes("mc-uncertain"))) return ["CAUTION", gate||"watch"];
   return ["PASS", gate||"secular"];
 }
 function tenorGate(tenor, gate){
@@ -243,6 +688,22 @@ function render(){
      <div>Middle<b>${q.median.toFixed(2)}×</b></div>
      <div>High (p90)<b>${q.p90.toFixed(2)}×</b></div>`;
 
+  // plain-English read for beginner mode
+  const brd=document.getElementById("bread");
+  if(brd){
+    const g=nd.gate||"secular";
+    const verdict = aSt==="REJECT" ? "the model says <b>avoid</b> options here"
+                  : aSt==="CAUTION" ? "the model says <b>be cautious</b>"
+                  : "the model rates it <b>tradeable</b>";
+    const mid=q.median;
+    const move = mid>=1 ? `up ~${Math.round((mid-1)*100)}%` : `down ~${Math.round((1-mid)*100)}%`;
+    const note = g==="cyclical" ? "Moves in cycles — give it more time."
+               : g==="broken" ? "Risky story — best avoided."
+               : "A durable grower under the model.";
+    const tlab = TENOR_LABELS[TENOR]||TENOR;
+    brd.innerHTML = `<b>${NAME}</b> · ${tlab}: ${verdict}.<br>Most likely the price lands <b>${move}</b> from today. ${note}`;
+  }
+
   // strikes table
   document.getElementById("tblmeta").textContent=`· ${NAME} · ${TENOR}`;
   const strikes=row.strikes;
@@ -262,6 +723,77 @@ function render(){
   ck.innerHTML=Object.keys(strikes).map(k=>`<option value="${k}" ${k==="1.00"?"selected":""}>${(+k).toFixed(2)}×</option>`).join("");
   document.getElementById("result").className="";
   document.getElementById("result").innerHTML="";
+
+  renderSpreads();
+}
+
+// ---- spreads view (from spread_lens.json; grounded in the model's spread rule) ----
+window.setOptView=(v)=>{ VIEW=v; document.documentElement.dataset.optview=v;
+  const seg=document.getElementById("viewSeg");
+  if(seg)[...seg.children].forEach(b=>b.classList.toggle("on",b.dataset.v===v)); };
+window.setLookView=(v)=>{ document.documentElement.dataset.lookview=v;
+  const seg=document.getElementById("lookSeg");
+  if(seg)[...seg.children].forEach(b=>b.classList.toggle("on",b.dataset.l===v)); };
+function spreadType(key){
+  if(key.includes("+")||key.includes("-")) return "tail-kicker";
+  return key.split("/").length===3 ? "butterfly" : "spread";
+}
+// model's archetype rule: cyclical efficient; secular caution >35% (large >55%); broken gated
+function spreadFlag(gate, giveup){
+  const g=(gate||"").toLowerCase();
+  if(g.includes("broken")) return ["REJECT","avoid"];
+  if(g.includes("cyclical")) return ["PASS","ok"];
+  if(giveup>0.55) return ["CAUTION","caution"];
+  if(giveup>0.35) return ["CAUTION","caution"];
+  return ["PASS","ok"];
+}
+function renderSpreads(){
+  const nd = SPREADS && SPREADS.names && SPREADS.names[NAME];
+  const tlab = TENOR_LABELS[TENOR]||TENOR;
+  const meta=document.getElementById("sprdmeta"); if(meta) meta.textContent=`· ${NAME} · ${tlab}`;
+  const body=document.getElementById("sprdBody"), bs=document.getElementById("bspread");
+  const ten = nd && nd.tenors && nd.tenors[TENOR];
+  if(!ten){
+    if(body) body.innerHTML=`<tr><td colspan="6" style="text-align:left;color:var(--soft)">No spreads priced for ${NAME} at ${tlab}.</td></tr>`;
+    if(bs) bs.innerHTML=`<h3>Spreads on ${NAME}</h3><p>No spreads are priced for this one at ${tlab}. Try another expiry.</p>`;
+    return;
+  }
+  const gate=nd.gate||"secular";
+  const tagcls={PASS:"g-pass",CAUTION:"g-caution",REJECT:"g-reject"};
+  // expert table — the 3 spread shapes carry different fields, so normalize safely
+  if(body){
+    const pn=x=>x==null?"—":(+x).toFixed(0)+"%";          // already a percent
+    const pf=x=>x==null?"—":(x*100).toFixed(0)+"%";       // a fraction -> percent
+    body.innerHTML=Object.entries(ten).map(([k,v])=>{
+      const ty=spreadType(k);
+      const giveup = (v.tail_giveup!=null?v.tail_giveup : v.net_tail_sold!=null?v.net_tail_sold : 0);
+      const [st,word]=spreadFlag(gate,giveup);
+      const cost  = v.fair_debit_pct!=null ? v.fair_debit_pct : v.fair_pct;     // % of spot
+      const width = v.width_pct!=null ? v.width_pct : v.capped_zone_pct;        // % (may be undefined)
+      const chance= v.p_max!=null ? v.p_max : (v.p_capped!=null ? v.p_capped : v.p_body); // fraction
+      const legs = ty==="spread" ? k.split("/").map(x=>(+x).toFixed(2)+"×").join(" / ") : k;
+      return `<tr><td class="k">${legs}<div class="dim" style="font-size:11px">${ty}</div></td>
+        <td>${pn(width)}</td><td>${cost==null?"—":(+cost).toFixed(1)+"%"}</td>
+        <td>${pf(chance)}</td><td>${pf(giveup)}</td>
+        <td><span class="sprd-tag ${tagcls[st]}">${word}</span></td></tr>`;
+    }).join("");
+  }
+  // beginner: concept + the simplest 2-leg spreads in plain words
+  if(bs){
+    const verts=Object.entries(ten).filter(([k])=>spreadType(k)==="spread").slice(0,4);
+    const rows=verts.map(([k,v])=>{ const [a,b]=k.split("/");
+      return `<li>Buy at <b>${(+a).toFixed(2)}×</b>, sell at <b>${(+b).toFixed(2)}×</b> → costs about <b>${v.fair_debit_pct.toFixed(0)}%</b> of the share price; pays the most if it reaches ${(+b).toFixed(2)}× (~${(v.p_max*100).toFixed(0)}% chance).</li>`;
+    }).join("");
+    const g=(gate||"").toLowerCase();
+    const tip = g.includes("broken") ? `The model flags ${NAME} as a <b>risky story</b> — best avoided even as a spread.`
+              : g.includes("cyclical") ? `Good fit: for a cyclical name like ${NAME}, the model says spreads are <b>efficient</b>.`
+              : `Tip: don't set the "sell" strike too low, or you give away the big upside this durable name is known for.`;
+    bs.innerHTML=`<h3>Spreads on ${NAME} · ${tlab}</h3>
+      <p style="margin:0 0 8px">A <b>spread</b> = you buy one call and sell a higher one. It's <b>much cheaper</b> than a plain call, but your gains stop at the higher price.</p>
+      <ul>${rows||"<li>No simple spreads priced here.</li>"}</ul>
+      <p style="margin:8px 0 0">${tip}</p>
+      <p class="warnline">Still advanced and high-risk — research only, not advice.</p>`;
+  }
 }
 
 window.useStrike=(k)=>{ document.getElementById("ckStrike").value=k; document.getElementById("ckPrem").focus(); };
@@ -334,16 +866,81 @@ function addCMsg(t, who, src){
   const b=document.getElementById("chatb");
   const d=document.createElement("div"); d.className="cmsg "+who; d.textContent=t;
   if(src){ const s=document.createElement("span"); s.className="src"; s.textContent=src; d.appendChild(s); }
+  b.appendChild(d); b.scrollTop=b.scrollHeight; return d;
+}
+// compact dump of the options model data so Claude answers ONLY from it
+function optContext(){
+  const names=(typeof LENS!=="undefined" && LENS && LENS.names)||{};
+  const out=[];
+  for(const [nm,d] of Object.entries(names)){
+    const parts=[`${nm} (gate:${d.gate})`];
+    for(const ten of ["6m","12m","18m","24m","36m"]){
+      const t=d[ten]; if(!t) continue;
+      const md=t.S_T?t.S_T.median:null;
+      const fv=k=>{const s=t.strikes&&t.strikes[k];return s?s.fair_value_pct_of_spot:"—";};
+      parts.push(`${ten}: median x${md}, fair@0.80=${fv("0.80")}% @1.00=${fv("1.00")}% @1.20=${fv("1.20")}%`);
+    }
+    out.push(parts.join(" | "));
+  }
+  const rate=(typeof LENS!=="undefined"&&LENS)?LENS.discount_10y:"";
+  return `OPTIONS MODEL DATA — "fair value" is the model's THESIS-CONDITIONAL worth as a % of spot price (what the move is worth if the model is right), IV-blind. Rate ${rate}.\n`+out.join("\n");
+}
+async function askClaudeOpt(q, depth){
+  const tone = (window.MA_MODE==="beginner")
+    ? `THE USER IS A BEGINNER. Reply in plain, friendly language like you're explaining to a friend who knows nothing about options. NO tables. NO jargon or abbreviations — do NOT use "ATM", "IV", "fair value %", "gate", "median move", "thesis-conditional". If you mention a number, explain it in everyday words.`
+    : `Tables and the model's terms are fine for this expert user.`;
+  const depthInstr = depth==="simple"
+      ? `Re-explain your answer as SIMPLY as you can for a total beginner — plain everyday words, friendly. A little longer is fine if it helps it click.`
+    : depth==="deep"
+      ? `Give a THOROUGH, detailed answer: walk through the reasoning and relevant numbers from the model, with clear structure.`
+      : `Answer BRIEFLY — 2 to 4 sentences, just the key point. Don't over-explain.`;
+  const sys=`You are the options analyst for an AI/semiconductor RISK model. Answer ONLY from the model data below plus its methodology — never invent numbers.
+${tone}
+${depthInstr}
+Methodology: the model estimates what a stock CALL option is fairly worth UNDER ITS OWN THESIS (a % of the share price), then applies safety GATES (right length of trade, not a broken or cyclically-trapped name). It is BLIND to the option's real market price and implied volatility — so it can't say if the market itself is mispricing an option; "passes the gates" is a conviction test, not a trade signal. "gate" values: secular (durable), cyclical (recovers with its cycle), broken (avoid).
+Rules: never tell the user to buy or sell. End every answer with "Research model — not investment advice."
+
+${optContext()}`;
+  const max = depth==="deep"?1300:depth==="simple"?750:420;
+  const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",
+    headers:{"x-api-key":window.ANTHROPIC_KEY,"anthropic-version":"2023-06-01","content-type":"application/json","anthropic-dangerous-direct-browser-access":"true"},
+    body:JSON.stringify({model:"claude-sonnet-4-6",max_tokens:max,system:sys,messages:[{role:"user",content:q}]})});
+  if(!r.ok) throw new Error("api "+r.status);
+  const d=await r.json();
+  return (d.content||[]).map(b=>b.text||"").join("").trim() || "I couldn't find that in the options data.";
+}
+// answer bubble with "Simpler / In depth" buttons
+function addCAnswer(text, q){
+  const b=document.getElementById("chatb");
+  const d=document.createElement("div"); d.className="cmsg a"; d.textContent=text;
+  const src=document.createElement("span"); src.className="src"; src.textContent="Claude · options model"; d.appendChild(src);
+  const row=document.createElement("div"); row.className="qa-btns";
+  const s=document.createElement("button"); s.textContent="↓ Simpler"; s.onclick=()=>followUpOpt(q,"simple");
+  const dp=document.createElement("button"); dp.textContent="↑ In depth"; dp.onclick=()=>followUpOpt(q,"deep");
+  row.appendChild(s); row.appendChild(dp); d.appendChild(row);
   b.appendChild(d); b.scrollTop=b.scrollHeight;
+}
+async function followUpOpt(q, depth){
+  const ph=addCMsg(depth==="simple"?"Making it simpler…":"Adding detail…","a");
+  try{ const ans=await askClaudeOpt(q, depth); ph.remove(); addCAnswer(ans, q); }
+  catch(e){ ph.textContent="Couldn't do that right now — try again."; }
 }
 async function chatSend(){
   const inp=document.getElementById("chatq"); const q=inp.value.trim(); if(!q) return; inp.value="";
   addCMsg(q,"u");
-  // try the live (Claude) endpoint; it's fed ONLY the model data server-side
+  // 1. live Claude grounded in the options data (local/preview key or deployed server-side)
+  if(window.ANTHROPIC_KEY){
+    const ph=addCMsg("Thinking…","a");
+    try{ const ans=await askClaudeOpt(q,"short"); document.getElementById("chatmode").textContent="Claude · model data";
+         ph.remove(); addCAnswer(ans,q); return; }
+    catch(e){ ph.textContent=offlineOpt(q); return; }
+  }
+  // 2. deployed Netlify proxy (key stays server-side)
   try{
     const r=await fetch("/.netlify/functions/ask-options",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({question:q})});
     if(r.ok){ const j=await r.json(); if(j.answer && !j.offline){ document.getElementById("chatmode").textContent="Claude · model data"; addCMsg(j.answer,"a","Claude · options model"); return; } }
   }catch(e){}
+  // 3. built-in offline answer
   addCMsg(offlineOpt(q),"a","model answer");
 }
 
@@ -403,11 +1000,17 @@ function offlineOpt(q){
   if(/p\(itm\)|in the money|itm/.test(ql)) return "P(ITM) = the model's chance the stock ends ABOVE your strike at expiry. (Finishing in the money isn't the same as profit — you also need to beat the premium you paid.)"+adv;
   if(/fair value|fair/.test(ql)) return "Fair value = what the model thinks the call is worth, as a % of the share price, IF its growth/TAM judgments are right. It's a thesis-conditional value, not a market price — it can't detect market mispricing."+adv;
 
-  return `I answer only from this model's option data (16 names, calls, expiries 6–36m). Try: "best options right now", "highest chance to pay at ${T}", "is an NVIDIA call worth it?", "what's safest?", or "what should I avoid?".`+adv;
+  return `I answer only from this model's option data (the AI & chip league, calls, expiries 6–36m). Try: "best options right now", "highest chance to pay at ${T}", "is an NVIDIA call worth it?", "what's safest?", or "what should I avoid?".`+adv;
 }
 
 boot();
 </script>
+<div id="leadModal" class="lmodal" onclick="if(event.target===this)closeLeadDetail()">
+  <div class="lmodal-card" role="dialog" aria-modal="true">
+    <button class="lmodal-x" onclick="closeLeadDetail()" aria-label="Close">✕</button>
+    <div id="leadModalBody"></div>
+  </div>
+</div>
 <script src="theme.js"></script>
 </body>
 </html>

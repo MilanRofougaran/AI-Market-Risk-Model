@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sign in — Market Analyst</title>
+<meta name="description" content="Sign in to MarketAnalyst — risk-first analysis of AI &amp; chip stocks, ranked by reward for the risk.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MarketAnalyst">
+<meta property="og:title" content="MarketAnalyst — Sign in">
+<meta property="og:description" content="Sign in to MarketAnalyst — risk-first analysis of AI &amp; chip stocks, ranked by reward for the risk.">
+<meta property="og:image" content="og-card.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MarketAnalyst — Sign in">
+<meta name="twitter:description" content="Sign in to MarketAnalyst — risk-first analysis of AI &amp; chip stocks, ranked by reward for the risk.">
+<meta name="twitter:image" content="og-card.svg">
 <style>
 :root{
   --ink:#0a0a0a; --soft:#6e6e73; --line:#e3e3e6; --paper:#fff; --hush:#f5f5f7;
@@ -16,7 +27,12 @@ body{margin:0;font-family:var(--sans);background:var(--hush);color:var(--ink);
   width:100%;max-width:420px;padding:40px 36px}
 .brand{font-size:22px;font-weight:700;letter-spacing:-.02em;text-align:center}
 .brand .dot{color:var(--blue)}
-.tag{text-align:center;color:var(--soft);font-size:15px;margin:6px 0 26px}
+.tag{text-align:center;color:var(--soft);font-size:15px;margin:6px 0 14px}
+.pitch{text-align:center;color:var(--soft);font-size:13.5px;line-height:1.55;margin:0 0 22px}
+.pitch b{color:var(--ink)}
+.pitch .who{display:block;margin-top:8px;font-size:12px;color:var(--soft)}
+.trust{text-align:center;font-size:12px;color:var(--soft);background:var(--hush);border-radius:10px;padding:9px 12px;margin:0 0 20px;line-height:1.5}
+.trust b{color:var(--ink)}
 .tabs{display:flex;background:var(--hush);border-radius:12px;padding:4px;margin-bottom:22px}
 .tabs button{flex:1;border:0;background:none;padding:9px;border-radius:9px;font-size:14px;font-weight:600;color:var(--soft);cursor:pointer}
 .tabs button.on{background:var(--paper);color:var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.08)}
@@ -46,17 +62,39 @@ input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(0,113,227,.12)}
 .pwline{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-top:5px;min-height:16px}
 .strength-label{font-size:12px;font-weight:700;white-space:nowrap}
 .pwhint{font-size:12px;color:var(--soft);text-align:right;flex:1}
+.social{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+.sbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:12px;border-radius:980px;
+  font-size:15px;font-weight:600;cursor:pointer;border:1.5px solid var(--line);background:var(--paper);color:var(--ink)}
+.sbtn:hover{background:var(--hush)}
+.sbtn.apple{background:#000;color:#fff;border-color:#000}.sbtn.apple:hover{background:#1a1a1a}
+.sbtn svg{width:18px;height:18px;flex-shrink:0}
+.divider{display:flex;align-items:center;gap:12px;color:var(--soft);font-size:12px;margin:2px 0 16px}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+@media(max-width:480px){.card{padding:30px 22px;border-radius:20px}}
 </style>
 </head>
 <body>
 <div class="card">
   <div class="brand">Market<span class="dot">Analyst</span></div>
   <div class="tag" id="tag">Welcome back</div>
+  <div class="pitch" id="pitch">
+    Know what you <b>actually</b> own. We don't chase hype — we <b>rank AI &amp; chip stocks by how much reward you get for the risk</b>: how deep they could fall, how long they'd take to bounce back, and whether your &ldquo;different&rdquo; stocks are secretly <b>the same bet</b>.
+    <span class="who">Honest research to understand risk — not hype.</span>
+  </div>
+  <div class="trust">📊 Validated across <b>7 historical market crashes</b> · <b>125</b> stocks &amp; funds tracked · refreshed daily</div>
 
   <div class="tabs">
     <button id="tabLogin" class="on" onclick="setMode('login')">Log in</button>
     <button id="tabSignup" onclick="setMode('signup')">Sign up</button>
   </div>
+
+  <div class="social">
+    <button class="sbtn" onclick="oauth('google')">
+      <svg viewBox="0 0 18 18" aria-hidden="true"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.8.54-1.83.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.96v2.33A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 0 1 0-3.44V4.95H.96a9 9 0 0 0 0 8.1l3.01-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.5.45 3.44 1.35l2.58-2.58A9 9 0 0 0 .96 4.95l3.01 2.33C4.68 5.16 6.66 3.58 9 3.58z"/></svg>
+      Continue with Google
+    </button>
+  </div>
+  <div class="divider">or</div>
 
   <div class="name-field" id="nameField">
     <label for="name">Your name</label>
@@ -109,12 +147,22 @@ window.setMode = (m) => {
   document.getElementById("confirmField").classList.toggle("show", m==="signup");
   document.getElementById("pwmeter").classList.toggle("show", m==="signup");
   document.getElementById("go").textContent = m==="signup" ? "Create account" : "Log in";
-  document.getElementById("tag").textContent = m==="signup" ? "Create your account" : "Welcome back";
+  document.getElementById("tag").textContent = m==="signup" ? "Create your free account" : "Welcome back";
   document.getElementById("password").setAttribute("autocomplete", m==="signup"?"new-password":"current-password");
   msg("");
 };
 
 function msg(t, kind=""){ const el=document.getElementById("msg"); el.textContent=t; el.className="msg "+kind; }
+
+// Google / Apple sign-in (works for both log in and sign up — same flow)
+window.oauth = async (provider) => {
+  msg("");
+  const { error } = await sb.auth.signInWithOAuth({
+    provider,
+    options: { redirectTo: location.origin + "/account.html" }
+  });
+  if(error) msg(error.message || ("Couldn't start " + provider + " sign-in."), "err");
+};
 
 window.forgot = async () => {
   const email = document.getElementById("email").value.trim();

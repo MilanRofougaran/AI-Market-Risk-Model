@@ -9,7 +9,7 @@ on:
         description: "Monte Carlo paths"
         default: "30000"
   schedule:
-    - cron: "0 13 * * 1"   # Mondays 13:00 UTC — weekly published run
+    - cron: "0 22 * * 1-5"   # every weekday 22:00 UTC (after US close) — DAILY re-evaluation
 
 permissions:
   contents: write
@@ -24,6 +24,12 @@ jobs:
         with: { python-version: "3.11" }
       - name: Install deps
         run: pip install numpy numba
+      - name: Fetch today's live market data (FRED)
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: |
+          cd systemic_model
+          python fetch_live.py || echo "live fetch failed — model will use last-known macro"
       - name: Run engine
         run: |
           cd systemic_model
@@ -31,13 +37,24 @@ jobs:
             python discovery/agent.py
           else
             python run_all.py --paths ${{ github.event.inputs.paths || 30000 }}
+            python options_lens.py --paths ${{ github.event.inputs.paths || 30000 }} || echo "options lens skipped"
+            python spread_lens.py || echo "spread lens skipped"
+            python model_extras.py || echo "extras skipped"
           fi
-      - name: Export snapshot
-        run: python export_snapshot.py
-      - name: Commit fresh snapshot (triggers Pages deploy on push)
+      - name: Export snapshot + refresh site data
+        run: |
+          python export_snapshot.py
+          cp systemic_model/options_lens.json site/data/options_lens.json 2>/dev/null || true
+          cp systemic_model/spread_lens.json  site/data/spread_lens.json  2>/dev/null || true
+      - name: Build options "Top picks" leaderboard (model fair value × live option market)
+        env:
+          POLYGON_KEY: ${{ secrets.POLYGON_KEY }}
+        run: python options_leaderboard.py --top 20 || echo "leaderboard skipped"
+      - name: Commit fresh data (triggers Pages deploy on push)
         run: |
           git config user.name "model-bot"
           git config user.email "model-bot@users.noreply.github.com"
-          git add site/data/snapshot.json systemic_model/tier_table.csv systemic_model/results.json || true
-          git commit -m "engine run: fresh snapshot" || echo "no changes"
+          git add site/data/snapshot.json site/data/options_lens.json site/data/spread_lens.json site/data/options_leaderboard.json \
+                  systemic_model/tier_table.csv systemic_model/results.json systemic_model/league.json systemic_model/model_extras.json || true
+          git commit -m "daily re-evaluation: fresh data $(date -u +%Y-%m-%d)" || echo "no changes"
           git push

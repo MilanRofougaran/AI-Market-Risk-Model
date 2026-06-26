@@ -54,6 +54,23 @@ def _resolve(strikes, requested, snaps):
     return key, val, strikes[key]["fair_value_pct_of_spot"], strikes[key]["p_itm"], True
 
 
+import math as _math
+
+def _survival(strikes, x):
+    """P(S_T > x) interpolated from the (strike, p_itm) grid -- p_itm at each strike
+    IS the survival curve of S_T. Clamps below the lowest / above the highest strike."""
+    pts = sorted((float(k), v["p_itm"]) for k, v in strikes.items())
+    if x <= pts[0][0]:
+        return pts[0][1]
+    if x >= pts[-1][0]:
+        return pts[-1][1]
+    for (k0, p0), (k1, p1) in zip(pts, pts[1:]):
+        if k0 <= x <= k1:
+            w = (x - k0) / (k1 - k0)
+            return (1 - w) * p0 + w * p1
+    return pts[-1][1]
+
+
 def main():
     if len(sys.argv) < 5:
         print(__doc__)
@@ -210,6 +227,22 @@ def main():
         pitm = p2v                          # P(finish at max)
         strike_key = f"{strike_key}/{k2_key}"
     edge = fair - mkt
+    # ---- P(profit): probability the discounted payoff beats the premium paid ----
+    # P(ITM) is NOT P(profit): a deep-ITM call can finish ITM yet lose if the premium
+    # was too rich. profit <=> discounted payoff > premium <=> S_T > breakeven.
+    pprofit = None
+    try:
+        months = int(tenor.rstrip("m")); Ty = months / 12.0
+        rr = o.get("discount_10y", 0.045)
+        comp_factor = _math.exp(rr * Ty)            # de-discount the premium to expiry
+        be_prem = (mkt / 100.0) * comp_factor       # premium in spot units, carried to expiry
+        if not (spread or fly or tailk or custom):  # single call: breakeven = K + premium
+            pprofit = _survival(strikes, k1v + be_prem)
+        elif spread:                                # vertical: profit if S_T > K1 + debit, capped at K2
+            be = k1v + be_prem
+            pprofit = _survival(strikes, be) if be < k2v else 0.0
+    except Exception:
+        pprofit = None
     stress = C.SYSTEMIC_STRESS["score"]
     acute = C.SYSTEMIC_STRESS["acute"]
 
@@ -234,6 +267,12 @@ def main():
         "pass" if edge > 0 else "REJECT",
         f"model fair {fair:.1f}% vs market {mkt:.1f}%  (edge {edge:+.1f} pts, physical measure)",
     ))
+    if pprofit is not None:
+        checks.append((
+            "profit odds",
+            "pass",
+            f"P(payoff > premium paid) = {pprofit:.0%}   (vs P(ITM) {pitm:.0%} -- ITM is not profit)",
+        ))
     if custom:
         sec = ("secular" in g) and ("cyclical" not in g)
         if custom_above is not None and custom_above < -1e-9 and sec:

@@ -4048,6 +4048,1592 @@
      "pen": null
     }
    }
+  },
+  {
+   "date": "2026-06-12",
+   "macro": {
+    "sp500_forward_pe": 21.9,
+    "sp500_trailing_pe": 28.6,
+    "shiller_cape": 39.4,
+    "buffett_indicator_pct": 238.0,
+    "equity_risk_premium": -1.4,
+    "ust_10y": 4.45,
+    "ust_10y_real": 2.16,
+    "fed_funds_mid": 3.625,
+    "fed_next_move_bias": "hike",
+    "core_pce_yoy": 3.3,
+    "vix": 19.44,
+    "move": 95.0,
+    "brent_usd": 97.46,
+    "hormuz_status": "subdued; today's shock was jobs->rates, not oil",
+    "margin_debt_tn": 1.304,
+    "hyperscaler_capex_bn": 700,
+    "hy_oas_bps": 278.0,
+    "ig_oas_bps": 75.0,
+    "household_debt_gdp": 60.3,
+    "corp_debt_gdp": 47.0,
+    "margin_debt_yoy": 0.45,
+    "short_interest_pct": 2.0,
+    "fed_net_liq_3m_pct": -1.5,
+    "mmf_dry_powder_gdp": 25.5
+   },
+   "companies": {
+    "NVIDIA": {
+     "fragility": 0.07430555555555557,
+     "recovery_quality": 0.5945005187777778,
+     "p_deep_permanent": 0.095,
+     "pen": 0.38739999999999997
+    },
+    "Broadcom": {
+     "fragility": 0.2450607096165715,
+     "recovery_quality": 0.4944927077917338,
+     "p_deep_permanent": 0.115,
+     "pen": 0.26666666666666666
+    },
+    "Micron": {
+     "fragility": 0.24500000000000002,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.20625,
+     "pen": 0.22857142857142856
+    },
+    "Kioxia": {
+     "fragility": 0.35,
+     "recovery_quality": 0.15595519479425987,
+     "p_deep_permanent": 0.16375,
+     "pen": 0.10068027210884355
+    },
+    "Marvell": {
+     "fragility": 0.19447668650793648,
+     "recovery_quality": 0.5338419075661375,
+     "p_deep_permanent": 0.11,
+     "pen": 0.06382978723404255
+    },
+    "Qualcomm": {
+     "fragility": 0.15000000000000002,
+     "recovery_quality": 0.4266818420988089,
+     "p_deep_permanent": 0.1075,
+     "pen": 0.049222222222222216
+    },
+    "AMD": {
+     "fragility": 0.1800749559082892,
+     "recovery_quality": 0.4903849670536938,
+     "p_deep_permanent": 0.09875,
+     "pen": 0.0332
+    },
+    "ARM": {
+     "fragility": 0.2804491111022093,
+     "recovery_quality": 0.40170491414696374,
+     "p_deep_permanent": 0.15,
+     "pen": 0.5
+    },
+    "Samsung": {
+     "fragility": 0.16499999999999998,
+     "recovery_quality": 0.159765306122449,
+     "p_deep_permanent": 0.1725,
+     "pen": 1.05
+    },
+    "SK Hynix": {
+     "fragility": 0.255,
+     "recovery_quality": 0.0804770408163265,
+     "p_deep_permanent": 0.20375,
+     "pen": 0.5
+    },
+    "Lumentum": {
+     "fragility": 0.4898916408163265,
+     "recovery_quality": 0.15472238677551023,
+     "p_deep_permanent": 0.245,
+     "pen": 0.12
+    },
+    "Coherent": {
+     "fragility": 0.4917047619047619,
+     "recovery_quality": 0.17667638095238095,
+     "p_deep_permanent": 0.25125,
+     "pen": 0.14444444444444443
+    },
+    "Applied Optoelectronics": {
+     "fragility": 0.6090928596938776,
+     "recovery_quality": 0.007218518877551025,
+     "p_deep_permanent": 0.295,
+     "pen": 0.023
+    },
+    "IonQ": {
+     "fragility": 0.7294125185714285,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.36875,
+     "pen": 0.015666666666666666
+    },
+    "Palantir": {
+     "fragility": 0.2873828947368422,
+     "recovery_quality": 0.39418381273333336,
+     "p_deep_permanent": 0.11375,
+     "pen": 0.018
+    },
+    "AppLovin": {
+     "fragility": 0.4216956698627726,
+     "recovery_quality": 0.12356401213933854,
+     "p_deep_permanent": 0.23875,
+     "pen": 0.06875
+    },
+    "Meta": {
+     "fragility": 0.1085041926492819,
+     "recovery_quality": 0.2745874555933484,
+     "p_deep_permanent": 0.1425,
+     "pen": 0.20555555555555555
+    },
+    "Microsoft": {
+     "fragility": 0.16599653061224487,
+     "recovery_quality": 0.3402018306122449,
+     "p_deep_permanent": 0.1375,
+     "pen": 0.19333333333333333
+    },
+    "Amazon": {
+     "fragility": 0.2966097114707952,
+     "recovery_quality": 0.25668157072484166,
+     "p_deep_permanent": 0.19875,
+     "pen": 0.22666666666666666
+    },
+    "Tesla": {
+     "fragility": 0.6260807163621263,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.3075,
+     "pen": 0.03166666666666667
+    },
+    "Apple": {
+     "fragility": 0.2953329653061224,
+     "recovery_quality": 0.21707465818367347,
+     "p_deep_permanent": 0.2025,
+     "pen": 0.2255
+    },
+    "Alphabet": {
+     "fragility": 0.23226093033075298,
+     "recovery_quality": 0.21389222163265303,
+     "p_deep_permanent": 0.175,
+     "pen": 0.152
+    },
+    "Oracle": {
+     "fragility": 0.3165662040816326,
+     "recovery_quality": 0.2774877518367347,
+     "p_deep_permanent": 0.1775,
+     "pen": 0.114
+    },
+    "Texas Instruments": {
+     "fragility": 0.3408114873222016,
+     "recovery_quality": 0.1875628525046382,
+     "p_deep_permanent": 0.21375,
+     "pen": 0.092
+    },
+    "Cisco": {
+     "fragility": 0.10500000000000001,
+     "recovery_quality": 0.3507982142857142,
+     "p_deep_permanent": 0.13125,
+     "pen": 0.14
+    },
+    "IBM": {
+     "fragility": 0.29286468253968245,
+     "recovery_quality": 0.2608019773242631,
+     "p_deep_permanent": 0.1525,
+     "pen": 0.10666666666666667
+    },
+    "Astera Labs": {
+     "fragility": 0.3317575757575757,
+     "recovery_quality": 0.35552438701515143,
+     "p_deep_permanent": 0.14,
+     "pen": 0.028333333333333332
+    },
+    "Vertiv": {
+     "fragility": 0.3785123299319728,
+     "recovery_quality": 0.19049103741496595,
+     "p_deep_permanent": 0.21375,
+     "pen": 0.15
+    },
+    "CoreWeave": {
+     "fragility": 0.60728125,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.34375,
+     "pen": 0.020399999999999998
+    },
+    "Taiwan Semiconductor": {
+     "fragility": 0.2945592517006802,
+     "recovery_quality": 0.26751857006802715,
+     "p_deep_permanent": 0.1875,
+     "pen": 0.4
+    },
+    "ASML Holding": {
+     "fragility": 0.3855187499999999,
+     "recovery_quality": 0.16036987500000002,
+     "p_deep_permanent": 0.22,
+     "pen": 0.7111111111111111
+    },
+    "Lam Research": {
+     "fragility": 0.360020364873222,
+     "recovery_quality": 0.14014102350030921,
+     "p_deep_permanent": 0.21375,
+     "pen": 0.1970909090909091
+    },
+    "Applied Materials": {
+     "fragility": 0.31950142384887836,
+     "recovery_quality": 0.16975157128689491,
+     "p_deep_permanent": 0.18875,
+     "pen": 0.26381818181818184
+    },
+    "KLA Corporation": {
+     "fragility": 0.35314037620542715,
+     "recovery_quality": 0.16690413994169095,
+     "p_deep_permanent": 0.195,
+     "pen": 0.38571428571428573
+    },
+    "Synopsys": {
+     "fragility": 0.3923948208182795,
+     "recovery_quality": 0.23159354410702077,
+     "p_deep_permanent": 0.225,
+     "pen": 0.39454545454545453
+    },
+    "Cadence Design Systems": {
+     "fragility": 0.4143179506802721,
+     "recovery_quality": 0.24107386309523807,
+     "p_deep_permanent": 0.23375,
+     "pen": 0.30722222222222223
+    },
+    "Monolithic Power Systems": {
+     "fragility": 0.47303682539682534,
+     "recovery_quality": 0.1154814984126984,
+     "p_deep_permanent": 0.23375,
+     "pen": 0.048
+    },
+    "ON Semiconductor": {
+     "fragility": 0.3330334802295918,
+     "recovery_quality": 0.12901098951530612,
+     "p_deep_permanent": 0.19625,
+     "pen": 0.07625
+    },
+    "NXP Semiconductors": {
+     "fragility": 0.28154333018259936,
+     "recovery_quality": 0.1986740501267454,
+     "p_deep_permanent": 0.1825,
+     "pen": 0.14022222222222222
+    },
+    "Analog Devices": {
+     "fragility": 0.3316157654761904,
+     "recovery_quality": 0.1943743345952381,
+     "p_deep_permanent": 0.1875,
+     "pen": 0.15925
+    },
+    "Microchip Technology": {
+     "fragility": 0.42738530357142845,
+     "recovery_quality": 0.09924600607142862,
+     "p_deep_permanent": 0.21375,
+     "pen": 0.13457142857142856
+    },
+    "GlobalFoundries": {
+     "fragility": 0.35448669552669543,
+     "recovery_quality": 0.13200522828282826,
+     "p_deep_permanent": 0.19625,
+     "pen": 0.07555555555555556
+    },
+    "United Microelectronics": {
+     "fragility": 0.24,
+     "recovery_quality": 0.17522999999999997,
+     "p_deep_permanent": 0.17875,
+     "pen": 0.104
+    },
+    "Entegris": {
+     "fragility": 0.35420114599686026,
+     "recovery_quality": 0.1898558430141287,
+     "p_deep_permanent": 0.2025,
+     "pen": 0.11
+    },
+    "Lattice Semiconductor": {
+     "fragility": 0.5050133450255101,
+     "recovery_quality": 0.055584726084183696,
+     "p_deep_permanent": 0.24125,
+     "pen": 0.06875
+    },
+    "Credo Technology": {
+     "fragility": 0.5236040922619047,
+     "recovery_quality": 0.07832542559523807,
+     "p_deep_permanent": 0.26625,
+     "pen": 0.11166666666666668
+    },
+    "MACOM Technology": {
+     "fragility": 0.49068629464285707,
+     "recovery_quality": 0.07397817500000001,
+     "p_deep_permanent": 0.24625,
+     "pen": 0.059444444444444446
+    },
+    "Allegro MicroSystems": {
+     "fragility": 0.48324673469387747,
+     "recovery_quality": 0.06311754285714286,
+     "p_deep_permanent": 0.25,
+     "pen": 0.11125
+    },
+    "Skyworks Solutions": {
+     "fragility": 0.24,
+     "recovery_quality": 0.1921352979591837,
+     "p_deep_permanent": 0.17125,
+     "pen": 0.1616
+    },
+    "Qorvo": {
+     "fragility": 0.3064725941043084,
+     "recovery_quality": 0.1373307758730159,
+     "p_deep_permanent": 0.185,
+     "pen": 0.184
+    },
+    "Teradyne": {
+     "fragility": 0.4379785681673237,
+     "recovery_quality": 0.10718483907554498,
+     "p_deep_permanent": 0.22,
+     "pen": 0.17227272727272727
+    },
+    "Onto Innovation": {
+     "fragility": 0.4090585317460317,
+     "recovery_quality": 0.11204710317460313,
+     "p_deep_permanent": 0.22875,
+     "pen": 0.11444444444444445
+    },
+    "Camtek": {
+     "fragility": 0.42776892857142856,
+     "recovery_quality": 0.1350253357142857,
+     "p_deep_permanent": 0.22125,
+     "pen": 0.09
+    },
+    "FormFactor": {
+     "fragility": 0.4256485714285714,
+     "recovery_quality": 0.09253845714285713,
+     "p_deep_permanent": 0.22375,
+     "pen": 0.18666666666666665
+    },
+    "Aehr Test Systems": {
+     "fragility": 0.5435938775510204,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.23875,
+     "pen": 0.04166666666666667
+    },
+    "Ichor Holdings": {
+     "fragility": 0.4763799999999999,
+     "recovery_quality": 0.029577600000000003,
+     "p_deep_permanent": 0.245,
+     "pen": 0.16
+    },
+    "Ultra Clean Holdings": {
+     "fragility": 0.30618238095238093,
+     "recovery_quality": 0.11950102857142858,
+     "p_deep_permanent": 0.195,
+     "pen": 0.11833333333333333
+    },
+    "Photronics": {
+     "fragility": 0.22499999999999998,
+     "recovery_quality": 0.19506748608534322,
+     "p_deep_permanent": 0.1775,
+     "pen": 0.15636363636363637
+    },
+    "MKS Instruments": {
+     "fragility": 0.2972824781954887,
+     "recovery_quality": 0.15224947518796997,
+     "p_deep_permanent": 0.18125,
+     "pen": 0.1592
+    },
+    "Advanced Energy Industries": {
+     "fragility": 0.41131339285714286,
+     "recovery_quality": 0.11155773214285712,
+     "p_deep_permanent": 0.21375,
+     "pen": 0.1625
+    },
+    "Impinj": {
+     "fragility": 0.5186033396825396,
+     "recovery_quality": 0.0629814822857143,
+     "p_deep_permanent": 0.2275,
+     "pen": 0.076
+    },
+    "SiTime": {
+     "fragility": 0.5852382142857142,
+     "recovery_quality": 0.01327731428571428,
+     "p_deep_permanent": 0.255,
+     "pen": 0.045
+    },
+    "Semtech": {
+     "fragility": 0.44243443877551014,
+     "recovery_quality": 0.07542188265306124,
+     "p_deep_permanent": 0.22875,
+     "pen": 0.06222222222222223
+    },
+    "Wolfspeed": {
+     "fragility": 0.7039123103741497,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.2775,
+     "pen": 0.059166666666666666
+    },
+    "Navitas Semiconductor": {
+     "fragility": 0.7020567814965987,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.29125,
+     "pen": 0.008
+    },
+    "Power Integrations": {
+     "fragility": 0.4438885952380952,
+     "recovery_quality": 0.08604069428571433,
+     "p_deep_permanent": 0.2225,
+     "pen": 0.09
+    },
+    "Rambus": {
+     "fragility": 0.38546071428571427,
+     "recovery_quality": 0.16275421428571432,
+     "p_deep_permanent": 0.2125,
+     "pen": 0.12
+    },
+    "Indie Semiconductor": {
+     "fragility": 0.6827016647230321,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.29,
+     "pen": 0.006857142857142857
+    },
+    "ServiceNow": {
+     "fragility": 0.43731128158205435,
+     "recovery_quality": 0.21894054604958677,
+     "p_deep_permanent": 0.23375,
+     "pen": 0.06345454545454546
+    },
+    "CrowdStrike": {
+     "fragility": 0.5075753567614926,
+     "recovery_quality": 0.14990831869783544,
+     "p_deep_permanent": 0.2575,
+     "pen": 0.04627272727272727
+    },
+    "Snowflake": {
+     "fragility": 0.5915983928571428,
+     "recovery_quality": 0.04708731999999999,
+     "p_deep_permanent": 0.2775,
+     "pen": 0.034999999999999996
+    },
+    "Datadog": {
+     "fragility": 0.5301900717857143,
+     "recovery_quality": 0.09204451324081625,
+     "p_deep_permanent": 0.28375,
+     "pen": 0.06116666666666667
+    },
+    "MongoDB": {
+     "fragility": 0.6046530765306122,
+     "recovery_quality": 0.01756611265306125,
+     "p_deep_permanent": 0.2925,
+     "pen": 0.02888888888888889
+    },
+    "Salesforce": {
+     "fragility": 0.2833970744081632,
+     "recovery_quality": 0.29284535765485714,
+     "p_deep_permanent": 0.19375,
+     "pen": 0.1373
+    },
+    "Adobe": {
+     "fragility": 0.2486978163265306,
+     "recovery_quality": 0.34857121959183673,
+     "p_deep_permanent": 0.18125,
+     "pen": 0.1008
+    },
+    "ServiceTitan": {
+     "fragility": 0.6094722321428571,
+     "recovery_quality": 0.020870739999999936,
+     "p_deep_permanent": 0.28625,
+     "pen": 0.02375
+    },
+    "Confluent": {
+     "fragility": 0.5671561026077098,
+     "recovery_quality": 0.06146391791383213,
+     "p_deep_permanent": 0.27625,
+     "pen": 0.0195
+    },
+    "Elastic": {
+     "fragility": 0.45940500768967873,
+     "recovery_quality": 0.1300059898838004,
+     "p_deep_permanent": 0.23,
+     "pen": 0.017727272727272727
+    },
+    "GitLab": {
+     "fragility": 0.5392287619047619,
+     "recovery_quality": 0.06691644952380953,
+     "p_deep_permanent": 0.2725,
+     "pen": 0.024
+    },
+    "HubSpot": {
+     "fragility": 0.4747162692743764,
+     "recovery_quality": 0.12426097541950111,
+     "p_deep_permanent": 0.2425,
+     "pen": 0.04375
+    },
+    "Pegasystems": {
+     "fragility": 0.349365731292517,
+     "recovery_quality": 0.18603858503401358,
+     "p_deep_permanent": 0.2025,
+     "pen": 0.025
+    },
+    "Samsara": {
+     "fragility": 0.5626201395604395,
+     "recovery_quality": 0.08575968210989009,
+     "p_deep_permanent": 0.26125,
+     "pen": 0.0154
+    },
+    "Tempus AI": {
+     "fragility": 0.6756277214285714,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.27875,
+     "pen": 0.02266666666666667
+    },
+    "Recursion Pharmaceuticals": {
+     "fragility": 0.7422315419047618,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.29625,
+     "pen": 0.0014000000000000002
+    },
+    "C3.ai": {
+     "fragility": 0.7068747221088435,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.295,
+     "pen": 0.0055000000000000005
+    },
+    "BigBear.ai": {
+     "fragility": 0.7264664783163265,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.29875,
+     "pen": 0.004666666666666667
+    },
+    "SoundHound AI": {
+     "fragility": 0.7090312220982143,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.2925,
+     "pen": 0.006
+    },
+    "Pure Storage": {
+     "fragility": 0.4278589477040816,
+     "recovery_quality": 0.1275494272959184,
+     "p_deep_permanent": 0.23125,
+     "pen": 0.051666666666666666
+    },
+    "Dell Technologies": {
+     "fragility": 0.22499999999999998,
+     "recovery_quality": 0.2547684183673469,
+     "p_deep_permanent": 0.16,
+     "pen": 0.22
+    },
+    "Super Micro Computer": {
+     "fragility": 0.27,
+     "recovery_quality": 0.161378125,
+     "p_deep_permanent": 0.1975,
+     "pen": 0.1685
+    },
+    "Hewlett Packard Enterprise": {
+     "fragility": 0.24,
+     "recovery_quality": 0.19878942857142853,
+     "p_deep_permanent": 0.175,
+     "pen": 0.056
+    },
+    "Arista Networks": {
+     "fragility": 0.4154505229591837,
+     "recovery_quality": 0.16204583112244894,
+     "p_deep_permanent": 0.22625,
+     "pen": 0.16183333333333336
+    },
+    "Juniper Networks": {
+     "fragility": 0.21,
+     "recovery_quality": 0.23511749999999998,
+     "p_deep_permanent": 0.15,
+     "pen": 0.055
+    },
+    "Ciena": {
+     "fragility": 0.3783472552910052,
+     "recovery_quality": 0.1305199814814815,
+     "p_deep_permanent": 0.2025,
+     "pen": 0.13111111111111112
+    },
+    "Fabrinet": {
+     "fragility": 0.3565319484936831,
+     "recovery_quality": 0.16038951166180757,
+     "p_deep_permanent": 0.1925,
+     "pen": 0.13142857142857142
+    },
+    "Western Digital": {
+     "fragility": 0.27,
+     "recovery_quality": 0.1482043586005831,
+     "p_deep_permanent": 0.18375,
+     "pen": 0.1682857142857143
+    },
+    "Seagate Technology": {
+     "fragility": 0.255,
+     "recovery_quality": 0.16652442857142855,
+     "p_deep_permanent": 0.175,
+     "pen": 0.367
+    },
+    "Digital Realty Trust": {
+     "fragility": 0.52487778430839,
+     "recovery_quality": 0.11905304253242627,
+     "p_deep_permanent": 0.26625,
+     "pen": 0.018114285714285715
+    },
+    "Equinix": {
+     "fragility": 0.48485446931216925,
+     "recovery_quality": 0.16968644102645503,
+     "p_deep_permanent": 0.24625,
+     "pen": 0.10211111111111111
+    },
+    "Iron Mountain": {
+     "fragility": 0.43489393533834586,
+     "recovery_quality": 0.1630425099548872,
+     "p_deep_permanent": 0.235,
+     "pen": 0.0024
+    },
+    "GE Vernova": {
+     "fragility": 0.5038350442176871,
+     "recovery_quality": 0.08625289884353739,
+     "p_deep_permanent": 0.24625,
+     "pen": 0.056
+    },
+    "Constellation Energy": {
+     "fragility": 0.379775188095238,
+     "recovery_quality": 0.2096817433333333,
+     "p_deep_permanent": 0.21125,
+     "pen": 0.14935
+    },
+    "Vistra": {
+     "fragility": 0.3380311646753246,
+     "recovery_quality": 0.18164084845714287,
+     "p_deep_permanent": 0.19875,
+     "pen": 0.0389
+    },
+    "Talen Energy": {
+     "fragility": 0.40071185714285706,
+     "recovery_quality": 0.15182326857142855,
+     "p_deep_permanent": 0.21125,
+     "pen": 0.03688888888888889
+    },
+    "NuScale Power": {
+     "fragility": 0.7483351165054563,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.2875,
+     "pen": 0.000375
+    },
+    "Oklo": {
+     "fragility": 0.7455218253968253,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.28,
+     "pen": 0.0
+    },
+    "Eaton": {
+     "fragility": 0.3696332653061224,
+     "recovery_quality": 0.18277066530612243,
+     "p_deep_permanent": 0.20625,
+     "pen": 0.06111111111111111
+    },
+    "Quanta Services": {
+     "fragility": 0.42545455480320693,
+     "recovery_quality": 0.1282006241616618,
+     "p_deep_permanent": 0.23125,
+     "pen": 0.08137142857142857
+    },
+    "nVent Electric": {
+     "fragility": 0.3314119294990723,
+     "recovery_quality": 0.16884990500927644,
+     "p_deep_permanent": 0.1975,
+     "pen": 0.04666666666666666
+    },
+    "ARKK (ARK Innovation)": {
+     "fragility": 0.579756586270872,
+     "recovery_quality": 0.009253105751391471,
+     "p_deep_permanent": 0.335,
+     "pen": 0.05
+    },
+    "QQQ (Nasdaq-100)": {
+     "fragility": 0.33052122448979593,
+     "recovery_quality": 0.24947990204081627,
+     "p_deep_permanent": 0.1725,
+     "pen": 0.22
+    },
+    "VOO (S&P 500)": {
+     "fragility": 0.25899304267161405,
+     "recovery_quality": 0.29076690166975877,
+     "p_deep_permanent": 0.135,
+     "pen": 0.25
+    },
+    "SCHD (Dividend)": {
+     "fragility": 0.12,
+     "recovery_quality": 0.399075,
+     "p_deep_permanent": 0.1,
+     "pen": 0.3
+    },
+    "DTCR (Data Ctr Infra)": {
+     "fragility": 0.35275466666666666,
+     "recovery_quality": 0.252164864,
+     "p_deep_permanent": 0.175,
+     "pen": 0.2
+    },
+    "GRID (Smart Grid)": {
+     "fragility": 0.33848960695389263,
+     "recovery_quality": 0.2451707331821617,
+     "p_deep_permanent": 0.17625,
+     "pen": 0.15
+    },
+    "NUKE (Nuclear/Uranium)": {
+     "fragility": 0.39237089710884354,
+     "recovery_quality": 0.16874646683673467,
+     "p_deep_permanent": 0.1925,
+     "pen": 0.11666666666666667
+    },
+    "VGT (Info Tech)": {
+     "fragility": 0.32944870748299315,
+     "recovery_quality": 0.27106986258503396,
+     "p_deep_permanent": 0.1675,
+     "pen": 0.2
+    },
+    "IGV (Software)": {
+     "fragility": 0.40117010204081627,
+     "recovery_quality": 0.21265304081632655,
+     "p_deep_permanent": 0.20375,
+     "pen": 0.13333333333333333
+    },
+    "SMH (VanEck Semis)": {
+     "fragility": 0.2581200600447048,
+     "recovery_quality": 0.32699898008192707,
+     "p_deep_permanent": 0.1525,
+     "pen": 0.21547103657578748
+    },
+    "SOXX (iShares Semis)": {
+     "fragility": 0.24729800014041994,
+     "recovery_quality": 0.3131709807423324,
+     "p_deep_permanent": 0.14375,
+     "pen": 0.12471845966152596
+    },
+    "DRAM (Roundhill Memory)": {
+     "fragility": 0.24472602739726024,
+     "recovery_quality": 0.17115953854046329,
+     "p_deep_permanent": 0.1875,
+     "pen": 0.8152499999999999
+    },
+    "QTUM (Defiance Quantum)": {
+     "fragility": 0.2940446954707133,
+     "recovery_quality": 0.27359868630506345,
+     "p_deep_permanent": 0.19125,
+     "pen": 0.14220683343502133
+    },
+    "AIQ (Global X AI)": {
+     "fragility": 0.2186911724942144,
+     "recovery_quality": 0.2947751849844948,
+     "p_deep_permanent": 0.14375,
+     "pen": 0.24652948935368382
+    },
+    "CHAT (Roundhill GenAI)": {
+     "fragility": 0.24634440416904807,
+     "recovery_quality": 0.3094677878703905,
+     "p_deep_permanent": 0.14125,
+     "pen": 0.1947493712918427
+    },
+    "TECL (3x Tech)": {
+     "fragility": 1.0,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.27375,
+     "pen": null
+    },
+    "SOXL (3x Semis)": {
+     "fragility": 1.0,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.28125,
+     "pen": null
+    },
+    "TQQQ (3x NDX)": {
+     "fragility": 1.0,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.27375,
+     "pen": null
+    }
+   }
+  },
+  {
+   "date": "2026-06-26",
+   "macro": {
+    "sp500_forward_pe": 21.9,
+    "sp500_trailing_pe": 28.6,
+    "shiller_cape": 39.4,
+    "buffett_indicator_pct": 238.0,
+    "equity_risk_premium": -1.4,
+    "ust_10y": 4.7,
+    "ust_10y_real": 2.25,
+    "fed_funds_mid": 3.625,
+    "fed_next_move_bias": "hike",
+    "core_pce_yoy": 3.3,
+    "vix": 24.0,
+    "move": 95.0,
+    "brent_usd": 96.0,
+    "hormuz_status": "subdued; today's shock was jobs->rates, not oil",
+    "margin_debt_tn": 1.304,
+    "hyperscaler_capex_bn": 700,
+    "hy_oas_bps": 312,
+    "ig_oas_bps": 85,
+    "household_debt_gdp": 60.3,
+    "corp_debt_gdp": 47.0,
+    "margin_debt_yoy": 0.45,
+    "short_interest_pct": 2.0,
+    "fed_net_liq_3m_pct": -1.5,
+    "mmf_dry_powder_gdp": 25.5
+   },
+   "companies": {
+    "NVIDIA": {
+     "fragility": 0.07472222222222225,
+     "recovery_quality": 0.5942826466111112,
+     "p_deep_permanent": 0.10186666666666666,
+     "pen": 0.38739999999999997
+    },
+    "Broadcom": {
+     "fragility": 0.24715514472393363,
+     "recovery_quality": 0.49333759103422353,
+     "p_deep_permanent": 0.13396666666666668,
+     "pen": 0.26666666666666666
+    },
+    "Micron": {
+     "fragility": 0.24500000000000002,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.23433333333333334,
+     "pen": 0.22857142857142856
+    },
+    "Kioxia": {
+     "fragility": 0.35,
+     "recovery_quality": 0.15595519479425987,
+     "p_deep_permanent": 0.1709,
+     "pen": 0.10068027210884355
+    },
+    "Marvell": {
+     "fragility": 0.19616567460317458,
+     "recovery_quality": 0.5330074483597883,
+     "p_deep_permanent": 0.1217,
+     "pen": 0.06382978723404255
+    },
+    "Qualcomm": {
+     "fragility": 0.15000000000000002,
+     "recovery_quality": 0.4266818420988089,
+     "p_deep_permanent": 0.11366666666666667,
+     "pen": 0.049222222222222216
+    },
+    "AMD": {
+     "fragility": 0.1817283950617284,
+     "recovery_quality": 0.48962357853223587,
+     "p_deep_permanent": 0.11353333333333333,
+     "pen": 0.0332
+    },
+    "ARM": {
+     "fragility": 0.2816204419617764,
+     "recovery_quality": 0.4010197406253705,
+     "p_deep_permanent": 0.1747,
+     "pen": 0.5
+    },
+    "Samsung": {
+     "fragility": 0.16499999999999998,
+     "recovery_quality": 0.159765306122449,
+     "p_deep_permanent": 0.19203333333333333,
+     "pen": 1.05
+    },
+    "SK Hynix": {
+     "fragility": 0.255,
+     "recovery_quality": 0.0804770408163265,
+     "p_deep_permanent": 0.22706666666666667,
+     "pen": 0.5
+    },
+    "Lumentum": {
+     "fragility": 0.4923243102040816,
+     "recovery_quality": 0.15321413175510204,
+     "p_deep_permanent": 0.28096666666666664,
+     "pen": 0.12
+    },
+    "Coherent": {
+     "fragility": 0.4941823129251701,
+     "recovery_quality": 0.17514029931972785,
+     "p_deep_permanent": 0.2857,
+     "pen": 0.14444444444444443
+    },
+    "Applied Optoelectronics": {
+     "fragility": 0.6125961173469388,
+     "recovery_quality": 0.0051165642857142896,
+     "p_deep_permanent": 0.3315,
+     "pen": 0.023
+    },
+    "IonQ": {
+     "fragility": 0.7300233057142856,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.4093,
+     "pen": 0.015666666666666666
+    },
+    "Palantir": {
+     "fragility": 0.2879052631578948,
+     "recovery_quality": 0.3939451098666668,
+     "p_deep_permanent": 0.12813333333333332,
+     "pen": 0.018
+    },
+    "AppLovin": {
+     "fragility": 0.4260374296270232,
+     "recovery_quality": 0.12147996745249828,
+     "p_deep_permanent": 0.2593666666666667,
+     "pen": 0.06875
+    },
+    "Meta": {
+     "fragility": 0.11537327569916853,
+     "recovery_quality": 0.27060338742441414,
+     "p_deep_permanent": 0.15876666666666667,
+     "pen": 0.20555555555555555
+    },
+    "Microsoft": {
+     "fragility": 0.17103985803016855,
+     "recovery_quality": 0.3368732345164152,
+     "p_deep_permanent": 0.16426666666666667,
+     "pen": 0.19333333333333333
+    },
+    "Amazon": {
+     "fragility": 0.3009494722026741,
+     "recovery_quality": 0.2539909190710767,
+     "p_deep_permanent": 0.21536666666666668,
+     "pen": 0.22666666666666666
+    },
+    "Tesla": {
+     "fragility": 0.6267158305647841,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.32656666666666667,
+     "pen": 0.03166666666666667
+    },
+    "Apple": {
+     "fragility": 0.29922713935860057,
+     "recovery_quality": 0.2148160372332361,
+     "p_deep_permanent": 0.2278,
+     "pen": 0.2255
+    },
+    "Alphabet": {
+     "fragility": 0.23659257987332863,
+     "recovery_quality": 0.21137986489795918,
+     "p_deep_permanent": 0.19233333333333333,
+     "pen": 0.152
+    },
+    "Oracle": {
+     "fragility": 0.32206908251996447,
+     "recovery_quality": 0.2739659096362023,
+     "p_deep_permanent": 0.19643333333333332,
+     "pen": 0.114
+    },
+    "Texas Instruments": {
+     "fragility": 0.3448199752628324,
+     "recovery_quality": 0.1851577597402597,
+     "p_deep_permanent": 0.23363333333333333,
+     "pen": 0.092
+    },
+    "Cisco": {
+     "fragility": 0.11090446428571428,
+     "recovery_quality": 0.34713744642857136,
+     "p_deep_permanent": 0.14783333333333334,
+     "pen": 0.14
+    },
+    "IBM": {
+     "fragility": 0.29977476514415285,
+     "recovery_quality": 0.25637952445740203,
+     "p_deep_permanent": 0.16856666666666667,
+     "pen": 0.10666666666666667
+    },
+    "Astera Labs": {
+     "fragility": 0.33239393939393935,
+     "recovery_quality": 0.35524576028787874,
+     "p_deep_permanent": 0.15476666666666666,
+     "pen": 0.028333333333333332
+    },
+    "Vertiv": {
+     "fragility": 0.382796768707483,
+     "recovery_quality": 0.18800606292517,
+     "p_deep_permanent": 0.25003333333333333,
+     "pen": 0.15
+    },
+    "CoreWeave": {
+     "fragility": 0.6079375,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.37166666666666665,
+     "pen": 0.020399999999999998
+    },
+    "Taiwan Semiconductor": {
+     "fragility": 0.3000488435374149,
+     "recovery_quality": 0.26411502312925167,
+     "p_deep_permanent": 0.20973333333333333,
+     "pen": 0.4
+    },
+    "ASML Holding": {
+     "fragility": 0.3899625,
+     "recovery_quality": 0.15797025,
+     "p_deep_permanent": 0.24916666666666668,
+     "pen": 0.7111111111111111
+    },
+    "Lam Research": {
+     "fragility": 0.3657173407544836,
+     "recovery_quality": 0.1372925355596784,
+     "p_deep_permanent": 0.22086666666666666,
+     "pen": 0.1970909090909091
+    },
+    "Applied Materials": {
+     "fragility": 0.32583200472255014,
+     "recovery_quality": 0.1664596692325856,
+     "p_deep_permanent": 0.21396666666666667,
+     "pen": 0.26381818181818184
+    },
+    "KLA Corporation": {
+     "fragility": 0.35838705427225837,
+     "recovery_quality": 0.16417586734693876,
+     "p_deep_permanent": 0.2253,
+     "pen": 0.38571428571428573
+    },
+    "Synopsys": {
+     "fragility": 0.3959207772678449,
+     "recovery_quality": 0.22919589372131627,
+     "p_deep_permanent": 0.24613333333333334,
+     "pen": 0.39454545454545453
+    },
+    "Cadence Design Systems": {
+     "fragility": 0.41702940476190475,
+     "recovery_quality": 0.2391758452380952,
+     "p_deep_permanent": 0.2527333333333333,
+     "pen": 0.30722222222222223
+    },
+    "Monolithic Power Systems": {
+     "fragility": 0.47607873015873015,
+     "recovery_quality": 0.11371719365079361,
+     "p_deep_permanent": 0.2678333333333333,
+     "pen": 0.048
+    },
+    "ON Semiconductor": {
+     "fragility": 0.3401899017857143,
+     "recovery_quality": 0.12528965030612244,
+     "p_deep_permanent": 0.21286666666666668,
+     "pen": 0.07625
+    },
+    "NXP Semiconductors": {
+     "fragility": 0.28894436433941995,
+     "recovery_quality": 0.19438145031578943,
+     "p_deep_permanent": 0.1984,
+     "pen": 0.14022222222222222
+    },
+    "Analog Devices": {
+     "fragility": 0.3373733261904762,
+     "recovery_quality": 0.19103494938095236,
+     "p_deep_permanent": 0.2125,
+     "pen": 0.15925
+    },
+    "Microchip Technology": {
+     "fragility": 0.4324874540816326,
+     "recovery_quality": 0.09628675877551024,
+     "p_deep_permanent": 0.24363333333333334,
+     "pen": 0.13457142857142856
+    },
+    "GlobalFoundries": {
+     "fragility": 0.3610707647907647,
+     "recovery_quality": 0.12831814949494952,
+     "p_deep_permanent": 0.22453333333333333,
+     "pen": 0.07555555555555556
+    },
+    "United Microelectronics": {
+     "fragility": 0.24,
+     "recovery_quality": 0.17522999999999997,
+     "p_deep_permanent": 0.19836666666666666,
+     "pen": 0.104
+    },
+    "Entegris": {
+     "fragility": 0.3594799686028257,
+     "recovery_quality": 0.18668854945054944,
+     "p_deep_permanent": 0.2302,
+     "pen": 0.11
+    },
+    "Lattice Semiconductor": {
+     "fragility": 0.5085281568877551,
+     "recovery_quality": 0.05368672767857142,
+     "p_deep_permanent": 0.2721,
+     "pen": 0.06875
+    },
+    "Credo Technology": {
+     "fragility": 0.5257471726190477,
+     "recovery_quality": 0.07721102380952373,
+     "p_deep_permanent": 0.26763333333333333,
+     "pen": 0.11166666666666668
+    },
+    "MACOM Technology": {
+     "fragility": 0.4942095535714285,
+     "recovery_quality": 0.07200515000000002,
+     "p_deep_permanent": 0.26843333333333336,
+     "pen": 0.059444444444444446
+    },
+    "Allegro MicroSystems": {
+     "fragility": 0.48734588921282795,
+     "recovery_quality": 0.06082201632653062,
+     "p_deep_permanent": 0.26826666666666665,
+     "pen": 0.11125
+    },
+    "Skyworks Solutions": {
+     "fragility": 0.24,
+     "recovery_quality": 0.1921352979591837,
+     "p_deep_permanent": 0.19256666666666666,
+     "pen": 0.1616
+    },
+    "Qorvo": {
+     "fragility": 0.3145998458049887,
+     "recovery_quality": 0.13277951492063492,
+     "p_deep_permanent": 0.20933333333333334,
+     "pen": 0.184
+    },
+    "Teradyne": {
+     "fragility": 0.44228005058557507,
+     "recovery_quality": 0.10486203856968922,
+     "p_deep_permanent": 0.24823333333333333,
+     "pen": 0.17227272727272727
+    },
+    "Onto Innovation": {
+     "fragility": 0.4140768140589569,
+     "recovery_quality": 0.10943759637188206,
+     "p_deep_permanent": 0.2436,
+     "pen": 0.11444444444444445
+    },
+    "Camtek": {
+     "fragility": 0.43146367346938774,
+     "recovery_quality": 0.13310406836734692,
+     "p_deep_permanent": 0.24523333333333333,
+     "pen": 0.09
+    },
+    "FormFactor": {
+     "fragility": 0.43070693877551014,
+     "recovery_quality": 0.089908106122449,
+     "p_deep_permanent": 0.2464,
+     "pen": 0.18666666666666665
+    },
+    "Aehr Test Systems": {
+     "fragility": 0.5476985422740525,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.26736666666666664,
+     "pen": 0.04166666666666667
+    },
+    "Ichor Holdings": {
+     "fragility": 0.4815828571428571,
+     "recovery_quality": 0.027080228571428583,
+     "p_deep_permanent": 0.2546333333333333,
+     "pen": 0.16
+    },
+    "Ultra Clean Holdings": {
+     "fragility": 0.3142638095238095,
+     "recovery_quality": 0.11562194285714286,
+     "p_deep_permanent": 0.21296666666666667,
+     "pen": 0.11833333333333333
+    },
+    "Photronics": {
+     "fragility": 0.22499999999999998,
+     "recovery_quality": 0.19506748608534322,
+     "p_deep_permanent": 0.19506666666666667,
+     "pen": 0.15636363636363637
+    },
+    "MKS Instruments": {
+     "fragility": 0.3047599759398496,
+     "recovery_quality": 0.1485107263157895,
+     "p_deep_permanent": 0.206,
+     "pen": 0.1592
+    },
+    "Advanced Energy Industries": {
+     "fragility": 0.4163885204081632,
+     "recovery_quality": 0.10881716326530609,
+     "p_deep_permanent": 0.24373333333333333,
+     "pen": 0.1625
+    },
+    "Impinj": {
+     "fragility": 0.5214954158730158,
+     "recovery_quality": 0.061419761142857146,
+     "p_deep_permanent": 0.2623666666666667,
+     "pen": 0.076
+    },
+    "SiTime": {
+     "fragility": 0.587243250728863,
+     "recovery_quality": 0.012154493877551008,
+     "p_deep_permanent": 0.29336666666666666,
+     "pen": 0.045
+    },
+    "Semtech": {
+     "fragility": 0.4475378279883382,
+     "recovery_quality": 0.07266605247813412,
+     "p_deep_permanent": 0.24916666666666668,
+     "pen": 0.06222222222222223
+    },
+    "Wolfspeed": {
+     "fragility": 0.7048172670068027,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.2949333333333333,
+     "pen": 0.059166666666666666
+    },
+    "Navitas Semiconductor": {
+     "fragility": 0.7029911880272108,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.30143333333333333,
+     "pen": 0.008
+    },
+    "Power Integrations": {
+     "fragility": 0.44861280952380944,
+     "recovery_quality": 0.08348961857142859,
+     "p_deep_permanent": 0.2482,
+     "pen": 0.09
+    },
+    "Rambus": {
+     "fragility": 0.39026224489795913,
+     "recovery_quality": 0.15996932653061227,
+     "p_deep_permanent": 0.2337,
+     "pen": 0.12
+    },
+    "Indie Semiconductor": {
+     "fragility": 0.6837372619741774,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.30906666666666666,
+     "pen": 0.006857142857142857
+    },
+    "ServiceNow": {
+     "fragility": 0.43957332231404955,
+     "recovery_quality": 0.21742045467768595,
+     "p_deep_permanent": 0.2527,
+     "pen": 0.06345454545454546
+    },
+    "CrowdStrike": {
+     "fragility": 0.5090269481962482,
+     "recovery_quality": 0.14893284925367967,
+     "p_deep_permanent": 0.283,
+     "pen": 0.04627272727272727
+    },
+    "Snowflake": {
+     "fragility": 0.5925368877551019,
+     "recovery_quality": 0.0465167151020408,
+     "p_deep_permanent": 0.2965,
+     "pen": 0.034999999999999996
+    },
+    "Datadog": {
+     "fragility": 0.5321391816472304,
+     "recovery_quality": 0.09079708292944598,
+     "p_deep_permanent": 0.2876,
+     "pen": 0.06116666666666667
+    },
+    "MongoDB": {
+     "fragility": 0.6059139489795918,
+     "recovery_quality": 0.016759154285714305,
+     "p_deep_permanent": 0.30546666666666666,
+     "pen": 0.02888888888888889
+    },
+    "Salesforce": {
+     "fragility": 0.2891969472085182,
+     "recovery_quality": 0.2889478431330187,
+     "p_deep_permanent": 0.2053,
+     "pen": 0.1373
+    },
+    "Adobe": {
+     "fragility": 0.2544790612244898,
+     "recovery_quality": 0.34463997306122446,
+     "p_deep_permanent": 0.19293333333333335,
+     "pen": 0.1008
+    },
+    "ServiceTitan": {
+     "fragility": 0.6104540051020407,
+     "recovery_quality": 0.020273822040816285,
+     "p_deep_permanent": 0.305,
+     "pen": 0.02375
+    },
+    "Confluent": {
+     "fragility": 0.568605992063492,
+     "recovery_quality": 0.06056498645124717,
+     "p_deep_permanent": 0.28513333333333335,
+     "pen": 0.0195
+    },
+    "Elastic": {
+     "fragility": 0.46290370642515377,
+     "recovery_quality": 0.12776682269309636,
+     "p_deep_permanent": 0.25916666666666666,
+     "pen": 0.017727272727272727
+    },
+    "GitLab": {
+     "fragility": 0.541519619047619,
+     "recovery_quality": 0.06545030095238093,
+     "p_deep_permanent": 0.28373333333333334,
+     "pen": 0.024
+    },
+    "HubSpot": {
+     "fragility": 0.4777756077097506,
+     "recovery_quality": 0.12230299882086162,
+     "p_deep_permanent": 0.26993333333333336,
+     "pen": 0.04375
+    },
+    "Pegasystems": {
+     "fragility": 0.35522772108843537,
+     "recovery_quality": 0.18228691156462584,
+     "p_deep_permanent": 0.22573333333333334,
+     "pen": 0.025
+    },
+    "Samsara": {
+     "fragility": 0.5636279186813187,
+     "recovery_quality": 0.08511470347252742,
+     "p_deep_permanent": 0.2954,
+     "pen": 0.0154
+    },
+    "Tempus AI": {
+     "fragility": 0.6765701285714285,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.31053333333333333,
+     "pen": 0.02266666666666667
+    },
+    "Recursion Pharmaceuticals": {
+     "fragility": 0.7431887447619047,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.30933333333333335,
+     "pen": 0.0014000000000000002
+    },
+    "C3.ai": {
+     "fragility": 0.7078199231292516,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.30493333333333333,
+     "pen": 0.0055000000000000005
+    },
+    "BigBear.ai": {
+     "fragility": 0.7273868392857142,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.30616666666666664,
+     "pen": 0.004666666666666667
+    },
+    "SoundHound AI": {
+     "fragility": 0.7099152343749999,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.3045333333333333,
+     "pen": 0.006
+    },
+    "Pure Storage": {
+     "fragility": 0.432252512755102,
+     "recovery_quality": 0.12491328826530615,
+     "p_deep_permanent": 0.2516333333333333,
+     "pen": 0.051666666666666666
+    },
+    "Dell Technologies": {
+     "fragility": 0.22996956632653057,
+     "recovery_quality": 0.25208485255102037,
+     "p_deep_permanent": 0.17116666666666666,
+     "pen": 0.22
+    },
+    "Super Micro Computer": {
+     "fragility": 0.27,
+     "recovery_quality": 0.161378125,
+     "p_deep_permanent": 0.2083,
+     "pen": 0.1685
+    },
+    "Hewlett Packard Enterprise": {
+     "fragility": 0.24,
+     "recovery_quality": 0.19878942857142853,
+     "p_deep_permanent": 0.1873,
+     "pen": 0.056
+    },
+    "Arista Networks": {
+     "fragility": 0.41888135204081633,
+     "recovery_quality": 0.16019318341836733,
+     "p_deep_permanent": 0.24456666666666665,
+     "pen": 0.16183333333333336
+    },
+    "Juniper Networks": {
+     "fragility": 0.21594624999999998,
+     "recovery_quality": 0.23166867500000002,
+     "p_deep_permanent": 0.17533333333333334,
+     "pen": 0.055
+    },
+    "Ciena": {
+     "fragility": 0.38417056878306877,
+     "recovery_quality": 0.12725892592592594,
+     "p_deep_permanent": 0.22836666666666666,
+     "pen": 0.13111111111111112
+    },
+    "Fabrinet": {
+     "fragility": 0.362096452866861,
+     "recovery_quality": 0.1573846793002915,
+     "p_deep_permanent": 0.2174,
+     "pen": 0.13142857142857142
+    },
+    "Western Digital": {
+     "fragility": 0.27,
+     "recovery_quality": 0.1482043586005831,
+     "p_deep_permanent": 0.20496666666666666,
+     "pen": 0.1682857142857143
+    },
+    "Seagate Technology": {
+     "fragility": 0.255,
+     "recovery_quality": 0.16652442857142855,
+     "p_deep_permanent": 0.1998,
+     "pen": 0.367
+    },
+    "Digital Realty Trust": {
+     "fragility": 0.5263387225396825,
+     "recovery_quality": 0.1181180420643991,
+     "p_deep_permanent": 0.2704,
+     "pen": 0.018114285714285715
+    },
+    "Equinix": {
+     "fragility": 0.48663641058201057,
+     "recovery_quality": 0.16847472096296293,
+     "p_deep_permanent": 0.2658333333333333,
+     "pen": 0.10211111111111111
+    },
+    "Iron Mountain": {
+     "fragility": 0.4383856330827067,
+     "recovery_quality": 0.16080782339849622,
+     "p_deep_permanent": 0.239,
+     "pen": 0.0024
+    },
+    "GE Vernova": {
+     "fragility": 0.5066548095238096,
+     "recovery_quality": 0.08461743496598634,
+     "p_deep_permanent": 0.26993333333333336,
+     "pen": 0.056
+    },
+    "Constellation Energy": {
+     "fragility": 0.38441062380952384,
+     "recovery_quality": 0.20643693833333332,
+     "p_deep_permanent": 0.2318,
+     "pen": 0.14935
+    },
+    "Vistra": {
+     "fragility": 0.34454122389610387,
+     "recovery_quality": 0.17734420937142858,
+     "p_deep_permanent": 0.2189,
+     "pen": 0.0389
+    },
+    "Talen Energy": {
+     "fragility": 0.40567097959183673,
+     "recovery_quality": 0.1486494302040816,
+     "p_deep_permanent": 0.23833333333333334,
+     "pen": 0.03688888888888889
+    },
+    "NuScale Power": {
+     "fragility": 0.7491282863343254,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.3068666666666667,
+     "pen": 0.000375
+    },
+    "Oklo": {
+     "fragility": 0.7463373015873015,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.30933333333333335,
+     "pen": 0.0
+    },
+    "Eaton": {
+     "fragility": 0.37441393586005833,
+     "recovery_quality": 0.17999787638483963,
+     "p_deep_permanent": 0.2254,
+     "pen": 0.06111111111111111
+    },
+    "Quanta Services": {
+     "fragility": 0.4298027539504373,
+     "recovery_quality": 0.12567866865626823,
+     "p_deep_permanent": 0.24563333333333334,
+     "pen": 0.08137142857142857
+    },
+    "nVent Electric": {
+     "fragility": 0.33758541743970316,
+     "recovery_quality": 0.16551622152133577,
+     "p_deep_permanent": 0.20343333333333333,
+     "pen": 0.04666666666666666
+    },
+    "ARKK (ARK Innovation)": {
+     "fragility": 0.5821454545454545,
+     "recovery_quality": 0.008010894248608545,
+     "p_deep_permanent": 0.34676666666666667,
+     "pen": 0.05
+    },
+    "QQQ (Nasdaq-100)": {
+     "fragility": 0.33522344023323614,
+     "recovery_quality": 0.2465645282798833,
+     "p_deep_permanent": 0.1929,
+     "pen": 0.22
+    },
+    "VOO (S&P 500)": {
+     "fragility": 0.26529777365491647,
+     "recovery_quality": 0.28673187384044524,
+     "p_deep_permanent": 0.15836666666666666,
+     "pen": 0.25
+    },
+    "SCHD (Dividend)": {
+     "fragility": 0.12600624999999996,
+     "recovery_quality": 0.39499075,
+     "p_deep_permanent": 0.11503333333333333,
+     "pen": 0.3
+    },
+    "DTCR (Data Ctr Infra)": {
+     "fragility": 0.3571306666666666,
+     "recovery_quality": 0.249224192,
+     "p_deep_permanent": 0.18876666666666667,
+     "pen": 0.2
+    },
+    "GRID (Smart Grid)": {
+     "fragility": 0.34326455026455027,
+     "recovery_quality": 0.24211476946334087,
+     "p_deep_permanent": 0.19126666666666667,
+     "pen": 0.15
+    },
+    "NUKE (Nuclear/Uranium)": {
+     "fragility": 0.3969684827502429,
+     "recovery_quality": 0.16598791545189504,
+     "p_deep_permanent": 0.2234,
+     "pen": 0.11666666666666667
+    },
+    "VGT (Info Tech)": {
+     "fragility": 0.33364544217687075,
+     "recovery_quality": 0.2684678870748299,
+     "p_deep_permanent": 0.1942,
+     "pen": 0.2
+    },
+    "IGV (Software)": {
+     "fragility": 0.4042475510204081,
+     "recovery_quality": 0.21080657142857145,
+     "p_deep_permanent": 0.22286666666666666,
+     "pen": 0.13333333333333333
+    },
+    "SMH (VanEck Semis)": {
+     "fragility": 0.263011973153802,
+     "recovery_quality": 0.3241200510842704,
+     "p_deep_permanent": 0.1655,
+     "pen": 0.21547103657578748
+    },
+    "SOXX (iShares Semis)": {
+     "fragility": 0.2530002693934436,
+     "recovery_quality": 0.3097842312178619,
+     "p_deep_permanent": 0.1658,
+     "pen": 0.12471845966152596
+    },
+    "DRAM (Roundhill Memory)": {
+     "fragility": 0.24472602739726024,
+     "recovery_quality": 0.17115953854046329,
+     "p_deep_permanent": 0.20583333333333334,
+     "pen": 0.8152499999999999
+    },
+    "QTUM (Defiance Quantum)": {
+     "fragility": 0.2991030679388911,
+     "recovery_quality": 0.2706379376603984,
+     "p_deep_permanent": 0.21033333333333334,
+     "pen": 0.14220683343502133
+    },
+    "AIQ (Global X AI)": {
+     "fragility": 0.2256418504664346,
+     "recovery_quality": 0.2907607208123427,
+     "p_deep_permanent": 0.16336666666666666,
+     "pen": 0.24652948935368382
+    },
+    "CHAT (Roundhill GenAI)": {
+     "fragility": 0.2520286934283343,
+     "recovery_quality": 0.30615166476107936,
+     "p_deep_permanent": 0.16313333333333332,
+     "pen": 0.1947493712918427
+    },
+    "TECL (3x Tech)": {
+     "fragility": 1.0,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.29886666666666667,
+     "pen": null
+    },
+    "SOXL (3x Semis)": {
+     "fragility": 1.0,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.2967666666666667,
+     "pen": null
+    },
+    "TQQQ (3x NDX)": {
+     "fragility": 1.0,
+     "recovery_quality": 0.0,
+     "p_deep_permanent": 0.29886666666666667,
+     "pen": null
+    }
+   }
   }
  ]
 }

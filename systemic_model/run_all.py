@@ -146,6 +146,31 @@ def main(paths=30000, light=False):
             print("  one-pager note:", e)
     else:
         print("  (--light: skipping one-pager PDF)")
+    # LEAGUE — turn the full ranking into a stable Top-125 board (Top-50 view)
+    # with admission/eviction + hysteresis, so the published data and graphs
+    # only change when the standings genuinely change.
+    try:
+        import tiering as _T, league as _LG
+        _res = json.load(open(os.path.join(HERE, "results.json")))
+        _rows = _T.build_rows(_res)
+        _lg = _LG.update_and_save(_rows, leveraged=_T.LEVERAGED, as_of=_res.get("as_of"))
+        print(f"  league: {_lg['n_members']} members ranked by reward-vs-S&P "
+              f"(Top-{_LG.VIEW_CAP} highlighted); entered {_lg['entered'] or '—'}, "
+              f"exited {_lg['exited'] or '—'}")
+        # bound engine cost: keep only the league + a churn buffer priced in the pool
+        _exp_path = os.path.join(HERE, "discovery", "expansion.json")
+        if os.path.exists(_exp_path):
+            _exp = json.load(open(_exp_path))
+            _keep = _LG.pool_keep_names(_rows, leveraged=_T.LEVERAGED)
+            _before = _exp.get("companies", {}) or {}
+            _after = {k: v for k, v in _before.items() if k in _keep}
+            if len(_after) < len(_before):
+                _exp["companies"] = _after
+                json.dump(_exp, open(_exp_path, "w"), indent=2)
+                print(f"  pool pruned: {len(_before)} -> {len(_after)} priced candidates kept")
+    except Exception as e:
+        print("  league note:", e)
+
     _write_complete_report(light=light)
 
     pdf = "" if light else ", Systemic_TAM_onepager.pdf"
@@ -169,6 +194,28 @@ def _write_complete_report(light=False):
              f"model as of {res.get('as_of')} · generated {dt.date.today()} · "
              f"{res.get('macro',{}).get('sp500_forward_pe','?')} S&P fwd P/E*")
     L.append("\n**Research model — not investment advice. Read tiers and ranges, not decimals.**")
+    # ---- provenance (where the numbers come from) ----
+    br = B._load(os.path.join(HERE, "backtest_recovery.json")) or {}
+    L.append("\n*Data sources: macro inputs from **FRED**; market prices and option quotes from "
+             "**Polygon**; company fundamentals refreshed by an automated **Claude + Polygon** review. "
+             "Company inputs (growth, TAM/SAM, moat-permanence, quality scores) are the maintainer's "
+             "**documented judgments swept by the model — not third-party consensus estimates**. "
+             f"Single-maintainer research model; company inputs last reviewed {res.get('as_of')}.*")
+    # ---- plain-English glossary (so a non-investor can read the tables) ----
+    L.append("\n## Plain-English glossary")
+    L.append("New to investing? Read this first — every column in the tables, one line each.")
+    L.append("- **Tier** — growth bucket: High (>40%), Moderate (15–40%), Safe (<15%) expected revenue growth over 18 months.")
+    L.append("- **Growth** — how fast the model expects the company's revenue to grow over the next 18 months.")
+    L.append("- **Drawdown / >25% fall** — a drop of 25% or more from a recent high.")
+    L.append("- **>3y tail** — the chance a >25% fall is *still* not recovered ~3.5 years later — the model's measure of *permanent* loss risk. Lower is safer.")
+    L.append("- **Recover 2y** — if it falls, the chance it's back to its old high within 2 years. Higher is better.")
+    L.append("- **vs S&P / vs SCHD** — reward-for-risk versus owning the S&P 500 (or the SCHD dividend fund). 1.00 = same as that benchmark; above 1 = more growth per unit of permanent-loss risk.")
+    L.append("- **×S&P** — this name's tail risk as a multiple of the S&P's (2× = twice as risky on the tail).")
+    L.append("- **Recovery tag** — *secular* = durable grower; *cyclical* = depends on its demand cycle turning back up; *broken* = thesis impaired, avoid; *PEG-fast* = can grow back into its price quickly.")
+    L.append("- **PEG earn-back** — how many years of growth it would take to justify today's price; lower = recovers its valuation faster.")
+    L.append("- **Effective N (eff N)** — how many *truly independent* bets a basket really is. Five names that move together can be ~1 bet.")
+    L.append("- **Monte Carlo** — the model runs tens of thousands of simulated futures and reports how often each outcome happened. These are *probabilities, not predictions*.")
+    L.append("- **League / hysteresis** — a fixed Top-125 board; a new name only joins when it clearly beats a current member, so the list doesn't churn on random noise.")
     L.append(f"\n## Macro & systemic stress\nIndex **{round(st['score']*100)}/100** "
              f"({MS.stress_label(st['score'])}) — structural fragility {round(st['structural']*100)}, "
              f"acute trigger {round(st['acute']*100)}; scales the crisis odds ×{MS.crisis_mult(st['score']):.2f}. "
@@ -192,6 +239,30 @@ def _write_complete_report(light=False):
              "benchmark = 1.00. **Sorting by this gives a different order than sorting by growth** — it can rank a "
              "lower-tail name above a faster grower. (This is why a growth-sorted plot and the vs-S&P ranking look different.)")
     L.append("- Not an expected-return forecast or a buy list. Growth and the judgment scores are opinions the model sweeps.")
+    # ---- the ranked league (fixed Top-125 board, Top-50 view) ----
+    try:
+        import league as _LG
+        _lg = _LG.load_league()
+        _nm = _lg.get("n_members")
+        L.append("\n### The ranked league (Top-125 board · Top-50 view)")
+        L.append(f"The headline ranking is **reward-vs-S&P**, and it drives a fixed-size **league**: "
+                 f"the whole priced market competes for a slot, and the board keeps the **Top "
+                 f"{_LG.POOL_CAP}** (the dashboard highlights the **Top {_LG.VIEW_CAP}**). "
+                 f"**Everything competes** (stocks + ETFs); the **S&P (VOO) and SCHD benchmarks are "
+                 f"pinned** for comparison and **leveraged 3× vehicles are excluded** by design.")
+        L.append(f"- A name only **enters** the league when it genuinely **out-ranks an incumbent** "
+                 f"by more than a {int(_LG.MARGIN*100)}% margin (**hysteresis**) — so Monte-Carlo noise "
+                 f"near the cut-off does **not** churn the standings or the graphs. If nothing breaks "
+                 f"in, the published table is unchanged; when something does, it displaces the weakest "
+                 f"member and the standings (and graphs) update.")
+        if _nm:
+            L.append(f"- This run's league: **{_nm} members**"
+                     + (f"; entered: {', '.join(_lg.get('entered') or []) or '—'}"
+                        f"; exited: {', '.join(_lg.get('exited') or []) or '—'}." if _lg.get('as_of') else "."))
+        L.append("- On the dashboard, clicking a column header **re-orders the display** of the Top-50 "
+                 "by that field (ascending/descending) — it does **not** change who is in the league.")
+    except Exception as e:
+        L.append("\n*(league summary unavailable: %s)*" % e)
 
     # ---- master ranking by reward-to-risk (vs S&P) ----
     def _md(x):
@@ -263,6 +334,24 @@ def _write_complete_report(light=False):
              "and surfaced as a warning, not in per-name cells. Company-specific blow-ups, total "
              "return (dividends/fees/taxes), and the judgment inputs (TAM, permanence, scores) are "
              "limitations. Permanence-weighted 'true permanent loss' is in tier_table.csv as the risk-tilted alternative.")
+    # ---- honest recovery-timing calibration note (from the real backtest) ----
+    if br.get("realized") and br.get("predicted"):
+        rz, pr = br["realized"], br["predicted"]
+        def _bp(d, k):
+            v = d.get(str(k), d.get(k))
+            return f"{round(v*100)}%" if isinstance(v, (int, float)) else "—"
+        L.append("\n### Known calibration gap — recovery *timing* (stated up front)")
+        L.append(f"A backtest on **{br.get('n_episodes','?')} real >25% drawdowns across "
+                 f"{br.get('n_names','?')} names since {br.get('since','?')}** shows the model "
+                 f"**under-estimates how fast prices actually recover**. Realized vs model odds of being "
+                 f"back to the prior peak: at 12 months **{_bp(rz,12)} actual vs {_bp(pr,12)} model**, "
+                 f"at 24 months **{_bp(rz,24)} vs {_bp(pr,24)}**, at 36 months **{_bp(rz,36)} vs {_bp(pr,36)}**. "
+                 f"**So treat the recovery columns and the drawdown × recovery matrix below as a "
+                 f"conservative (pessimistic) floor, not a center estimate.** Two honest limits on the "
+                 f"backtest itself: it covers *survivors* (names still trading today, which biases realized "
+                 f"recovery upward), and the macro dial is set to history, not forecast. The *depth* side is "
+                 f"the validated part (the 7-crash backtest brackets the realized fall in 6 of 7); recovery "
+                 f"*timing* is the least-certain layer, which is why it is flagged here rather than buried.")
     # ---- ETF recovery lens section (basket scorecard) ----
     try:
         import etf_lens as _EL

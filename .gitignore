@@ -9,3 +9,12 @@ node_modules/
 # local-only API keys — never commit
 site/keys.js
 keys.js
+
+# daily live data (regenerated each run)
+systemic_model/live_inputs.json
+
+# Local Netlify folder
+.netlify
+
+# Claude Code local settings (personal, never commit)
+.claude/settings.local.json
