@@ -7,7 +7,7 @@
 // ============================================================================
 (function () {
   const KEY = "ma-mode";
-  window.MA_MODE = localStorage.getItem(KEY) || "beginner";   // default: beginner
+  window.MA_MODE = localStorage.getItem(KEY) || "expert";   // default: expert (impress first-time / pro visitors; beginners can switch)
   document.documentElement.setAttribute("data-mode", window.MA_MODE);
 
   window.setMode = (m) => {
