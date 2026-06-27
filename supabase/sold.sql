@@ -1,5 +1,5 @@
 -- ============================================================================
---  Market Analyst — track SOLD positions (realized profit)
+--  RiskLens — track SOLD positions (realized profit)
 --  Run ONCE in Supabase: SQL Editor → New query → paste → Run.
 --
 --  When a user sells a stock or option, we move it here and record the

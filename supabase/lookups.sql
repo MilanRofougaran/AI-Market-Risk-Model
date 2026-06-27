@@ -1,5 +1,5 @@
 -- ============================================================================
---  Market Analyst — shared "searched stocks" cache
+--  RiskLens — shared "searched stocks" cache
 --  When anyone searches a stock that's not on the ranked list, the model's
 --  quick estimate is saved here so EVERY user gets it instantly next time, and
 --  the searches build into a browsable list. These are AI estimates (not the

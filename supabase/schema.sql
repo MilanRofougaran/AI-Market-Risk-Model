@@ -1,5 +1,5 @@
 -- ============================================================================
---  Market Analyst — database schema (Supabase / PostgreSQL)
+--  RiskLens — database schema (Supabase / PostgreSQL)
 -- ----------------------------------------------------------------------------
 --  Run this ONCE in Supabase: Dashboard → SQL Editor → New query → paste → Run.
 --  Creates the app's tables, auto-creates a profile when someone signs up,

@@ -1,5 +1,5 @@
 -- ============================================================================
---  Market Analyst — add OPTION POSITIONS to the portfolio
+--  RiskLens — add OPTION POSITIONS to the portfolio
 --  Run ONCE in Supabase: SQL Editor → New query → paste → Run.
 --  (The "destructive operation" warning is fine — it only re-creates a trigger.)
 --

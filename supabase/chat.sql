@@ -1,5 +1,5 @@
 -- ============================================================================
---  Market Analyst — saved Research chats (like Claude's chat history)
+--  RiskLens — saved Research chats (like Claude's chat history)
 --  Run ONCE in Supabase: SQL Editor → New query → paste → Run.
 -- ============================================================================
 
