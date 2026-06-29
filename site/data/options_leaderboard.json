@@ -1,6 +1,6 @@
 {
- "as_of": "2026-06-27",
- "generated": "2026-06-27 10:21 UTC",
+ "as_of": "2026-06-29",
+ "generated": "2026-06-29 00:34 UTC",
  "tenor": "18m",
  "strike_mult": 0.75,
  "note": "Model fair value is THESIS-CONDITIONAL and IV-BLIND \u2014 not a market price; it can't tell you if the market mispriced the option. Edge = model fair \u2212 market. Calls only. Prices as of the date above. RESEARCH MODEL \u2014 NOT INVESTMENT ADVICE.",
@@ -59,32 +59,6 @@
   },
   {
    "rank": 3,
-   "name": "Tesla",
-   "ticker": "TSLA",
-   "spot": 379.71,
-   "expiry": "2027-12-17",
-   "expiry_label": "Dec 2027",
-   "strike": 280,
-   "strike_mult": 0.74,
-   "occ": "O:TSLA271217C00280000",
-   "market": 155.95,
-   "fair": 157.2,
-   "fair_pct": 41.4,
-   "edge": 1.25,
-   "p_itm": 73,
-   "gate": "cyclical \u2014 no short calls",
-   "bucket": "watch",
-   "action": "Cyclical \u2014 rebound-dependent; give it time.",
-   "leg": {
-    "k1": 0.75,
-    "k2": 1.5,
-    "cost_pct": 31.3,
-    "p_max": 0.211,
-    "giveup": 0.24
-   }
-  },
-  {
-   "rank": 4,
    "name": "CoreWeave",
    "ticker": "CRWV",
    "spot": 96.58,
@@ -110,7 +84,7 @@
    }
   },
   {
-   "rank": 5,
+   "rank": 4,
    "name": "Samsara",
    "ticker": "IOT",
    "spot": 31.14,
@@ -136,7 +110,7 @@
    }
   },
   {
-   "rank": 6,
+   "rank": 5,
    "name": "AMD",
    "ticker": "AMD",
    "spot": 521.58,
@@ -162,7 +136,7 @@
    }
   },
   {
-   "rank": 7,
+   "rank": 6,
    "name": "Qualcomm",
    "ticker": "QCOM",
    "spot": 189.39,
@@ -188,7 +162,7 @@
    }
   },
   {
-   "rank": 8,
+   "rank": 7,
    "name": "Marvell",
    "ticker": "MRVL",
    "spot": 266.77,
@@ -214,7 +188,7 @@
    }
   },
   {
-   "rank": 9,
+   "rank": 8,
    "name": "Camtek",
    "ticker": "CAMT",
    "spot": 153.72,
@@ -240,7 +214,7 @@
    }
   },
   {
-   "rank": 10,
+   "rank": 9,
    "name": "AppLovin",
    "ticker": "APP",
    "spot": 477.08,
@@ -266,7 +240,7 @@
    }
   },
   {
-   "rank": 11,
+   "rank": 10,
    "name": "Vertiv",
    "ticker": "VRT",
    "spot": 303.95,
@@ -292,7 +266,7 @@
    }
   },
   {
-   "rank": 12,
+   "rank": 11,
    "name": "Broadcom",
    "ticker": "AVGO",
    "spot": 365.02,
@@ -302,9 +276,9 @@
    "strike_mult": 0.74,
    "occ": "O:AVGO271217C00270000",
    "market": 185,
-   "fair": 143.82,
-   "fair_pct": 39.4,
-   "edge": -41.18,
+   "fair": 139.8,
+   "fair_pct": 38.3,
+   "edge": -45.2,
    "p_itm": 88,
    "gate": "secular/diversified",
    "bucket": "watch",
@@ -312,13 +286,13 @@
    "leg": {
     "k1": 0.75,
     "k2": 1.5,
-    "cost_pct": 35.5,
-    "p_max": 0.158,
+    "cost_pct": 34.6,
+    "p_max": 0.149,
     "giveup": 0.1
    }
   },
   {
-   "rank": 13,
+   "rank": 12,
    "name": "Astera Labs",
    "ticker": "ALAB",
    "spot": 391.74,
@@ -344,7 +318,7 @@
    }
   },
   {
-   "rank": 14,
+   "rank": 13,
    "name": "Applied Optoelectronics",
    "ticker": "AAOI",
    "spot": 135.69,
@@ -370,7 +344,7 @@
    }
   },
   {
-   "rank": 15,
+   "rank": 14,
    "name": "Meta",
    "ticker": "META",
    "spot": 550.25,
@@ -396,7 +370,7 @@
    }
   },
   {
-   "rank": 16,
+   "rank": 15,
    "name": "SMH (VanEck Semis)",
    "ticker": "SMH",
    "spot": 611.61,
@@ -406,9 +380,9 @@
    "strike_mult": 0.75,
    "occ": "O:SMH271217C00460000",
    "market": 283.03,
-   "fair": 217.73,
-   "fair_pct": 35.6,
-   "edge": -65.3,
+   "fair": 217.12,
+   "fair_pct": 35.5,
+   "edge": -65.91,
    "p_itm": 86,
    "gate": "secular basket (idio-damped)",
    "bucket": "watch",
@@ -416,9 +390,35 @@
    "leg": {
     "k1": 0.75,
     "k2": 1.5,
-    "cost_pct": 32.8,
+    "cost_pct": 32.7,
     "p_max": 0.123,
     "giveup": 0.08
+   }
+  },
+  {
+   "rank": 16,
+   "name": "Coherent",
+   "ticker": "COHR",
+   "spot": 380.56,
+   "expiry": "2027-12-17",
+   "expiry_label": "Dec 2027",
+   "strike": 290,
+   "strike_mult": 0.76,
+   "occ": "O:COHR271217C00290000",
+   "market": 203.5,
+   "fair": 129.39,
+   "fair_pct": 34.0,
+   "edge": -74.11,
+   "p_itm": 80,
+   "gate": "cyclical \u2014 no short calls",
+   "bucket": "watch",
+   "action": "Cyclical \u2014 rebound-dependent; give it time.",
+   "leg": {
+    "k1": 0.75,
+    "k2": 1.5,
+    "cost_pct": 30.0,
+    "p_max": 0.138,
+    "giveup": 0.12
    }
   },
   {
