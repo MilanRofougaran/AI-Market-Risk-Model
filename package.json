@@ -1,0 +1,8 @@
+{
+  "name": "risklens",
+  "private": true,
+  "description": "RiskLens — serverless function dependencies (Netlify bundles these into the functions).",
+  "dependencies": {
+    "snaptrade-typescript-sdk": "latest"
+  }
+}

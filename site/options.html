@@ -135,6 +135,12 @@ td.k{font-weight:700;font-family:var(--mono)}
 .lead-tag{font-size:10px;font-weight:700;border-radius:6px;padding:2px 8px;white-space:nowrap;text-transform:uppercase;letter-spacing:.03em}
 .lead-buy{background:var(--greenbg);color:var(--green)} .lead-watch{background:var(--amberbg);color:var(--amber)} .lead-skip{background:var(--redbg);color:var(--red)}
 .leadrow{cursor:pointer;transition:background .12s} .leadrow:hover{background:var(--hush)}
+.risktabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.risktabs .risklbl{font-size:13px;font-weight:600;color:var(--ink);margin-right:2px}
+.risktab{border:1px solid var(--line);background:var(--paper);color:var(--soft);border-radius:980px;padding:6px 15px;font-size:13px;font-weight:600;cursor:pointer;transition:background .12s,color .12s}
+.risktab:hover{background:var(--hush)}
+.risktab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.riskdesc{flex-basis:100%;font-size:12.5px;color:var(--soft);margin-top:2px}
 .edge-pos{color:var(--green);font-weight:700} .edge-neg{color:var(--red);font-weight:700}
 .livewrap{margin-top:5px}
 .livebtn{font-size:11px;border:1px solid var(--line);background:var(--paper);color:var(--blue);border-radius:980px;padding:2px 10px;cursor:pointer;font-weight:600}
@@ -265,6 +271,14 @@ td.k{font-weight:700;font-family:var(--mono)}
   </div>
 
   <!-- TOP PICKS leaderboard (model fair value × live option market) -->
+  <div class="risktabs view-top leadfull" id="riskTabs">
+    <span class="risklbl">Tailor to your risk:</span>
+    <button class="risktab on" data-risk="balanced" onclick="setRisk('balanced')">Balanced</button>
+    <button class="risktab" data-risk="conservative" onclick="setRisk('conservative')">Conservative</button>
+    <button class="risktab" data-risk="aggressive" onclick="setRisk('aggressive')">Aggressive</button>
+    <span class="riskdesc" id="riskDesc"></span>
+  </div>
+  <div class="leadhint view-top leadfull" id="riskAdvice"></div>
   <div class="leadhint view-top leadfull">A ranked, decision-oriented list of <b>specific call contracts</b>: the live option <b>market price</b> vs the model's <b>thesis-conditional fair value</b> (IV-blind), with a <b>buy / watch / skip</b> read. <span id="leadAsOf"></span></div>
   <div class="panel view-top expert-only leadfull">
     <div class="h2">Top call ideas <span class="dim" id="leadmeta"></span></div>
@@ -392,7 +406,7 @@ async function boot(){
   document.getElementById("foot").innerHTML=
     `${LENS.paths?.toLocaleString?.()||LENS.paths} simulated paths · discounted at 10y ${(LENS.discount_10y*100).toFixed(1)}% · physical (thesis-conditional) measure, no implied-volatility. Macro stress now: ${(STRESS.score*100).toFixed(0)}/100 (acute ${(STRESS.acute*100).toFixed(0)}). <b>Research model — not investment advice.</b>`;
   try{ render(); }catch(e){ console.error("render failed:", e); }
-  try{ renderLeaderboard(); }catch(e){ console.error("leaderboard failed:", e); }
+  try{ applyRisk(); }catch(e){ console.error("leaderboard failed:", e); }
 }
 
 // ---- Top picks leaderboard (precomputed: model fair value × live option market) ----
@@ -552,6 +566,91 @@ function leadDetailBeginner(r){
 window.closeLeadDetail=function(){ document.getElementById("leadModal").classList.remove("open"); };
 document.addEventListener("keydown",e=>{ if(e.key==="Escape")window.closeLeadDetail(); });
 
+/* ---- Risk-level tailoring: re-shape the picks' contract length + strike ----
+   Balanced = the live precomputed board. Conservative/Aggressive re-tailor
+   from the model lens (all tenors/strikes are published) — model-side, with a
+   note to switch to Balanced for live prices. */
+const RISK={
+  conservative:{tenor:"36m",strike:0.60,mo:36,label:"Safer — longer (~3-year), deep in-the-money calls: higher chance to pay, smaller % swings."},
+  balanced:{tenor:"18m",strike:0.75,mo:18,label:"The model's default — ~18-month deep-in-the-money calls, with live market prices."},
+  aggressive:{tenor:"12m",strike:1.10,mo:12,label:"Riskier — shorter (~1-year), out-of-the-money calls: lower chance to pay, bigger payoff if right."}
+};
+let RISKLEVEL="balanced", RSORT={k:"pos",dir:"asc"};
+window.setRisk=(lvl)=>{ if(!RISK[lvl]) return; RISKLEVEL=lvl; RSORT={k:"pos",dir:"asc"}; applyRisk(); };
+function applyRisk(){
+  document.querySelectorAll("#riskTabs .risktab").forEach(b=>b.classList.toggle("on", b.dataset.risk===RISKLEVEL));
+  const desc=document.getElementById("riskDesc"); if(desc) desc.textContent=RISK[RISKLEVEL].label;
+  if(RISKLEVEL==="balanced") renderLeaderboard();   // the live-price board
+  else renderTailored();                             // model-side, re-shaped to risk
+}
+// sortable tailored columns (key, label, oExplain def-key)
+const RISK_COLS=[["pos","#","rank"],["contract","Contract","contract"],["len","Length","len"],["fair","Model value","fair"],["pitm","Chance it pays","p_itm"],["bucket","Verdict","bucket"]];
+const RISK_BEG_COLS=[["pos","#","rank"],["contract","Option","contract"],["pitm","Chance it pays","p_itm"],["bucket","Verdict","bucket"]];
+function cmpRisk(a,b){
+  const k=RSORT.k, dir=RSORT.dir==="asc"?1:-1;
+  if(k==="pos") return dir*(a._pos-b._pos);
+  if(k==="contract") return dir*String(a.ticker).localeCompare(String(b.ticker));
+  if(k==="len") return 0;
+  if(k==="bucket"){ const o={buy:0,watch:1,skip:2}; return dir*((o[a.bucket]??9)-(o[b.bucket]??9)); }
+  const f=k==="fair"?"fair$":"pitm", av=a[f], bv=b[f];
+  if(av==null&&bv==null) return 0; if(av==null) return 1; if(bv==null) return -1; return dir*(av-bv);
+}
+window.sortRisk=(k)=>{ if(RSORT.k===k) RSORT.dir=RSORT.dir==="asc"?"desc":"asc"; else { RSORT.k=k; RSORT.dir=(k==="pos"||k==="contract")?"asc":"desc"; } renderTailored(); };
+window.resetRisk=()=>{ RSORT={k:"pos",dir:"asc"}; renderTailored(); };
+function riskHeadHTML(cols){
+  return cols.map(([k,lbl,dk])=>{
+    const on=RSORT.k===k, ar=on?(RSORT.dir==="asc"?" ▲":" ▼"):"";
+    const q=`<span class="qmark" onclick="event.stopPropagation();oExplain('${dk}')" title="What does this mean?">?</span>`;
+    const def=k==="pos"?` <span class="defbadge" title="The model's default order — best picks first">default</span>`:"";
+    return `<th onclick="sortRisk('${k}')">${lbl}${ar}${q}${def}</th>`;
+  }).join("");
+}
+function tailoredRows(){
+  const prof=RISK[RISKLEVEL], skKey=prof.strike.toFixed(2);
+  return ((LEAD&&LEAD.rows)||[]).map(r=>{
+    const nd=LENS&&LENS.names&&LENS.names[r.name]; if(!nd) return null;
+    const sd=nd[prof.tenor]&&nd[prof.tenor].strikes&&nd[prof.tenor].strikes[skKey]; if(!sd) return null;
+    return { rank:r.rank, ticker:r.ticker, name:r.name, bucket:r.bucket,
+             strike$:Math.round(prof.strike*r.spot),
+             pitm: sd.p_itm==null?null:Math.round(sd.p_itm*100),
+             fair$: sd.fair_value_pct_of_spot==null?null:(sd.fair_value_pct_of_spot/100)*r.spot };
+  }).filter(Boolean);
+}
+function renderTailored(){
+  const prof=RISK[RISKLEVEL];
+  let built=tailoredRows();
+  built.forEach((r,i)=>r._pos=i+1);      // default (model-rank) order
+  built.sort(cmpRisk);
+  const tag=b=>`<span class="lead-tag lead-${b}">${b}</span>`;
+  const meta=document.getElementById("leadmeta"); if(meta) meta.textContent=`· ${RISKLEVEL} risk · model view (no live price)`;
+  const reset=(RSORT.k==="pos"&&RSORT.dir==="asc")?"":` · <a href="#" onclick="resetRisk();return false">↺ back to default order</a>`;
+  // expert table (sortable + explainers + default rank)
+  const head=document.getElementById("leadHead"); if(head) head.innerHTML=riskHeadHTML(RISK_COLS);
+  const exp=document.getElementById("leadBody");
+  if(exp) exp.innerHTML = built.length ? built.map((r,i)=>`<tr>
+      <td>${i+1}</td>
+      <td style="text-align:left"><b>${r.ticker}</b> $${r.strike$}C</td>
+      <td>~${prof.mo} mo</td>
+      <td>${r.fair$==null?"—":leadUSD(r.fair$)}</td>
+      <td>${r.pitm==null?"—":r.pitm+"%"}</td>
+      <td style="text-align:left">${tag(r.bucket)}</td>
+    </tr>`).join("") : `<tr><td colspan="6" style="text-align:left;color:var(--soft)">No tailored contracts available for this risk level.</td></tr>`;
+  // beginner table (sortable + explainers + default rank)
+  const bs=document.getElementById("leadBeginner");
+  if(bs){
+    const tagcls={buy:"lead-buy",watch:"lead-watch",skip:"lead-skip"};
+    const body=built.map((r,i)=>`<tr>
+      <td class="lnum">${i+1}</td>
+      <td><b>${r.ticker}</b> $${r.strike$} call <span class="dim">~${prof.mo} mo</span></td>
+      <td>${r.pitm==null?"—":r.pitm+"%"}</td>
+      <td><span class="lead-tag ${tagcls[r.bucket]||''}">${r.bucket}</span></td>
+    </tr>`).join("");
+    bs.innerHTML=`<h3 style="margin:0 0 4px">Top picks — ${RISKLEVEL} risk</h3>
+      <p class="leadhint" style="margin:0 0 10px">${prof.label} Tap a heading to sort, the “?” to learn it.${reset}</p>
+      <div class="ltable-wrap"><table class="ltable"><thead><tr>${riskHeadHTML(RISK_BEG_COLS)}</tr></thead><tbody>${body}</tbody></table></div>
+      <p class="warnline" style="margin-top:10px">⚠ Model estimates only here — switch to <b>Balanced</b> for live market prices. Options are high-risk; you can lose everything you put in. Research only, not advice.</p>`;
+  }
+}
 function renderLeaderboard(){
   const exp=document.getElementById("leadBody"), beg=document.getElementById("leadBeginner");
   const meta=document.getElementById("leadmeta"), asof=document.getElementById("leadAsOf");
@@ -607,6 +706,7 @@ const LEAD_DEFS={
   p_itm:{t:"Chance it pays",def:"The odds the stock finishes above the strike by expiry.",want:"Higher is better."},
   bucket:{t:"Verdict",def:"The model's read on the contract.",want:"BUY = durable + good value · WATCH = time-sensitive or pricey · SKIP = avoid."},
   leg:{t:"Spread (the legs)",def:"A cheaper alternative to the plain call: buy one call and sell a higher one. The two strike prices are the 'legs' (e.g. buy 0.75× / sell 1.50× of today's price).",want:"Costs less than the plain call, but your gain is capped at the higher (sell) strike."},
+  len:{t:"Length",def:"How long until the option expires — set by your risk level: Conservative ~3 years, Balanced ~18 months, Aggressive ~1 year.",want:"Longer = more time for the bet to work out (steadier). Shorter = cheaper but riskier."},
 };
 function oExplain(k){ const d=LEAD_DEFS[k]; if(!d) return;
   document.getElementById("oinfoModal").innerHTML=
@@ -1012,6 +1112,30 @@ boot();
     <div id="leadModalBody"></div>
   </div>
 </div>
+<!-- portfolio-aware risk guidance (logged-in users) -->
+<script type="module">
+  import { sb, currentUser } from "./auth.js";
+  (async () => {
+    const el = document.getElementById("riskAdvice");
+    if (!el) return;
+    const base = 'As a rule: <b>Conservative</b> for steadier bets, <b>Balanced</b> for the model default, <b>Aggressive</b> only with money you can fully lose.';
+    let user = null;
+    try { user = await currentUser(); } catch (e) {}
+    if (!user) {
+      el.innerHTML = '💡 <a href="login.html">Log in</a> and add your portfolio to tailor this to <i>you</i>. ' + base;
+      return;
+    }
+    let rows = [];
+    try { const { data } = await sb.from("holdings").select("security_name"); rows = data || []; } catch (e) {}
+    const n = rows.length;
+    let msg;
+    if (n === 0)        msg = 'Your portfolio is empty — add holdings on the <a href="account.html">Portfolio</a> page to tailor this. ' + base;
+    else if (n <= 2)    msg = `Your portfolio is <b>concentrated</b> (${n} holding${n>1?"s":""}), so you're already carrying a lot of single-stock risk — lean <b>Conservative</b> here, and avoid piling more onto names you already own.`;
+    else if (n <= 5)    msg = `Your portfolio has <b>${n} holdings</b> — moderately spread. <b>Balanced</b> fits; only go Aggressive with money you can fully lose.`;
+    else                msg = `Your portfolio is <b>fairly spread out</b> (${n} holdings), so you have more room for <b>Aggressive</b> bets if you want — but options are still high-risk.`;
+    el.innerHTML = '💡 <b>Based on your portfolio:</b> ' + msg;
+  })();
+</script>
 <script src="theme.js"></script>
 </body>
 </html>

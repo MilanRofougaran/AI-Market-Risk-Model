@@ -149,8 +149,12 @@ td.nm{font-weight:600}
 
   <div class="sec-head">
     <h2>Your investments</h2>
-    <button class="add-btn" onclick="openAdd()">+ Add investment</button>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="add-btn" style="background:#fff;color:var(--blue);border:1px solid var(--line)" onclick="connectBrokerage()">Connect brokerage</button>
+      <button class="add-btn" onclick="openAdd()">+ Add investment</button>
+    </div>
   </div>
+  <div id="stStatus" style="font-size:13px;color:var(--soft);margin:-4px 0 10px;line-height:1.5"></div>
   <div id="holdings"></div>
 
   <div id="portRisk"></div>
@@ -525,6 +529,60 @@ async function init(){
   await loadOptions();
   await loadClosed();
 }
+
+// ---- Connect a real brokerage via SnapTrade (auto-import holdings) ---------
+async function stCall(action, extra){
+  const r = await fetch("/.netlify/functions/snaptrade", {
+    method:"POST", headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({ action, userId: USER.id, ...extra }) });
+  let j={}; try{ j=await r.json(); }catch(e){}
+  if(!r.ok || j.error) throw new Error(j.error || ("HTTP "+r.status));
+  return j;
+}
+async function stGetCreds(){
+  const { data } = await sb.from("profiles").select("settings").eq("id", USER.id).single();
+  return (data && data.settings && data.settings.snaptrade) || null;
+}
+async function stSaveCreds(creds){
+  const { data } = await sb.from("profiles").select("settings").eq("id", USER.id).single();
+  const settings = { ...((data && data.settings) || {}), snaptrade: creds };
+  await sb.from("profiles").update({ settings }).eq("id", USER.id);
+}
+window.connectBrokerage = async () => {
+  const st = document.getElementById("stStatus");
+  st.textContent = "Setting up a secure link…";
+  try{
+    let creds = await stGetCreds();
+    if(!creds || !creds.userSecret){
+      const r = await stCall("register", {});
+      creds = { userId: r.userId, userSecret: r.userSecret };
+      await stSaveCreds(creds);
+    }
+    const c = await stCall("connect", { userSecret: creds.userSecret });
+    window.open(c.redirectURI, "_blank", "noopener");
+    st.innerHTML = 'A secure window opened — log into your brokerage there (we never see your password). '
+      + 'When you\'re done, click → <button class="sell" style="margin-left:6px" onclick="importSnaptrade()">Import my holdings</button>';
+  }catch(e){ st.textContent = "Couldn't connect: " + (e.message || e); }
+};
+window.importSnaptrade = async () => {
+  const st = document.getElementById("stStatus");
+  st.textContent = "Importing your holdings…";
+  try{
+    const creds = await stGetCreds();
+    if(!creds){ st.textContent = "Connect a brokerage first."; return; }
+    const j = await stCall("holdings", { userSecret: creds.userSecret });
+    const hs = j.holdings || [];
+    if(!hs.length){ st.textContent = "No holdings found yet — it can take a minute after linking. Try “Import my holdings” again shortly."; return; }
+    await sb.from("holdings").delete().eq("source","snaptrade");   // replace prior auto-imports
+    const rows = hs.map(h => ({ user_id: USER.id, security_name: h.name || h.ticker,
+      shares: h.units, cost_basis: h.avg_price, source: "snaptrade",
+      note: "Imported from " + (h.account || "brokerage") }));
+    const { error } = await sb.from("holdings").insert(rows);
+    if(error){ st.textContent = "Couldn't save the import: " + error.message; return; }
+    st.textContent = `Imported ${rows.length} holding${rows.length>1?"s":""} ✓`;
+    await loadHoldings();
+  }catch(e){ st.textContent = "Import failed: " + (e.message || e); }
+};
 
 async function loadHoldings(){
   const { data, error } = await sb.from("holdings").select("*").order("created_at",{ascending:false});
