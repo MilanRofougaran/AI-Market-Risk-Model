@@ -3,6 +3,9 @@
 
 [functions]
   directory = "netlify/functions"
+  # trace & copy deps instead of bundling into one file — the SnapTrade SDK
+  # breaks under esbuild bundling (import.meta.url resolves to undefined)
+  node_bundler = "nft"
 
 [[headers]]
   for = "/data/*"
