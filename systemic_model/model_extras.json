@@ -73,13 +73,13 @@
   "Micron": {
    "tier_panel": {
     "fragility": {
-     "base": 0.23,
-     "TAM": 0.23,
-     "moat-.15": 0.23,
-     "margin": 0.275,
-     "rate+input": 0.2996
+     "base": 0.215,
+     "TAM": 0.215,
+     "moat-.15": 0.215,
+     "margin": 0.26,
+     "rate+input": 0.28459999999999996
     },
-    "worst": 0.2996,
+    "worst": 0.28459999999999996,
     "tier": "2  ownable, watch"
    },
    "confidence": {
@@ -937,22 +937,6 @@
    "solvency_hazard": 0.0252
   },
   "Allegro MicroSystems": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.4887122740524781,
-     "TAM": 0.5007142857142857,
-     "moat-.15": 0.4887122740524781,
-     "margin": 0.5337122740524781,
-     "rate+input": 0.4887122740524781
-    },
-    "worst": 0.5337122740524781,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Teradyne": {
@@ -1013,22 +997,6 @@
    "solvency_hazard": 0.0252
   },
   "FormFactor": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.4323930612244897,
-     "TAM": 0.4446428571428571,
-     "moat-.15": 0.4323930612244897,
-     "margin": 0.47739306122448977,
-     "rate+input": 0.4323930612244897
-    },
-    "worst": 0.47739306122448977,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Ichor Holdings": {
@@ -1146,22 +1114,6 @@
    "solvency_hazard": 0.0252
   },
   "Indie Semiconductor": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.6840824610578925,
-     "TAM": 0.6989285714285713,
-     "moat-.15": 0.6840824610578925,
-     "margin": 0.7290824610578924,
-     "rate+input": 0.6840824610578925
-    },
-    "worst": 0.7290824610578924,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "ServiceNow": {
@@ -1697,22 +1649,6 @@
    "solvency_hazard": 0.0252
   },
   "Eaton": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.37600749271137024,
-     "TAM": 0.3996428571428572,
-     "moat-.15": 0.37600749271137024,
-     "margin": 0.4210074927113703,
-     "rate+input": 0.37600749271137024
-    },
-    "worst": 0.4210074927113703,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Quanta Services": {
@@ -1792,22 +1728,6 @@
    "solvency_hazard": 0.0252
   },
   "Twilio": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.3787597849702381,
-     "TAM": 0.3948658608630953,
-     "moat-.15": 0.3787597849702381,
-     "margin": 0.42375978497023803,
-     "rate+input": 0.3787597849702381
-    },
-    "worst": 0.42375978497023803,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Dynatrace": {
@@ -2096,22 +2016,6 @@
    "solvency_hazard": 0.0252
   },
   "Marqeta": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.6471868216553287,
-     "TAM": 0.6677777777777777,
-     "moat-.15": 0.6471868216553287,
-     "margin": 0.6921868216553287,
-     "rate+input": 0.6471868216553287
-    },
-    "worst": 0.6921868216553287,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Penguin Solutions": {
@@ -2172,22 +2076,6 @@
    "solvency_hazard": 0.0252
   },
   "Flex": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.24891214285714286,
-     "TAM": 0.249375,
-     "moat-.15": 0.24891214285714286,
-     "margin": 0.29391214285714284,
-     "rate+input": 0.24891214285714286
-    },
-    "worst": 0.29391214285714284,
-    "tier": "2  ownable, watch"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Celestica": {
@@ -2267,22 +2155,6 @@
    "solvency_hazard": 0.0252
   },
   "Keysight Technologies": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.3807395604395605,
-     "TAM": 0.3930769230769231,
-     "moat-.15": 0.3807395604395605,
-     "margin": 0.4257395604395604,
-     "rate+input": 0.3807395604395605
-    },
-    "worst": 0.4257395604395604,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Bloom Energy": {
@@ -2704,22 +2576,6 @@
    "solvency_hazard": 0.0252
   },
   "GE Vernova peer / Emcor": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.41205064102564104,
-     "TAM": 0.423076923076923,
-     "moat-.15": 0.41205064102564104,
-     "margin": 0.45705064102564097,
-     "rate+input": 0.41205064102564104
-    },
-    "worst": 0.45705064102564097,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Powell Industries": {
@@ -2872,6 +2728,316 @@
     "option": "Low",
     "anchor": "Low"
    },
+   "solvency_hazard": 0.0252
+  },
+  "Nvidia peer / Wolfspeed": {
+   "solvency_hazard": 0.0252
+  },
+  "Skyworks Solutions": {
+   "solvency_hazard": 0.0252
+  },
+  "Qorvo": {
+   "solvency_hazard": 0.0252
+  },
+  "NXP Semiconductors": {
+   "solvency_hazard": 0.0252
+  },
+  "STMicroelectronics": {
+   "solvency_hazard": 0.0252
+  },
+  "ON Semiconductor": {
+   "solvency_hazard": 0.0252
+  },
+  "Microchip Technology": {
+   "solvency_hazard": 0.0252
+  },
+  "Entegris": {
+   "solvency_hazard": 0.0252
+  },
+  "MKS Instruments": {
+   "solvency_hazard": 0.0252
+  },
+  "Axcelis Technologies": {
+   "solvency_hazard": 0.0252
+  },
+  "Photon Control / Veeco": {
+   "solvency_hazard": 0.0252
+  },
+  "Nova Ltd": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.47289943609022556,
+     "TAM": 0.497421052631579,
+     "moat-.15": 0.47289943609022556,
+     "margin": 0.5178994360902256,
+     "rate+input": 0.47289943609022556
+    },
+    "worst": 0.5178994360902256,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "PDF Solutions": {
+   "solvency_hazard": 0.0252
+  },
+  "Aehr Test Systems": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.5744343083900226,
+     "TAM": 0.5955555555555555,
+     "moat-.15": 0.5744343083900226,
+     "margin": 0.6194343083900226,
+     "rate+input": 0.5744343083900226
+    },
+    "worst": 0.6194343083900226,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Cohu": {
+   "solvency_hazard": 0.0252
+  },
+  "Diodes Incorporated": {
+   "solvency_hazard": 0.0252
+  },
+  "Power Integrations": {
+   "solvency_hazard": 0.0252
+  },
+  "Vishay Intertechnology": {
+   "solvency_hazard": 0.0252
+  },
+  "TE Connectivity": {
+   "solvency_hazard": 0.0252
+  },
+  "Coherent peer / Viavi": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.36247806818181816,
+     "TAM": 0.36818181818181817,
+     "moat-.15": 0.36247806818181816,
+     "margin": 0.4074780681818182,
+     "rate+input": 0.36247806818181816
+    },
+    "worst": 0.4074780681818182,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "InterDigital": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.25500634285714285,
+     "TAM": 0.25888888888888895,
+     "moat-.15": 0.25500634285714285,
+     "margin": 0.3000063428571429,
+     "rate+input": 0.25500634285714285
+    },
+    "worst": 0.3000063428571429,
+    "tier": "2  ownable, watch"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Digital Turbine peer / Perion": {
+   "solvency_hazard": 0.0252
+  },
+  "The Trade Desk": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.45396177119309267,
+     "TAM": 0.48571428571428577,
+     "moat-.15": 0.45396177119309267,
+     "margin": 0.4989617711930926,
+     "rate+input": 0.45396177119309267
+    },
+    "worst": 0.4989617711930926,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Unity Software": {
+   "solvency_hazard": 0.0252
+  },
+  "Pegasystems": {
+   "solvency_hazard": 0.0252
+  },
+  "Salesforce": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.29402457506493507,
+     "TAM": 0.3081818181818182,
+     "moat-.15": 0.29402457506493507,
+     "margin": 0.33902457506493505,
+     "rate+input": 0.29402457506493507
+    },
+    "worst": 0.33902457506493505,
+    "tier": "2  ownable, watch"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Adobe": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.210367888292159,
+     "TAM": 0.22184210526315792,
+     "moat-.15": 0.210367888292159,
+     "margin": 0.25536788829215895,
+     "rate+input": 0.210367888292159
+    },
+    "worst": 0.25536788829215895,
+    "tier": "2  ownable, watch"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Intuit": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.3587193963498485,
+     "TAM": 0.38968749999999996,
+     "moat-.15": 0.3587193963498485,
+     "margin": 0.40371939634984855,
+     "rate+input": 0.3587193963498485
+    },
+    "worst": 0.40371939634984855,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "SAP": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.3552479285714286,
+     "TAM": 0.38968749999999996,
+     "moat-.15": 0.3552479285714286,
+     "margin": 0.40024792857142855,
+     "rate+input": 0.3552479285714286
+    },
+    "worst": 0.40024792857142855,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Amdocs": {
+   "solvency_hazard": 0.0252
+  },
+  "Okta": {
+   "solvency_hazard": 0.0252
+  },
+  "Tenable Holdings": {
+   "solvency_hazard": 0.0252
+  },
+  "Qualys": {
+   "solvency_hazard": 0.0252
+  },
+  "Varonis Systems": {
+   "solvency_hazard": 0.0252
+  },
+  "Check Point Software": {
+   "solvency_hazard": 0.0252
+  },
+  "Fastly": {
+   "solvency_hazard": 0.0252
+  },
+  "Akamai Technologies": {
+   "solvency_hazard": 0.0252
+  },
+  "Digital Realty Trust": {
+   "solvency_hazard": 0.0252
+  },
+  "Equinix": {
+   "solvency_hazard": 0.0252
+  },
+  "GE Vernova": {
+   "solvency_hazard": 0.0252
+  },
+  "Emerson Electric": {
+   "solvency_hazard": 0.0252
+  },
+  "Johnson Controls": {
+   "solvency_hazard": 0.0252
+  },
+  "Trane Technologies": {
+   "solvency_hazard": 0.0252
+  },
+  "Schneider peer / Hubbell": {
+   "solvency_hazard": 0.0252
+  },
+  "Generac Holdings": {
+   "solvency_hazard": 0.0252
+  },
+  "Oklo": {
+   "solvency_hazard": 0.0252
+  },
+  "GE Aerospace peer / MYR Group": {
+   "solvency_hazard": 0.0252
+  },
+  "MasTec": {
+   "solvency_hazard": 0.0252
+  },
+  "Marvell peer / Sanmina": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.3789215082644628,
+     "TAM": 0.3831818181818182,
+     "moat-.15": 0.3789215082644628,
+     "margin": 0.42392150826446284,
+     "rate+input": 0.3789215082644628
+    },
+    "worst": 0.42392150826446284,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Kadant / Belden": {
    "solvency_hazard": 0.0252
   },
   "ARKK (ARK Innovation)": {
@@ -3048,13 +3214,13 @@
   "SMH (VanEck Semis)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.2619929967136424,
-     "TAM": 0.2842939951998994,
-     "moat-.15": 0.2619929967136424,
-     "margin": 0.3069929967136424,
-     "rate+input": 0.2619929967136424
+     "base": 0.25941276787424516,
+     "TAM": 0.28172046145283014,
+     "moat-.15": 0.25941276787424516,
+     "margin": 0.3044127678742452,
+     "rate+input": 0.25941276787424516
     },
-    "worst": 0.3069929967136424,
+    "worst": 0.3044127678742452,
     "tier": "2  ownable, watch"
    },
    "confidence": {
@@ -3067,13 +3233,13 @@
   "SOXX (iShares Semis)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.2510466779583471,
-     "TAM": 0.26340466803343954,
-     "moat-.15": 0.2510466779583471,
-     "margin": 0.29604667795834716,
-     "rate+input": 0.2510466779583471
+     "base": 0.2474698324478065,
+     "TAM": 0.25983393343033456,
+     "moat-.15": 0.2474698324478065,
+     "margin": 0.29246983244780644,
+     "rate+input": 0.2474698324478065
     },
-    "worst": 0.29604667795834716,
+    "worst": 0.29246983244780644,
     "tier": "2  ownable, watch"
    },
    "confidence": {
@@ -3086,13 +3252,13 @@
   "DRAM (Roundhill Memory)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.2397945205479452,
-     "TAM": 0.2397945205479452,
-     "moat-.15": 0.2397945205479452,
-     "margin": 0.2847945205479452,
-     "rate+input": 0.2397945205479452
+     "base": 0.23486301369863014,
+     "TAM": 0.23486301369863014,
+     "moat-.15": 0.23486301369863014,
+     "margin": 0.27986301369863015,
+     "rate+input": 0.23486301369863014
     },
-    "worst": 0.2847945205479452,
+    "worst": 0.27986301369863015,
     "tier": "2  ownable, watch"
    },
    "confidence": {
@@ -3105,13 +3271,13 @@
   "QTUM (Defiance Quantum)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.2977035390410071,
-     "TAM": 0.3159502595716892,
-     "moat-.15": 0.2977035390410071,
-     "margin": 0.34270353904100714,
-     "rate+input": 0.2977035390410071
+     "base": 0.29488692083871404,
+     "TAM": 0.31314041752545396,
+     "moat-.15": 0.29488692083871404,
+     "margin": 0.3398869208387141,
+     "rate+input": 0.29488692083871404
     },
-    "worst": 0.34270353904100714,
+    "worst": 0.3398869208387141,
     "tier": "2  ownable, watch"
    },
    "confidence": {
@@ -3124,13 +3290,13 @@
   "AIQ (Global X AI)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.22578726665887253,
-     "TAM": 0.23227423448782408,
-     "moat-.15": 0.22578726665887253,
-     "margin": 0.27078726665887254,
-     "rate+input": 0.22578726665887253
+     "base": 0.2236824508181555,
+     "TAM": 0.2301693766709931,
+     "moat-.15": 0.2236824508181555,
+     "margin": 0.26868245081815545,
+     "rate+input": 0.2236824508181555
     },
-    "worst": 0.27078726665887254,
+    "worst": 0.26868245081815545,
     "tier": "2  ownable, watch"
    },
    "confidence": {
@@ -3143,13 +3309,13 @@
   "CHAT (Roundhill GenAI)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.25173416432873663,
-     "TAM": 0.2680229421061314,
-     "moat-.15": 0.25173416432873663,
-     "margin": 0.29673416432873656,
-     "rate+input": 0.25173416432873663
+     "base": 0.24972175137039745,
+     "TAM": 0.26601054410641933,
+     "moat-.15": 0.24972175137039745,
+     "margin": 0.29472175137039747,
+     "rate+input": 0.24972175137039745
     },
-    "worst": 0.29673416432873656,
+    "worst": 0.29472175137039747,
     "tier": "2  ownable, watch"
    },
    "confidence": {
