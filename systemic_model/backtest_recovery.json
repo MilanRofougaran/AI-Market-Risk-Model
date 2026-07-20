@@ -1,8 +1,8 @@
 {
- "as_of": "2026-07-13",
+ "as_of": "2026-07-20",
  "since": "2008",
  "n_names": 25,
- "n_episodes": 166,
+ "n_episodes": 168,
  "horizons_m": [
   6,
   12,
@@ -25,11 +25,11 @@
   "36": 154
  },
  "predicted": {
-  "6": 0.069,
+  "6": 0.07,
   "12": 0.224,
-  "18": 0.327,
-  "24": 0.394,
-  "36": 0.482
+  "18": 0.326,
+  "24": 0.392,
+  "36": 0.48
  },
  "names": [
   "NVIDIA",
@@ -192,6 +192,12 @@
    "censored": false
   },
   {
+   "name": "Oracle",
+   "depth": 0.622,
+   "recovery_months": null,
+   "censored": true
+  },
+  {
    "name": "Marvell",
    "depth": 0.621,
    "recovery_months": 22.1,
@@ -240,12 +246,6 @@
    "censored": false
   },
   {
-   "name": "Oracle",
-   "depth": 0.584,
-   "recovery_months": null,
-   "censored": true
-  },
-  {
    "name": "Texas Instruments",
    "depth": 0.579,
    "recovery_months": 21.0,
@@ -288,15 +288,15 @@
    "censored": false
   },
   {
+   "name": "Applied Optoelectronics",
+   "depth": 0.551,
+   "recovery_months": null,
+   "censored": true
+  },
+  {
    "name": "Coherent",
    "depth": 0.548,
    "recovery_months": 4.1,
-   "censored": false
-  },
-  {
-   "name": "ARM",
-   "depth": 0.54,
-   "recovery_months": 12.5,
    "censored": false
   }
  ],
