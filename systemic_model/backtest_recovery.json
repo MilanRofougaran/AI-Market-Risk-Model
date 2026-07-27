@@ -1,5 +1,5 @@
 {
- "as_of": "2026-07-20",
+ "as_of": "2026-07-27",
  "since": "2008",
  "n_names": 25,
  "n_episodes": 168,
@@ -25,11 +25,11 @@
   "36": 154
  },
  "predicted": {
-  "6": 0.07,
-  "12": 0.224,
-  "18": 0.326,
-  "24": 0.392,
-  "36": 0.48
+  "6": 0.069,
+  "12": 0.222,
+  "18": 0.324,
+  "24": 0.39,
+  "36": 0.477
  },
  "names": [
   "NVIDIA",
@@ -162,6 +162,12 @@
    "censored": false
   },
   {
+   "name": "Oracle",
+   "depth": 0.65,
+   "recovery_months": null,
+   "censored": true
+  },
+  {
    "name": "Amazon",
    "depth": 0.636,
    "recovery_months": 10.8,
@@ -190,12 +196,6 @@
    "depth": 0.624,
    "recovery_months": 45.1,
    "censored": false
-  },
-  {
-   "name": "Oracle",
-   "depth": 0.622,
-   "recovery_months": null,
-   "censored": true
   },
   {
    "name": "Marvell",
