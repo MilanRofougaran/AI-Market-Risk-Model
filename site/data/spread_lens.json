@@ -11701,656 +11701,6 @@
     }
    }
   },
-  "AppLovin": {
-   "gate": "cyclical \u2014 no short calls",
-   "tenors": {
-    "6m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 18.2,
-      "p_max": 0.578,
-      "p_between": 0.304,
-      "tail_giveup": 0.46
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 11.2,
-      "p_max": 0.427,
-      "p_between": 0.295,
-      "tail_giveup": 0.49
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 14.8,
-      "p_max": 0.3,
-      "p_between": 0.422,
-      "tail_giveup": 0.32
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 8.5,
-      "p_max": 0.3,
-      "p_between": 0.278,
-      "tail_giveup": 0.45
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 31.7,
-      "p_max": 0.082,
-      "p_between": 0.8,
-      "tail_giveup": 0.06
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 33.3,
-      "p_max": 0.011,
-      "p_between": 0.871,
-      "tail_giveup": 0.01
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 33.5,
-      "p_max": 0.005,
-      "p_between": 0.877,
-      "tail_giveup": 0.01
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 15.1,
-      "p_max": 0.011,
-      "p_between": 0.567,
-      "tail_giveup": 0.03
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 1.4,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.295,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 5.5,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.539,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 1.3,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.278,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -2.2,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.422,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": 2.6,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.64,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": 2.3,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.552,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 31.9,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.077,
-      "p_tail_kept": 0.005,
-      "net_tail_sold": 0.05
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 32.1,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.071,
-      "p_tail_kept": 0.011,
-      "net_tail_sold": 0.05
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 33.0,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.024,
-      "p_tail_kept": 0.002,
-      "net_tail_sold": 0.02
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 15.2,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.289,
-      "p_tail_kept": 0.011,
-      "net_tail_sold": 0.3
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 13.7,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.077,
-      "p_tail_kept": 0.005,
-      "net_tail_sold": 0.12
-     }
-    },
-    "12m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 16.6,
-      "p_max": 0.576,
-      "p_between": 0.225,
-      "tail_giveup": 0.6
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 11.0,
-      "p_max": 0.478,
-      "p_between": 0.194,
-      "tail_giveup": 0.64
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 15.1,
-      "p_max": 0.387,
-      "p_between": 0.285,
-      "tail_giveup": 0.51
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 9.1,
-      "p_max": 0.387,
-      "p_between": 0.189,
-      "tail_giveup": 0.63
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 33.7,
-      "p_max": 0.194,
-      "p_between": 0.607,
-      "tail_giveup": 0.19
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 39.0,
-      "p_max": 0.056,
-      "p_between": 0.745,
-      "tail_giveup": 0.06
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 40.0,
-      "p_max": 0.03,
-      "p_between": 0.771,
-      "tail_giveup": 0.04
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 22.4,
-      "p_max": 0.056,
-      "p_between": 0.52,
-      "tail_giveup": 0.1
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 1.0,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.194,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 3.7,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.373,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 0.9,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.189,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -3.1,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.285,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": -1.1,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.478,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": -2.4,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.472,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 35.2,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.164,
-      "p_tail_kept": 0.03,
-      "net_tail_sold": 0.15
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 36.2,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.138,
-      "p_tail_kept": 0.056,
-      "net_tail_sold": 0.13
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 38.1,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.087,
-      "p_tail_kept": 0.017,
-      "net_tail_sold": 0.08
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 17.6,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.331,
-      "p_tail_kept": 0.056,
-      "net_tail_sold": 0.43
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 18.6,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.164,
-      "p_tail_kept": 0.03,
-      "net_tail_sold": 0.25
-     }
-    },
-    "18m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 15.6,
-      "p_max": 0.571,
-      "p_between": 0.188,
-      "tail_giveup": 0.68
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 10.6,
-      "p_max": 0.495,
-      "p_between": 0.153,
-      "tail_giveup": 0.73
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 14.9,
-      "p_max": 0.428,
-      "p_between": 0.22,
-      "tail_giveup": 0.61
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 9.2,
-      "p_max": 0.428,
-      "p_between": 0.143,
-      "tail_giveup": 0.72
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 34.3,
-      "p_max": 0.261,
-      "p_between": 0.498,
-      "tail_giveup": 0.29
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 42.4,
-      "p_max": 0.108,
-      "p_between": 0.651,
-      "tail_giveup": 0.13
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 44.4,
-      "p_max": 0.069,
-      "p_between": 0.69,
-      "tail_giveup": 0.09
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 26.8,
-      "p_max": 0.108,
-      "p_between": 0.463,
-      "tail_giveup": 0.19
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 0.8,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.153,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 2.9,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.296,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 0.6,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.143,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -3.5,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.22,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": -3.2,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.387,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": -5.2,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.402,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 38.5,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.192,
-      "p_tail_kept": 0.069,
-      "net_tail_sold": 0.21
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 40.5,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.153,
-      "p_tail_kept": 0.108,
-      "net_tail_sold": 0.17
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 42.1,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.125,
-      "p_tail_kept": 0.044,
-      "net_tail_sold": 0.13
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 21.1,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.32,
-      "p_tail_kept": 0.108,
-      "net_tail_sold": 0.45
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 22.9,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.192,
-      "p_tail_kept": 0.069,
-      "net_tail_sold": 0.31
-     }
-    },
-    "24m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 14.7,
-      "p_max": 0.567,
-      "p_between": 0.161,
-      "tail_giveup": 0.73
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 10.3,
-      "p_max": 0.505,
-      "p_between": 0.126,
-      "tail_giveup": 0.78
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 14.6,
-      "p_max": 0.446,
-      "p_between": 0.185,
-      "tail_giveup": 0.68
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 9.2,
-      "p_max": 0.446,
-      "p_between": 0.121,
-      "tail_giveup": 0.77
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 34.0,
-      "p_max": 0.301,
-      "p_between": 0.427,
-      "tail_giveup": 0.39
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 43.9,
-      "p_max": 0.152,
-      "p_between": 0.576,
-      "tail_giveup": 0.21
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 46.9,
-      "p_max": 0.109,
-      "p_between": 0.619,
-      "tail_giveup": 0.15
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 29.2,
-      "p_max": 0.152,
-      "p_between": 0.415,
-      "tail_giveup": 0.28
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 0.5,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.126,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 2.3,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.249,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 0.6,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.121,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -3.8,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.185,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": -4.1,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.33,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": -6.7,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.353,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 42.4,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.192,
-      "p_tail_kept": 0.109,
-      "net_tail_sold": 0.23
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 45.4,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.149,
-      "p_tail_kept": 0.152,
-      "net_tail_sold": 0.18
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 46.1,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.135,
-      "p_tail_kept": 0.079,
-      "net_tail_sold": 0.17
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 26.0,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.294,
-      "p_tail_kept": 0.152,
-      "net_tail_sold": 0.43
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 27.7,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.192,
-      "p_tail_kept": 0.109,
-      "net_tail_sold": 0.32
-     }
-    },
-    "36m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 13.5,
-      "p_max": 0.556,
-      "p_between": 0.133,
-      "tail_giveup": 0.8
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 9.7,
-      "p_max": 0.509,
-      "p_between": 0.101,
-      "tail_giveup": 0.84
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 13.9,
-      "p_max": 0.464,
-      "p_between": 0.146,
-      "tail_giveup": 0.77
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 8.9,
-      "p_max": 0.464,
-      "p_between": 0.092,
-      "tail_giveup": 0.84
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 32.9,
-      "p_max": 0.35,
-      "p_between": 0.339,
-      "tail_giveup": 0.52
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 45.0,
-      "p_max": 0.218,
-      "p_between": 0.471,
-      "tail_giveup": 0.34
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 49.2,
-      "p_max": 0.172,
-      "p_between": 0.517,
-      "tail_giveup": 0.28
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 31.5,
-      "p_max": 0.218,
-      "p_between": 0.338,
-      "tail_giveup": 0.42
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 0.3,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.101,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 1.7,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.198,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 0.5,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.092,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -3.9,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.146,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": -5.0,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.26,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": -8.4,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.281,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 51.6,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.178,
-      "p_tail_kept": 0.172,
-      "net_tail_sold": 0.24
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 55.8,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.132,
-      "p_tail_kept": 0.218,
-      "net_tail_sold": 0.18
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 55.0,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.138,
-      "p_tail_kept": 0.137,
-      "net_tail_sold": 0.19
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 36.8,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.246,
-      "p_tail_kept": 0.218,
-      "net_tail_sold": 0.38
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 38.1,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.178,
-      "p_tail_kept": 0.172,
-      "net_tail_sold": 0.3
-     }
-    }
-   }
-  },
   "Camtek": {
    "gate": "secular",
    "tenors": {
@@ -13651,656 +13001,6 @@
     }
    }
   },
-  "Meta": {
-   "gate": "secular",
-   "tenors": {
-    "6m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 20.1,
-      "p_max": 0.585,
-      "p_between": 0.374,
-      "tail_giveup": 0.29
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 11.3,
-      "p_max": 0.333,
-      "p_between": 0.476,
-      "tail_giveup": 0.26
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 13.6,
-      "p_max": 0.154,
-      "p_between": 0.655,
-      "tail_giveup": 0.11
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 6.7,
-      "p_max": 0.154,
-      "p_between": 0.431,
-      "tail_giveup": 0.2
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 28.4,
-      "p_max": 0.01,
-      "p_between": 0.949,
-      "tail_giveup": 0.0
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 28.5,
-      "p_max": 0.0,
-      "p_between": 0.959,
-      "tail_giveup": 0.0
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 28.5,
-      "p_max": 0.0,
-      "p_between": 0.959,
-      "tail_giveup": 0.0
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 8.4,
-      "p_max": 0.0,
-      "p_between": 0.585,
-      "tail_giveup": 0.0
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 2.5,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.476,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 8.8,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.779,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 2.1,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.431,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": 0.2,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.655,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": 7.4,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.799,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": 5.0,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.584,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 28.4,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.01,
-      "p_tail_kept": 0.0,
-      "net_tail_sold": 0.0
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 28.4,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.01,
-      "p_tail_kept": 0.0,
-      "net_tail_sold": 0.0
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 28.5,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.001,
-      "p_tail_kept": 0.0,
-      "net_tail_sold": 0.0
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 13.6,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.154,
-      "p_tail_kept": 0.0,
-      "net_tail_sold": 0.11
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 8.3,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.01,
-      "p_tail_kept": 0.0,
-      "net_tail_sold": 0.01
-     }
-    },
-    "12m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 18.4,
-      "p_max": 0.594,
-      "p_between": 0.315,
-      "tail_giveup": 0.42
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 11.3,
-      "p_max": 0.424,
-      "p_between": 0.326,
-      "tail_giveup": 0.43
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 14.6,
-      "p_max": 0.279,
-      "p_between": 0.471,
-      "tail_giveup": 0.26
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 8.2,
-      "p_max": 0.279,
-      "p_between": 0.315,
-      "tail_giveup": 0.38
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 30.7,
-      "p_max": 0.057,
-      "p_between": 0.852,
-      "tail_giveup": 0.03
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 31.6,
-      "p_max": 0.003,
-      "p_between": 0.906,
-      "tail_giveup": 0.0
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 31.7,
-      "p_max": 0.001,
-      "p_between": 0.908,
-      "tail_giveup": 0.0
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 13.2,
-      "p_max": 0.003,
-      "p_between": 0.591,
-      "tail_giveup": 0.01
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 1.5,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.326,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 5.9,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.587,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 1.6,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.315,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -1.8,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.471,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": 3.9,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.693,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": 3.3,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.581,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 30.7,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.056,
-      "p_tail_kept": 0.001,
-      "net_tail_sold": 0.03
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 30.8,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.054,
-      "p_tail_kept": 0.003,
-      "net_tail_sold": 0.03
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 31.5,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.013,
-      "p_tail_kept": 0.0,
-      "net_tail_sold": 0.01
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 14.7,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.276,
-      "p_tail_kept": 0.003,
-      "net_tail_sold": 0.25
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 12.3,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.056,
-      "p_tail_kept": 0.001,
-      "net_tail_sold": 0.08
-     }
-    },
-    "18m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 17.3,
-      "p_max": 0.595,
-      "p_between": 0.272,
-      "tail_giveup": 0.5
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 11.1,
-      "p_max": 0.464,
-      "p_between": 0.257,
-      "tail_giveup": 0.53
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 14.9,
-      "p_max": 0.348,
-      "p_between": 0.373,
-      "tail_giveup": 0.36
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 8.8,
-      "p_max": 0.348,
-      "p_between": 0.247,
-      "tail_giveup": 0.49
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 32.1,
-      "p_max": 0.113,
-      "p_between": 0.754,
-      "tail_giveup": 0.07
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 34.3,
-      "p_max": 0.014,
-      "p_between": 0.853,
-      "tail_giveup": 0.01
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 34.5,
-      "p_max": 0.005,
-      "p_between": 0.862,
-      "tail_giveup": 0.0
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 17.0,
-      "p_max": 0.014,
-      "p_between": 0.581,
-      "tail_giveup": 0.02
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 1.1,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.257,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 4.5,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.479,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 1.2,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.247,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -2.7,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.373,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": 1.3,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.608,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": 1.2,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.555,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 32.2,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.108,
-      "p_tail_kept": 0.005,
-      "net_tail_sold": 0.07
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 32.4,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.099,
-      "p_tail_kept": 0.014,
-      "net_tail_sold": 0.06
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 33.8,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.038,
-      "p_tail_kept": 0.002,
-      "net_tail_sold": 0.02
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 15.2,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.334,
-      "p_tail_kept": 0.014,
-      "net_tail_sold": 0.35
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 14.9,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.108,
-      "p_tail_kept": 0.005,
-      "net_tail_sold": 0.14
-     }
-    },
-    "24m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 16.6,
-      "p_max": 0.597,
-      "p_between": 0.244,
-      "tail_giveup": 0.55
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 10.8,
-      "p_max": 0.487,
-      "p_between": 0.217,
-      "tail_giveup": 0.59
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 14.8,
-      "p_max": 0.385,
-      "p_between": 0.319,
-      "tail_giveup": 0.44
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 8.9,
-      "p_max": 0.385,
-      "p_between": 0.212,
-      "tail_giveup": 0.57
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 32.6,
-      "p_max": 0.163,
-      "p_between": 0.678,
-      "tail_giveup": 0.13
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 36.4,
-      "p_max": 0.032,
-      "p_between": 0.809,
-      "tail_giveup": 0.02
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 36.9,
-      "p_max": 0.015,
-      "p_between": 0.826,
-      "tail_giveup": 0.01
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 19.8,
-      "p_max": 0.032,
-      "p_between": 0.565,
-      "tail_giveup": 0.04
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 1.0,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.217,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 3.9,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.417,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 0.9,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.212,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -3.0,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.319,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": -0.3,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.541,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": -0.8,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.523,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 33.0,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.148,
-      "p_tail_kept": 0.015,
-      "net_tail_sold": 0.12
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 33.5,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.131,
-      "p_tail_kept": 0.032,
-      "net_tail_sold": 0.1
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 35.4,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.068,
-      "p_tail_kept": 0.006,
-      "net_tail_sold": 0.05
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 15.7,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.353,
-      "p_tail_kept": 0.032,
-      "net_tail_sold": 0.41
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 16.4,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.148,
-      "p_tail_kept": 0.015,
-      "net_tail_sold": 0.21
-     }
-    },
-    "36m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 15.2,
-      "p_max": 0.596,
-      "p_between": 0.206,
-      "tail_giveup": 0.64
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 10.3,
-      "p_max": 0.512,
-      "p_between": 0.171,
-      "tail_giveup": 0.68
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 14.4,
-      "p_max": 0.433,
-      "p_between": 0.25,
-      "tail_giveup": 0.55
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 8.9,
-      "p_max": 0.433,
-      "p_between": 0.163,
-      "tail_giveup": 0.67
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 32.7,
-      "p_max": 0.239,
-      "p_between": 0.563,
-      "tail_giveup": 0.22
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 39.0,
-      "p_max": 0.079,
-      "p_between": 0.723,
-      "tail_giveup": 0.07
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 40.3,
-      "p_max": 0.044,
-      "p_between": 0.758,
-      "tail_giveup": 0.04
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 23.8,
-      "p_max": 0.079,
-      "p_between": 0.517,
-      "tail_giveup": 0.11
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 0.7,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.171,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 2.9,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.333,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 0.7,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.163,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -3.4,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.25,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": -2.4,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.444,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": -3.7,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.458,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 34.4,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.195,
-      "p_tail_kept": 0.044,
-      "net_tail_sold": 0.18
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 35.7,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.16,
-      "p_tail_kept": 0.079,
-      "net_tail_sold": 0.15
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 37.6,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.112,
-      "p_tail_kept": 0.026,
-      "net_tail_sold": 0.1
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 17.4,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.354,
-      "p_tail_kept": 0.079,
-      "net_tail_sold": 0.46
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 19.2,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.195,
-      "p_tail_kept": 0.044,
-      "net_tail_sold": 0.28
-     }
-    }
-   }
-  },
   "D-Wave Quantum": {
    "gate": "secular",
    "tenors": {
@@ -14951,6 +13651,1306 @@
     }
    }
   },
+  "AppLovin": {
+   "gate": "cyclical \u2014 no short calls",
+   "tenors": {
+    "6m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 18.2,
+      "p_max": 0.578,
+      "p_between": 0.304,
+      "tail_giveup": 0.46
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 11.2,
+      "p_max": 0.427,
+      "p_between": 0.295,
+      "tail_giveup": 0.49
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 14.8,
+      "p_max": 0.3,
+      "p_between": 0.422,
+      "tail_giveup": 0.32
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 8.5,
+      "p_max": 0.3,
+      "p_between": 0.278,
+      "tail_giveup": 0.45
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 31.7,
+      "p_max": 0.082,
+      "p_between": 0.8,
+      "tail_giveup": 0.06
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 33.3,
+      "p_max": 0.011,
+      "p_between": 0.871,
+      "tail_giveup": 0.01
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 33.5,
+      "p_max": 0.005,
+      "p_between": 0.877,
+      "tail_giveup": 0.01
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 15.1,
+      "p_max": 0.011,
+      "p_between": 0.567,
+      "tail_giveup": 0.03
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.4,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.295,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 5.5,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.539,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 1.3,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.278,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -2.2,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.422,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 2.6,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.64,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": 2.3,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.552,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 31.9,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.077,
+      "p_tail_kept": 0.005,
+      "net_tail_sold": 0.05
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 32.1,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.071,
+      "p_tail_kept": 0.011,
+      "net_tail_sold": 0.05
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 33.0,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.024,
+      "p_tail_kept": 0.002,
+      "net_tail_sold": 0.02
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 15.2,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.289,
+      "p_tail_kept": 0.011,
+      "net_tail_sold": 0.3
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 13.7,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.077,
+      "p_tail_kept": 0.005,
+      "net_tail_sold": 0.12
+     }
+    },
+    "12m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 16.6,
+      "p_max": 0.576,
+      "p_between": 0.225,
+      "tail_giveup": 0.6
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 11.0,
+      "p_max": 0.478,
+      "p_between": 0.194,
+      "tail_giveup": 0.64
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 15.1,
+      "p_max": 0.387,
+      "p_between": 0.285,
+      "tail_giveup": 0.51
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 9.1,
+      "p_max": 0.387,
+      "p_between": 0.189,
+      "tail_giveup": 0.63
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 33.7,
+      "p_max": 0.194,
+      "p_between": 0.607,
+      "tail_giveup": 0.19
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 39.0,
+      "p_max": 0.056,
+      "p_between": 0.745,
+      "tail_giveup": 0.06
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 40.0,
+      "p_max": 0.03,
+      "p_between": 0.771,
+      "tail_giveup": 0.04
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 22.4,
+      "p_max": 0.056,
+      "p_between": 0.52,
+      "tail_giveup": 0.1
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.0,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.194,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 3.7,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.373,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 0.9,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.189,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -3.1,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.285,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": -1.1,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.478,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": -2.4,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.472,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 35.2,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.164,
+      "p_tail_kept": 0.03,
+      "net_tail_sold": 0.15
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 36.2,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.138,
+      "p_tail_kept": 0.056,
+      "net_tail_sold": 0.13
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 38.1,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.087,
+      "p_tail_kept": 0.017,
+      "net_tail_sold": 0.08
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 17.6,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.331,
+      "p_tail_kept": 0.056,
+      "net_tail_sold": 0.43
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 18.6,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.164,
+      "p_tail_kept": 0.03,
+      "net_tail_sold": 0.25
+     }
+    },
+    "18m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 15.6,
+      "p_max": 0.571,
+      "p_between": 0.188,
+      "tail_giveup": 0.68
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 10.6,
+      "p_max": 0.495,
+      "p_between": 0.153,
+      "tail_giveup": 0.73
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 14.9,
+      "p_max": 0.428,
+      "p_between": 0.22,
+      "tail_giveup": 0.61
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 9.2,
+      "p_max": 0.428,
+      "p_between": 0.143,
+      "tail_giveup": 0.72
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 34.3,
+      "p_max": 0.261,
+      "p_between": 0.498,
+      "tail_giveup": 0.29
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 42.4,
+      "p_max": 0.108,
+      "p_between": 0.651,
+      "tail_giveup": 0.13
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 44.4,
+      "p_max": 0.069,
+      "p_between": 0.69,
+      "tail_giveup": 0.09
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 26.8,
+      "p_max": 0.108,
+      "p_between": 0.463,
+      "tail_giveup": 0.19
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 0.8,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.153,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 2.9,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.296,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 0.6,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.143,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -3.5,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.22,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": -3.2,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.387,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": -5.2,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.402,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 38.5,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.192,
+      "p_tail_kept": 0.069,
+      "net_tail_sold": 0.21
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 40.5,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.153,
+      "p_tail_kept": 0.108,
+      "net_tail_sold": 0.17
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 42.1,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.125,
+      "p_tail_kept": 0.044,
+      "net_tail_sold": 0.13
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 21.1,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.32,
+      "p_tail_kept": 0.108,
+      "net_tail_sold": 0.45
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 22.9,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.192,
+      "p_tail_kept": 0.069,
+      "net_tail_sold": 0.31
+     }
+    },
+    "24m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 14.7,
+      "p_max": 0.567,
+      "p_between": 0.161,
+      "tail_giveup": 0.73
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 10.3,
+      "p_max": 0.505,
+      "p_between": 0.126,
+      "tail_giveup": 0.78
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 14.6,
+      "p_max": 0.446,
+      "p_between": 0.185,
+      "tail_giveup": 0.68
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 9.2,
+      "p_max": 0.446,
+      "p_between": 0.121,
+      "tail_giveup": 0.77
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 34.0,
+      "p_max": 0.301,
+      "p_between": 0.427,
+      "tail_giveup": 0.39
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 43.9,
+      "p_max": 0.152,
+      "p_between": 0.576,
+      "tail_giveup": 0.21
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 46.9,
+      "p_max": 0.109,
+      "p_between": 0.619,
+      "tail_giveup": 0.15
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 29.2,
+      "p_max": 0.152,
+      "p_between": 0.415,
+      "tail_giveup": 0.28
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 0.5,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.126,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 2.3,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.249,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 0.6,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.121,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -3.8,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.185,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": -4.1,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.33,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": -6.7,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.353,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 42.4,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.192,
+      "p_tail_kept": 0.109,
+      "net_tail_sold": 0.23
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 45.4,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.149,
+      "p_tail_kept": 0.152,
+      "net_tail_sold": 0.18
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 46.1,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.135,
+      "p_tail_kept": 0.079,
+      "net_tail_sold": 0.17
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 26.0,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.294,
+      "p_tail_kept": 0.152,
+      "net_tail_sold": 0.43
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 27.7,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.192,
+      "p_tail_kept": 0.109,
+      "net_tail_sold": 0.32
+     }
+    },
+    "36m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 13.5,
+      "p_max": 0.556,
+      "p_between": 0.133,
+      "tail_giveup": 0.8
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 9.7,
+      "p_max": 0.509,
+      "p_between": 0.101,
+      "tail_giveup": 0.84
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 13.9,
+      "p_max": 0.464,
+      "p_between": 0.146,
+      "tail_giveup": 0.77
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 8.9,
+      "p_max": 0.464,
+      "p_between": 0.092,
+      "tail_giveup": 0.84
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 32.9,
+      "p_max": 0.35,
+      "p_between": 0.339,
+      "tail_giveup": 0.52
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 45.0,
+      "p_max": 0.218,
+      "p_between": 0.471,
+      "tail_giveup": 0.34
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 49.2,
+      "p_max": 0.172,
+      "p_between": 0.517,
+      "tail_giveup": 0.28
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 31.5,
+      "p_max": 0.218,
+      "p_between": 0.338,
+      "tail_giveup": 0.42
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 0.3,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.101,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 1.7,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.198,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 0.5,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.092,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -3.9,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.146,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": -5.0,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.26,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": -8.4,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.281,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 51.6,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.178,
+      "p_tail_kept": 0.172,
+      "net_tail_sold": 0.24
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 55.8,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.132,
+      "p_tail_kept": 0.218,
+      "net_tail_sold": 0.18
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 55.0,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.138,
+      "p_tail_kept": 0.137,
+      "net_tail_sold": 0.19
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 36.8,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.246,
+      "p_tail_kept": 0.218,
+      "net_tail_sold": 0.38
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 38.1,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.178,
+      "p_tail_kept": 0.172,
+      "net_tail_sold": 0.3
+     }
+    }
+   }
+  },
+  "Meta": {
+   "gate": "secular",
+   "tenors": {
+    "6m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 20.1,
+      "p_max": 0.585,
+      "p_between": 0.374,
+      "tail_giveup": 0.29
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 11.3,
+      "p_max": 0.333,
+      "p_between": 0.476,
+      "tail_giveup": 0.26
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 13.6,
+      "p_max": 0.154,
+      "p_between": 0.655,
+      "tail_giveup": 0.11
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 6.7,
+      "p_max": 0.154,
+      "p_between": 0.431,
+      "tail_giveup": 0.2
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 28.4,
+      "p_max": 0.01,
+      "p_between": 0.949,
+      "tail_giveup": 0.0
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 28.5,
+      "p_max": 0.0,
+      "p_between": 0.959,
+      "tail_giveup": 0.0
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 28.5,
+      "p_max": 0.0,
+      "p_between": 0.959,
+      "tail_giveup": 0.0
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 8.4,
+      "p_max": 0.0,
+      "p_between": 0.585,
+      "tail_giveup": 0.0
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 2.5,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.476,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 8.8,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.779,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 2.1,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.431,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": 0.2,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.655,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 7.4,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.799,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": 5.0,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.584,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 28.4,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.01,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.0
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 28.4,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.01,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.0
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 28.5,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.001,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.0
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 13.6,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.154,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.11
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 8.3,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.01,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.01
+     }
+    },
+    "12m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 18.4,
+      "p_max": 0.594,
+      "p_between": 0.315,
+      "tail_giveup": 0.42
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 11.3,
+      "p_max": 0.424,
+      "p_between": 0.326,
+      "tail_giveup": 0.43
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 14.6,
+      "p_max": 0.279,
+      "p_between": 0.471,
+      "tail_giveup": 0.26
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 8.2,
+      "p_max": 0.279,
+      "p_between": 0.315,
+      "tail_giveup": 0.38
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 30.7,
+      "p_max": 0.057,
+      "p_between": 0.852,
+      "tail_giveup": 0.03
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 31.6,
+      "p_max": 0.003,
+      "p_between": 0.906,
+      "tail_giveup": 0.0
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 31.7,
+      "p_max": 0.001,
+      "p_between": 0.908,
+      "tail_giveup": 0.0
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 13.2,
+      "p_max": 0.003,
+      "p_between": 0.591,
+      "tail_giveup": 0.01
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.5,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.326,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 5.9,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.587,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 1.6,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.315,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -1.8,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.471,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 3.9,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.693,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": 3.3,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.581,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 30.7,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.056,
+      "p_tail_kept": 0.001,
+      "net_tail_sold": 0.03
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 30.8,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.054,
+      "p_tail_kept": 0.003,
+      "net_tail_sold": 0.03
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 31.5,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.013,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.01
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 14.7,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.276,
+      "p_tail_kept": 0.003,
+      "net_tail_sold": 0.25
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 12.3,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.056,
+      "p_tail_kept": 0.001,
+      "net_tail_sold": 0.08
+     }
+    },
+    "18m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 17.3,
+      "p_max": 0.595,
+      "p_between": 0.272,
+      "tail_giveup": 0.5
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 11.1,
+      "p_max": 0.464,
+      "p_between": 0.257,
+      "tail_giveup": 0.53
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 14.9,
+      "p_max": 0.348,
+      "p_between": 0.373,
+      "tail_giveup": 0.36
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 8.8,
+      "p_max": 0.348,
+      "p_between": 0.247,
+      "tail_giveup": 0.49
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 32.1,
+      "p_max": 0.113,
+      "p_between": 0.754,
+      "tail_giveup": 0.07
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 34.3,
+      "p_max": 0.014,
+      "p_between": 0.853,
+      "tail_giveup": 0.01
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 34.5,
+      "p_max": 0.005,
+      "p_between": 0.862,
+      "tail_giveup": 0.0
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 17.0,
+      "p_max": 0.014,
+      "p_between": 0.581,
+      "tail_giveup": 0.02
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.1,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.257,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 4.5,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.479,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 1.2,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.247,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -2.7,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.373,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 1.3,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.608,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": 1.2,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.555,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 32.2,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.108,
+      "p_tail_kept": 0.005,
+      "net_tail_sold": 0.07
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 32.4,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.099,
+      "p_tail_kept": 0.014,
+      "net_tail_sold": 0.06
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 33.8,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.038,
+      "p_tail_kept": 0.002,
+      "net_tail_sold": 0.02
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 15.2,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.334,
+      "p_tail_kept": 0.014,
+      "net_tail_sold": 0.35
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 14.9,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.108,
+      "p_tail_kept": 0.005,
+      "net_tail_sold": 0.14
+     }
+    },
+    "24m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 16.6,
+      "p_max": 0.597,
+      "p_between": 0.244,
+      "tail_giveup": 0.55
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 10.8,
+      "p_max": 0.487,
+      "p_between": 0.217,
+      "tail_giveup": 0.59
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 14.8,
+      "p_max": 0.385,
+      "p_between": 0.319,
+      "tail_giveup": 0.44
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 8.9,
+      "p_max": 0.385,
+      "p_between": 0.212,
+      "tail_giveup": 0.57
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 32.6,
+      "p_max": 0.163,
+      "p_between": 0.678,
+      "tail_giveup": 0.13
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 36.4,
+      "p_max": 0.032,
+      "p_between": 0.809,
+      "tail_giveup": 0.02
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 36.9,
+      "p_max": 0.015,
+      "p_between": 0.826,
+      "tail_giveup": 0.01
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 19.8,
+      "p_max": 0.032,
+      "p_between": 0.565,
+      "tail_giveup": 0.04
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.0,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.217,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 3.9,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.417,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 0.9,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.212,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -3.0,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.319,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": -0.3,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.541,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": -0.8,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.523,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 33.0,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.148,
+      "p_tail_kept": 0.015,
+      "net_tail_sold": 0.12
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 33.5,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.131,
+      "p_tail_kept": 0.032,
+      "net_tail_sold": 0.1
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 35.4,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.068,
+      "p_tail_kept": 0.006,
+      "net_tail_sold": 0.05
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 15.7,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.353,
+      "p_tail_kept": 0.032,
+      "net_tail_sold": 0.41
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 16.4,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.148,
+      "p_tail_kept": 0.015,
+      "net_tail_sold": 0.21
+     }
+    },
+    "36m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 15.2,
+      "p_max": 0.596,
+      "p_between": 0.206,
+      "tail_giveup": 0.64
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 10.3,
+      "p_max": 0.512,
+      "p_between": 0.171,
+      "tail_giveup": 0.68
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 14.4,
+      "p_max": 0.433,
+      "p_between": 0.25,
+      "tail_giveup": 0.55
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 8.9,
+      "p_max": 0.433,
+      "p_between": 0.163,
+      "tail_giveup": 0.67
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 32.7,
+      "p_max": 0.239,
+      "p_between": 0.563,
+      "tail_giveup": 0.22
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 39.0,
+      "p_max": 0.079,
+      "p_between": 0.723,
+      "tail_giveup": 0.07
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 40.3,
+      "p_max": 0.044,
+      "p_between": 0.758,
+      "tail_giveup": 0.04
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 23.8,
+      "p_max": 0.079,
+      "p_between": 0.517,
+      "tail_giveup": 0.11
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 0.7,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.171,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 2.9,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.333,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 0.7,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.163,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -3.4,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.25,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": -2.4,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.444,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": -3.7,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.458,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 34.4,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.195,
+      "p_tail_kept": 0.044,
+      "net_tail_sold": 0.18
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 35.7,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.16,
+      "p_tail_kept": 0.079,
+      "net_tail_sold": 0.15
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 37.6,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.112,
+      "p_tail_kept": 0.026,
+      "net_tail_sold": 0.1
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 17.4,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.354,
+      "p_tail_kept": 0.079,
+      "net_tail_sold": 0.46
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 19.2,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.195,
+      "p_tail_kept": 0.044,
+      "net_tail_sold": 0.28
+     }
+    }
+   }
+  },
   "Cloudflare": {
    "gate": "secular",
    "tenors": {
@@ -15596,656 +15596,6 @@
       "capped_zone_pct": 50.0,
       "p_capped": 0.153,
       "p_tail_kept": 0.048,
-      "net_tail_sold": 0.3
-     }
-    }
-   }
-  },
-  "Coherent": {
-   "gate": "cyclical \u2014 no short calls",
-   "tenors": {
-    "6m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 19.0,
-      "p_max": 0.555,
-      "p_between": 0.375,
-      "tail_giveup": 0.33
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 10.8,
-      "p_max": 0.347,
-      "p_between": 0.407,
-      "tail_giveup": 0.32
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 13.3,
-      "p_max": 0.188,
-      "p_between": 0.566,
-      "tail_giveup": 0.16
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 6.9,
-      "p_max": 0.188,
-      "p_between": 0.367,
-      "tail_giveup": 0.27
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 28.2,
-      "p_max": 0.02,
-      "p_between": 0.91,
-      "tail_giveup": 0.01
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 28.5,
-      "p_max": 0.001,
-      "p_between": 0.929,
-      "tail_giveup": 0.0
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 28.5,
-      "p_max": 0.0,
-      "p_between": 0.93,
-      "tail_giveup": 0.0
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 9.5,
-      "p_max": 0.001,
-      "p_between": 0.554,
-      "tail_giveup": 0.0
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 2.0,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.407,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 7.6,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.701,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 1.9,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.367,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -0.5,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.566,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": 6.0,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.734,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": 4.4,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.551,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 28.2,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.02,
-      "p_tail_kept": 0.0,
-      "net_tail_sold": 0.01
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 28.2,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.019,
-      "p_tail_kept": 0.001,
-      "net_tail_sold": 0.01
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 28.4,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.004,
-      "p_tail_kept": 0.0,
-      "net_tail_sold": 0.0
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 13.3,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.187,
-      "p_tail_kept": 0.001,
-      "net_tail_sold": 0.16
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 9.2,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.02,
-      "p_tail_kept": 0.0,
-      "net_tail_sold": 0.03
-     }
-    },
-    "12m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 16.9,
-      "p_max": 0.542,
-      "p_between": 0.304,
-      "tail_giveup": 0.46
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 10.4,
-      "p_max": 0.406,
-      "p_between": 0.275,
-      "tail_giveup": 0.49
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 13.7,
-      "p_max": 0.289,
-      "p_between": 0.392,
-      "tail_giveup": 0.33
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 7.8,
-      "p_max": 0.289,
-      "p_between": 0.253,
-      "tail_giveup": 0.46
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 29.5,
-      "p_max": 0.083,
-      "p_between": 0.763,
-      "tail_giveup": 0.06
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 31.1,
-      "p_max": 0.008,
-      "p_between": 0.838,
-      "tail_giveup": 0.01
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 31.2,
-      "p_max": 0.003,
-      "p_between": 0.843,
-      "tail_giveup": 0.0
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 14.2,
-      "p_max": 0.008,
-      "p_between": 0.534,
-      "tail_giveup": 0.01
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 1.4,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.275,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 5.1,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.509,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 1.2,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.253,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -1.9,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.392,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": 2.3,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.598,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": 1.8,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.515,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 29.6,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.08,
-      "p_tail_kept": 0.003,
-      "net_tail_sold": 0.05
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 29.7,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.075,
-      "p_tail_kept": 0.008,
-      "net_tail_sold": 0.05
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 30.8,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.026,
-      "p_tail_kept": 0.001,
-      "net_tail_sold": 0.02
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 13.9,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.281,
-      "p_tail_kept": 0.008,
-      "net_tail_sold": 0.32
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 12.7,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.08,
-      "p_tail_kept": 0.003,
-      "net_tail_sold": 0.12
-     }
-    },
-    "18m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 15.5,
-      "p_max": 0.533,
-      "p_between": 0.259,
-      "tail_giveup": 0.54
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 10.0,
-      "p_max": 0.426,
-      "p_between": 0.217,
-      "tail_giveup": 0.58
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 13.5,
-      "p_max": 0.33,
-      "p_between": 0.313,
-      "tail_giveup": 0.43
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 8.0,
-      "p_max": 0.33,
-      "p_between": 0.203,
-      "tail_giveup": 0.56
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 29.7,
-      "p_max": 0.137,
-      "p_between": 0.655,
-      "tail_giveup": 0.12
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 32.8,
-      "p_max": 0.026,
-      "p_between": 0.766,
-      "tail_giveup": 0.02
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 33.2,
-      "p_max": 0.012,
-      "p_between": 0.78,
-      "tail_giveup": 0.01
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 17.3,
-      "p_max": 0.026,
-      "p_between": 0.507,
-      "tail_giveup": 0.04
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 1.0,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.217,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 3.9,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.417,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 1.0,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.203,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -2.5,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.313,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": 0.3,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.506,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": -0.4,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.472,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 30.1,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.125,
-      "p_tail_kept": 0.012,
-      "net_tail_sold": 0.1
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 30.5,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.111,
-      "p_tail_kept": 0.026,
-      "net_tail_sold": 0.09
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 32.1,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.056,
-      "p_tail_kept": 0.005,
-      "net_tail_sold": 0.04
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 14.3,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.304,
-      "p_tail_kept": 0.026,
-      "net_tail_sold": 0.39
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 14.6,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.125,
-      "p_tail_kept": 0.012,
-      "net_tail_sold": 0.19
-     }
-    },
-    "24m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 14.6,
-      "p_max": 0.525,
-      "p_between": 0.228,
-      "tail_giveup": 0.59
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 9.5,
-      "p_max": 0.435,
-      "p_between": 0.182,
-      "tail_giveup": 0.64
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 13.1,
-      "p_max": 0.352,
-      "p_between": 0.265,
-      "tail_giveup": 0.5
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 7.9,
-      "p_max": 0.352,
-      "p_between": 0.173,
-      "tail_giveup": 0.63
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 29.5,
-      "p_max": 0.174,
-      "p_between": 0.579,
-      "tail_giveup": 0.18
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 34.0,
-      "p_max": 0.049,
-      "p_between": 0.704,
-      "tail_giveup": 0.05
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 34.8,
-      "p_max": 0.026,
-      "p_between": 0.727,
-      "tail_giveup": 0.03
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 19.4,
-      "p_max": 0.049,
-      "p_between": 0.476,
-      "tail_giveup": 0.08
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 0.9,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.182,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 3.4,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.358,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 0.7,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.173,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -2.7,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.265,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": -1.1,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.443,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": -2.0,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.432,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 30.5,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.148,
-      "p_tail_kept": 0.026,
-      "net_tail_sold": 0.15
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 31.3,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.125,
-      "p_tail_kept": 0.049,
-      "net_tail_sold": 0.13
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 33.0,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.079,
-      "p_tail_kept": 0.014,
-      "net_tail_sold": 0.08
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 14.9,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.303,
-      "p_tail_kept": 0.049,
-      "net_tail_sold": 0.44
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 15.9,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.148,
-      "p_tail_kept": 0.026,
-      "net_tail_sold": 0.25
-     }
-    },
-    "36m": {
-     "0.75/1.00": {
-      "width_pct": 25.0,
-      "fair_debit_pct": 13.0,
-      "p_max": 0.509,
-      "p_between": 0.189,
-      "tail_giveup": 0.67
-     },
-     "0.90/1.10": {
-      "width_pct": 20.000000000000007,
-      "fair_debit_pct": 8.8,
-      "p_max": 0.439,
-      "p_between": 0.143,
-      "tail_giveup": 0.72
-     },
-     "0.90/1.20": {
-      "width_pct": 29.999999999999993,
-      "fair_debit_pct": 12.4,
-      "p_max": 0.372,
-      "p_between": 0.21,
-      "tail_giveup": 0.6
-     },
-     "1.00/1.20": {
-      "width_pct": 19.999999999999996,
-      "fair_debit_pct": 7.7,
-      "p_max": 0.372,
-      "p_between": 0.137,
-      "tail_giveup": 0.71
-     },
-     "0.75/1.50": {
-      "width_pct": 75.0,
-      "fair_debit_pct": 28.3,
-      "p_max": 0.225,
-      "p_between": 0.473,
-      "tail_giveup": 0.28
-     },
-     "0.75/2.00": {
-      "width_pct": 125.0,
-      "fair_debit_pct": 34.7,
-      "p_max": 0.09,
-      "p_between": 0.608,
-      "tail_giveup": 0.11
-     },
-     "0.75/2.25": {
-      "width_pct": 150.0,
-      "fair_debit_pct": 36.2,
-      "p_max": 0.056,
-      "p_between": 0.642,
-      "tail_giveup": 0.08
-     },
-     "1.00/2.00": {
-      "width_pct": 100.0,
-      "fair_debit_pct": 21.7,
-      "p_max": 0.09,
-      "p_between": 0.419,
-      "tail_giveup": 0.17
-     },
-     "0.90/1.00/1.10": {
-      "fair_pct": 0.6,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.143,
-      "payoff_above_wings_pct": -0.0
-     },
-     "0.80/1.00/1.20": {
-      "fair_pct": 2.4,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.288,
-      "payoff_above_wings_pct": 0.0
-     },
-     "1.00/1.10/1.20": {
-      "fair_pct": 0.5,
-      "max_pct": 10.000000000000009,
-      "p_body": 0.137,
-      "payoff_above_wings_pct": 0.0
-     },
-     "0.90/1.00/1.20": {
-      "fair_pct": -3.0,
-      "max_pct": 9.999999999999998,
-      "p_body": 0.21,
-      "payoff_above_wings_pct": -10.0
-     },
-     "0.90/1.10/1.50": {
-      "fair_pct": -2.4,
-      "max_pct": 20.000000000000007,
-      "p_body": 0.357,
-      "payoff_above_wings_pct": -20.0
-     },
-     "1.00/1.20/1.75": {
-      "fair_pct": -3.8,
-      "max_pct": 19.999999999999996,
-      "p_body": 0.367,
-      "payoff_above_wings_pct": -35.0
-     },
-     "+0.75/-1.50/+2.25": {
-      "fair_pct": 31.3,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.169,
-      "p_tail_kept": 0.056,
-      "net_tail_sold": 0.2
-     },
-     "+0.75/-1.50/+2.00": {
-      "fair_pct": 32.8,
-      "capped_zone_pct": 75.0,
-      "p_capped": 0.135,
-      "p_tail_kept": 0.09,
-      "net_tail_sold": 0.16
-     },
-     "+0.75/-1.75/+2.50": {
-      "fair_pct": 34.2,
-      "capped_zone_pct": 100.0,
-      "p_capped": 0.106,
-      "p_tail_kept": 0.036,
-      "net_tail_sold": 0.13
-     },
-     "+0.90/-1.20/+2.00": {
-      "fair_pct": 16.9,
-      "capped_zone_pct": 29.999999999999993,
-      "p_capped": 0.282,
-      "p_tail_kept": 0.09,
-      "net_tail_sold": 0.45
-     },
-     "+1.00/-1.50/+2.25": {
-      "fair_pct": 18.3,
-      "capped_zone_pct": 50.0,
-      "p_capped": 0.169,
-      "p_tail_kept": 0.056,
       "net_tail_sold": 0.3
      }
     }
@@ -17546,6 +16896,656 @@
       "capped_zone_pct": 50.0,
       "p_capped": 0.167,
       "p_tail_kept": 0.052,
+      "net_tail_sold": 0.3
+     }
+    }
+   }
+  },
+  "Coherent": {
+   "gate": "cyclical \u2014 no short calls",
+   "tenors": {
+    "6m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 19.0,
+      "p_max": 0.555,
+      "p_between": 0.375,
+      "tail_giveup": 0.33
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 10.8,
+      "p_max": 0.347,
+      "p_between": 0.407,
+      "tail_giveup": 0.32
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 13.3,
+      "p_max": 0.188,
+      "p_between": 0.566,
+      "tail_giveup": 0.16
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 6.9,
+      "p_max": 0.188,
+      "p_between": 0.367,
+      "tail_giveup": 0.27
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 28.2,
+      "p_max": 0.02,
+      "p_between": 0.91,
+      "tail_giveup": 0.01
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 28.5,
+      "p_max": 0.001,
+      "p_between": 0.929,
+      "tail_giveup": 0.0
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 28.5,
+      "p_max": 0.0,
+      "p_between": 0.93,
+      "tail_giveup": 0.0
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 9.5,
+      "p_max": 0.001,
+      "p_between": 0.554,
+      "tail_giveup": 0.0
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 2.0,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.407,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 7.6,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.701,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 1.9,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.367,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -0.5,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.566,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 6.0,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.734,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": 4.4,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.551,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 28.2,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.02,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.01
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 28.2,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.019,
+      "p_tail_kept": 0.001,
+      "net_tail_sold": 0.01
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 28.4,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.004,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.0
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 13.3,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.187,
+      "p_tail_kept": 0.001,
+      "net_tail_sold": 0.16
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 9.2,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.02,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.03
+     }
+    },
+    "12m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 16.9,
+      "p_max": 0.542,
+      "p_between": 0.304,
+      "tail_giveup": 0.46
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 10.4,
+      "p_max": 0.406,
+      "p_between": 0.275,
+      "tail_giveup": 0.49
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 13.7,
+      "p_max": 0.289,
+      "p_between": 0.392,
+      "tail_giveup": 0.33
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 7.8,
+      "p_max": 0.289,
+      "p_between": 0.253,
+      "tail_giveup": 0.46
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 29.5,
+      "p_max": 0.083,
+      "p_between": 0.763,
+      "tail_giveup": 0.06
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 31.1,
+      "p_max": 0.008,
+      "p_between": 0.838,
+      "tail_giveup": 0.01
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 31.2,
+      "p_max": 0.003,
+      "p_between": 0.843,
+      "tail_giveup": 0.0
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 14.2,
+      "p_max": 0.008,
+      "p_between": 0.534,
+      "tail_giveup": 0.01
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.4,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.275,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 5.1,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.509,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 1.2,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.253,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -1.9,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.392,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 2.3,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.598,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": 1.8,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.515,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 29.6,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.08,
+      "p_tail_kept": 0.003,
+      "net_tail_sold": 0.05
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 29.7,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.075,
+      "p_tail_kept": 0.008,
+      "net_tail_sold": 0.05
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 30.8,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.026,
+      "p_tail_kept": 0.001,
+      "net_tail_sold": 0.02
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 13.9,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.281,
+      "p_tail_kept": 0.008,
+      "net_tail_sold": 0.32
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 12.7,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.08,
+      "p_tail_kept": 0.003,
+      "net_tail_sold": 0.12
+     }
+    },
+    "18m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 15.5,
+      "p_max": 0.533,
+      "p_between": 0.259,
+      "tail_giveup": 0.54
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 10.0,
+      "p_max": 0.426,
+      "p_between": 0.217,
+      "tail_giveup": 0.58
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 13.5,
+      "p_max": 0.33,
+      "p_between": 0.313,
+      "tail_giveup": 0.43
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 8.0,
+      "p_max": 0.33,
+      "p_between": 0.203,
+      "tail_giveup": 0.56
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 29.7,
+      "p_max": 0.137,
+      "p_between": 0.655,
+      "tail_giveup": 0.12
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 32.8,
+      "p_max": 0.026,
+      "p_between": 0.766,
+      "tail_giveup": 0.02
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 33.2,
+      "p_max": 0.012,
+      "p_between": 0.78,
+      "tail_giveup": 0.01
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 17.3,
+      "p_max": 0.026,
+      "p_between": 0.507,
+      "tail_giveup": 0.04
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.0,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.217,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 3.9,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.417,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 1.0,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.203,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -2.5,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.313,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 0.3,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.506,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": -0.4,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.472,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 30.1,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.125,
+      "p_tail_kept": 0.012,
+      "net_tail_sold": 0.1
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 30.5,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.111,
+      "p_tail_kept": 0.026,
+      "net_tail_sold": 0.09
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 32.1,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.056,
+      "p_tail_kept": 0.005,
+      "net_tail_sold": 0.04
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 14.3,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.304,
+      "p_tail_kept": 0.026,
+      "net_tail_sold": 0.39
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 14.6,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.125,
+      "p_tail_kept": 0.012,
+      "net_tail_sold": 0.19
+     }
+    },
+    "24m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 14.6,
+      "p_max": 0.525,
+      "p_between": 0.228,
+      "tail_giveup": 0.59
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 9.5,
+      "p_max": 0.435,
+      "p_between": 0.182,
+      "tail_giveup": 0.64
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 13.1,
+      "p_max": 0.352,
+      "p_between": 0.265,
+      "tail_giveup": 0.5
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 7.9,
+      "p_max": 0.352,
+      "p_between": 0.173,
+      "tail_giveup": 0.63
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 29.5,
+      "p_max": 0.174,
+      "p_between": 0.579,
+      "tail_giveup": 0.18
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 34.0,
+      "p_max": 0.049,
+      "p_between": 0.704,
+      "tail_giveup": 0.05
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 34.8,
+      "p_max": 0.026,
+      "p_between": 0.727,
+      "tail_giveup": 0.03
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 19.4,
+      "p_max": 0.049,
+      "p_between": 0.476,
+      "tail_giveup": 0.08
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 0.9,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.182,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 3.4,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.358,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 0.7,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.173,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -2.7,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.265,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": -1.1,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.443,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": -2.0,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.432,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 30.5,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.148,
+      "p_tail_kept": 0.026,
+      "net_tail_sold": 0.15
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 31.3,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.125,
+      "p_tail_kept": 0.049,
+      "net_tail_sold": 0.13
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 33.0,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.079,
+      "p_tail_kept": 0.014,
+      "net_tail_sold": 0.08
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 14.9,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.303,
+      "p_tail_kept": 0.049,
+      "net_tail_sold": 0.44
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 15.9,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.148,
+      "p_tail_kept": 0.026,
+      "net_tail_sold": 0.25
+     }
+    },
+    "36m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 13.0,
+      "p_max": 0.509,
+      "p_between": 0.189,
+      "tail_giveup": 0.67
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 8.8,
+      "p_max": 0.439,
+      "p_between": 0.143,
+      "tail_giveup": 0.72
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 12.4,
+      "p_max": 0.372,
+      "p_between": 0.21,
+      "tail_giveup": 0.6
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 7.7,
+      "p_max": 0.372,
+      "p_between": 0.137,
+      "tail_giveup": 0.71
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 28.3,
+      "p_max": 0.225,
+      "p_between": 0.473,
+      "tail_giveup": 0.28
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 34.7,
+      "p_max": 0.09,
+      "p_between": 0.608,
+      "tail_giveup": 0.11
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 36.2,
+      "p_max": 0.056,
+      "p_between": 0.642,
+      "tail_giveup": 0.08
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 21.7,
+      "p_max": 0.09,
+      "p_between": 0.419,
+      "tail_giveup": 0.17
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 0.6,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.143,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 2.4,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.288,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 0.5,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.137,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -3.0,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.21,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": -2.4,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.357,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": -3.8,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.367,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 31.3,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.169,
+      "p_tail_kept": 0.056,
+      "net_tail_sold": 0.2
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 32.8,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.135,
+      "p_tail_kept": 0.09,
+      "net_tail_sold": 0.16
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 34.2,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.106,
+      "p_tail_kept": 0.036,
+      "net_tail_sold": 0.13
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 16.9,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.282,
+      "p_tail_kept": 0.09,
+      "net_tail_sold": 0.45
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 18.3,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.169,
+      "p_tail_kept": 0.056,
       "net_tail_sold": 0.3
      }
     }
@@ -21447,6 +21447,656 @@
       "p_capped": 0.194,
       "p_tail_kept": 0.08,
       "net_tail_sold": 0.32
+     }
+    }
+   }
+  },
+  "Texas Instruments": {
+   "gate": "cyclical \u2014 no short calls",
+   "tenors": {
+    "6m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 19.9,
+      "p_max": 0.538,
+      "p_between": 0.429,
+      "tail_giveup": 0.24
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 10.5,
+      "p_max": 0.267,
+      "p_between": 0.534,
+      "tail_giveup": 0.19
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 12.2,
+      "p_max": 0.098,
+      "p_between": 0.703,
+      "tail_giveup": 0.06
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 5.6,
+      "p_max": 0.098,
+      "p_between": 0.44,
+      "tail_giveup": 0.12
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 26.3,
+      "p_max": 0.003,
+      "p_between": 0.964,
+      "tail_giveup": 0.0
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 26.3,
+      "p_max": 0.0,
+      "p_between": 0.967,
+      "tail_giveup": 0.0
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 26.3,
+      "p_max": 0.0,
+      "p_between": 0.967,
+      "tail_giveup": 0.0
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 6.4,
+      "p_max": 0.0,
+      "p_between": 0.538,
+      "tail_giveup": 0.0
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 2.7,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.534,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 9.6,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.841,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 2.2,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.44,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": 1.0,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.703,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 8.0,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.798,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": 4.8,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.538,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 26.3,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.003,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.0
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 26.3,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.003,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.0
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 26.3,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.0,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.0
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 12.2,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.098,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.06
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 6.4,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.003,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.0
+     }
+    },
+    "12m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 17.7,
+      "p_max": 0.524,
+      "p_between": 0.381,
+      "tail_giveup": 0.34
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 10.0,
+      "p_max": 0.338,
+      "p_between": 0.375,
+      "tail_giveup": 0.34
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 12.5,
+      "p_max": 0.193,
+      "p_between": 0.52,
+      "tail_giveup": 0.18
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 6.6,
+      "p_max": 0.193,
+      "p_between": 0.331,
+      "tail_giveup": 0.29
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 26.7,
+      "p_max": 0.023,
+      "p_between": 0.882,
+      "tail_giveup": 0.01
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 27.0,
+      "p_max": 0.001,
+      "p_between": 0.904,
+      "tail_giveup": 0.0
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 27.0,
+      "p_max": 0.0,
+      "p_between": 0.905,
+      "tail_giveup": 0.0
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 9.3,
+      "p_max": 0.001,
+      "p_between": 0.523,
+      "tail_giveup": 0.0
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.8,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.375,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 6.9,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.663,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 1.6,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.331,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -0.7,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.52,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 5.1,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.69,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": 3.9,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.52,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 26.7,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.023,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.01
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 26.7,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.022,
+      "p_tail_kept": 0.001,
+      "net_tail_sold": 0.01
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 27.0,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.004,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.0
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 12.5,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.192,
+      "p_tail_kept": 0.001,
+      "net_tail_sold": 0.18
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 9.0,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.023,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.03
+     }
+    },
+    "18m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 16.2,
+      "p_max": 0.516,
+      "p_between": 0.334,
+      "tail_giveup": 0.41
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 9.6,
+      "p_max": 0.368,
+      "p_between": 0.298,
+      "tail_giveup": 0.43
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 12.4,
+      "p_max": 0.244,
+      "p_between": 0.422,
+      "tail_giveup": 0.27
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 6.9,
+      "p_max": 0.244,
+      "p_between": 0.272,
+      "tail_giveup": 0.39
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 26.7,
+      "p_max": 0.053,
+      "p_between": 0.797,
+      "tail_giveup": 0.03
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 27.6,
+      "p_max": 0.003,
+      "p_between": 0.847,
+      "tail_giveup": 0.0
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 27.6,
+      "p_max": 0.001,
+      "p_between": 0.849,
+      "tail_giveup": 0.0
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 11.4,
+      "p_max": 0.003,
+      "p_between": 0.513,
+      "tail_giveup": 0.0
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.4,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.298,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 5.4,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.552,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 1.3,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.272,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -1.4,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.422,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 3.2,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.613,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": 2.6,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.503,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 26.7,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.052,
+      "p_tail_kept": 0.001,
+      "net_tail_sold": 0.03
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 26.7,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.05,
+      "p_tail_kept": 0.003,
+      "net_tail_sold": 0.03
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 27.4,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.013,
+      "p_tail_kept": 0.0,
+      "net_tail_sold": 0.01
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 12.4,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.241,
+      "p_tail_kept": 0.003,
+      "net_tail_sold": 0.27
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 10.5,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.052,
+      "p_tail_kept": 0.001,
+      "net_tail_sold": 0.08
+     }
+    },
+    "24m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 15.1,
+      "p_max": 0.502,
+      "p_between": 0.308,
+      "tail_giveup": 0.46
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 9.2,
+      "p_max": 0.377,
+      "p_between": 0.259,
+      "tail_giveup": 0.49
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 12.1,
+      "p_max": 0.272,
+      "p_between": 0.364,
+      "tail_giveup": 0.34
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 6.9,
+      "p_max": 0.272,
+      "p_between": 0.23,
+      "tail_giveup": 0.47
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 26.4,
+      "p_max": 0.082,
+      "p_between": 0.728,
+      "tail_giveup": 0.06
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 27.9,
+      "p_max": 0.009,
+      "p_between": 0.801,
+      "tail_giveup": 0.01
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 28.1,
+      "p_max": 0.002,
+      "p_between": 0.808,
+      "tail_giveup": 0.0
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 12.8,
+      "p_max": 0.009,
+      "p_between": 0.493,
+      "tail_giveup": 0.02
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.2,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.259,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 4.7,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.485,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 1.1,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.23,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -1.7,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.364,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 1.9,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.554,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": 1.3,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.474,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 26.4,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.08,
+      "p_tail_kept": 0.002,
+      "net_tail_sold": 0.06
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 26.6,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.073,
+      "p_tail_kept": 0.009,
+      "net_tail_sold": 0.05
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 27.6,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.027,
+      "p_tail_kept": 0.001,
+      "net_tail_sold": 0.02
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 12.3,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.263,
+      "p_tail_kept": 0.009,
+      "net_tail_sold": 0.32
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 11.3,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.08,
+      "p_tail_kept": 0.002,
+      "net_tail_sold": 0.13
+     }
+    },
+    "36m": {
+     "0.75/1.00": {
+      "width_pct": 25.0,
+      "fair_debit_pct": 13.5,
+      "p_max": 0.488,
+      "p_between": 0.263,
+      "tail_giveup": 0.53
+     },
+     "0.90/1.10": {
+      "width_pct": 20.000000000000007,
+      "fair_debit_pct": 8.6,
+      "p_max": 0.386,
+      "p_between": 0.209,
+      "tail_giveup": 0.58
+     },
+     "0.90/1.20": {
+      "width_pct": 29.999999999999993,
+      "fair_debit_pct": 11.5,
+      "p_max": 0.302,
+      "p_between": 0.293,
+      "tail_giveup": 0.43
+     },
+     "1.00/1.20": {
+      "width_pct": 19.999999999999996,
+      "fair_debit_pct": 6.7,
+      "p_max": 0.302,
+      "p_between": 0.186,
+      "tail_giveup": 0.57
+     },
+     "0.75/1.50": {
+      "width_pct": 75.0,
+      "fair_debit_pct": 25.6,
+      "p_max": 0.126,
+      "p_between": 0.625,
+      "tail_giveup": 0.12
+     },
+     "0.75/2.00": {
+      "width_pct": 125.0,
+      "fair_debit_pct": 28.3,
+      "p_max": 0.025,
+      "p_between": 0.726,
+      "tail_giveup": 0.02
+     },
+     "0.75/2.25": {
+      "width_pct": 150.0,
+      "fair_debit_pct": 28.7,
+      "p_max": 0.011,
+      "p_between": 0.74,
+      "tail_giveup": 0.01
+     },
+     "1.00/2.00": {
+      "width_pct": 100.0,
+      "fair_debit_pct": 14.8,
+      "p_max": 0.025,
+      "p_between": 0.463,
+      "tail_giveup": 0.05
+     },
+     "0.90/1.00/1.10": {
+      "fair_pct": 1.0,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.209,
+      "payoff_above_wings_pct": -0.0
+     },
+     "0.80/1.00/1.20": {
+      "fair_pct": 3.7,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.399,
+      "payoff_above_wings_pct": 0.0
+     },
+     "1.00/1.10/1.20": {
+      "fair_pct": 0.9,
+      "max_pct": 10.000000000000009,
+      "p_body": 0.186,
+      "payoff_above_wings_pct": 0.0
+     },
+     "0.90/1.00/1.20": {
+      "fair_pct": -1.9,
+      "max_pct": 9.999999999999998,
+      "p_body": 0.293,
+      "payoff_above_wings_pct": -10.0
+     },
+     "0.90/1.10/1.50": {
+      "fair_pct": 0.3,
+      "max_pct": 20.000000000000007,
+      "p_body": 0.469,
+      "payoff_above_wings_pct": -20.0
+     },
+     "1.00/1.20/1.75": {
+      "fair_pct": -0.6,
+      "max_pct": 19.999999999999996,
+      "p_body": 0.43,
+      "payoff_above_wings_pct": -35.0
+     },
+     "+0.75/-1.50/+2.25": {
+      "fair_pct": 25.9,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.115,
+      "p_tail_kept": 0.011,
+      "net_tail_sold": 0.11
+     },
+     "+0.75/-1.50/+2.00": {
+      "fair_pct": 26.3,
+      "capped_zone_pct": 75.0,
+      "p_capped": 0.101,
+      "p_tail_kept": 0.025,
+      "net_tail_sold": 0.09
+     },
+     "+0.75/-1.75/+2.50": {
+      "fair_pct": 27.6,
+      "capped_zone_pct": 100.0,
+      "p_capped": 0.053,
+      "p_tail_kept": 0.005,
+      "net_tail_sold": 0.05
+     },
+     "+0.90/-1.20/+2.00": {
+      "fair_pct": 12.2,
+      "capped_zone_pct": 29.999999999999993,
+      "p_capped": 0.277,
+      "p_tail_kept": 0.025,
+      "net_tail_sold": 0.4
+     },
+     "+1.00/-1.50/+2.25": {
+      "fair_pct": 12.4,
+      "capped_zone_pct": 50.0,
+      "p_capped": 0.115,
+      "p_tail_kept": 0.011,
+      "net_tail_sold": 0.2
      }
     }
    }
