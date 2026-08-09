@@ -72,6 +72,7 @@ SkyWater Technology,stock,Moderate,secular,diversified / safe (buyback earn-back
 Vertiv peer / Modine skip,stock,Moderate,secular,diversified / safe (buyback earn-back),0.2,0.604,0.113,0.252,0.338,0.252,0.399,0.478,0.315,0.5,0.158,1.6,1.39,1.49,0.33,0.0
 Vertiv peer / Comfort skip,stock,Moderate,secular,diversified / safe (buyback earn-back),0.2,0.61,0.113,0.249,0.339,0.249,0.399,0.476,0.32,0.5,0.16,1.6,1.37,1.47,0.33,0.0
 AvePoint,stock,Moderate,secular,diversified / safe (buyback earn-back),0.2,0.581,0.079,0.191,0.268,0.191,0.323,0.39,0.354,0.5,0.177,1.8,1.23,1.33,0.34,0.0
+Kulicke and Soffa,stock,Moderate,secular,diversified / safe (buyback earn-back),0.2,0.611,0.106,0.24,0.328,0.24,0.389,0.469,0.325,0.55,0.179,1.6,1.35,1.45,0.33,0.0
 GRID (Smart Grid),ETF,Moderate,secular,diversified / safe (buyback earn-back),0.18,0.376,0.053,0.139,0.219,0.139,0.278,0.362,0.24,0.22,0.053,1.2,1.64,1.76,0.48,0.0
 Monolithic Power Systems,stock,Moderate,secular,diversified / safe (buyback earn-back),0.18,0.622,0.112,0.241,0.326,0.241,0.385,0.46,0.336,0.4,0.134,1.7,1.17,1.26,0.29,0.0
 Dell Technologies,stock,Moderate,secular,diversified / safe (buyback earn-back),0.18,0.466,0.105,0.251,0.351,0.251,0.422,0.512,0.227,0.4,0.091,1.2,1.73,1.86,0.39,0.0
@@ -96,6 +97,7 @@ Aehr Test Systems,stock,Moderate,secular,diversified / safe (buyback earn-back),
 indie Semiconductor,stock,Moderate,secular,diversified / safe (buyback earn-back),0.15,0.819,0.174,0.321,0.401,0.321,0.453,0.518,0.395,0.7,0.276,2.0,0.83,0.89,0.18,0.0
 Navitas Semiconductor,stock,Moderate,secular,diversified / safe (buyback earn-back),0.15,0.835,0.188,0.338,0.422,0.338,0.474,0.539,0.385,0.72,0.277,2.0,0.85,0.92,0.18,0.0
 First Solar,stock,Moderate,secular,diversified / safe (buyback earn-back),0.15,0.57,0.143,0.299,0.4,0.299,0.466,0.549,0.257,0.5,0.129,1.3,1.28,1.37,0.26,0.0
+Lattice Semiconductor,stock,Moderate,secular,diversified / safe (buyback earn-back),0.15,0.659,0.117,0.251,0.337,0.251,0.393,0.469,0.35,0.45,0.158,1.8,0.94,1.01,0.23,0.0
 Microsoft,stock,Safe,secular,diversified / safe (buyback earn-back),0.14,0.41,0.08,0.216,0.313,0.216,0.386,0.477,0.214,0.3,0.064,1.1,1.43,1.53,0.34,0.0
 DTCR (Data Ctr Infra),ETF,Safe,secular,diversified / safe (buyback earn-back),0.14,0.324,0.037,0.098,0.16,0.098,0.214,0.295,0.228,0.15,0.034,1.2,1.34,1.44,0.43,0.0
 MongoDB,stock,Safe,secular,diversified / safe (buyback earn-back),0.14,0.626,0.084,0.201,0.28,0.201,0.331,0.399,0.376,0.45,0.169,1.9,0.81,0.87,0.22,0.0
@@ -139,23 +141,71 @@ GDS Holdings,stock,Safe,secular,diversified / safe (buyback earn-back),0.12,0.73
 The Trade Desk,stock,Safe,secular,diversified / safe (buyback earn-back),0.12,0.669,0.142,0.291,0.382,0.291,0.442,0.515,0.325,0.45,0.146,1.6,0.81,0.87,0.18,0.0
 Intuit,stock,Safe,secular,diversified / safe (buyback earn-back),0.12,0.481,0.076,0.187,0.273,0.187,0.337,0.414,0.282,0.32,0.09,1.4,0.93,1.0,0.25,0.0
 ASE Technology,stock,Safe,secular,diversified / safe (buyback earn-back),0.12,0.497,0.113,0.259,0.356,0.259,0.425,0.513,0.242,0.45,0.109,1.2,1.08,1.17,0.24,0.0
+TTM Technologies,stock,Safe,secular,diversified / safe (buyback earn-back),0.12,0.593,0.123,0.266,0.36,0.266,0.425,0.506,0.293,0.45,0.132,1.5,0.9,0.96,0.2,0.0
 Hewlett Packard Enterprise,stock,Safe,secular,diversified / safe (buyback earn-back),0.11,0.495,0.106,0.25,0.349,0.25,0.42,0.51,0.243,0.45,0.109,1.2,0.99,1.07,0.22,0.0
 Fortinet,stock,Safe,secular,diversified / safe (buyback earn-back),0.11,0.488,0.068,0.176,0.256,0.176,0.314,0.393,0.296,0.35,0.104,1.5,0.81,0.87,0.23,0.0
 SAP,stock,Safe,secular,diversified / safe (buyback earn-back),0.11,0.438,0.058,0.161,0.243,0.161,0.3,0.378,0.273,0.32,0.087,1.4,0.88,0.95,0.25,0.0
+Synopsys,stock,Safe,secular,diversified / safe (buyback earn-back),0.11,0.52,0.085,0.205,0.287,0.205,0.351,0.432,0.296,0.32,0.095,1.5,0.81,0.87,0.21,0.0
+DigitalOcean,stock,Safe,secular,diversified / safe (buyback earn-back),0.11,0.622,0.138,0.292,0.387,0.292,0.448,0.525,0.296,0.5,0.148,1.5,0.81,0.87,0.18,0.0
+Quanta Services,stock,Safe,secular,diversified / safe (buyback earn-back),0.11,0.517,0.07,0.174,0.254,0.174,0.311,0.389,0.316,0.4,0.126,1.6,0.76,0.82,0.21,0.0
 Analog Devices,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.466,0.071,0.185,0.275,0.185,0.337,0.424,0.269,0.4,0.107,1.4,0.81,0.88,0.21,0.0
 DoubleVerify,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.59,0.129,0.275,0.368,0.275,0.432,0.509,0.29,0.5,0.145,1.5,0.75,0.81,0.17,0.0
 Jabil,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.552,0.11,0.25,0.345,0.25,0.409,0.493,0.28,0.45,0.126,1.4,0.78,0.84,0.18,0.0
 Coherent peer / Viavi,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.485,0.075,0.191,0.278,0.191,0.345,0.427,0.278,0.45,0.125,1.4,0.79,0.84,0.21,0.0
+Microchip Technology,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.555,0.092,0.218,0.303,0.218,0.362,0.444,0.308,0.5,0.154,1.6,0.71,0.76,0.18,0.0
+MKS Instruments,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.583,0.128,0.281,0.373,0.281,0.439,0.523,0.278,0.45,0.125,1.4,0.79,0.85,0.17,0.0
+Advanced Energy Industries,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.554,0.091,0.215,0.301,0.215,0.361,0.44,0.311,0.45,0.14,1.6,0.7,0.76,0.18,0.0
+Allegro MicroSystems,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.646,0.124,0.261,0.349,0.261,0.41,0.485,0.332,0.5,0.166,1.7,0.66,0.71,0.15,0.0
+FormFactor,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.607,0.112,0.25,0.338,0.25,0.398,0.477,0.317,0.5,0.159,1.6,0.69,0.74,0.16,0.0
+Cohu,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.658,0.117,0.252,0.339,0.252,0.398,0.473,0.347,0.5,0.173,1.8,0.63,0.68,0.15,0.0
+BigBear.ai,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.856,0.191,0.342,0.422,0.342,0.474,0.54,0.394,0.75,0.295,2.0,0.55,0.6,0.12,0.0
+Iron Mountain,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.425,0.05,0.14,0.218,0.14,0.278,0.356,0.274,0.38,0.104,1.4,0.8,0.86,0.24,0.0
+GE Vernova,stock,Safe,secular,diversified / safe (buyback earn-back),0.1,0.582,0.082,0.195,0.273,0.195,0.329,0.4,0.349,0.4,0.14,1.8,0.63,0.67,0.17,0.0
 Tesla,stock,Safe,cyclical,cyclical — needs TAM rebound,0.09,0.814,0.117,0.254,0.339,0.254,0.399,0.474,0.428,0.65,0.279,2.2,0.46,0.49,0.11,0.0
 VOO (S&P 500),ETF,Safe,secular,diversified / safe (buyback earn-back),0.09,0.293,0.039,0.105,0.174,0.105,0.236,0.329,0.197,0.05,0.01,1.0,1.0,1.07,0.31,0.0
+Twilio,stock,Safe,secular,diversified / safe (buyback earn-back),0.09,0.592,0.124,0.274,0.364,0.274,0.426,0.504,0.294,0.45,0.132,1.5,0.67,0.72,0.15,0.0
+Eaton,stock,Safe,secular,diversified / safe (buyback earn-back),0.09,0.479,0.07,0.178,0.261,0.178,0.324,0.405,0.285,0.35,0.1,1.4,0.69,0.74,0.19,0.0
+EMCOR Group,stock,Safe,secular,diversified / safe (buyback earn-back),0.09,0.502,0.085,0.207,0.297,0.207,0.362,0.448,0.277,0.5,0.139,1.4,0.71,0.76,0.18,0.0
 Nice Ltd,stock,Safe,secular,diversified / safe (buyback earn-back),0.08,0.427,0.085,0.218,0.316,0.218,0.387,0.478,0.223,0.4,0.089,1.1,0.78,0.84,0.19,0.0
+United Microelectronics,stock,Safe,secular,diversified / safe (buyback earn-back),0.08,0.498,0.106,0.249,0.347,0.249,0.415,0.501,0.249,0.5,0.124,1.3,0.7,0.76,0.16,0.0
+Power Integrations,stock,Safe,secular,diversified / safe (buyback earn-back),0.08,0.533,0.073,0.18,0.263,0.18,0.322,0.4,0.32,0.45,0.144,1.6,0.55,0.59,0.15,0.0
+UiPath,stock,Safe,secular,diversified / safe (buyback earn-back),0.08,0.6,0.12,0.257,0.348,0.257,0.411,0.493,0.304,0.5,0.152,1.5,0.58,0.62,0.13,0.0
+Equinix,stock,Safe,secular,diversified / safe (buyback earn-back),0.08,0.403,0.028,0.093,0.15,0.093,0.198,0.265,0.296,0.32,0.095,1.5,0.59,0.63,0.2,0.0
+Digital Realty Trust,stock,Safe,secular,diversified / safe (buyback earn-back),0.08,0.397,0.031,0.092,0.15,0.092,0.195,0.268,0.291,0.32,0.093,1.5,0.6,0.65,0.2,0.0
+Powell Industries,stock,Safe,secular,diversified / safe (buyback earn-back),0.08,0.524,0.107,0.249,0.343,0.249,0.41,0.494,0.265,0.5,0.133,1.3,0.66,0.71,0.15,0.0
+MasTec,stock,Safe,secular,diversified / safe (buyback earn-back),0.08,0.558,0.109,0.246,0.341,0.246,0.404,0.485,0.287,0.45,0.129,1.5,0.61,0.65,0.14,0.0
+Amkor Technology,stock,Safe,secular,diversified / safe (buyback earn-back),0.08,0.579,0.128,0.28,0.381,0.28,0.445,0.526,0.275,0.5,0.137,1.4,0.64,0.68,0.14,0.0
 Qualcomm,stock,Safe,cyclical,cyclical — needs TAM rebound,0.07,0.425,0.0,0.309,0.429,0.309,0.508,0.609,0.166,0.4,0.066,0.8,0.92,0.99,0.16,0.0
 Apple,stock,Safe,secular,diversified / safe (buyback earn-back),0.07,0.463,0.065,0.174,0.259,0.174,0.317,0.397,0.279,0.3,0.084,1.4,0.55,0.59,0.15,0.0
 NextEra Energy,stock,Safe,secular,diversified / safe (buyback earn-back),0.07,0.229,0.016,0.062,0.123,0.062,0.181,0.262,0.169,0.3,0.051,0.9,0.91,0.98,0.31,0.0
+Entegris,stock,Safe,secular,diversified / safe (buyback earn-back),0.07,0.563,0.106,0.244,0.335,0.244,0.397,0.477,0.295,0.42,0.124,1.5,0.52,0.56,0.12,0.0
+Fastly,stock,Safe,secular,diversified / safe (buyback earn-back),0.07,0.758,0.137,0.276,0.358,0.276,0.41,0.479,0.395,0.6,0.237,2.0,0.39,0.42,0.09,0.0
+Flex,stock,Safe,secular,diversified / safe (buyback earn-back),0.07,0.514,0.117,0.27,0.368,0.27,0.436,0.524,0.245,0.45,0.11,1.2,0.62,0.67,0.14,0.0
 Cisco,stock,Safe,secular,diversified / safe (buyback earn-back),0.06,0.327,0.056,0.164,0.256,0.164,0.328,0.428,0.187,0.4,0.075,0.9,0.7,0.75,0.18,0.0
 SCHD (Dividend),ETF,Safe,secular,diversified / safe (buyback earn-back),0.06,0.202,0.03,0.081,0.139,0.081,0.205,0.302,0.141,0.05,0.007,0.7,0.93,1.0,0.3,0.0
+NXP Semiconductors,stock,Safe,secular,diversified / safe (buyback earn-back),0.06,0.517,0.11,0.257,0.354,0.257,0.42,0.51,0.253,0.45,0.114,1.3,0.52,0.56,0.12,0.0
+Generac Holdings,stock,Safe,secular,diversified / safe (buyback earn-back),0.06,0.52,0.109,0.257,0.352,0.257,0.424,0.508,0.256,0.5,0.128,1.3,0.51,0.55,0.12,0.0
+GE Aerospace peer / Curtiss skip - Ormat,stock,Safe,secular,diversified / safe (buyback earn-back),0.06,0.406,0.044,0.128,0.201,0.128,0.255,0.335,0.27,0.4,0.108,1.4,0.49,0.52,0.15,0.0
 IBM,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.28,0.018,0.079,0.142,0.079,0.195,0.274,0.203,0.42,0.085,1.0,0.54,0.58,0.18,0.0
 Kioxia,stock,Safe,cyclical,cyclical high-growth / rebound-dependent,0.05,0.563,0.0,0.0,0.438,0.0,0.503,0.586,0.233,0.6,0.14,1.2,0.47,0.5,0.09,0.0
+ON Semiconductor,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.581,0.132,0.284,0.384,0.284,0.449,0.531,0.272,0.5,0.136,1.4,0.4,0.43,0.09,0.0
+GlobalFoundries,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.558,0.105,0.241,0.336,0.241,0.399,0.482,0.29,0.45,0.13,1.5,0.38,0.41,0.09,0.0
+Cirrus Logic,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.525,0.105,0.246,0.341,0.246,0.409,0.494,0.265,0.5,0.133,1.3,0.41,0.44,0.1,0.0
+Wolfspeed,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.833,0.19,0.345,0.426,0.345,0.479,0.546,0.378,0.7,0.265,1.9,0.29,0.31,0.06,0.0
+Pegasystems,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.526,0.093,0.22,0.308,0.22,0.371,0.452,0.289,0.42,0.121,1.5,0.38,0.41,0.1,0.0
+Schneider peer Hubbell,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.423,0.06,0.165,0.247,0.165,0.311,0.395,0.256,0.4,0.102,1.3,0.43,0.46,0.12,0.0
+Southern Company,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.203,0.01,0.053,0.108,0.053,0.163,0.247,0.153,0.3,0.046,0.8,0.72,0.77,0.25,0.0
+Duke Energy,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.198,0.013,0.058,0.121,0.058,0.176,0.267,0.145,0.3,0.044,0.7,0.75,0.81,0.25,0.0
+Dominion Energy,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.196,0.01,0.061,0.124,0.061,0.188,0.273,0.142,0.3,0.043,0.7,0.77,0.83,0.26,0.0
+Vishay Intertechnology,stock,Safe,secular,diversified / safe (buyback earn-back),0.05,0.524,0.086,0.213,0.302,0.213,0.365,0.445,0.291,0.5,0.146,1.5,0.38,0.4,0.1,0.0
+Photronics,stock,Safe,secular,diversified / safe (buyback earn-back),0.04,0.499,0.108,0.251,0.348,0.251,0.414,0.502,0.248,0.5,0.124,1.3,0.35,0.38,0.08,0.0
+Akamai Technologies,stock,Safe,secular,diversified / safe (buyback earn-back),0.04,0.372,0.065,0.177,0.272,0.177,0.34,0.434,0.21,0.45,0.095,1.1,0.42,0.45,0.11,0.0
+Switch peer Cyxtera skip / Cologix N/A - use QTS,stock,Safe,secular,diversified / safe (buyback earn-back),0.04,0.374,0.031,0.099,0.162,0.099,0.215,0.291,0.266,0.35,0.093,1.3,0.33,0.35,0.11,0.0
+Emerson Electric,stock,Safe,secular,diversified / safe (buyback earn-back),0.04,0.459,0.074,0.191,0.278,0.191,0.344,0.431,0.261,0.35,0.091,1.3,0.34,0.36,0.09,0.0
+Verint Systems,stock,Safe,secular,diversified / safe (buyback earn-back),0.03,0.476,0.101,0.241,0.334,0.241,0.402,0.488,0.244,0.5,0.122,1.2,0.27,0.29,0.06,0.0
+Skyworks Solutions,stock,Safe,secular,diversified / safe (buyback earn-back),0.02,0.501,0.105,0.248,0.346,0.248,0.413,0.501,0.25,0.5,0.125,1.3,0.17,0.19,0.04,0.0
+Qorvo,stock,Safe,secular,diversified / safe (buyback earn-back),0.02,0.579,0.129,0.282,0.379,0.282,0.444,0.527,0.274,0.5,0.137,1.4,0.16,0.17,0.03,0.0
+Oklo,stock,Safe,secular,diversified / safe (buyback earn-back),0.0,0.856,0.188,0.338,0.419,0.338,0.471,0.537,0.396,0.75,0.297,2.0,,,0.0,0.0
 SOXL (3x Semis),ETF,Trading,secular,,0.6,0.997,0.309,0.457,0.531,0.457,0.579,0.633,0.366,0.55,0.201,1.9,3.58,3.85,0.6,0.0
 TECL (3x Tech),ETF,Trading,secular,,0.5,0.973,0.293,0.446,0.519,0.446,0.567,0.622,0.368,0.55,0.202,1.9,2.97,3.19,0.51,0.0
 TQQQ (3x NDX),ETF,Trading,secular,,0.45,0.973,0.293,0.446,0.519,0.446,0.567,0.622,0.368,0.55,0.202,1.9,2.67,2.87,0.46,0.0
