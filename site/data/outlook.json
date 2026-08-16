@@ -1,87 +1,172 @@
 {
-  "as_of": "2026-08-09",
+  "as_of": "2026-08-16",
   "model": "claude-opus-4-8",
   "n_companies": 26,
-  "n_changes": 0,
-  "changes": [],
+  "n_changes": 14,
+  "changes": [
+    {
+      "name": "IonQ",
+      "field": "growth",
+      "old": 0.44,
+      "new": 0.4
+    },
+    {
+      "name": "CoreWeave",
+      "field": "growth",
+      "old": 0.6,
+      "new": 0.55
+    },
+    {
+      "name": "Palantir",
+      "field": "growth",
+      "old": 0.3,
+      "new": 0.28
+    },
+    {
+      "name": "Applied Optoelectronics",
+      "field": "growth",
+      "old": 0.15,
+      "new": 0.16
+    },
+    {
+      "name": "Micron",
+      "field": "rev_bn",
+      "old": 12.0,
+      "new": 13.0
+    },
+    {
+      "name": "AMD",
+      "field": "growth",
+      "old": 0.22,
+      "new": 0.2
+    },
+    {
+      "name": "NVIDIA",
+      "field": "growth",
+      "old": 0.4,
+      "new": 0.38
+    },
+    {
+      "name": "NVIDIA",
+      "field": "rev_bn",
+      "old": 200.0,
+      "new": 210.0
+    },
+    {
+      "name": "Broadcom",
+      "field": "growth",
+      "old": 0.32,
+      "new": 0.3
+    },
+    {
+      "name": "Broadcom",
+      "field": "rev_bn",
+      "old": 22.0,
+      "new": 23.0
+    },
+    {
+      "name": "Marvell",
+      "field": "growth",
+      "old": 0.28,
+      "new": 0.25
+    },
+    {
+      "name": "AppLovin",
+      "field": "growth",
+      "old": 0.25,
+      "new": 0.22
+    },
+    {
+      "name": "Vertiv",
+      "field": "growth",
+      "old": 0.28,
+      "new": 0.26
+    },
+    {
+      "name": "Coherent",
+      "field": "growth",
+      "old": 0.23,
+      "new": 0.22
+    }
+  ],
   "companies": {
     "IonQ": {
-      "rationale": "unchanged: rev_yoy 0.439 aligns with current 0.44 growth."
+      "rationale": "Nudged growth down toward fresh YoY of 31.7%, still elevated for early-stage quantum but below prior 0.44."
     },
     "Astera Labs": {
-      "rationale": "unchanged: rev_yoy 0.20 consistent with current 0.22, no clear acceleration signal."
+      "rationale": "unchanged: fresh YoY 20% aligns with current growth assumption."
     },
     "CoreWeave": {
-      "rationale": "unchanged: no fresh YoY provided; hyperscaler backlog supports elevated growth."
+      "rationale": "Trimmed growth slightly; fresh YoY of 26.6% suggests moderation from prior 0.6 though forward AI-infra pipeline still strong."
     },
     "Palantir": {
-      "rationale": "unchanged: rev_yoy 0.178 trending but forward acceleration in commercial/gov supports keeping 0.30."
+      "rationale": "Minor trim toward fresh YoY 17.8%, though accelerating US commercial supports keeping above trailing rate."
     },
     "Lumentum": {
-      "rationale": "unchanged: rev_yoy 0.182 near current, datacom optical ramp supports forward 0.25."
+      "rationale": "unchanged: fresh YoY 18.2% consistent with current growth."
     },
     "Applied Optoelectronics": {
-      "rationale": "unchanged: rev_yoy 0.175 broadly consistent with current 0.15."
+      "rationale": "unchanged: fresh YoY 17.5% roughly matches current growth."
     },
     "Micron": {
-      "rationale": "unchanged: rev_yoy 0.553 supports strong growth but cyclical HBM upcycle already reflected."
+      "rationale": "Nudged HBM/AI segment rev_bn up on strong 55% YoY total revenue and DRAM upcycle; growth held."
     },
     "AMD": {
-      "rationale": "unchanged: rev_yoy 0.103 total but AI/DC segment forward ramp justifies keeping 0.22."
+      "rationale": "Slight growth trim toward fresh 10.3% YoY, tempered but forward MI-series ramp keeps outlook above trailing."
     },
     "NVIDIA": {
-      "rationale": "unchanged: TTM yoy decelerating but forward Blackwell ramp supports 0.40."
+      "rationale": "Fresh 17.4% YoY reflects deceleration off huge base; nudged growth slightly down and AI rev_bn slightly up."
     },
     "Broadcom": {
-      "rationale": "unchanged: total yoy 0.105 diluted by legacy; AI ASIC segment growth supports 0.32."
+      "rationale": "Total YoY 10.5% but AI/custom-silicon segment growing faster; nudged AI rev_bn up, growth slightly down."
     },
     "Marvell": {
-      "rationale": "unchanged: total yoy 0.064 lagging but custom-silicon AI ramp supports forward 0.28."
+      "rationale": "Trimmed growth as fresh total YoY only 6.4%, though AI/data-center mix supports keeping outlook above trailing."
     },
     "AppLovin": {
-      "rationale": "unchanged: rev_yoy 0.108 total but ad-engine AI segment momentum supports 0.25."
+      "rationale": "Slight trim toward fresh YoY 10.8%; ad-engine momentum keeps outlook above trailing rate."
     },
     "Vertiv": {
-      "rationale": "unchanged: rev_yoy 0.059 trailing but datacenter power/cooling backlog supports forward 0.28."
+      "rationale": "Trimmed slightly; fresh YoY 5.9% low but strong data-center backlog supports elevated forward outlook."
     },
     "Coherent": {
-      "rationale": "unchanged: rev_yoy 0.049 trailing but datacom transceiver ramp supports forward 0.23."
+      "rationale": "Minor trim toward fresh YoY 7.8%, datacom optics demand supports above-trailing outlook."
     },
     "ARM": {
       "rationale": "unchanged: no fresh data available."
     },
     "Meta": {
-      "rationale": "unchanged: rev_yoy 0.062 total; AI-driven ad growth supports 0.15."
+      "rationale": "unchanged: fresh YoY 6.2% total but AI-driven ad growth supports current outlook."
     },
     "Oracle": {
-      "rationale": "unchanged: total yoy 0.081 but OCI/AI cloud backlog supports forward 0.22."
+      "rationale": "unchanged: OCI/AI cloud backlog supports outlook well above trailing 8.1% total YoY."
     },
     "Microsoft": {
-      "rationale": "unchanged: total yoy 0.043 diluted; Azure AI segment growth supports 0.14."
+      "rationale": "unchanged: fresh 4.3% total YoY but Azure AI growth sustains current segment outlook."
     },
     "Texas Instruments": {
-      "rationale": "unchanged: rev_yoy 0.075 recovering; cyclical analog rebound consistent with 0.13."
+      "rationale": "unchanged: fresh YoY 7.5% consistent with cyclical recovery outlook."
     },
     "Amazon": {
-      "rationale": "unchanged: total yoy 0.044 but AWS AI segment growth supports 0.13."
+      "rationale": "unchanged: AWS AI acceleration supports outlook above 4.4% total YoY."
     },
     "Alphabet": {
-      "rationale": "unchanged: total yoy 0.055; Cloud/AI segment growth supports 0.12."
+      "rationale": "unchanged: Cloud/AI segment growth supports outlook above 5.5% total YoY."
     },
     "Qualcomm": {
-      "rationale": "unchanged: rev_yoy -0.009 flat, consistent with low 0.07 growth."
+      "rationale": "unchanged: fresh YoY -0.9% confirms flat outlook already reflected."
     },
     "Apple": {
-      "rationale": "unchanged: rev_yoy 0.034; modest AI-driven upgrade cycle consistent with 0.07."
+      "rationale": "unchanged: fresh YoY 3.4% consistent with modest outlook."
     },
     "Cisco": {
-      "rationale": "unchanged: rev_yoy 0.024 low; AI networking orders modest, consistent with 0.06."
+      "rationale": "unchanged: fresh YoY 2.4% consistent with current low-growth outlook."
     },
     "IBM": {
-      "rationale": "unchanged: rev_yoy -0.006 flat, consistent with low 0.05."
+      "rationale": "unchanged: fresh YoY -0.6% consistent with low outlook."
     },
     "Tesla": {
-      "rationale": "unchanged: rev_yoy 0.059; AI/autonomy optionality consistent with 0.09."
+      "rationale": "unchanged: fresh YoY 5.9% consistent with modest outlook."
     }
   }
 }

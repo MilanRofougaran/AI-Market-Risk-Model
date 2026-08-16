@@ -1,5 +1,5 @@
 {
- "as_of": "2026-08-14",
+ "as_of": "2026-08-16",
  "metric": "reward_vs_SP",
  "pool_cap": 125,
  "view_cap": 50,
@@ -18,7 +18,7 @@
   {
    "name": "NVIDIA",
    "rank": 2,
-   "vs_sp": 7.0783,
+   "vs_sp": 6.7244,
    "kind": "stock",
    "pinned": false,
    "top50": true,
@@ -34,35 +34,26 @@
    "first_seen": "2026-07-06"
   },
   {
-   "name": "Palantir",
-   "rank": 4,
-   "vs_sp": 4.2064,
-   "kind": "stock",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
-   "name": "Marvell",
-   "rank": 5,
-   "vs_sp": 4.1432,
-   "kind": "stock",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
    "name": "DRAM (Roundhill Memory)",
-   "rank": 6,
-   "vs_sp": 3.9383,
+   "rank": 4,
+   "vs_sp": 3.937,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-06-12"
   },
   {
+   "name": "Palantir",
+   "rank": 5,
+   "vs_sp": 3.926,
+   "kind": "stock",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
    "name": "Micron",
-   "rank": 7,
+   "rank": 6,
    "vs_sp": 3.8931,
    "kind": "stock",
    "pinned": false,
@@ -70,9 +61,9 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "Broadcom",
-   "rank": 8,
-   "vs_sp": 3.6689,
+   "name": "Marvell",
+   "rank": 7,
+   "vs_sp": 3.6993,
    "kind": "stock",
    "pinned": false,
    "top50": true,
@@ -80,7 +71,7 @@
   },
   {
    "name": "Credo Technology",
-   "rank": 9,
+   "rank": 8,
    "vs_sp": 3.6328,
    "kind": "stock",
    "pinned": false,
@@ -89,17 +80,17 @@
   },
   {
    "name": "CHAT (Roundhill GenAI)",
-   "rank": 10,
-   "vs_sp": 3.5029,
+   "rank": 9,
+   "vs_sp": 3.5022,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-06-12"
   },
   {
-   "name": "AMD",
-   "rank": 11,
-   "vs_sp": 3.4789,
+   "name": "Broadcom",
+   "rank": 10,
+   "vs_sp": 3.2334,
    "kind": "stock",
    "pinned": false,
    "top50": true,
@@ -107,8 +98,8 @@
   },
   {
    "name": "SMH (VanEck Semis)",
-   "rank": 12,
-   "vs_sp": 3.2406,
+   "rank": 11,
+   "vs_sp": 3.2301,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -116,7 +107,7 @@
   },
   {
    "name": "TeraWulf",
-   "rank": 13,
+   "rank": 12,
    "vs_sp": 3.2228,
    "kind": "stock",
    "pinned": false,
@@ -124,9 +115,27 @@
    "first_seen": "2026-07-06"
   },
   {
+   "name": "AMD",
+   "rank": 13,
+   "vs_sp": 3.1626,
+   "kind": "stock",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
    "name": "SOXX (iShares Semis)",
    "rank": 14,
-   "vs_sp": 3.024,
+   "vs_sp": 3.0209,
+   "kind": "ETF",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "AIQ (Global X AI)",
+   "rank": 15,
+   "vs_sp": 2.7468,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -134,18 +143,9 @@
   },
   {
    "name": "CoreWeave",
-   "rank": 15,
-   "vs_sp": 2.8768,
-   "kind": "stock",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
-   "name": "AIQ (Global X AI)",
    "rank": 16,
-   "vs_sp": 2.7474,
-   "kind": "ETF",
+   "vs_sp": 2.6371,
+   "kind": "stock",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-06-12"
@@ -250,8 +250,17 @@
    "first_seen": "2026-07-06"
   },
   {
-   "name": "Rigetti Computing",
+   "name": "Wolfspeed peer / Aeva",
    "rank": 28,
+   "vs_sp": 2.0175,
+   "kind": "stock",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-08-16"
+  },
+  {
+   "name": "Rigetti Computing",
+   "rank": 29,
    "vs_sp": 2.0049,
    "kind": "stock",
    "pinned": false,
@@ -260,17 +269,8 @@
   },
   {
    "name": "Oracle",
-   "rank": 29,
-   "vs_sp": 1.9811,
-   "kind": "stock",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
-   "name": "Vertiv",
    "rank": 30,
-   "vs_sp": 1.9773,
+   "vs_sp": 1.9811,
    "kind": "stock",
    "pinned": false,
    "top50": true,
@@ -286,17 +286,8 @@
    "first_seen": "2026-06-29"
   },
   {
-   "name": "IonQ",
-   "rank": 32,
-   "vs_sp": 1.9075,
-   "kind": "stock",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
    "name": "Klaviyo",
-   "rank": 33,
+   "rank": 32,
    "vs_sp": 1.897,
    "kind": "stock",
    "pinned": false,
@@ -305,7 +296,7 @@
   },
   {
    "name": "Dell Technologies",
-   "rank": 34,
+   "rank": 33,
    "vs_sp": 1.8799,
    "kind": "stock",
    "pinned": false,
@@ -314,9 +305,18 @@
   },
   {
    "name": "QTUM (Defiance Quantum)",
-   "rank": 35,
-   "vs_sp": 1.8614,
+   "rank": 34,
+   "vs_sp": 1.8605,
    "kind": "ETF",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "Vertiv",
+   "rank": 35,
+   "vs_sp": 1.8361,
+   "kind": "stock",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-06-12"
@@ -367,8 +367,17 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "monday.com",
+   "name": "IonQ",
    "rank": 41,
+   "vs_sp": 1.7341,
+   "kind": "stock",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "monday.com",
+   "rank": 42,
    "vs_sp": 1.7312,
    "kind": "stock",
    "pinned": false,
@@ -377,7 +386,7 @@
   },
   {
    "name": "NuScale Power",
-   "rank": 42,
+   "rank": 43,
    "vs_sp": 1.7265,
    "kind": "stock",
    "pinned": false,
@@ -386,21 +395,12 @@
   },
   {
    "name": "D-Wave Quantum",
-   "rank": 43,
+   "rank": 44,
    "vs_sp": 1.7174,
    "kind": "stock",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-07-26"
-  },
-  {
-   "name": "AppLovin",
-   "rank": 44,
-   "vs_sp": 1.7101,
-   "kind": "stock",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
   },
   {
    "name": "Tempus AI",
@@ -511,8 +511,17 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "Nova Ltd",
+   "name": "AppLovin",
    "rank": 57,
+   "vs_sp": 1.5049,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "Nova Ltd",
+   "rank": 58,
    "vs_sp": 1.4809,
    "kind": "stock",
    "pinned": false,
@@ -521,7 +530,7 @@
   },
   {
    "name": "Shopify",
-   "rank": 58,
+   "rank": 59,
    "vs_sp": 1.4738,
    "kind": "stock",
    "pinned": false,
@@ -530,7 +539,7 @@
   },
   {
    "name": "QQQ (Nasdaq-100)",
-   "rank": 59,
+   "rank": 60,
    "vs_sp": 1.4628,
    "kind": "ETF",
    "pinned": false,
@@ -539,7 +548,7 @@
   },
   {
    "name": "Arista Networks",
-   "rank": 60,
+   "rank": 61,
    "vs_sp": 1.4434,
    "kind": "stock",
    "pinned": false,
@@ -548,21 +557,12 @@
   },
   {
    "name": "Vertiv peer / Modine skip",
-   "rank": 61,
+   "rank": 62,
    "vs_sp": 1.4401,
    "kind": "stock",
    "pinned": false,
    "top50": false,
    "first_seen": "2026-07-06"
-  },
-  {
-   "name": "Coherent",
-   "rank": 62,
-   "vs_sp": 1.4251,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-06-12"
   },
   {
    "name": "MP Materials",
@@ -655,8 +655,17 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "First Solar",
+   "name": "Coherent",
    "rank": 73,
+   "vs_sp": 1.3631,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "First Solar",
+   "rank": 74,
    "vs_sp": 1.3611,
    "kind": "stock",
    "pinned": false,
@@ -665,7 +674,7 @@
   },
   {
    "name": "Datadog",
-   "rank": 74,
+   "rank": 75,
    "vs_sp": 1.3552,
    "kind": "stock",
    "pinned": false,
@@ -673,8 +682,17 @@
    "first_seen": "2026-06-12"
   },
   {
+   "name": "Nvidia server / Wistron via Sanmina",
+   "rank": 76,
+   "vs_sp": 1.3542,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-08-16"
+  },
+  {
    "name": "SiTime",
-   "rank": 75,
+   "rank": 77,
    "vs_sp": 1.3255,
    "kind": "stock",
    "pinned": false,
@@ -683,7 +701,7 @@
   },
   {
    "name": "Vertiv peer / Modine skip / API",
-   "rank": 76,
+   "rank": 78,
    "vs_sp": 1.3121,
    "kind": "stock",
    "pinned": false,
@@ -692,7 +710,7 @@
   },
   {
    "name": "DTCR (Data Ctr Infra)",
-   "rank": 77,
+   "rank": 79,
    "vs_sp": 1.3092,
    "kind": "ETF",
    "pinned": false,
@@ -701,7 +719,7 @@
   },
   {
    "name": "C3.ai",
-   "rank": 78,
+   "rank": 80,
    "vs_sp": 1.2759,
    "kind": "stock",
    "pinned": false,
@@ -710,7 +728,7 @@
   },
   {
    "name": "Vertiv peer / AAON",
-   "rank": 79,
+   "rank": 81,
    "vs_sp": 1.2725,
    "kind": "stock",
    "pinned": false,
@@ -719,7 +737,7 @@
   },
   {
    "name": "Zscaler",
-   "rank": 80,
+   "rank": 82,
    "vs_sp": 1.2719,
    "kind": "stock",
    "pinned": false,
@@ -728,7 +746,7 @@
   },
   {
    "name": "Sterling Infrastructure",
-   "rank": 81,
+   "rank": 83,
    "vs_sp": 1.2636,
    "kind": "stock",
    "pinned": false,
@@ -737,7 +755,7 @@
   },
   {
    "name": "Coherent peer / Ciena skip / Infinera",
-   "rank": 82,
+   "rank": 84,
    "vs_sp": 1.2542,
    "kind": "stock",
    "pinned": false,
@@ -746,7 +764,7 @@
   },
   {
    "name": "SentinelOne",
-   "rank": 83,
+   "rank": 85,
    "vs_sp": 1.2423,
    "kind": "stock",
    "pinned": false,
@@ -755,7 +773,7 @@
   },
   {
    "name": "Confluent",
-   "rank": 84,
+   "rank": 86,
    "vs_sp": 1.2422,
    "kind": "stock",
    "pinned": false,
@@ -764,7 +782,7 @@
   },
   {
    "name": "AvePoint",
-   "rank": 85,
+   "rank": 87,
    "vs_sp": 1.2266,
    "kind": "stock",
    "pinned": false,
@@ -773,7 +791,7 @@
   },
   {
    "name": "Teradyne",
-   "rank": 86,
+   "rank": 88,
    "vs_sp": 1.2061,
    "kind": "stock",
    "pinned": false,
@@ -782,7 +800,7 @@
   },
   {
    "name": "Monolithic Power Systems",
-   "rank": 87,
+   "rank": 89,
    "vs_sp": 1.1888,
    "kind": "stock",
    "pinned": false,
@@ -791,7 +809,7 @@
   },
   {
    "name": "Braze",
-   "rank": 88,
+   "rank": 90,
    "vs_sp": 1.1667,
    "kind": "stock",
    "pinned": false,
@@ -800,7 +818,7 @@
   },
   {
    "name": "Atlassian",
-   "rank": 89,
+   "rank": 91,
    "vs_sp": 1.1579,
    "kind": "stock",
    "pinned": false,
@@ -809,7 +827,7 @@
   },
   {
    "name": "ASE Technology",
-   "rank": 90,
+   "rank": 92,
    "vs_sp": 1.1413,
    "kind": "stock",
    "pinned": false,
@@ -818,7 +836,7 @@
   },
   {
    "name": "SkyWater Technology",
-   "rank": 91,
+   "rank": 93,
    "vs_sp": 1.1318,
    "kind": "stock",
    "pinned": false,
@@ -827,7 +845,7 @@
   },
   {
    "name": "Qualcomm",
-   "rank": 92,
+   "rank": 94,
    "vs_sp": 1.1115,
    "kind": "stock",
    "pinned": false,
@@ -836,7 +854,7 @@
   },
   {
    "name": "Marvell peer / Sanmina",
-   "rank": 93,
+   "rank": 95,
    "vs_sp": 1.111,
    "kind": "stock",
    "pinned": false,
@@ -845,7 +863,7 @@
   },
   {
    "name": "Alphabet",
-   "rank": 94,
+   "rank": 96,
    "vs_sp": 1.1026,
    "kind": "stock",
    "pinned": false,
@@ -854,7 +872,7 @@
   },
   {
    "name": "Seagate Technology",
-   "rank": 95,
+   "rank": 97,
    "vs_sp": 1.0764,
    "kind": "stock",
    "pinned": false,
@@ -863,7 +881,7 @@
   },
   {
    "name": "Amazon",
-   "rank": 96,
+   "rank": 98,
    "vs_sp": 1.072,
    "kind": "stock",
    "pinned": false,
@@ -872,7 +890,7 @@
   },
   {
    "name": "ASML Holding",
-   "rank": 97,
+   "rank": 99,
    "vs_sp": 1.0629,
    "kind": "stock",
    "pinned": false,
@@ -881,7 +899,7 @@
   },
   {
    "name": "Silicon Laboratories",
-   "rank": 98,
+   "rank": 100,
    "vs_sp": 1.0597,
    "kind": "stock",
    "pinned": false,
@@ -890,7 +908,7 @@
   },
   {
    "name": "Amphenol",
-   "rank": 99,
+   "rank": 101,
    "vs_sp": 1.059,
    "kind": "stock",
    "pinned": false,
@@ -899,7 +917,7 @@
   },
   {
    "name": "Western Digital",
-   "rank": 100,
+   "rank": 102,
    "vs_sp": 1.0519,
    "kind": "stock",
    "pinned": false,
@@ -908,7 +926,7 @@
   },
   {
    "name": "Hewlett Packard Enterprise",
-   "rank": 101,
+   "rank": 103,
    "vs_sp": 1.0518,
    "kind": "stock",
    "pinned": false,
@@ -917,7 +935,7 @@
   },
   {
    "name": "HubSpot",
-   "rank": 102,
+   "rank": 104,
    "vs_sp": 1.0493,
    "kind": "stock",
    "pinned": false,
@@ -926,7 +944,7 @@
   },
   {
    "name": "Corning",
-   "rank": 103,
+   "rank": 105,
    "vs_sp": 1.0423,
    "kind": "stock",
    "pinned": false,
@@ -935,7 +953,7 @@
   },
   {
    "name": "Dycom Industries",
-   "rank": 104,
+   "rank": 106,
    "vs_sp": 1.0407,
    "kind": "stock",
    "pinned": false,
@@ -944,7 +962,7 @@
   },
   {
    "name": "nVent Electric",
-   "rank": 105,
+   "rank": 107,
    "vs_sp": 1.0401,
    "kind": "stock",
    "pinned": false,
@@ -952,8 +970,17 @@
    "first_seen": "2026-06-12"
   },
   {
+   "name": "ACM Research",
+   "rank": 108,
+   "vs_sp": 1.0361,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-08-16"
+  },
+  {
    "name": "Ambarella",
-   "rank": 106,
+   "rank": 109,
    "vs_sp": 1.0333,
    "kind": "stock",
    "pinned": false,
@@ -962,7 +989,7 @@
   },
   {
    "name": "Workday",
-   "rank": 107,
+   "rank": 110,
    "vs_sp": 1.0192,
    "kind": "stock",
    "pinned": false,
@@ -971,7 +998,7 @@
   },
   {
    "name": "VOO (S&P 500)",
-   "rank": 108,
+   "rank": 111,
    "vs_sp": 1.0,
    "kind": "ETF",
    "pinned": true,
@@ -980,7 +1007,7 @@
   },
   {
    "name": "Cameco",
-   "rank": 109,
+   "rank": 112,
    "vs_sp": 0.9877,
    "kind": "stock",
    "pinned": false,
@@ -989,7 +1016,7 @@
   },
   {
    "name": "Texas Instruments",
-   "rank": 110,
+   "rank": 113,
    "vs_sp": 0.9845,
    "kind": "stock",
    "pinned": false,
@@ -998,7 +1025,7 @@
   },
   {
    "name": "Pure Storage",
-   "rank": 111,
+   "rank": 114,
    "vs_sp": 0.9816,
    "kind": "stock",
    "pinned": false,
@@ -1007,7 +1034,7 @@
   },
   {
    "name": "Fabrinet",
-   "rank": 112,
+   "rank": 115,
    "vs_sp": 0.9768,
    "kind": "stock",
    "pinned": false,
@@ -1016,7 +1043,7 @@
   },
   {
    "name": "Comfort Systems USA",
-   "rank": 113,
+   "rank": 116,
    "vs_sp": 0.9751,
    "kind": "stock",
    "pinned": false,
@@ -1025,7 +1052,7 @@
   },
   {
    "name": "Freshworks",
-   "rank": 114,
+   "rank": 117,
    "vs_sp": 0.9661,
    "kind": "stock",
    "pinned": false,
@@ -1034,7 +1061,7 @@
   },
   {
    "name": "Vistra",
-   "rank": 115,
+   "rank": 118,
    "vs_sp": 0.9656,
    "kind": "stock",
    "pinned": false,
@@ -1043,7 +1070,7 @@
   },
   {
    "name": "Aehr Test Systems",
-   "rank": 116,
+   "rank": 119,
    "vs_sp": 0.9653,
    "kind": "stock",
    "pinned": false,
@@ -1052,7 +1079,7 @@
   },
   {
    "name": "Veeva Systems",
-   "rank": 117,
+   "rank": 120,
    "vs_sp": 0.9649,
    "kind": "stock",
    "pinned": false,
@@ -1061,7 +1088,7 @@
   },
   {
    "name": "Elastic",
-   "rank": 118,
+   "rank": 121,
    "vs_sp": 0.9567,
    "kind": "stock",
    "pinned": false,
@@ -1070,7 +1097,7 @@
   },
   {
    "name": "Lam Research",
-   "rank": 119,
+   "rank": 122,
    "vs_sp": 0.9562,
    "kind": "stock",
    "pinned": false,
@@ -1079,7 +1106,7 @@
   },
   {
    "name": "Penguin Solutions",
-   "rank": 120,
+   "rank": 123,
    "vs_sp": 0.9477,
    "kind": "stock",
    "pinned": false,
@@ -1088,7 +1115,7 @@
   },
   {
    "name": "KLA Corporation",
-   "rank": 121,
+   "rank": 124,
    "vs_sp": 0.9408,
    "kind": "stock",
    "pinned": false,
@@ -1097,7 +1124,7 @@
   },
   {
    "name": "Palo Alto Networks",
-   "rank": 122,
+   "rank": 125,
    "vs_sp": 0.9331,
    "kind": "stock",
    "pinned": false,
@@ -1106,7 +1133,7 @@
   },
   {
    "name": "SCHD (Dividend)",
-   "rank": 123,
+   "rank": 126,
    "vs_sp": 0.9327,
    "kind": "ETF",
    "pinned": true,
@@ -1115,41 +1142,22 @@
   },
   {
    "name": "Intuit",
-   "rank": 124,
+   "rank": 127,
    "vs_sp": 0.9305,
    "kind": "stock",
    "pinned": false,
    "top50": false,
    "first_seen": "2026-07-12"
-  },
-  {
-   "name": "Ciena",
-   "rank": 125,
-   "vs_sp": 0.9295,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-06-12"
-  },
-  {
-   "name": "Dynatrace",
-   "rank": 126,
-   "vs_sp": 0.9244,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-06-29"
-  },
-  {
-   "name": "Rambus",
-   "rank": 127,
-   "vs_sp": 0.9086,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-06-12"
   }
  ],
- "entered": [],
- "exited": []
+ "entered": [
+  "ACM Research",
+  "Nvidia server / Wistron via Sanmina",
+  "Wolfspeed peer / Aeva"
+ ],
+ "exited": [
+  "Ciena",
+  "Dynatrace",
+  "Rambus"
+ ]
 }
