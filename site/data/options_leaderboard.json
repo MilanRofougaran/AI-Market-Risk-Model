@@ -1,6 +1,6 @@
 {
- "as_of": "2026-08-29",
- "generated": "2026-08-29 03:50 UTC",
+ "as_of": "2026-08-31",
+ "generated": "2026-08-31 01:35 UTC",
  "tenor": "18m",
  "strike_mult": 0.75,
  "note": "Model fair value is THESIS-CONDITIONAL and IV-BLIND \u2014 not a market price; it can't tell you if the market mispriced the option. Edge = model fair \u2212 market. Calls only. Prices as of the date above. RESEARCH MODEL \u2014 NOT INVESTMENT ADVICE.",
@@ -111,6 +111,32 @@
   },
   {
    "rank": 5,
+   "name": "Qualcomm",
+   "ticker": "QCOM",
+   "spot": 164.19,
+   "expiry": "2028-01-21",
+   "expiry_label": "Jan 2028",
+   "strike": 125,
+   "strike_mult": 0.76,
+   "occ": "O:QCOM280121C00125000",
+   "market": 55.85,
+   "fair": 62.72,
+   "fair_pct": 38.2,
+   "edge": 6.87,
+   "p_itm": 90,
+   "gate": "cyclical/safe",
+   "bucket": "watch",
+   "action": "Cyclical \u2014 rebound-dependent; give it time.",
+   "leg": {
+    "k1": 0.75,
+    "k2": 1.5,
+    "cost_pct": 35.3,
+    "p_max": 0.135,
+    "giveup": 0.08
+   }
+  },
+  {
+   "rank": 6,
    "name": "CoreWeave",
    "ticker": "CRWV",
    "spot": 84.23,
@@ -136,7 +162,7 @@
    }
   },
   {
-   "rank": 6,
+   "rank": 7,
    "name": "Core Scientific",
    "ticker": "CORZ",
    "spot": 16.51,
@@ -162,7 +188,7 @@
    }
   },
   {
-   "rank": 7,
+   "rank": 8,
    "name": "D-Wave Quantum",
    "ticker": "QBTS",
    "spot": 16.99,
@@ -188,7 +214,7 @@
    }
   },
   {
-   "rank": 8,
+   "rank": 9,
    "name": "Meta",
    "ticker": "META",
    "spot": 578.02,
@@ -214,7 +240,7 @@
    }
   },
   {
-   "rank": 9,
+   "rank": 10,
    "name": "Astera Labs",
    "ticker": "ALAB",
    "spot": 289.47,
@@ -240,7 +266,7 @@
    }
   },
   {
-   "rank": 10,
+   "rank": 11,
    "name": "Samsara",
    "ticker": "IOT",
    "spot": 41.16,
@@ -263,32 +289,6 @@
     "cost_pct": 29.2,
     "p_max": 0.149,
     "giveup": 0.14
-   }
-  },
-  {
-   "rank": 11,
-   "name": "Broadcom",
-   "ticker": "AVGO",
-   "spot": 368.79,
-   "expiry": "2028-01-21",
-   "expiry_label": "Jan 2028",
-   "strike": 280,
-   "strike_mult": 0.76,
-   "occ": "O:AVGO280121C00280000",
-   "market": 133.63,
-   "fair": 127.6,
-   "fair_pct": 34.6,
-   "edge": -6.03,
-   "p_itm": 85,
-   "gate": "secular/diversified",
-   "bucket": "watch",
-   "action": "Durable grower, but priced at/above the model's fair value.",
-   "leg": {
-    "k1": 0.75,
-    "k2": 1.5,
-    "cost_pct": 31.7,
-    "p_max": 0.125,
-    "giveup": 0.08
    }
   },
   {
@@ -319,6 +319,32 @@
   },
   {
    "rank": 13,
+   "name": "Vertiv",
+   "ticker": "VRT",
+   "spot": 257.08,
+   "expiry": "2028-01-21",
+   "expiry_label": "Jan 2028",
+   "strike": 195,
+   "strike_mult": 0.76,
+   "occ": "O:VRT280121C00195000",
+   "market": 109.75,
+   "fair": 88.18,
+   "fair_pct": 34.3,
+   "edge": -21.57,
+   "p_itm": 81,
+   "gate": "cyclical \u2014 no short calls",
+   "bucket": "watch",
+   "action": "Cyclical \u2014 rebound-dependent; give it time.",
+   "leg": {
+    "k1": 0.75,
+    "k2": 1.5,
+    "cost_pct": 30.5,
+    "p_max": 0.136,
+    "giveup": 0.11
+   }
+  },
+  {
+   "rank": 14,
    "name": "Applied Optoelectronics",
    "ticker": "AAOI",
    "spot": 106.23,
@@ -344,7 +370,33 @@
    }
   },
   {
-   "rank": 14,
+   "rank": 15,
+   "name": "ARM",
+   "ticker": "ARM",
+   "spot": 239.05,
+   "expiry": "2028-01-21",
+   "expiry_label": "Jan 2028",
+   "strike": 180,
+   "strike_mult": 0.75,
+   "occ": "O:ARM280121C00180000",
+   "market": 114,
+   "fair": 85.1,
+   "fair_pct": 35.6,
+   "edge": -28.9,
+   "p_itm": 85,
+   "gate": "secular/safe",
+   "bucket": "watch",
+   "action": "Durable grower, but priced at/above the model's fair value.",
+   "leg": {
+    "k1": 0.75,
+    "k2": 1.5,
+    "cost_pct": 32.4,
+    "p_max": 0.133,
+    "giveup": 0.09
+   }
+  },
+  {
+   "rank": 16,
    "name": "Camtek",
    "ticker": "CAMT",
    "spot": 135.57,
@@ -370,7 +422,33 @@
    }
   },
   {
-   "rank": 15,
+   "rank": 17,
+   "name": "Western Digital",
+   "ticker": "WDC",
+   "spot": 459.45,
+   "expiry": "2028-01-21",
+   "expiry_label": "Jan 2028",
+   "strike": 340,
+   "strike_mult": 0.74,
+   "occ": "O:WDC280121C00340000",
+   "market": 206.63,
+   "fair": 171.83,
+   "fair_pct": 37.4,
+   "edge": -34.8,
+   "p_itm": 82,
+   "gate": "secular",
+   "bucket": "watch",
+   "action": "Durable grower, but priced at/above the model's fair value.",
+   "leg": {
+    "k1": 0.75,
+    "k2": 1.5,
+    "cost_pct": 32.4,
+    "p_max": 0.165,
+    "giveup": 0.13
+   }
+  },
+  {
+   "rank": 18,
    "name": "Micron",
    "ticker": "MU",
    "spot": 932.86,
@@ -396,7 +474,7 @@
    }
   },
   {
-   "rank": 16,
+   "rank": 19,
    "name": "SMH (VanEck Semis)",
    "ticker": "SMH",
    "spot": 553.11,

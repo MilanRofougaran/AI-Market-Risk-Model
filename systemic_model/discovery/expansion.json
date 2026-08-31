@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-08-23",
+  "as_of": "2026-08-31",
   "source": "Claude (claude-opus-4-8) + Polygon",
   "companies": {
     "Taiwan Semiconductor": {
@@ -180,24 +180,6 @@
       "theme": "Precision MEMS timing silicon",
       "group": "AI-infra",
       "role": "SiTime makes MEMS-based precision timing chips replacing legacy quartz oscillators, with growing exposure to data-center/AI networking; it sits in AI-infra but as a smaller, more cyclical component supplier with meaningful but not dominant share.",
-      "ticker": ""
-    },
-    "Semtech": {
-      "growth": 0.12,
-      "rev_bn": 1.12,
-      "tam_bn": 18.0,
-      "tam_cagr": 0.1,
-      "fwd_pe": 28.0,
-      "beta": 1.85,
-      "quality": 0.55,
-      "earn_quality": 0.5,
-      "dominance": 0.45,
-      "capex_elastic": 0.45,
-      "permanence": 0.5,
-      "kind": "stock",
-      "theme": "IoT connectivity semis",
-      "group": "AI-infra",
-      "role": "Mixed-signal and IoT connectivity chipmaker (LoRa, optical interconnect, edge wireless) with modest single-digit revenue growth; cyclical end-markets and moderate moat keep it mid-quality with elevated beta, while its data-center optical/CopperEdge exposure provides a partial AI-infra tilt.",
       "ticker": ""
     },
     "Rambus": {
@@ -1640,24 +1622,6 @@
       "role": "AvePoint provides SaaS data management, migration, security and governance across Microsoft 365 and multi-cloud environments; recurring subscription revenue and improving profitability temper risk, but modest ~6% reported growth, mid-market fragmentation and limited moat place it as a moderate-beta ",
       "ticker": ""
     },
-    "indie Semiconductor": {
-      "growth": 0.15,
-      "rev_bn": 0.22,
-      "tam_bn": 25.0,
-      "tam_cagr": 0.12,
-      "fwd_pe": 150.0,
-      "beta": 2.2,
-      "quality": 0.5,
-      "earn_quality": 0.4,
-      "dominance": 0.2,
-      "capex_elastic": 0.45,
-      "permanence": 0.7,
-      "kind": "stock",
-      "theme": "Automotive edge sensing",
-      "group": "disruptive",
-      "role": "Fabless designer of automotive ADAS and edge-sensing semiconductors (radar, LiDAR, connectivity); sits in disruptive with high beta and permanence due to pre-profitability, stalled recent revenue growth, small scale, and cyclical auto exposure despite a credible design-win backlog.",
-      "ticker": ""
-    },
     "Navitas Semiconductor": {
       "growth": 0.15,
       "rev_bn": 0.045,
@@ -2071,6 +2035,60 @@
       "group": "disruptive",
       "role": "Small-launch provider and space systems maker expanding into satellite components and constellations; the 'space compute' angle is early and speculative, and the pre-profit, capital-intensive model with lumpy government/commercial demand places it in high-beta disruptive territory.",
       "ticker": ""
+    },
+    "Cadence Design Systems": {
+      "growth": 0.13,
+      "rev_bn": 5.84,
+      "tam_bn": 18.0,
+      "tam_cagr": 0.12,
+      "fwd_pe": 55.0,
+      "beta": 1.15,
+      "quality": 0.9,
+      "earn_quality": 0.88,
+      "dominance": 0.8,
+      "capex_elastic": 0.82,
+      "permanence": 0.3,
+      "kind": "stock",
+      "theme": "Chip design EDA software",
+      "group": "AI-infra",
+      "role": "Cadence is a duopoly EDA vendor whose recurring software/IP licenses are essential to all advanced chip design, giving durable, non-discretionary demand tied to secular semiconductor complexity growth.",
+      "ticker": ""
+    },
+    "Sanmina": {
+      "growth": 0.14,
+      "rev_bn": 4.5,
+      "tam_bn": 120.0,
+      "tam_cagr": 0.12,
+      "fwd_pe": 16.0,
+      "beta": 1.35,
+      "quality": 0.6,
+      "earn_quality": 0.5,
+      "dominance": 0.35,
+      "capex_elastic": 0.4,
+      "permanence": 0.5,
+      "kind": "stock",
+      "theme": "AI server contract manufacturing",
+      "group": "AI-infra",
+      "role": "Diversified EMS/contract manufacturer with growing exposure to AI server and data-center hardware assembly; thin-margin, cyclical build business with modest moat, so it sits as a mid-quality AI-infra name.",
+      "ticker": ""
+    },
+    "Vertiv peer / Modine": {
+      "growth": 0.12,
+      "rev_bn": 1.2,
+      "tam_bn": 30.0,
+      "tam_cagr": 0.18,
+      "fwd_pe": 26.0,
+      "beta": 1.6,
+      "quality": 0.7,
+      "earn_quality": 0.55,
+      "dominance": 0.35,
+      "capex_elastic": 0.45,
+      "permanence": 0.5,
+      "kind": "stock",
+      "theme": "Data center thermal management",
+      "group": "AI-infra",
+      "role": "Diversified thermal management supplier whose fast-growing data center cooling segment rides AI capex, but legacy HVAC/automotive exposure and cyclical, capex-linked demand temper the AI premium.",
+      "ticker": "MOD"
     }
   }
 }
