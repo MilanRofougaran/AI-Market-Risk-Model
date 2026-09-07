@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-04",
+ "as_of": "2026-09-07",
  "metric": "reward_vs_SP",
  "pool_cap": 125,
  "view_cap": 50,
@@ -45,7 +45,7 @@
   {
    "name": "DRAM (Roundhill Memory)",
    "rank": 5,
-   "vs_sp": 3.9631,
+   "vs_sp": 3.9696,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -54,7 +54,7 @@
   {
    "name": "Micron",
    "rank": 6,
-   "vs_sp": 3.9217,
+   "vs_sp": 3.9482,
    "kind": "stock",
    "pinned": false,
    "top50": true,
@@ -81,7 +81,7 @@
   {
    "name": "CHAT (Roundhill GenAI)",
    "rank": 9,
-   "vs_sp": 3.5056,
+   "vs_sp": 3.5084,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -97,17 +97,8 @@
    "first_seen": "2026-07-06"
   },
   {
-   "name": "SMH (VanEck Semis)",
-   "rank": 11,
-   "vs_sp": 3.2377,
-   "kind": "ETF",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
    "name": "AMD",
-   "rank": 12,
+   "rank": 11,
    "vs_sp": 3.1881,
    "kind": "stock",
    "pinned": false,
@@ -115,9 +106,18 @@
    "first_seen": "2026-06-12"
   },
   {
+   "name": "SMH (VanEck Semis)",
+   "rank": 12,
+   "vs_sp": 3.0411,
+   "kind": "ETF",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
    "name": "SOXX (iShares Semis)",
    "rank": 13,
-   "vs_sp": 3.0206,
+   "vs_sp": 2.8475,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -126,7 +126,7 @@
   {
    "name": "AIQ (Global X AI)",
    "rank": 14,
-   "vs_sp": 2.7624,
+   "vs_sp": 2.6953,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -142,17 +142,8 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "Broadcom",
-   "rank": 16,
-   "vs_sp": 2.5742,
-   "kind": "stock",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
    "name": "Astera Labs",
-   "rank": 17,
+   "rank": 16,
    "vs_sp": 2.5603,
    "kind": "stock",
    "pinned": false,
@@ -161,7 +152,7 @@
   },
   {
    "name": "ARM",
-   "rank": 18,
+   "rank": 17,
    "vs_sp": 2.554,
    "kind": "stock",
    "pinned": false,
@@ -170,8 +161,17 @@
   },
   {
    "name": "Taiwan Semiconductor",
-   "rank": 19,
+   "rank": 18,
    "vs_sp": 2.545,
+   "kind": "stock",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "Broadcom",
+   "rank": 19,
+   "vs_sp": 2.4241,
    "kind": "stock",
    "pinned": false,
    "top50": true,
@@ -304,17 +304,8 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "QTUM (Defiance Quantum)",
-   "rank": 34,
-   "vs_sp": 1.8701,
-   "kind": "ETF",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
    "name": "Samsara",
-   "rank": 35,
+   "rank": 34,
    "vs_sp": 1.8122,
    "kind": "stock",
    "pinned": false,
@@ -323,9 +314,18 @@
   },
   {
    "name": "Camtek",
-   "rank": 36,
+   "rank": 35,
    "vs_sp": 1.8115,
    "kind": "stock",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "QTUM (Defiance Quantum)",
+   "rank": 36,
+   "vs_sp": 1.7936,
+   "kind": "ETF",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-06-12"
@@ -502,17 +502,8 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "IonQ",
-   "rank": 56,
-   "vs_sp": 1.5285,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-06-12"
-  },
-  {
    "name": "Microsoft",
-   "rank": 57,
+   "rank": 56,
    "vs_sp": 1.5136,
    "kind": "stock",
    "pinned": false,
@@ -521,7 +512,7 @@
   },
   {
    "name": "AppLovin",
-   "rank": 58,
+   "rank": 57,
    "vs_sp": 1.5107,
    "kind": "stock",
    "pinned": false,
@@ -530,7 +521,7 @@
   },
   {
    "name": "Nova Ltd",
-   "rank": 59,
+   "rank": 58,
    "vs_sp": 1.4916,
    "kind": "stock",
    "pinned": false,
@@ -539,7 +530,7 @@
   },
   {
    "name": "Shopify",
-   "rank": 60,
+   "rank": 59,
    "vs_sp": 1.4834,
    "kind": "stock",
    "pinned": false,
@@ -548,7 +539,7 @@
   },
   {
    "name": "QQQ (Nasdaq-100)",
-   "rank": 61,
+   "rank": 60,
    "vs_sp": 1.4675,
    "kind": "ETF",
    "pinned": false,
@@ -557,7 +548,7 @@
   },
   {
    "name": "Arista Networks",
-   "rank": 62,
+   "rank": 61,
    "vs_sp": 1.4526,
    "kind": "stock",
    "pinned": false,
@@ -566,12 +557,21 @@
   },
   {
    "name": "Vertiv peer / Modine skip",
-   "rank": 63,
+   "rank": 62,
    "vs_sp": 1.4483,
    "kind": "stock",
    "pinned": false,
    "top50": false,
    "first_seen": "2026-07-06"
+  },
+  {
+   "name": "IonQ",
+   "rank": 63,
+   "vs_sp": 1.4411,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-06-12"
   },
   {
    "name": "MP Materials",
