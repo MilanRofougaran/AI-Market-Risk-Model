@@ -97,8 +97,17 @@
    "first_seen": "2026-07-06"
   },
   {
-   "name": "AMD",
+   "name": "SMH (VanEck Semis)",
    "rank": 11,
+   "vs_sp": 3.2292,
+   "kind": "ETF",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "AMD",
+   "rank": 12,
    "vs_sp": 3.1881,
    "kind": "stock",
    "pinned": false,
@@ -106,18 +115,9 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "SMH (VanEck Semis)",
-   "rank": 12,
-   "vs_sp": 3.0411,
-   "kind": "ETF",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
    "name": "SOXX (iShares Semis)",
    "rank": 13,
-   "vs_sp": 2.8475,
+   "vs_sp": 3.0212,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -126,7 +126,7 @@
   {
    "name": "AIQ (Global X AI)",
    "rank": 14,
-   "vs_sp": 2.6953,
+   "vs_sp": 2.7635,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -304,8 +304,17 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "Samsara",
+   "name": "QTUM (Defiance Quantum)",
    "rank": 34,
+   "vs_sp": 1.8696,
+   "kind": "ETF",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "Samsara",
+   "rank": 35,
    "vs_sp": 1.8122,
    "kind": "stock",
    "pinned": false,
@@ -314,18 +323,9 @@
   },
   {
    "name": "Camtek",
-   "rank": 35,
+   "rank": 36,
    "vs_sp": 1.8115,
    "kind": "stock",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
-   "name": "QTUM (Defiance Quantum)",
-   "rank": 36,
-   "vs_sp": 1.7936,
-   "kind": "ETF",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-06-12"
