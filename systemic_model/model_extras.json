@@ -38,13 +38,13 @@
   "Broadcom": {
    "tier_panel": {
     "fragility": {
-     "base": 0.3617431588567399,
+     "base": 0.374179361824709,
      "TAM": 0.3946551724137931,
-     "moat-.15": 0.3790717644904614,
-     "margin": 0.4107732013331138,
-     "rate+input": 0.38034315885673986
+     "moat-.15": 0.3897603411408712,
+     "margin": 0.4216866039376581,
+     "rate+input": 0.3927793618247091
     },
-    "worst": 0.4107732013331138,
+    "worst": 0.4216866039376581,
     "tier": "3  gated / fragile"
    },
    "confidence": {
@@ -54,7 +54,7 @@
    },
    "reverse_dcf": {
     "g_star": null,
-    "max_justifiable": 0.8435897435897436,
+    "max_justifiable": 0.8329120889928944,
     "premium_pts": 13.9,
     "g_input": 0.2,
     "note": null
@@ -861,22 +861,6 @@
    "solvency_hazard": 0.0252
   },
   "Onto Innovation": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.42578613945578225,
-     "TAM": 0.4403571428571429,
-     "moat-.15": 0.42578613945578225,
-     "margin": 0.4707861394557823,
-     "rate+input": 0.42578613945578225
-    },
-    "worst": 0.4707861394557823,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Camtek": {
@@ -1925,22 +1909,6 @@
    "solvency_hazard": 0.0252
   },
   "NextEra Energy": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.26466,
-     "TAM": 0.27249999999999996,
-     "moat-.15": 0.26466,
-     "margin": 0.30966000000000005,
-     "rate+input": 0.26466
-    },
-    "worst": 0.30966000000000005,
-    "tier": "2  ownable, watch"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Cameco": {
@@ -2172,22 +2140,6 @@
    "solvency_hazard": 0.0252
   },
   "Centrus Energy": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.4554250637755102,
-     "TAM": 0.4703571428571428,
-     "moat-.15": 0.4554250637755102,
-     "margin": 0.5004250637755102,
-     "rate+input": 0.4554250637755102
-    },
-    "worst": 0.5004250637755102,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Vertiv peer / AAON": {
@@ -2783,22 +2735,6 @@
    "solvency_hazard": 0.0252
   },
   "Advanced Energy Industries": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.4401371173469387,
-     "TAM": 0.4553571428571428,
-     "moat-.15": 0.4401371173469387,
-     "margin": 0.48513711734693876,
-     "rate+input": 0.4401371173469387
-    },
-    "worst": 0.48513711734693876,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Ichor Holdings": {
@@ -2913,6 +2849,236 @@
     "option": "Low",
     "anchor": "Low"
    },
+   "solvency_hazard": 0.0252
+  },
+  "Nvidia peer / GlobalFoundries": {
+   "solvency_hazard": 0.0252
+  },
+  "Intel": {
+   "solvency_hazard": 0.0252
+  },
+  "Synopsys": {
+   "solvency_hazard": 0.0252
+  },
+  "Analog Devices": {
+   "solvency_hazard": 0.0252
+  },
+  "NXP Semiconductors": {
+   "solvency_hazard": 0.0252
+  },
+  "ON Semiconductor": {
+   "solvency_hazard": 0.0252
+  },
+  "STMicroelectronics": {
+   "solvency_hazard": 0.0252
+  },
+  "Entegris": {
+   "solvency_hazard": 0.0252
+  },
+  "MKS Instruments": {
+   "solvency_hazard": 0.0252
+  },
+  "Photronics": {
+   "solvency_hazard": 0.0252
+  },
+  "FormFactor": {
+   "solvency_hazard": 0.0252
+  },
+  "Cirrus Logic": {
+   "solvency_hazard": 0.0252
+  },
+  "Skyworks Solutions": {
+   "solvency_hazard": 0.0252
+  },
+  "Qorvo": {
+   "solvency_hazard": 0.0252
+  },
+  "Allegro MicroSystems": {
+   "solvency_hazard": 0.0252
+  },
+  "Power Integrations": {
+   "solvency_hazard": 0.0252
+  },
+  "Diodes Incorporated": {
+   "solvency_hazard": 0.0252
+  },
+  "Vishay Intertechnology": {
+   "solvency_hazard": 0.0252
+  },
+  "TE Connectivity": {
+   "solvency_hazard": 0.0252
+  },
+  "Littelfuse": {
+   "solvency_hazard": 0.0252
+  },
+  "Flex": {
+   "solvency_hazard": 0.0252
+  },
+  "Jabil": {
+   "solvency_hazard": 0.0252
+  },
+  "Vertiv peer / Eaton": {
+   "solvency_hazard": 0.0252
+  },
+  "Emerson Electric": {
+   "solvency_hazard": 0.0252
+  },
+  "Schneider peer / Hubbell": {
+   "solvency_hazard": 0.0252
+  },
+  "GE Vernova": {
+   "solvency_hazard": 0.0252
+  },
+  "Powell Industries": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.31728710019841266,
+     "TAM": 0.3205555555555556,
+     "moat-.15": 0.31728710019841266,
+     "margin": 0.3622871001984127,
+     "rate+input": 0.31728710019841266
+    },
+    "worst": 0.3622871001984127,
+    "tier": "2  ownable, watch"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "EMCOR Group": {
+   "solvency_hazard": 0.0252
+  },
+  "Modine peer / API Group": {
+   "solvency_hazard": 0.0252
+  },
+  "Johnson Controls": {
+   "solvency_hazard": 0.0252
+  },
+  "Trane Technologies": {
+   "solvency_hazard": 0.0252
+  },
+  "Vertiv peer / Curtiss-Wright": {
+   "solvency_hazard": 0.0252
+  },
+  "Oklo": {
+   "solvency_hazard": 0.0252
+  },
+  "GE Vernova peer / BWX": {
+   "solvency_hazard": 0.0252
+  },
+  "Uranium / Cameco peer NexGen": {
+   "solvency_hazard": 0.0252
+  },
+  "Dominion Energy": {
+   "solvency_hazard": 0.0252
+  },
+  "Southern Company": {
+   "solvency_hazard": 0.0252
+  },
+  "MongoDB": {
+   "solvency_hazard": 0.0252
+  },
+  "Twilio": {
+   "solvency_hazard": 0.0252
+  },
+  "Okta": {
+   "solvency_hazard": 0.0252
+  },
+  "Fortinet": {
+   "solvency_hazard": 0.0252
+  },
+  "Salesforce": {
+   "solvency_hazard": 0.0252
+  },
+  "Adobe": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.22098237422126746,
+     "TAM": 0.23763157894736844,
+     "moat-.15": 0.22098237422126746,
+     "margin": 0.26598237422126747,
+     "rate+input": 0.22098237422126746
+    },
+    "worst": 0.26598237422126747,
+    "tier": "2  ownable, watch"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Docusign peer / Docebo": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.3610937238271932,
+     "TAM": 0.3668181818181818,
+     "moat-.15": 0.3610937238271932,
+     "margin": 0.4060937238271932,
+     "rate+input": 0.3610937238271932
+    },
+    "worst": 0.4060937238271932,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Toast": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.5659297190082644,
+     "TAM": 0.5877272727272727,
+     "moat-.15": 0.5659297190082644,
+     "margin": 0.6109297190082644,
+     "rate+input": 0.5659297190082644
+    },
+    "worst": 0.6109297190082644,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "DoubleVerify": {
+   "solvency_hazard": 0.0252
+  },
+  "ASML peer / Advantest via ADR": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.4283221574344023,
+     "TAM": 0.4403571428571429,
+     "moat-.15": 0.4283221574344023,
+     "margin": 0.4733221574344023,
+     "rate+input": 0.4283221574344023
+    },
+    "worst": 0.4733221574344023,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "indie Semiconductor": {
+   "solvency_hazard": 0.0252
+  },
+  "Semtech": {
+   "solvency_hazard": 0.0252
+  },
+  "Digital Realty Trust": {
    "solvency_hazard": 0.0252
   },
   "ARKK (ARK Innovation)": {
@@ -3089,13 +3255,13 @@
   "SMH (VanEck Semis)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.2654239494996228,
-     "TAM": 0.2902449326137185,
-     "moat-.15": 0.2654239494996228,
-     "margin": 0.3104239494996228,
-     "rate+input": 0.2654239494996228
+     "base": 0.26660393247944747,
+     "TAM": 0.29173397414935476,
+     "moat-.15": 0.26660393247944747,
+     "margin": 0.3116039324794475,
+     "rate+input": 0.26660393247944747
     },
-    "worst": 0.3104239494996228,
+    "worst": 0.3116039324794475,
     "tier": "2  ownable, watch"
    },
    "confidence": {
@@ -3108,13 +3274,13 @@
   "SOXX (iShares Semis)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.25227652174575166,
-     "TAM": 0.2665012240243295,
-     "moat-.15": 0.25227652174575166,
-     "margin": 0.29727652174575164,
-     "rate+input": 0.25227652174575166
+     "base": 0.25263710756615465,
+     "TAM": 0.26694730131908684,
+     "moat-.15": 0.25263710756615465,
+     "margin": 0.29763710756615464,
+     "rate+input": 0.25263710756615465
     },
-    "worst": 0.29727652174575164,
+    "worst": 0.29763710756615464,
     "tier": "2  ownable, watch"
    },
    "confidence": {
@@ -3146,13 +3312,13 @@
   "QTUM (Defiance Quantum)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.30019630310810774,
-     "TAM": 0.3202428923248578,
-     "moat-.15": 0.30019630310810774,
-     "margin": 0.3451963031081078,
-     "rate+input": 0.30019630310810774
+     "base": 0.30076695440005585,
+     "TAM": 0.32093636591474173,
+     "moat-.15": 0.30076695440005585,
+     "margin": 0.3457669544000558,
+     "rate+input": 0.30076695440005585
     },
-    "worst": 0.3451963031081078,
+    "worst": 0.3457669544000558,
     "tier": "2  ownable, watch"
    },
    "confidence": {
@@ -3165,13 +3331,13 @@
   "AIQ (Global X AI)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.2334465532651537,
-     "TAM": 0.24214649704337812,
-     "moat-.15": 0.2334465532651537,
-     "margin": 0.27844655326515366,
-     "rate+input": 0.2334465532651537
+     "base": 0.23351036329559924,
+     "TAM": 0.24220938741706557,
+     "moat-.15": 0.23351036329559924,
+     "margin": 0.27851036329559925,
+     "rate+input": 0.23351036329559924
     },
-    "worst": 0.27844655326515366,
+    "worst": 0.27851036329559925,
     "tier": "2  ownable, watch"
    },
    "confidence": {
@@ -3184,13 +3350,13 @@
   "CHAT (Roundhill GenAI)": {
    "tier_panel": {
     "fragility": {
-     "base": 0.2572081449059609,
-     "TAM": 0.27574135963930746,
-     "moat-.15": 0.2572081449059609,
-     "margin": 0.3022081449059608,
-     "rate+input": 0.2572081449059609
+     "base": 0.25733362514377556,
+     "TAM": 0.2758672197913371,
+     "moat-.15": 0.25733362514377556,
+     "margin": 0.3023336251437756,
+     "rate+input": 0.25733362514377556
     },
-    "worst": 0.3022081449059608,
+    "worst": 0.3023336251437756,
     "tier": "2  ownable, watch"
    },
    "confidence": {
