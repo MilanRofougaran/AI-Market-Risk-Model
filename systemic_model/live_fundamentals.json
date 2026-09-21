@@ -1,30 +1,30 @@
 {
-  "as_of": "2026-09-14",
+  "as_of": "2026-09-21",
   "source": "Claude (claude-opus-4-8) + Polygon financials",
   "companies": {
     "IonQ": {
       "growth": 0.33,
-      "rationale": "unchanged: YoY 31.7% aligns closely with current 0.33 growth."
+      "rationale": "unchanged: YoY 31.7% aligns with current 0.33; pre-revenue quantum trajectory remains volatile but no clear reason to move."
     },
     "Astera Labs": {
       "growth": 0.22,
-      "rationale": "unchanged: YoY 20% consistent with current 0.22, no clear forward change."
+      "rationale": "unchanged: YoY 20% consistent with 0.22, though forward AI-connectivity ramp keeps this near current level."
     },
     "CoreWeave": {
       "growth": 0.4,
-      "rationale": "Lowered growth from 0.5 to 0.4 as fresh YoY of 26.6% is well below prior assumption though still elevated."
+      "rationale": "unchanged: YoY 26.6% but massive contracted backlog supports the higher forward 0.4 estimate."
     },
     "Palantir": {
       "growth": 0.3,
-      "rationale": "unchanged: YoY 17.8% but strong accelerating commercial/AIP trajectory supports 0.30 forward."
+      "rationale": "unchanged: YoY 17.8% below 0.3 but accelerating US commercial AIP growth justifies keeping forward estimate."
     },
     "Lumentum": {
       "growth": 0.25,
-      "rationale": "unchanged: YoY 21.1% consistent with 0.25 amid datacom ramp."
+      "rationale": "unchanged: YoY 21.1% supports 0.25 with datacom optics ramp providing forward lift."
     },
     "Applied Optoelectronics": {
       "growth": 0.16,
-      "rationale": "unchanged: YoY 17.5% aligns with current 0.16."
+      "rationale": "unchanged: YoY 17.5% closely matches current 0.16."
     },
     "Micron": {
       "growth": 0.5,
@@ -34,7 +34,7 @@
       "quality": 0.7,
       "earn_quality": 0.65,
       "dominance": 0.3,
-      "rationale": "Nudged AI/HBM segment rev_bn up slightly on 55% YoY total revenue strength; growth kept at 0.5."
+      "rationale": "unchanged: YoY 55.3% strong HBM cycle supports existing 0.5 growth and cyclical earn_quality."
     },
     "AMD": {
       "growth": 0.2,
@@ -44,7 +44,7 @@
       "quality": 0.75,
       "earn_quality": 0.8,
       "dominance": 0.25,
-      "rationale": "unchanged: YoY 10.3% soft but forward MI-series ramp supports maintaining 0.20."
+      "rationale": "unchanged: YoY 10.3% soft now but MI-series AI GPU ramp supports forward 0.2."
     },
     "NVIDIA": {
       "growth": 0.38,
@@ -54,7 +54,7 @@
       "quality": 0.9,
       "earn_quality": 0.85,
       "dominance": 0.85,
-      "rationale": "Raised AI segment rev_bn to reflect continued datacenter dominance; growth held at 0.38 as YoY decelerates."
+      "rationale": "unchanged: YoY decelerated to 19.5% but Blackwell ramp still supports elevated forward growth."
     },
     "Broadcom": {
       "growth": 0.3,
@@ -64,7 +64,7 @@
       "quality": 0.85,
       "earn_quality": 0.85,
       "dominance": 0.7,
-      "rationale": "Nudged AI segment rev_bn up on strong custom-ASIC/networking demand; growth unchanged."
+      "rationale": "unchanged: YoY 18.1% total but custom AI ASIC segment growth supports forward 0.3."
     },
     "Marvell": {
       "growth": 0.22,
@@ -74,19 +74,19 @@
       "quality": 0.7,
       "earn_quality": 0.8,
       "dominance": 0.4,
-      "rationale": "Trimmed growth from 0.25 to 0.22 as YoY of 8.4% is notably weaker than assumed."
+      "rationale": "unchanged: YoY 8.4% weak but AI custom silicon ramp underpins forward 0.22."
     },
     "AppLovin": {
       "growth": 0.22,
-      "rationale": "unchanged: YoY 10.8% but AI ad-engine momentum supports maintaining 0.22."
+      "rationale": "unchanged: YoY 10.8% but AI ad-engine momentum supports forward estimate."
     },
     "Vertiv": {
       "growth": 0.24,
-      "rationale": "unchanged: YoY 5.9% soft but datacenter cooling/power backlog supports forward 0.24."
+      "rationale": "unchanged: YoY 5.9% trailing but datacenter cooling/power backlog supports forward 0.24."
     },
     "Coherent": {
       "growth": 0.22,
-      "rationale": "unchanged: YoY 7.8% soft but datacom transceiver ramp supports 0.22 forward."
+      "rationale": "unchanged: YoY 7.8% now but AI datacom transceiver demand supports forward 0.22."
     },
     "ARM": {
       "growth": 0.25,
@@ -100,27 +100,27 @@
     },
     "Meta": {
       "growth": 0.15,
-      "rationale": "unchanged: total YoY 6.2% but AI-driven ad segment supports 0.15."
+      "rationale": "unchanged: YoY 6.2% total but AI-driven ad segment growth supports forward 0.15."
     },
     "Oracle": {
       "growth": 0.24,
-      "rationale": "Raised growth from 0.22 to 0.24 on accelerating OCI/AI cloud backlog despite soft trailing YoY."
+      "rationale": "unchanged: YoY 5.1% total but OCI/cloud AI backlog supports elevated forward 0.24."
     },
     "Microsoft": {
       "growth": 0.14,
-      "rationale": "unchanged: Azure AI segment growth supports 0.14 despite modest total YoY."
+      "rationale": "unchanged: YoY 4.3% total but Azure AI segment growth supports forward 0.14."
     },
     "Texas Instruments": {
       "growth": 0.13,
-      "rationale": "unchanged: YoY 7.5% recovery, forward cyclical rebound supports 0.13."
+      "rationale": "unchanged: YoY 7.5% recovering analog cycle consistent with 0.13."
     },
     "Amazon": {
       "growth": 0.13,
-      "rationale": "unchanged: AWS AI growth supports 0.13 despite low total YoY."
+      "rationale": "unchanged: YoY 4.4% total but AWS AI segment supports forward 0.13."
     },
     "Alphabet": {
       "growth": 0.12,
-      "rationale": "unchanged: Google Cloud AI growth supports 0.12."
+      "rationale": "unchanged: YoY 5.5% total but Cloud AI segment growth supports forward 0.12."
     },
     "Qualcomm": {
       "growth": 0.07,
@@ -130,11 +130,11 @@
       "quality": 0.35,
       "earn_quality": 0.7,
       "dominance": 0.45,
-      "rationale": "unchanged: YoY -0.9% consistent with flat 0.07 outlook."
+      "rationale": "unchanged: YoY -0.9% flat, consistent with low 0.07 growth."
     },
     "Apple": {
       "growth": 0.07,
-      "rationale": "unchanged: YoY 3.4% consistent with modest 0.07."
+      "rationale": "unchanged: YoY 3.4% consistent with modest 0.07 forward growth."
     },
     "Cisco": {
       "growth": 0.06,
@@ -142,11 +142,11 @@
     },
     "IBM": {
       "growth": 0.05,
-      "rationale": "unchanged: YoY -0.6% consistent with low 0.05."
+      "rationale": "unchanged: YoY -0.6% flat, consistent with low 0.05."
     },
     "Tesla": {
       "growth": 0.09,
-      "rationale": "unchanged: YoY 5.9%, AI/robotaxi optionality keeps 0.09."
+      "rationale": "unchanged: YoY 5.9% consistent with 0.09 given AI/robotaxi optionality offsetting auto softness."
     }
   }
 }
