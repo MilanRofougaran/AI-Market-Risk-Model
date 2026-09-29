@@ -1,5 +1,5 @@
 {
- "as_of": "2026-09-28",
+ "as_of": "2026-09-29",
  "metric": "reward_vs_SP",
  "pool_cap": 125,
  "view_cap": 50,
@@ -108,7 +108,7 @@
   {
    "name": "SMH (VanEck Semis)",
    "rank": 12,
-   "vs_sp": 3.0699,
+   "vs_sp": 3.24,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -117,7 +117,16 @@
   {
    "name": "SOXX (iShares Semis)",
    "rank": 13,
-   "vs_sp": 2.8719,
+   "vs_sp": 3.036,
+   "kind": "ETF",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "AIQ (Global X AI)",
+   "rank": 14,
+   "vs_sp": 2.8454,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -125,18 +134,9 @@
   },
   {
    "name": "SoundHound AI",
-   "rank": 14,
+   "rank": 15,
    "vs_sp": 2.7787,
    "kind": "stock",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
-   "name": "AIQ (Global X AI)",
-   "rank": 15,
-   "vs_sp": 2.736,
-   "kind": "ETF",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-06-12"
@@ -304,8 +304,17 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "Samsara",
+   "name": "QTUM (Defiance Quantum)",
    "rank": 34,
+   "vs_sp": 1.9057,
+   "kind": "ETF",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "Samsara",
+   "rank": 35,
    "vs_sp": 1.8994,
    "kind": "stock",
    "pinned": false,
@@ -314,7 +323,7 @@
   },
   {
    "name": "Nvidia peer / Alphawave",
-   "rank": 35,
+   "rank": 36,
    "vs_sp": 1.8912,
    "kind": "stock",
    "pinned": false,
@@ -323,7 +332,7 @@
   },
   {
    "name": "Camtek",
-   "rank": 36,
+   "rank": 37,
    "vs_sp": 1.8744,
    "kind": "stock",
    "pinned": false,
@@ -332,7 +341,7 @@
   },
   {
    "name": "Rubrik",
-   "rank": 37,
+   "rank": 38,
    "vs_sp": 1.8522,
    "kind": "stock",
    "pinned": false,
@@ -341,7 +350,7 @@
   },
   {
    "name": "Bloom Energy",
-   "rank": 38,
+   "rank": 39,
    "vs_sp": 1.8461,
    "kind": "stock",
    "pinned": false,
@@ -350,7 +359,7 @@
   },
   {
    "name": "NuScale Power",
-   "rank": 39,
+   "rank": 40,
    "vs_sp": 1.8308,
    "kind": "stock",
    "pinned": false,
@@ -359,21 +368,12 @@
   },
   {
    "name": "Rocket Lab",
-   "rank": 40,
+   "rank": 41,
    "vs_sp": 1.8266,
    "kind": "stock",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-08-23"
-  },
-  {
-   "name": "QTUM (Defiance Quantum)",
-   "rank": 41,
-   "vs_sp": 1.8251,
-   "kind": "ETF",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
   },
   {
    "name": "D-Wave Quantum",
@@ -1150,20 +1150,6 @@
    "first_seen": "2026-06-12"
   }
  ],
- "entered": [
-  "Guidewire Software",
-  "Jabil",
-  "MongoDB",
-  "Nvidia peer / Alphawave",
-  "Semtech",
-  "indie Semiconductor"
- ],
- "exited": [
-  "Comfort Systems USA",
-  "Elastic",
-  "Fabrinet",
-  "Freshworks",
-  "Veeva Systems",
-  "Vistra"
- ]
+ "entered": [],
+ "exited": []
 }
