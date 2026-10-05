@@ -1,31 +1,24 @@
 {
-  "as_of": "2026-09-28",
+  "as_of": "2026-10-05",
   "model": "claude-opus-4-8",
   "n_companies": 26,
-  "n_changes": 1,
-  "changes": [
-    {
-      "name": "IonQ",
-      "field": "growth",
-      "old": 0.33,
-      "new": 0.32
-    }
-  ],
+  "n_changes": 0,
+  "changes": [],
   "companies": {
     "IonQ": {
-      "rationale": "Nudged growth down slightly toward fresh rev_yoy of 0.317 vs prior 0.33; well-aligned already."
+      "rationale": "fresh rev_yoy 0.317 aligns with current growth of 0.32; kept, with early-stage ramp supporting forward trajectory."
     },
     "Astera Labs": {
-      "rationale": "unchanged: fresh rev_yoy of 0.20 is close to current 0.22, and forward AI connectivity trajectory supports keeping it."
+      "rationale": "unchanged: no fresh revenue data, only price; insufficient reason to move."
     },
     "CoreWeave": {
-      "rationale": "unchanged: fresh rev_yoy of 0.266 reflects trailing, but massive backlog/contracted revenue supports higher forward growth of 0.4."
+      "rationale": "unchanged: no fresh revenue data, only price; strong growth thesis intact."
     },
     "Palantir": {
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh revenue data, only price."
     },
     "Lumentum": {
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "fresh rev_yoy 0.211 roughly consistent with 0.25 given AI datacom forward ramp; kept."
     },
     "Applied Optoelectronics": {
       "rationale": "unchanged: no fresh data available."
