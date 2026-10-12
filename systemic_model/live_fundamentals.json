@@ -1,30 +1,30 @@
 {
-  "as_of": "2026-10-05",
+  "as_of": "2026-10-12",
   "source": "Claude (claude-opus-4-8) + Polygon financials",
   "companies": {
     "IonQ": {
       "growth": 0.32,
-      "rationale": "fresh rev_yoy 0.317 aligns with current growth of 0.32; kept, with early-stage ramp supporting forward trajectory."
+      "rationale": "unchanged: no fresh data available"
     },
     "Astera Labs": {
       "growth": 0.22,
-      "rationale": "unchanged: no fresh revenue data, only price; insufficient reason to move."
+      "rationale": "unchanged: no fresh data available"
     },
     "CoreWeave": {
       "growth": 0.4,
-      "rationale": "unchanged: no fresh revenue data, only price; strong growth thesis intact."
+      "rationale": "unchanged: no fresh data available"
     },
     "Palantir": {
       "growth": 0.3,
-      "rationale": "unchanged: no fresh revenue data, only price."
+      "rationale": "unchanged: no fresh data available"
     },
     "Lumentum": {
       "growth": 0.25,
-      "rationale": "fresh rev_yoy 0.211 roughly consistent with 0.25 given AI datacom forward ramp; kept."
+      "rationale": "unchanged: no fresh data available"
     },
     "Applied Optoelectronics": {
       "growth": 0.16,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Micron": {
       "growth": 0.5,
@@ -34,7 +34,7 @@
       "quality": 0.7,
       "earn_quality": 0.65,
       "dominance": 0.3,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "AMD": {
       "growth": 0.2,
@@ -44,7 +44,7 @@
       "quality": 0.75,
       "earn_quality": 0.8,
       "dominance": 0.25,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "NVIDIA": {
       "growth": 0.38,
@@ -54,7 +54,7 @@
       "quality": 0.9,
       "earn_quality": 0.85,
       "dominance": 0.85,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Broadcom": {
       "growth": 0.3,
@@ -64,7 +64,7 @@
       "quality": 0.85,
       "earn_quality": 0.85,
       "dominance": 0.7,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Marvell": {
       "growth": 0.22,
@@ -74,19 +74,19 @@
       "quality": 0.7,
       "earn_quality": 0.8,
       "dominance": 0.4,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "AppLovin": {
       "growth": 0.22,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Vertiv": {
       "growth": 0.24,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Coherent": {
       "growth": 0.22,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "ARM": {
       "growth": 0.25,
@@ -96,31 +96,31 @@
       "quality": 0.8,
       "earn_quality": 0.9,
       "dominance": 0.9,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Meta": {
       "growth": 0.15,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Oracle": {
       "growth": 0.24,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Microsoft": {
       "growth": 0.14,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Texas Instruments": {
       "growth": 0.13,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Amazon": {
       "growth": 0.13,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Alphabet": {
       "growth": 0.12,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Qualcomm": {
       "growth": 0.07,
@@ -130,23 +130,23 @@
       "quality": 0.35,
       "earn_quality": 0.7,
       "dominance": 0.45,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Apple": {
       "growth": 0.07,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Cisco": {
       "growth": 0.06,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "IBM": {
       "growth": 0.05,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     },
     "Tesla": {
       "growth": 0.09,
-      "rationale": "unchanged: no fresh data available."
+      "rationale": "unchanged: no fresh data available"
     }
   }
 }
