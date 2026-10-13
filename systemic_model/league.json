@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-12",
+ "as_of": "2026-10-13",
  "metric": "reward_vs_SP",
  "pool_cap": 125,
  "view_cap": 50,
@@ -108,7 +108,7 @@
   {
    "name": "SMH (VanEck Semis)",
    "rank": 12,
-   "vs_sp": 3.0669,
+   "vs_sp": 3.2504,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -126,7 +126,16 @@
   {
    "name": "SOXX (iShares Semis)",
    "rank": 14,
-   "vs_sp": 2.8705,
+   "vs_sp": 3.0371,
+   "kind": "ETF",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "AIQ (Global X AI)",
+   "rank": 15,
+   "vs_sp": 2.8472,
    "kind": "ETF",
    "pinned": false,
    "top50": true,
@@ -134,18 +143,9 @@
   },
   {
    "name": "SoundHound AI",
-   "rank": 15,
+   "rank": 16,
    "vs_sp": 2.8067,
    "kind": "stock",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
-  },
-  {
-   "name": "AIQ (Global X AI)",
-   "rank": 16,
-   "vs_sp": 2.7325,
-   "kind": "ETF",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-06-12"
@@ -340,8 +340,17 @@
    "first_seen": "2026-06-12"
   },
   {
-   "name": "Nvidia peer / Alphawave",
+   "name": "QTUM (Defiance Quantum)",
    "rank": 38,
+   "vs_sp": 1.9136,
+   "kind": "ETF",
+   "pinned": false,
+   "top50": true,
+   "first_seen": "2026-06-12"
+  },
+  {
+   "name": "Nvidia peer / Alphawave",
+   "rank": 39,
    "vs_sp": 1.9107,
    "kind": "stock",
    "pinned": false,
@@ -350,7 +359,7 @@
   },
   {
    "name": "Camtek",
-   "rank": 39,
+   "rank": 40,
    "vs_sp": 1.8857,
    "kind": "stock",
    "pinned": false,
@@ -359,7 +368,7 @@
   },
   {
    "name": "Rubrik",
-   "rank": 40,
+   "rank": 41,
    "vs_sp": 1.8693,
    "kind": "stock",
    "pinned": false,
@@ -368,7 +377,7 @@
   },
   {
    "name": "Bloom Energy",
-   "rank": 41,
+   "rank": 42,
    "vs_sp": 1.8629,
    "kind": "stock",
    "pinned": false,
@@ -377,7 +386,7 @@
   },
   {
    "name": "NuScale Power",
-   "rank": 42,
+   "rank": 43,
    "vs_sp": 1.8501,
    "kind": "stock",
    "pinned": false,
@@ -386,7 +395,7 @@
   },
   {
    "name": "Rocket Lab",
-   "rank": 43,
+   "rank": 44,
    "vs_sp": 1.8454,
    "kind": "stock",
    "pinned": false,
@@ -395,7 +404,7 @@
   },
   {
    "name": "D-Wave Quantum",
-   "rank": 44,
+   "rank": 45,
    "vs_sp": 1.8387,
    "kind": "stock",
    "pinned": false,
@@ -404,7 +413,7 @@
   },
   {
    "name": "Tempus AI",
-   "rank": 45,
+   "rank": 46,
    "vs_sp": 1.8348,
    "kind": "stock",
    "pinned": false,
@@ -413,21 +422,12 @@
   },
   {
    "name": "monday.com",
-   "rank": 46,
+   "rank": 47,
    "vs_sp": 1.8328,
    "kind": "stock",
    "pinned": false,
    "top50": true,
    "first_seen": "2026-06-29"
-  },
-  {
-   "name": "QTUM (Defiance Quantum)",
-   "rank": 47,
-   "vs_sp": 1.8325,
-   "kind": "ETF",
-   "pinned": false,
-   "top50": true,
-   "first_seen": "2026-06-12"
   },
   {
    "name": "Western Digital peer / Sandisk",
@@ -1150,20 +1150,6 @@
    "first_seen": "2026-06-12"
   }
  ],
- "entered": [
-  "DoubleVerify",
-  "Dynatrace",
-  "Penguin Solutions",
-  "Pinterest",
-  "Rambus",
-  "Reddit"
- ],
- "exited": [
-  "ACM Research",
-  "ASML Holding",
-  "Ambarella",
-  "Corning",
-  "Dycom Industries",
-  "HubSpot"
- ]
+ "entered": [],
+ "exited": []
 }
