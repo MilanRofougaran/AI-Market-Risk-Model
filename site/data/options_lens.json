@@ -7312,6 +7312,354 @@
     }
    }
   },
+  "Broadcom peer / Oracle skip / MongoDB": {
+   "gate": "secular",
+   "6m": {
+    "S_T": {
+     "p10": 0.778,
+     "median": 1.016,
+     "p90": 1.273
+    },
+    "strikes": {
+     "0.50": {
+      "p_itm": 0.991,
+      "fair_value_pct_of_spot": 51.0
+     },
+     "0.60": {
+      "p_itm": 0.979,
+      "fair_value_pct_of_spot": 41.4
+     },
+     "0.70": {
+      "p_itm": 0.948,
+      "fair_value_pct_of_spot": 32.0
+     },
+     "0.75": {
+      "p_itm": 0.921,
+      "fair_value_pct_of_spot": 27.4
+     },
+     "0.80": {
+      "p_itm": 0.879,
+      "fair_value_pct_of_spot": 23.0
+     },
+     "0.85": {
+      "p_itm": 0.82,
+      "fair_value_pct_of_spot": 18.9
+     },
+     "0.90": {
+      "p_itm": 0.738,
+      "fair_value_pct_of_spot": 15.1
+     },
+     "1.00": {
+      "p_itm": 0.535,
+      "fair_value_pct_of_spot": 8.8
+     },
+     "1.10": {
+      "p_itm": 0.329,
+      "fair_value_pct_of_spot": 4.7
+     },
+     "1.20": {
+      "p_itm": 0.173,
+      "fair_value_pct_of_spot": 2.3
+     },
+     "1.50": {
+      "p_itm": 0.017,
+      "fair_value_pct_of_spot": 0.3
+     },
+     "1.75": {
+      "p_itm": 0.003,
+      "fair_value_pct_of_spot": 0.1
+     },
+     "2.00": {
+      "p_itm": 0.001,
+      "fair_value_pct_of_spot": 0.0
+     },
+     "2.25": {
+      "p_itm": 0.0,
+      "fair_value_pct_of_spot": 0.0
+     },
+     "2.50": {
+      "p_itm": 0.0,
+      "fair_value_pct_of_spot": 0.0
+     }
+    }
+   },
+   "12m": {
+    "S_T": {
+     "p10": 0.656,
+     "median": 1.009,
+     "p90": 1.423
+    },
+    "strikes": {
+     "0.50": {
+      "p_itm": 0.966,
+      "fair_value_pct_of_spot": 50.7
+     },
+     "0.60": {
+      "p_itm": 0.93,
+      "fair_value_pct_of_spot": 41.7
+     },
+     "0.70": {
+      "p_itm": 0.871,
+      "fair_value_pct_of_spot": 33.1
+     },
+     "0.75": {
+      "p_itm": 0.829,
+      "fair_value_pct_of_spot": 29.0
+     },
+     "0.80": {
+      "p_itm": 0.78,
+      "fair_value_pct_of_spot": 25.2
+     },
+     "0.85": {
+      "p_itm": 0.719,
+      "fair_value_pct_of_spot": 21.7
+     },
+     "0.90": {
+      "p_itm": 0.651,
+      "fair_value_pct_of_spot": 18.4
+     },
+     "1.00": {
+      "p_itm": 0.512,
+      "fair_value_pct_of_spot": 12.9
+     },
+     "1.10": {
+      "p_itm": 0.375,
+      "fair_value_pct_of_spot": 8.7
+     },
+     "1.20": {
+      "p_itm": 0.259,
+      "fair_value_pct_of_spot": 5.7
+     },
+     "1.50": {
+      "p_itm": 0.07,
+      "fair_value_pct_of_spot": 1.4
+     },
+     "1.75": {
+      "p_itm": 0.02,
+      "fair_value_pct_of_spot": 0.5
+     },
+     "2.00": {
+      "p_itm": 0.007,
+      "fair_value_pct_of_spot": 0.2
+     },
+     "2.25": {
+      "p_itm": 0.002,
+      "fair_value_pct_of_spot": 0.1
+     },
+     "2.50": {
+      "p_itm": 0.001,
+      "fair_value_pct_of_spot": 0.0
+     }
+    }
+   },
+   "18m": {
+    "S_T": {
+     "p10": 0.567,
+     "median": 0.996,
+     "p90": 1.546
+    },
+    "strikes": {
+     "0.50": {
+      "p_itm": 0.934,
+      "fair_value_pct_of_spot": 50.4
+     },
+     "0.60": {
+      "p_itm": 0.881,
+      "fair_value_pct_of_spot": 42.0
+     },
+     "0.70": {
+      "p_itm": 0.808,
+      "fair_value_pct_of_spot": 34.1
+     },
+     "0.75": {
+      "p_itm": 0.765,
+      "fair_value_pct_of_spot": 30.5
+     },
+     "0.80": {
+      "p_itm": 0.715,
+      "fair_value_pct_of_spot": 27.1
+     },
+     "0.85": {
+      "p_itm": 0.662,
+      "fair_value_pct_of_spot": 23.9
+     },
+     "0.90": {
+      "p_itm": 0.606,
+      "fair_value_pct_of_spot": 20.9
+     },
+     "1.00": {
+      "p_itm": 0.496,
+      "fair_value_pct_of_spot": 15.8
+     },
+     "1.10": {
+      "p_itm": 0.39,
+      "fair_value_pct_of_spot": 11.7
+     },
+     "1.20": {
+      "p_itm": 0.295,
+      "fair_value_pct_of_spot": 8.6
+     },
+     "1.50": {
+      "p_itm": 0.117,
+      "fair_value_pct_of_spot": 3.1
+     },
+     "1.75": {
+      "p_itm": 0.05,
+      "fair_value_pct_of_spot": 1.3
+     },
+     "2.00": {
+      "p_itm": 0.02,
+      "fair_value_pct_of_spot": 0.6
+     },
+     "2.25": {
+      "p_itm": 0.008,
+      "fair_value_pct_of_spot": 0.3
+     },
+     "2.50": {
+      "p_itm": 0.004,
+      "fair_value_pct_of_spot": 0.1
+     }
+    }
+   },
+   "24m": {
+    "S_T": {
+     "p10": 0.503,
+     "median": 0.977,
+     "p90": 1.642
+    },
+    "strikes": {
+     "0.50": {
+      "p_itm": 0.902,
+      "fair_value_pct_of_spot": 50.0
+     },
+     "0.60": {
+      "p_itm": 0.839,
+      "fair_value_pct_of_spot": 42.1
+     },
+     "0.70": {
+      "p_itm": 0.76,
+      "fair_value_pct_of_spot": 34.9
+     },
+     "0.75": {
+      "p_itm": 0.717,
+      "fair_value_pct_of_spot": 31.5
+     },
+     "0.80": {
+      "p_itm": 0.671,
+      "fair_value_pct_of_spot": 28.4
+     },
+     "0.85": {
+      "p_itm": 0.623,
+      "fair_value_pct_of_spot": 25.5
+     },
+     "0.90": {
+      "p_itm": 0.574,
+      "fair_value_pct_of_spot": 22.8
+     },
+     "1.00": {
+      "p_itm": 0.48,
+      "fair_value_pct_of_spot": 18.0
+     },
+     "1.10": {
+      "p_itm": 0.39,
+      "fair_value_pct_of_spot": 14.1
+     },
+     "1.20": {
+      "p_itm": 0.311,
+      "fair_value_pct_of_spot": 11.0
+     },
+     "1.50": {
+      "p_itm": 0.147,
+      "fair_value_pct_of_spot": 4.9
+     },
+     "1.75": {
+      "p_itm": 0.074,
+      "fair_value_pct_of_spot": 2.5
+     },
+     "2.00": {
+      "p_itm": 0.038,
+      "fair_value_pct_of_spot": 1.3
+     },
+     "2.25": {
+      "p_itm": 0.018,
+      "fair_value_pct_of_spot": 0.7
+     },
+     "2.50": {
+      "p_itm": 0.01,
+      "fair_value_pct_of_spot": 0.4
+     }
+    }
+   },
+   "36m": {
+    "S_T": {
+     "p10": 0.41,
+     "median": 0.939,
+     "p90": 1.817
+    },
+    "strikes": {
+     "0.50": {
+      "p_itm": 0.844,
+      "fair_value_pct_of_spot": 49.3
+     },
+     "0.60": {
+      "p_itm": 0.772,
+      "fair_value_pct_of_spot": 42.3
+     },
+     "0.70": {
+      "p_itm": 0.69,
+      "fair_value_pct_of_spot": 36.0
+     },
+     "0.75": {
+      "p_itm": 0.65,
+      "fair_value_pct_of_spot": 33.2
+     },
+     "0.80": {
+      "p_itm": 0.61,
+      "fair_value_pct_of_spot": 30.5
+     },
+     "0.85": {
+      "p_itm": 0.569,
+      "fair_value_pct_of_spot": 27.9
+     },
+     "0.90": {
+      "p_itm": 0.53,
+      "fair_value_pct_of_spot": 25.6
+     },
+     "1.00": {
+      "p_itm": 0.455,
+      "fair_value_pct_of_spot": 21.3
+     },
+     "1.10": {
+      "p_itm": 0.384,
+      "fair_value_pct_of_spot": 17.8
+     },
+     "1.20": {
+      "p_itm": 0.323,
+      "fair_value_pct_of_spot": 14.7
+     },
+     "1.50": {
+      "p_itm": 0.186,
+      "fair_value_pct_of_spot": 8.3
+     },
+     "1.75": {
+      "p_itm": 0.114,
+      "fair_value_pct_of_spot": 5.2
+     },
+     "2.00": {
+      "p_itm": 0.069,
+      "fair_value_pct_of_spot": 3.2
+     },
+     "2.25": {
+      "p_itm": 0.043,
+      "fair_value_pct_of_spot": 2.1
+     },
+     "2.50": {
+      "p_itm": 0.026,
+      "fair_value_pct_of_spot": 1.4
+     }
+    }
+   }
+  },
   "Vertiv": {
    "gate": "cyclical \u2014 no short calls",
    "6m": {
@@ -11484,354 +11832,6 @@
      "2.50": {
       "p_itm": 0.095,
       "fair_value_pct_of_spot": 9.7
-     }
-    }
-   }
-  },
-  "ASE Technology": {
-   "gate": "secular",
-   "6m": {
-    "S_T": {
-     "p10": 0.823,
-     "median": 1.028,
-     "p90": 1.253
-    },
-    "strikes": {
-     "0.50": {
-      "p_itm": 0.995,
-      "fair_value_pct_of_spot": 52.0
-     },
-     "0.60": {
-      "p_itm": 0.988,
-      "fair_value_pct_of_spot": 42.4
-     },
-     "0.70": {
-      "p_itm": 0.97,
-      "fair_value_pct_of_spot": 32.8
-     },
-     "0.75": {
-      "p_itm": 0.953,
-      "fair_value_pct_of_spot": 28.1
-     },
-     "0.80": {
-      "p_itm": 0.921,
-      "fair_value_pct_of_spot": 23.6
-     },
-     "0.85": {
-      "p_itm": 0.868,
-      "fair_value_pct_of_spot": 19.2
-     },
-     "0.90": {
-      "p_itm": 0.793,
-      "fair_value_pct_of_spot": 15.1
-     },
-     "1.00": {
-      "p_itm": 0.569,
-      "fair_value_pct_of_spot": 8.4
-     },
-     "1.10": {
-      "p_itm": 0.329,
-      "fair_value_pct_of_spot": 4.1
-     },
-     "1.20": {
-      "p_itm": 0.158,
-      "fair_value_pct_of_spot": 1.8
-     },
-     "1.50": {
-      "p_itm": 0.011,
-      "fair_value_pct_of_spot": 0.2
-     },
-     "1.75": {
-      "p_itm": 0.002,
-      "fair_value_pct_of_spot": 0.0
-     },
-     "2.00": {
-      "p_itm": 0.001,
-      "fair_value_pct_of_spot": 0.0
-     },
-     "2.25": {
-      "p_itm": 0.0,
-      "fair_value_pct_of_spot": 0.0
-     },
-     "2.50": {
-      "p_itm": 0.0,
-      "fair_value_pct_of_spot": 0.0
-     }
-    }
-   },
-   "12m": {
-    "S_T": {
-     "p10": 0.738,
-     "median": 1.042,
-     "p90": 1.405
-    },
-    "strikes": {
-     "0.50": {
-      "p_itm": 0.982,
-      "fair_value_pct_of_spot": 53.4
-     },
-     "0.60": {
-      "p_itm": 0.963,
-      "fair_value_pct_of_spot": 44.1
-     },
-     "0.70": {
-      "p_itm": 0.923,
-      "fair_value_pct_of_spot": 35.1
-     },
-     "0.75": {
-      "p_itm": 0.891,
-      "fair_value_pct_of_spot": 30.8
-     },
-     "0.80": {
-      "p_itm": 0.848,
-      "fair_value_pct_of_spot": 26.7
-     },
-     "0.85": {
-      "p_itm": 0.793,
-      "fair_value_pct_of_spot": 22.8
-     },
-     "0.90": {
-      "p_itm": 0.726,
-      "fair_value_pct_of_spot": 19.2
-     },
-     "1.00": {
-      "p_itm": 0.569,
-      "fair_value_pct_of_spot": 13.0
-     },
-     "1.10": {
-      "p_itm": 0.409,
-      "fair_value_pct_of_spot": 8.4
-     },
-     "1.20": {
-      "p_itm": 0.274,
-      "fair_value_pct_of_spot": 5.2
-     },
-     "1.50": {
-      "p_itm": 0.06,
-      "fair_value_pct_of_spot": 1.1
-     },
-     "1.75": {
-      "p_itm": 0.015,
-      "fair_value_pct_of_spot": 0.3
-     },
-     "2.00": {
-      "p_itm": 0.004,
-      "fair_value_pct_of_spot": 0.1
-     },
-     "2.25": {
-      "p_itm": 0.001,
-      "fair_value_pct_of_spot": 0.0
-     },
-     "2.50": {
-      "p_itm": 0.001,
-      "fair_value_pct_of_spot": 0.0
-     }
-    }
-   },
-   "18m": {
-    "S_T": {
-     "p10": 0.672,
-     "median": 1.053,
-     "p90": 1.536
-    },
-    "strikes": {
-     "0.50": {
-      "p_itm": 0.966,
-      "fair_value_pct_of_spot": 54.5
-     },
-     "0.60": {
-      "p_itm": 0.934,
-      "fair_value_pct_of_spot": 45.7
-     },
-     "0.70": {
-      "p_itm": 0.882,
-      "fair_value_pct_of_spot": 37.2
-     },
-     "0.75": {
-      "p_itm": 0.848,
-      "fair_value_pct_of_spot": 33.2
-     },
-     "0.80": {
-      "p_itm": 0.803,
-      "fair_value_pct_of_spot": 29.4
-     },
-     "0.85": {
-      "p_itm": 0.751,
-      "fair_value_pct_of_spot": 25.8
-     },
-     "0.90": {
-      "p_itm": 0.693,
-      "fair_value_pct_of_spot": 22.5
-     },
-     "1.00": {
-      "p_itm": 0.567,
-      "fair_value_pct_of_spot": 16.6
-     },
-     "1.10": {
-      "p_itm": 0.442,
-      "fair_value_pct_of_spot": 11.9
-     },
-     "1.20": {
-      "p_itm": 0.329,
-      "fair_value_pct_of_spot": 8.4
-     },
-     "1.50": {
-      "p_itm": 0.115,
-      "fair_value_pct_of_spot": 2.6
-     },
-     "1.75": {
-      "p_itm": 0.042,
-      "fair_value_pct_of_spot": 1.0
-     },
-     "2.00": {
-      "p_itm": 0.015,
-      "fair_value_pct_of_spot": 0.4
-     },
-     "2.25": {
-      "p_itm": 0.005,
-      "fair_value_pct_of_spot": 0.1
-     },
-     "2.50": {
-      "p_itm": 0.002,
-      "fair_value_pct_of_spot": 0.1
-     }
-    }
-   },
-   "24m": {
-    "S_T": {
-     "p10": 0.624,
-     "median": 1.061,
-     "p90": 1.651
-    },
-    "strikes": {
-     "0.50": {
-      "p_itm": 0.949,
-      "fair_value_pct_of_spot": 55.6
-     },
-     "0.60": {
-      "p_itm": 0.911,
-      "fair_value_pct_of_spot": 47.2
-     },
-     "0.70": {
-      "p_itm": 0.852,
-      "fair_value_pct_of_spot": 39.2
-     },
-     "0.75": {
-      "p_itm": 0.814,
-      "fair_value_pct_of_spot": 35.4
-     },
-     "0.80": {
-      "p_itm": 0.772,
-      "fair_value_pct_of_spot": 31.9
-     },
-     "0.85": {
-      "p_itm": 0.725,
-      "fair_value_pct_of_spot": 28.5
-     },
-     "0.90": {
-      "p_itm": 0.675,
-      "fair_value_pct_of_spot": 25.3
-     },
-     "1.00": {
-      "p_itm": 0.566,
-      "fair_value_pct_of_spot": 19.7
-     },
-     "1.10": {
-      "p_itm": 0.46,
-      "fair_value_pct_of_spot": 15.1
-     },
-     "1.20": {
-      "p_itm": 0.363,
-      "fair_value_pct_of_spot": 11.4
-     },
-     "1.50": {
-      "p_itm": 0.158,
-      "fair_value_pct_of_spot": 4.6
-     },
-     "1.75": {
-      "p_itm": 0.074,
-      "fair_value_pct_of_spot": 2.1
-     },
-     "2.00": {
-      "p_itm": 0.033,
-      "fair_value_pct_of_spot": 1.0
-     },
-     "2.25": {
-      "p_itm": 0.015,
-      "fair_value_pct_of_spot": 0.4
-     },
-     "2.50": {
-      "p_itm": 0.007,
-      "fair_value_pct_of_spot": 0.2
-     }
-    }
-   },
-   "36m": {
-    "S_T": {
-     "p10": 0.547,
-     "median": 1.074,
-     "p90": 1.863
-    },
-    "strikes": {
-     "0.50": {
-      "p_itm": 0.922,
-      "fair_value_pct_of_spot": 57.4
-     },
-     "0.60": {
-      "p_itm": 0.871,
-      "fair_value_pct_of_spot": 49.7
-     },
-     "0.70": {
-      "p_itm": 0.806,
-      "fair_value_pct_of_spot": 42.5
-     },
-     "0.75": {
-      "p_itm": 0.768,
-      "fair_value_pct_of_spot": 39.1
-     },
-     "0.80": {
-      "p_itm": 0.729,
-      "fair_value_pct_of_spot": 35.9
-     },
-     "0.85": {
-      "p_itm": 0.689,
-      "fair_value_pct_of_spot": 32.9
-     },
-     "0.90": {
-      "p_itm": 0.647,
-      "fair_value_pct_of_spot": 30.0
-     },
-     "1.00": {
-      "p_itm": 0.56,
-      "fair_value_pct_of_spot": 24.8
-     },
-     "1.10": {
-      "p_itm": 0.48,
-      "fair_value_pct_of_spot": 20.4
-     },
-     "1.20": {
-      "p_itm": 0.404,
-      "fair_value_pct_of_spot": 16.6
-     },
-     "1.50": {
-      "p_itm": 0.222,
-      "fair_value_pct_of_spot": 8.7
-     },
-     "1.75": {
-      "p_itm": 0.129,
-      "fair_value_pct_of_spot": 5.0
-     },
-     "2.00": {
-      "p_itm": 0.073,
-      "fair_value_pct_of_spot": 2.9
-     },
-     "2.25": {
-      "p_itm": 0.041,
-      "fair_value_pct_of_spot": 1.7
-     },
-     "2.50": {
-      "p_itm": 0.024,
-      "fair_value_pct_of_spot": 1.0
      }
     }
    }
