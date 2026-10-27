@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-26",
+ "as_of": "2026-10-27",
  "metric": "reward_vs_SP",
  "pool_cap": 125,
  "view_cap": 50,
@@ -765,7 +765,7 @@
   {
    "name": "CrowdStrike",
    "rank": 85,
-   "vs_sp": 1.4336,
+   "vs_sp": 1.4334,
    "kind": "stock",
    "pinned": false,
    "top50": false,
@@ -1150,16 +1150,6 @@
    "first_seen": "2026-06-12"
   }
  ],
- "entered": [
-  "Ciena",
-  "Comfort Systems USA",
-  "Fabrinet",
-  "Onto Innovation"
- ],
- "exited": [
-  "Amazon",
-  "Amphenol",
-  "NextEra Energy",
-  "Silicon Laboratories"
- ]
+ "entered": [],
+ "exited": []
 }
