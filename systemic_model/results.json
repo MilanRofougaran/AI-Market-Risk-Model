@@ -1,24 +1,24 @@
 {
- "as_of": "2026-10-28",
+ "as_of": "2026-10-29",
  "macro": {
   "sp500_forward_pe": 21.9,
   "sp500_trailing_pe": 28.6,
   "shiller_cape": 39.4,
   "buffett_indicator_pct": 238.0,
   "equity_risk_premium": -1.4,
-  "ust_10y": 5.0,
-  "ust_10y_real": 2.66,
+  "ust_10y": 4.99,
+  "ust_10y_real": 2.64,
   "fed_funds_mid": 3.875,
   "fed_next_move_bias": "hike",
   "core_pce_yoy": 3.3,
-  "vix": 18.39,
+  "vix": 17.52,
   "move": 95.0,
-  "brent_usd": 115.22,
+  "brent_usd": 123.1,
   "hormuz_status": "subdued; today's shock was jobs->rates, not oil",
   "margin_debt_tn": 1.304,
   "hyperscaler_capex_bn": 700,
-  "hy_oas_bps": 330.0,
-  "ig_oas_bps": 90.0,
+  "hy_oas_bps": 318.0,
+  "ig_oas_bps": 88.0,
   "household_debt_gdp": 60.3,
   "corp_debt_gdp": 47.0,
   "margin_debt_yoy": 0.45,
@@ -334,7 +334,7 @@
        0.99
       ],
       "freq": 0.008866666666666667,
-      "median_months": 51.251999999999995,
+      "median_months": 51.234,
       "p_recover": 0.015037593984962405,
       "n": 266
      }
@@ -1394,7 +1394,7 @@
        0.25
       ],
       "freq": 0.006233333333333333,
-      "median_months": 52.632952380952375,
+      "median_months": 52.61495238095238,
       "p_recover": 0.0213903743315508,
       "n": 187
      },
@@ -1404,7 +1404,7 @@
        0.3
       ],
       "freq": 0.002,
-      "median_months": 51.53771428571428,
+      "median_months": 51.51971428571429,
       "p_recover": 0.016666666666666666,
       "n": 60
      },
@@ -1414,7 +1414,7 @@
        0.4
       ],
       "freq": 0.0012666666666666666,
-      "median_months": 68.77580952380951,
+      "median_months": 68.75780952380953,
       "p_recover": 0.0,
       "n": 38
      },
@@ -1476,7 +1476,7 @@
        0.3
       ],
       "freq": 0.0081,
-      "median_months": 58.251999999999995,
+      "median_months": 58.234,
       "p_recover": 0.00411522633744856,
       "n": 243
      },
@@ -1486,7 +1486,7 @@
        0.4
       ],
       "freq": 0.006933333333333333,
-      "median_months": 63.632952380952375,
+      "median_months": 63.61495238095238,
       "p_recover": 0.0,
       "n": 208
      },
@@ -1558,7 +1558,7 @@
        0.4
       ],
       "freq": 0.013166666666666667,
-      "median_months": 61.632952380952375,
+      "median_months": 61.61495238095238,
       "p_recover": 0.0,
       "n": 395
      },
@@ -1568,7 +1568,7 @@
        0.99
       ],
       "freq": 0.0037333333333333333,
-      "median_months": 60.371047619047616,
+      "median_months": 60.353047619047615,
       "p_recover": 0.0,
       "n": 112
      }
@@ -11196,8 +11196,8 @@
       "recover_12m": 0.371456030754445,
       "recover_18m": 0.48798654493032195,
       "recover_24m": 0.5653531955790485,
-      "recover_36m": 0.6636232580490149,
-      "not_recovered_36m": 0.3363767419509851
+      "recover_36m": 0.6638635271504084,
+      "not_recovered_36m": 0.3361364728495916
      },
      "12m": {
       "p_drawdown": 0.3375666666666667,
@@ -11676,7 +11676,7 @@
      },
      {
       "months": 15,
-      "p_recovered": 0.4475493597426355,
+      "p_recovered": 0.4476124392859396,
       "beyond_suggested": false
      },
      {
@@ -11708,8 +11708,8 @@
       "recover_12m": 0.35743846656501854,
       "recover_18m": 0.4641690263559137,
       "recover_24m": 0.5428011326508386,
-      "recover_36m": 0.6351557394903071,
-      "not_recovered_36m": 0.3648442605096929
+      "recover_36m": 0.6353735569592681,
+      "not_recovered_36m": 0.3646264430407319
      },
      "12m": {
       "p_drawdown": 0.3652,
@@ -12293,7 +12293,7 @@
    },
    "SK Hynix": {
     "p_dd25": 0.6636666666666666,
-    "p_recover": 0.40733299849321947,
+    "p_recover": 0.40738322451029635,
     "recovery_quality": 0.0804770408163265,
     "fragility": 0.255,
     "p_never": 0.352435961828227,
@@ -12321,7 +12321,7 @@
      },
      {
       "months": 18,
-      "p_recovered": 0.40733299849321947,
+      "p_recovered": 0.40738322451029635,
       "beyond_suggested": false
      },
      {
@@ -12356,7 +12356,7 @@
       "n": 14556,
       "recover_6m": 0.0,
       "recover_12m": 0.0,
-      "recover_18m": 0.40471283319593293,
+      "recover_18m": 0.4047815333882935,
       "recover_24m": 0.4672987084363836,
       "recover_36m": 0.5434872217642209,
       "not_recovered_36m": 0.45651277823577907
@@ -12366,7 +12366,7 @@
       "n": 19910,
       "recover_6m": 0.0,
       "recover_12m": 0.0,
-      "recover_18m": 0.40733299849321947,
+      "recover_18m": 0.40738322451029635,
       "recover_24m": 0.47001506780512303,
       "recover_36m": 0.5413862380713209,
       "not_recovered_36m": 0.4586137619286791
@@ -20872,8 +20872,8 @@
     "p_recover": 0.32748428263113444,
     "recovery_quality": 0.0,
     "fragility": 0.6590181630952381,
-    "p_never": 0.4469362860091958,
-    "p_deep_permanent": 0.31753333333333333,
+    "p_never": 0.4468893684901942,
+    "p_deep_permanent": 0.3175,
     "recovery_curve": [
      {
       "months": 6,
@@ -26684,8 +26684,8 @@
       "recover_12m": 0.3392700473767328,
       "recover_18m": 0.41709071766976663,
       "recover_24m": 0.4749078785751886,
-      "recover_36m": 0.5420249166520442,
-      "not_recovered_36m": 0.4579750833479558
+      "recover_36m": 0.5421126513423408,
+      "not_recovered_36m": 0.45788734865765923
      },
      "12m": {
       "p_drawdown": 0.6944333333333333,
@@ -31112,8 +31112,8 @@
     "p_recover": 0.34807692307692306,
     "recovery_quality": 0.31476164341886126,
     "fragility": 0.25646865977908734,
-    "p_never": 0.37955840455840456,
-    "p_deep_permanent": 0.17763333333333334,
+    "p_never": 0.37948717948717947,
+    "p_deep_permanent": 0.1776,
     "recovery_curve": [
      {
       "months": 6,
