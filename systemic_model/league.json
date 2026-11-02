@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-31",
+ "as_of": "2026-11-02",
  "metric": "reward_vs_SP",
  "pool_cap": 125,
  "view_cap": 50,
@@ -943,8 +943,17 @@
    "first_seen": "2026-08-02"
   },
   {
-   "name": "Dynatrace",
+   "name": "Ichor Holdings",
    "rank": 105,
+   "vs_sp": 1.2893,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-11-02"
+  },
+  {
+   "name": "Dynatrace",
+   "rank": 106,
    "vs_sp": 1.2851,
    "kind": "stock",
    "pinned": false,
@@ -953,7 +962,7 @@
   },
   {
    "name": "AvePoint",
-   "rank": 106,
+   "rank": 107,
    "vs_sp": 1.2764,
    "kind": "stock",
    "pinned": false,
@@ -962,7 +971,7 @@
   },
   {
    "name": "Onto Innovation",
-   "rank": 107,
+   "rank": 108,
    "vs_sp": 1.2742,
    "kind": "stock",
    "pinned": false,
@@ -971,7 +980,7 @@
   },
   {
    "name": "Teradyne",
-   "rank": 108,
+   "rank": 109,
    "vs_sp": 1.2455,
    "kind": "stock",
    "pinned": false,
@@ -980,7 +989,7 @@
   },
   {
    "name": "Impinj",
-   "rank": 109,
+   "rank": 110,
    "vs_sp": 1.2435,
    "kind": "stock",
    "pinned": false,
@@ -989,7 +998,7 @@
   },
   {
    "name": "Monolithic Power Systems",
-   "rank": 110,
+   "rank": 111,
    "vs_sp": 1.2377,
    "kind": "stock",
    "pinned": false,
@@ -998,7 +1007,7 @@
   },
   {
    "name": "Navitas Semiconductor",
-   "rank": 111,
+   "rank": 112,
    "vs_sp": 1.2318,
    "kind": "stock",
    "pinned": false,
@@ -1007,7 +1016,7 @@
   },
   {
    "name": "Braze",
-   "rank": 112,
+   "rank": 113,
    "vs_sp": 1.2204,
    "kind": "stock",
    "pinned": false,
@@ -1016,7 +1025,7 @@
   },
   {
    "name": "Atlassian",
-   "rank": 113,
+   "rank": 114,
    "vs_sp": 1.2064,
    "kind": "stock",
    "pinned": false,
@@ -1025,7 +1034,7 @@
   },
   {
    "name": "SkyWater Technology",
-   "rank": 114,
+   "rank": 115,
    "vs_sp": 1.1906,
    "kind": "stock",
    "pinned": false,
@@ -1034,7 +1043,7 @@
   },
   {
    "name": "Nano-X Imaging",
-   "rank": 115,
+   "rank": 116,
    "vs_sp": 1.1861,
    "kind": "stock",
    "pinned": false,
@@ -1042,8 +1051,17 @@
    "first_seen": "2026-08-23"
   },
   {
+   "name": "Flex",
+   "rank": 117,
+   "vs_sp": 1.1853,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-11-02"
+  },
+  {
    "name": "Ciena",
-   "rank": 116,
+   "rank": 118,
    "vs_sp": 1.1825,
    "kind": "stock",
    "pinned": false,
@@ -1051,8 +1069,17 @@
    "first_seen": "2026-10-26"
   },
   {
+   "name": "Cameco",
+   "rank": 119,
+   "vs_sp": 1.1804,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-11-02"
+  },
+  {
    "name": "ASE Technology",
-   "rank": 117,
+   "rank": 120,
    "vs_sp": 1.1774,
    "kind": "stock",
    "pinned": false,
@@ -1061,7 +1088,7 @@
   },
   {
    "name": "DoubleVerify",
-   "rank": 118,
+   "rank": 121,
    "vs_sp": 1.1598,
    "kind": "stock",
    "pinned": false,
@@ -1070,7 +1097,7 @@
   },
   {
    "name": "MongoDB",
-   "rank": 119,
+   "rank": 122,
    "vs_sp": 1.1518,
    "kind": "stock",
    "pinned": false,
@@ -1079,7 +1106,7 @@
   },
   {
    "name": "Marvell peer / Sanmina",
-   "rank": 120,
+   "rank": 123,
    "vs_sp": 1.1283,
    "kind": "stock",
    "pinned": false,
@@ -1088,7 +1115,7 @@
   },
   {
    "name": "Qualcomm",
-   "rank": 121,
+   "rank": 124,
    "vs_sp": 1.128,
    "kind": "stock",
    "pinned": false,
@@ -1097,39 +1124,12 @@
   },
   {
    "name": "Alphabet",
-   "rank": 122,
+   "rank": 125,
    "vs_sp": 1.1237,
    "kind": "stock",
    "pinned": false,
    "top50": false,
    "first_seen": "2026-06-12"
-  },
-  {
-   "name": "Jabil",
-   "rank": 123,
-   "vs_sp": 1.1181,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-09-28"
-  },
-  {
-   "name": "Seagate Technology",
-   "rank": 124,
-   "vs_sp": 1.1157,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-06-12"
-  },
-  {
-   "name": "Guidewire Software",
-   "rank": 125,
-   "vs_sp": 1.1073,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-09-28"
   },
   {
    "name": "VOO (S&P 500)",
@@ -1150,6 +1150,14 @@
    "first_seen": "2026-06-12"
   }
  ],
- "entered": [],
- "exited": []
+ "entered": [
+  "Cameco",
+  "Flex",
+  "Ichor Holdings"
+ ],
+ "exited": [
+  "Guidewire Software",
+  "Jabil",
+  "Seagate Technology"
+ ]
 }

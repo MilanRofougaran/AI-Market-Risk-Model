@@ -1,6 +1,6 @@
 {
- "as_of": "2026-10-31",
- "generated": "2026-10-31 01:32 UTC",
+ "as_of": "2026-11-02",
+ "generated": "2026-11-02 02:28 UTC",
  "tenor": "18m",
  "strike_mult": 0.75,
  "note": "Model fair value is THESIS-CONDITIONAL and IV-BLIND \u2014 not a market price; it can't tell you if the market mispriced the option. Edge = model fair \u2212 market. Calls only. Prices as of the date above. RESEARCH MODEL \u2014 NOT INVESTMENT ADVICE.",
@@ -59,32 +59,6 @@
   },
   {
    "rank": 3,
-   "name": "Marvell",
-   "ticker": "MRVL",
-   "spot": 196.4,
-   "expiry": "2028-03-17",
-   "expiry_label": "Mar 2028",
-   "strike": 145,
-   "strike_mult": 0.74,
-   "occ": "O:MRVL280317C00145000",
-   "market": 85.76,
-   "fair": 84.65,
-   "fair_pct": 43.1,
-   "edge": -1.11,
-   "p_itm": 88,
-   "gate": "cyclical lean",
-   "bucket": "watch",
-   "action": "Cyclical \u2014 rebound-dependent; give it time.",
-   "leg": {
-    "k1": 0.75,
-    "k2": 1.5,
-    "cost_pct": 37.3,
-    "p_max": 0.2,
-    "giveup": 0.13
-   }
-  },
-  {
-   "rank": 4,
    "name": "Palantir",
    "ticker": "PLTR",
    "spot": 184.11,
@@ -110,7 +84,7 @@
    }
   },
   {
-   "rank": 5,
+   "rank": 4,
    "name": "Qualcomm",
    "ticker": "QCOM",
    "spot": 164.79,
@@ -136,7 +110,7 @@
    }
   },
   {
-   "rank": 6,
+   "rank": 5,
    "name": "Vertiv",
    "ticker": "VRT",
    "spot": 232.5,
@@ -162,7 +136,7 @@
    }
   },
   {
-   "rank": 7,
+   "rank": 6,
    "name": "Meta",
    "ticker": "META",
    "spot": 614.99,
@@ -188,7 +162,7 @@
    }
   },
   {
-   "rank": 8,
+   "rank": 7,
    "name": "Applied Optoelectronics",
    "ticker": "AAOI",
    "spot": 69.05,
@@ -211,6 +185,32 @@
     "cost_pct": 28.7,
     "p_max": 0.145,
     "giveup": 0.14
+   }
+  },
+  {
+   "rank": 8,
+   "name": "Marvell",
+   "ticker": "MRVL",
+   "spot": 196.4,
+   "expiry": "2028-06-16",
+   "expiry_label": "Jun 2028",
+   "strike": 145,
+   "strike_mult": 0.74,
+   "occ": "O:MRVL280616C00145000",
+   "market": 109.97,
+   "fair": 84.65,
+   "fair_pct": 43.1,
+   "edge": -25.32,
+   "p_itm": 88,
+   "gate": "cyclical lean",
+   "bucket": "watch",
+   "action": "Cyclical \u2014 rebound-dependent; give it time.",
+   "leg": {
+    "k1": 0.75,
+    "k2": 1.5,
+    "cost_pct": 37.3,
+    "p_max": 0.2,
+    "giveup": 0.13
    }
   },
   {
