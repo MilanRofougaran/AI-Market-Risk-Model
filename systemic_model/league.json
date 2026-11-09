@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-07",
+ "as_of": "2026-11-09",
  "metric": "reward_vs_SP",
  "pool_cap": 125,
  "view_cap": 50,
@@ -952,8 +952,17 @@
    "first_seen": "2026-11-02"
   },
   {
-   "name": "Dynatrace",
+   "name": "Corning",
    "rank": 106,
+   "vs_sp": 1.292,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-11-09"
+  },
+  {
+   "name": "Dynatrace",
+   "rank": 107,
    "vs_sp": 1.288,
    "kind": "stock",
    "pinned": false,
@@ -962,7 +971,7 @@
   },
   {
    "name": "AvePoint",
-   "rank": 107,
+   "rank": 108,
    "vs_sp": 1.2788,
    "kind": "stock",
    "pinned": false,
@@ -971,7 +980,7 @@
   },
   {
    "name": "Onto Innovation",
-   "rank": 108,
+   "rank": 109,
    "vs_sp": 1.2755,
    "kind": "stock",
    "pinned": false,
@@ -980,7 +989,7 @@
   },
   {
    "name": "Teradyne",
-   "rank": 109,
+   "rank": 110,
    "vs_sp": 1.2468,
    "kind": "stock",
    "pinned": false,
@@ -989,7 +998,7 @@
   },
   {
    "name": "Impinj",
-   "rank": 110,
+   "rank": 111,
    "vs_sp": 1.2465,
    "kind": "stock",
    "pinned": false,
@@ -997,8 +1006,17 @@
    "first_seen": "2026-10-05"
   },
   {
+   "name": "MACOM Technology",
+   "rank": 112,
+   "vs_sp": 1.2424,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-11-09"
+  },
+  {
    "name": "Monolithic Power Systems",
-   "rank": 111,
+   "rank": 113,
    "vs_sp": 1.2396,
    "kind": "stock",
    "pinned": false,
@@ -1006,8 +1024,17 @@
    "first_seen": "2026-06-12"
   },
   {
+   "name": "InterDigital",
+   "rank": 114,
+   "vs_sp": 1.238,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-11-09"
+  },
+  {
    "name": "Navitas Semiconductor",
-   "rank": 112,
+   "rank": 115,
    "vs_sp": 1.2318,
    "kind": "stock",
    "pinned": false,
@@ -1016,7 +1043,7 @@
   },
   {
    "name": "Braze",
-   "rank": 113,
+   "rank": 116,
    "vs_sp": 1.2211,
    "kind": "stock",
    "pinned": false,
@@ -1025,7 +1052,7 @@
   },
   {
    "name": "Atlassian",
-   "rank": 114,
+   "rank": 117,
    "vs_sp": 1.2072,
    "kind": "stock",
    "pinned": false,
@@ -1034,7 +1061,7 @@
   },
   {
    "name": "SkyWater Technology",
-   "rank": 115,
+   "rank": 118,
    "vs_sp": 1.1902,
    "kind": "stock",
    "pinned": false,
@@ -1043,7 +1070,7 @@
   },
   {
    "name": "Nano-X Imaging",
-   "rank": 116,
+   "rank": 119,
    "vs_sp": 1.1873,
    "kind": "stock",
    "pinned": false,
@@ -1052,7 +1079,7 @@
   },
   {
    "name": "Ciena",
-   "rank": 117,
+   "rank": 120,
    "vs_sp": 1.1873,
    "kind": "stock",
    "pinned": false,
@@ -1061,7 +1088,7 @@
   },
   {
    "name": "Flex",
-   "rank": 118,
+   "rank": 121,
    "vs_sp": 1.1812,
    "kind": "stock",
    "pinned": false,
@@ -1070,7 +1097,7 @@
   },
   {
    "name": "Cameco",
-   "rank": 119,
+   "rank": 122,
    "vs_sp": 1.1799,
    "kind": "stock",
    "pinned": false,
@@ -1079,7 +1106,7 @@
   },
   {
    "name": "ASE Technology",
-   "rank": 120,
+   "rank": 123,
    "vs_sp": 1.1746,
    "kind": "stock",
    "pinned": false,
@@ -1088,7 +1115,7 @@
   },
   {
    "name": "DoubleVerify",
-   "rank": 121,
+   "rank": 124,
    "vs_sp": 1.1574,
    "kind": "stock",
    "pinned": false,
@@ -1097,39 +1124,12 @@
   },
   {
    "name": "MongoDB",
-   "rank": 122,
+   "rank": 125,
    "vs_sp": 1.1544,
    "kind": "stock",
    "pinned": false,
    "top50": false,
    "first_seen": "2026-09-28"
-  },
-  {
-   "name": "Marvell peer / Sanmina",
-   "rank": 123,
-   "vs_sp": 1.1286,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-07-12"
-  },
-  {
-   "name": "Alphabet",
-   "rank": 124,
-   "vs_sp": 1.1228,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-06-12"
-  },
-  {
-   "name": "Qualcomm",
-   "rank": 125,
-   "vs_sp": 1.1218,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-06-12"
   },
   {
    "name": "VOO (S&P 500)",
@@ -1150,6 +1150,14 @@
    "first_seen": "2026-06-12"
   }
  ],
- "entered": [],
- "exited": []
+ "entered": [
+  "Corning",
+  "InterDigital",
+  "MACOM Technology"
+ ],
+ "exited": [
+  "Alphabet",
+  "Marvell peer / Sanmina",
+  "Qualcomm"
+ ]
 }

@@ -1526,22 +1526,6 @@
    "solvency_hazard": 0.0252
   },
   "Dycom Industries": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.37591314935064934,
-     "TAM": 0.38409090909090904,
-     "moat-.15": 0.37591314935064934,
-     "margin": 0.4209131493506494,
-     "rate+input": 0.37591314935064934
-    },
-    "worst": 0.4209131493506494,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Silicon Laboratories": {
@@ -2077,22 +2061,6 @@
    "solvency_hazard": 0.0252
   },
   "ACM Research": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.24,
-     "TAM": 0.24,
-     "moat-.15": 0.24,
-     "margin": 0.28500000000000003,
-     "rate+input": 0.24
-    },
-    "worst": 0.28500000000000003,
-    "tier": "2  ownable, watch"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Nvidia server / Wistron via Sanmina": {
@@ -2495,22 +2463,6 @@
    "solvency_hazard": 0.0252
   },
   "Nutanix": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.4445756302521008,
-     "TAM": 0.4654117647058823,
-     "moat-.15": 0.4445756302521008,
-     "margin": 0.4895756302521008,
-     "rate+input": 0.4445756302521008
-    },
-    "worst": 0.4895756302521008,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Dynatrace": {
@@ -2875,22 +2827,6 @@
    "solvency_hazard": 0.0252
   },
   "Adobe": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.24921147959183673,
-     "TAM": 0.269,
-     "moat-.15": 0.24921147959183673,
-     "margin": 0.2942114795918367,
-     "rate+input": 0.24921147959183673
-    },
-    "worst": 0.2942114795918367,
-    "tier": "2  ownable, watch"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Flex": {
@@ -2948,6 +2884,220 @@
     "option": "Low",
     "anchor": "Low"
    },
+   "solvency_hazard": 0.0252
+  },
+  "Nvidia / skip - Lattice Semiconductor": {
+   "solvency_hazard": 0.0252
+  },
+  "Microchip Technology": {
+   "solvency_hazard": 0.0252
+  },
+  "Analog Devices": {
+   "solvency_hazard": 0.0252
+  },
+  "NXP Semiconductors": {
+   "solvency_hazard": 0.0252
+  },
+  "ON Semiconductor": {
+   "solvency_hazard": 0.0252
+  },
+  "GlobalFoundries": {
+   "solvency_hazard": 0.0252
+  },
+  "Entegris": {
+   "solvency_hazard": 0.0252
+  },
+  "MKS Instruments": {
+   "solvency_hazard": 0.0252
+  },
+  "Axcelis Technologies": {
+   "solvency_hazard": 0.0252
+  },
+  "Photronics": {
+   "solvency_hazard": 0.0252
+  },
+  "FormFactor": {
+   "solvency_hazard": 0.0252
+  },
+  "Cirrus Logic": {
+   "solvency_hazard": 0.0252
+  },
+  "Power Integrations": {
+   "solvency_hazard": 0.0252
+  },
+  "Allegro MicroSystems": {
+   "solvency_hazard": 0.0252
+  },
+  "Diodes Incorporated": {
+   "solvency_hazard": 0.0252
+  },
+  "MACOM Technology": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.4949137352309345,
+     "TAM": 0.5126315789473684,
+     "moat-.15": 0.4949137352309345,
+     "margin": 0.5399137352309344,
+     "rate+input": 0.4949137352309345
+    },
+    "worst": 0.5399137352309344,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Qorvo": {
+   "solvency_hazard": 0.0252
+  },
+  "Skyworks Solutions": {
+   "solvency_hazard": 0.0252
+  },
+  "Synopsys": {
+   "solvency_hazard": 0.0252
+  },
+  "Cadence Design Systems": {
+   "solvency_hazard": 0.0252
+  },
+  "Synaptics": {
+   "solvency_hazard": 0.0252
+  },
+  "Aehr Test Systems": {
+   "solvency_hazard": 0.0252
+  },
+  "UiPath": {
+   "solvency_hazard": 0.0252
+  },
+  "Salesforce": {
+   "solvency_hazard": 0.0252
+  },
+  "Twilio": {
+   "solvency_hazard": 0.0252
+  },
+  "Fortinet": {
+   "solvency_hazard": 0.0252
+  },
+  "Palo Alto Networks": {
+   "solvency_hazard": 0.0252
+  },
+  "Okta": {
+   "solvency_hazard": 0.0252
+  },
+  "DigitalOcean": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.3769968614718614,
+     "TAM": 0.38232959956709955,
+     "moat-.15": 0.3769968614718614,
+     "margin": 0.42199686147186144,
+     "rate+input": 0.3769968614718614
+    },
+    "worst": 0.42199686147186144,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Pure Storage": {
+   "solvency_hazard": 0.0252
+  },
+  "NetApp": {
+   "solvency_hazard": 0.0252
+  },
+  "Equinix": {
+   "solvency_hazard": 0.0252
+  },
+  "Digital Realty Trust": {
+   "solvency_hazard": 0.0252
+  },
+  "Iron Mountain": {
+   "solvency_hazard": 0.0252
+  },
+  "Constellation Energy": {
+   "solvency_hazard": 0.0252
+  },
+  "Vistra": {
+   "solvency_hazard": 0.0252
+  },
+  "GE Vernova": {
+   "solvency_hazard": 0.0252
+  },
+  "Quanta Services": {
+   "solvency_hazard": 0.0252
+  },
+  "Eaton": {
+   "solvency_hazard": 0.0252
+  },
+  "nVent Electric": {
+   "solvency_hazard": 0.0252
+  },
+  "Emerson Electric": {
+   "solvency_hazard": 0.0252
+  },
+  "Johnson Controls": {
+   "solvency_hazard": 0.0252
+  },
+  "Trane Technologies": {
+   "solvency_hazard": 0.0252
+  },
+  "Schneider via nVent peer - Hubbell": {
+   "solvency_hazard": 0.0252
+  },
+  "Vertiv peer - Advanced Energy": {
+   "solvency_hazard": 0.0252
+  },
+  "Onsemi peer - Wolfspeed skip - Cree n/a - SolarEdge": {
+   "solvency_hazard": 0.0252
+  },
+  "CommScope": {
+   "solvency_hazard": 0.0252
+  },
+  "Corning": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.3782142857142857,
+     "TAM": 0.39749999999999996,
+     "moat-.15": 0.3782142857142857,
+     "margin": 0.42321428571428577,
+     "rate+input": 0.3782142857142857
+    },
+    "worst": 0.42321428571428577,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "InterDigital": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.27291190476190474,
+     "TAM": 0.2783333333333333,
+     "moat-.15": 0.27291190476190474,
+     "margin": 0.3179119047619048,
+     "rate+input": 0.27291190476190474
+    },
+    "worst": 0.3179119047619048,
+    "tier": "2  ownable, watch"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Teradyne peer - Cognex": {
    "solvency_hazard": 0.0252
   },
   "ARKK (ARK Innovation)": {

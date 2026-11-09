@@ -1,8 +1,8 @@
 {
- "as_of": "2026-11-02",
+ "as_of": "2026-11-09",
  "since": "2008",
  "n_names": 25,
- "n_episodes": 172,
+ "n_episodes": 175,
  "horizons_m": [
   6,
   12,
@@ -25,10 +25,10 @@
   "36": 157
  },
  "predicted": {
-  "6": 0.068,
-  "12": 0.219,
+  "6": 0.069,
+  "12": 0.22,
   "18": 0.319,
-  "24": 0.382,
+  "24": 0.383,
   "36": 0.466
  },
  "names": [
@@ -84,6 +84,12 @@
    "censored": false
   },
   {
+   "name": "Applied Optoelectronics",
+   "depth": 0.79,
+   "recovery_months": null,
+   "censored": true
+  },
+  {
    "name": "AMD",
    "depth": 0.775,
    "recovery_months": 12.3,
@@ -124,12 +130,6 @@
    "depth": 0.712,
    "recovery_months": 13.1,
    "censored": false
-  },
-  {
-   "name": "Applied Optoelectronics",
-   "depth": 0.697,
-   "recovery_months": null,
-   "censored": true
   },
   {
    "name": "Applied Optoelectronics",
@@ -210,6 +210,12 @@
    "censored": false
   },
   {
+   "name": "ARM",
+   "depth": 0.621,
+   "recovery_months": null,
+   "censored": true
+  },
+  {
    "name": "Vertiv",
    "depth": 0.613,
    "recovery_months": 5.9,
@@ -226,6 +232,12 @@
    "depth": 0.606,
    "recovery_months": 2.7,
    "censored": false
+  },
+  {
+   "name": "Coherent",
+   "depth": 0.602,
+   "recovery_months": null,
+   "censored": true
   },
   {
    "name": "SOXX (iShares Semis)",
@@ -264,6 +276,12 @@
    "censored": false
   },
   {
+   "name": "Marvell",
+   "depth": 0.578,
+   "recovery_months": null,
+   "censored": true
+  },
+  {
    "name": "Microsoft",
    "depth": 0.572,
    "recovery_months": 50.8,
@@ -279,24 +297,6 @@
    "name": "IBM",
    "depth": 0.561,
    "recovery_months": 53.6,
-   "censored": false
-  },
-  {
-   "name": "Amazon",
-   "depth": 0.561,
-   "recovery_months": 15.4,
-   "censored": false
-  },
-  {
-   "name": "SMH (VanEck Semis)",
-   "depth": 0.559,
-   "recovery_months": 25.7,
-   "censored": false
-  },
-  {
-   "name": "Coherent",
-   "depth": 0.548,
-   "recovery_months": 4.1,
    "censored": false
   }
  ],
