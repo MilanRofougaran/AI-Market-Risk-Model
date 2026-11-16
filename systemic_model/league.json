@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-14",
+ "as_of": "2026-11-16",
  "metric": "reward_vs_SP",
  "pool_cap": 125,
  "view_cap": 50,
@@ -988,8 +988,17 @@
    "first_seen": "2026-10-26"
   },
   {
-   "name": "Impinj",
+   "name": "DoorDash",
    "rank": 110,
+   "vs_sp": 1.2689,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-11-16"
+  },
+  {
+   "name": "Impinj",
+   "rank": 111,
    "vs_sp": 1.2529,
    "kind": "stock",
    "pinned": false,
@@ -998,7 +1007,7 @@
   },
   {
    "name": "Teradyne",
-   "rank": 111,
+   "rank": 112,
    "vs_sp": 1.2489,
    "kind": "stock",
    "pinned": false,
@@ -1006,8 +1015,17 @@
    "first_seen": "2026-06-12"
   },
   {
+   "name": "Uber Technologies",
+   "rank": 113,
+   "vs_sp": 1.2474,
+   "kind": "stock",
+   "pinned": false,
+   "top50": false,
+   "first_seen": "2026-11-16"
+  },
+  {
    "name": "MACOM Technology",
-   "rank": 112,
+   "rank": 114,
    "vs_sp": 1.2447,
    "kind": "stock",
    "pinned": false,
@@ -1016,7 +1034,7 @@
   },
   {
    "name": "Navitas Semiconductor",
-   "rank": 113,
+   "rank": 115,
    "vs_sp": 1.241,
    "kind": "stock",
    "pinned": false,
@@ -1025,7 +1043,7 @@
   },
   {
    "name": "Monolithic Power Systems",
-   "rank": 114,
+   "rank": 116,
    "vs_sp": 1.2389,
    "kind": "stock",
    "pinned": false,
@@ -1034,7 +1052,7 @@
   },
   {
    "name": "InterDigital",
-   "rank": 115,
+   "rank": 117,
    "vs_sp": 1.2299,
    "kind": "stock",
    "pinned": false,
@@ -1043,7 +1061,7 @@
   },
   {
    "name": "Braze",
-   "rank": 116,
+   "rank": 118,
    "vs_sp": 1.2294,
    "kind": "stock",
    "pinned": false,
@@ -1052,7 +1070,7 @@
   },
   {
    "name": "Atlassian",
-   "rank": 117,
+   "rank": 119,
    "vs_sp": 1.2139,
    "kind": "stock",
    "pinned": false,
@@ -1061,7 +1079,7 @@
   },
   {
    "name": "Flex",
-   "rank": 118,
+   "rank": 120,
    "vs_sp": 1.1984,
    "kind": "stock",
    "pinned": false,
@@ -1070,7 +1088,7 @@
   },
   {
    "name": "SkyWater Technology",
-   "rank": 119,
+   "rank": 121,
    "vs_sp": 1.1976,
    "kind": "stock",
    "pinned": false,
@@ -1079,7 +1097,7 @@
   },
   {
    "name": "Nano-X Imaging",
-   "rank": 120,
+   "rank": 122,
    "vs_sp": 1.1913,
    "kind": "stock",
    "pinned": false,
@@ -1088,7 +1106,7 @@
   },
   {
    "name": "ASE Technology",
-   "rank": 121,
+   "rank": 123,
    "vs_sp": 1.1884,
    "kind": "stock",
    "pinned": false,
@@ -1097,7 +1115,7 @@
   },
   {
    "name": "Cameco",
-   "rank": 122,
+   "rank": 124,
    "vs_sp": 1.1834,
    "kind": "stock",
    "pinned": false,
@@ -1106,30 +1124,12 @@
   },
   {
    "name": "Ciena",
-   "rank": 123,
+   "rank": 125,
    "vs_sp": 1.1832,
    "kind": "stock",
    "pinned": false,
    "top50": false,
    "first_seen": "2026-10-26"
-  },
-  {
-   "name": "DoubleVerify",
-   "rank": 124,
-   "vs_sp": 1.1609,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-10-12"
-  },
-  {
-   "name": "MongoDB",
-   "rank": 125,
-   "vs_sp": 1.1581,
-   "kind": "stock",
-   "pinned": false,
-   "top50": false,
-   "first_seen": "2026-09-28"
   },
   {
    "name": "VOO (S&P 500)",
@@ -1150,6 +1150,12 @@
    "first_seen": "2026-06-12"
   }
  ],
- "entered": [],
- "exited": []
+ "entered": [
+  "DoorDash",
+  "Uber Technologies"
+ ],
+ "exited": [
+  "DoubleVerify",
+  "MongoDB"
+ ]
 }

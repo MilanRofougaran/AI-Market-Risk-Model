@@ -994,22 +994,6 @@
    "solvency_hazard": 0.0252
   },
   "HubSpot": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.4910327409297053,
-     "TAM": 0.518888888888889,
-     "moat-.15": 0.4910327409297053,
-     "margin": 0.5360327409297052,
-     "rate+input": 0.4910327409297053
-    },
-    "worst": 0.5360327409297052,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Samsara": {
@@ -1545,22 +1529,6 @@
    "solvency_hazard": 0.0252
   },
   "Ambarella": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.6605558154761905,
-     "TAM": 0.6862042470238094,
-     "moat-.15": 0.6605558154761905,
-     "margin": 0.7055558154761904,
-     "rate+input": 0.6605558154761905
-    },
-    "worst": 0.7055558154761904,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "SkyWater Technology": {
@@ -2229,22 +2197,6 @@
    "solvency_hazard": 0.0252
   },
   "indie Semiconductor": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.7103692850340136,
-     "TAM": 0.7216666666666666,
-     "moat-.15": 0.7103692850340136,
-     "margin": 0.7553692850340136,
-     "rate+input": 0.7103692850340136
-    },
-    "worst": 0.7553692850340136,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Low",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Jabil": {
@@ -2267,22 +2219,6 @@
    "solvency_hazard": 0.0252
   },
   "NextEra Energy": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.25960037593984964,
-     "TAM": 0.2684210526315789,
-     "moat-.15": 0.25960037593984964,
-     "margin": 0.3046003759398496,
-     "rate+input": 0.25960037593984964
-    },
-    "worst": 0.3046003759398496,
-    "tier": "2  ownable, watch"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "MongoDB": {
@@ -2948,6 +2884,220 @@
     "option": "Low",
     "anchor": "Low"
    },
+   "solvency_hazard": 0.0252
+  },
+  "Nutanix": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.42701875,
+     "TAM": 0.44743750000000004,
+     "moat-.15": 0.42701875,
+     "margin": 0.47201875000000004,
+     "rate+input": 0.42701875
+    },
+    "worst": 0.47201875000000004,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Pure Storage": {
+   "solvency_hazard": 0.0252
+  },
+  "Palo Alto Networks": {
+   "solvency_hazard": 0.0252
+  },
+  "Fortinet": {
+   "solvency_hazard": 0.0252
+  },
+  "Okta": {
+   "solvency_hazard": 0.0252
+  },
+  "Twilio": {
+   "solvency_hazard": 0.0252
+  },
+  "Salesforce": {
+   "solvency_hazard": 0.0252
+  },
+  "Adobe": {
+   "solvency_hazard": 0.0252
+  },
+  "Workday": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.38199563368204426,
+     "TAM": 0.4060714285714285,
+     "moat-.15": 0.38199563368204426,
+     "margin": 0.4269956336820442,
+     "rate+input": 0.38199563368204426
+    },
+    "worst": 0.4269956336820442,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "SAP": {
+   "solvency_hazard": 0.0252
+  },
+  "Zoom Communications": {
+   "solvency_hazard": 0.0252
+  },
+  "DoorDash": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.5879078095238095,
+     "TAM": 0.6283333333333333,
+     "moat-.15": 0.5879078095238095,
+     "margin": 0.6329078095238095,
+     "rate+input": 0.5879078095238095
+    },
+    "worst": 0.6329078095238095,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Uber Technologies": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.4258622448979592,
+     "TAM": 0.45107142857142857,
+     "moat-.15": 0.4258622448979592,
+     "margin": 0.47086224489795914,
+     "rate+input": 0.4258622448979592
+    },
+    "worst": 0.47086224489795914,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Netflix": {
+   "solvency_hazard": 0.0252
+  },
+  "Spotify": {
+   "solvency_hazard": 0.0252
+  },
+  "ON Semiconductor": {
+   "solvency_hazard": 0.0252
+  },
+  "NXP Semiconductors": {
+   "solvency_hazard": 0.0252
+  },
+  "Analog Devices": {
+   "solvency_hazard": 0.0252
+  },
+  "Microchip Technology": {
+   "solvency_hazard": 0.0252
+  },
+  "Lattice Semiconductor": {
+   "solvency_hazard": 0.0252
+  },
+  "STMicroelectronics": {
+   "solvency_hazard": 0.0252
+  },
+  "GlobalFoundries": {
+   "solvency_hazard": 0.0252
+  },
+  "Entegris": {
+   "solvency_hazard": 0.0252
+  },
+  "MKS Instruments": {
+   "solvency_hazard": 0.0252
+  },
+  "Axcelis Technologies": {
+   "solvency_hazard": 0.0252
+  },
+  "Photronics": {
+   "solvency_hazard": 0.0252
+  },
+  "FormFactor": {
+   "solvency_hazard": 0.0252
+  },
+  "Aehr Test Systems": {
+   "solvency_hazard": 0.0252
+  },
+  "CoreWeave peer Cirrus": {
+   "solvency_hazard": 0.0252
+  },
+  "Allegro MicroSystems": {
+   "solvency_hazard": 0.0252
+  },
+  "Power Integrations": {
+   "solvency_hazard": 0.0252
+  },
+  "Diodes Incorporated": {
+   "solvency_hazard": 0.0252
+  },
+  "Qorvo": {
+   "solvency_hazard": 0.0252
+  },
+  "Skyworks Solutions": {
+   "solvency_hazard": 0.0252
+  },
+  "Constellation Energy": {
+   "solvency_hazard": 0.0252
+  },
+  "Vistra": {
+   "solvency_hazard": 0.0252
+  },
+  "GE Vernova": {
+   "solvency_hazard": 0.0252
+  },
+  "Quanta Services": {
+   "solvency_hazard": 0.0252
+  },
+  "Eaton": {
+   "solvency_hazard": 0.0252
+  },
+  "Emerson Electric": {
+   "solvency_hazard": 0.0252
+  },
+  "Johnson Controls": {
+   "solvency_hazard": 0.0252
+  },
+  "nVent Electric": {
+   "solvency_hazard": 0.0252
+  },
+  "Digital Realty Trust": {
+   "solvency_hazard": 0.0252
+  },
+  "Equinix": {
+   "solvency_hazard": 0.0252
+  },
+  "Iron Mountain": {
+   "solvency_hazard": 0.0252
+  },
+  "Oklo": {
+   "solvency_hazard": 0.0252
+  },
+  "GE Aerospace": {
+   "solvency_hazard": 0.0252
+  },
+  "Snowflake peer Braze skip Klaviyo skip UiPath": {
+   "solvency_hazard": 0.0252
+  },
+  "Teradata": {
+   "solvency_hazard": 0.0252
+  },
+  "Dropbox": {
    "solvency_hazard": 0.0252
   },
   "ARKK (ARK Innovation)": {
