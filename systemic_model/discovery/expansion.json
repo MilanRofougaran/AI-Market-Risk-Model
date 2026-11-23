@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-11-16",
+  "as_of": "2026-11-23",
   "source": "Claude (claude-opus-4-8) + Polygon",
   "companies": {
     "Taiwan Semiconductor": {
@@ -19,24 +19,6 @@
       "group": "AI-infra",
       "role": "Dominant pure-play foundry manufacturing the world's most advanced chips for AI accelerators, mobile, and HPC; near-monopoly at the leading edge anchors durable demand, though geopolitical concentration and capex cyclicality cap permanence and elasticity.",
       "ticker": "TSM"
-    },
-    "ASML Holding": {
-      "growth": 0.15,
-      "rev_bn": 32.0,
-      "tam_bn": 45.0,
-      "tam_cagr": 0.1,
-      "fwd_pe": 32.0,
-      "beta": 1.35,
-      "quality": 0.9,
-      "earn_quality": 0.8,
-      "dominance": 0.98,
-      "capex_elastic": 0.45,
-      "permanence": 0.3,
-      "kind": "stock",
-      "theme": "EUV lithography monopoly",
-      "group": "AI-infra",
-      "role": "Sole supplier of EUV lithography systems essential to advanced-node chip manufacturing; near-absolute moat anchors quality and dominance, but lumpy WFE capex cycles and customer concentration leave it cyclically exposed despite its monopoly position.",
-      "ticker": ""
     },
     "Monolithic Power Systems": {
       "growth": 0.18,
@@ -1514,24 +1496,6 @@
       "role": "Sandisk is a pure-play NAND flash and SSD maker spun from Western Digital, supplying enterprise and AI-datacenter storage; it sits in AI-infra but with cyclical commodity-memory economics, modest pricing power in an oligopoly, and high sensitivity to the NAND boom-bust capex cycle.",
       "ticker": ""
     },
-    "Powell Industries": {
-      "growth": 0.12,
-      "rev_bn": 1.1,
-      "tam_bn": 40.0,
-      "tam_cagr": 0.08,
-      "fwd_pe": 18.0,
-      "beta": 1.3,
-      "quality": 0.7,
-      "earn_quality": 0.55,
-      "dominance": 0.35,
-      "capex_elastic": 0.45,
-      "permanence": 0.5,
-      "kind": "stock",
-      "theme": "Electrical power distribution equipment",
-      "group": "AI-infra",
-      "role": "Powell makes custom electrical switchgear and power control systems for utility, industrial, oil/gas and increasingly data-center customers; it benefits indirectly from AI-driven power buildout but remains a cyclical, project-based equipment maker with lumpy, capex-dependent demand.",
-      "ticker": ""
-    },
     "Centrus Energy": {
       "growth": 0.2,
       "rev_bn": 0.45,
@@ -2106,6 +2070,42 @@
       "theme": "AI-optimized mobility marketplace",
       "group": "AI-platform",
       "role": "Dominant global ride-hail and delivery marketplace using AI for dispatch, pricing, and routing; sits in AI-platform with moderate permanence given its real network-effect moat but cyclical, discretionary consumer demand and autonomous-vehicle disruption risk.",
+      "ticker": ""
+    },
+    "indie Semiconductor": {
+      "growth": 0.25,
+      "rev_bn": 0.23,
+      "tam_bn": 20.0,
+      "tam_cagr": 0.15,
+      "fwd_pe": 140.0,
+      "beta": 2.1,
+      "quality": 0.55,
+      "earn_quality": 0.4,
+      "dominance": 0.2,
+      "capex_elastic": 0.5,
+      "permanence": 0.65,
+      "kind": "stock",
+      "theme": "Automotive edge compute silicon",
+      "group": "disruptive",
+      "role": "indie supplies ADAS, radar, connectivity and user-experience SoCs to automotive OEMs; it sits in disruptive with high beta and low dominance as a small, not-yet-profitable player with a credible but design-win-dependent automotive pipeline exposed to auto production cyclicality.",
+      "ticker": ""
+    },
+    "HubSpot": {
+      "growth": 0.18,
+      "rev_bn": 2.8,
+      "tam_bn": 80.0,
+      "tam_cagr": 0.12,
+      "fwd_pe": 55.0,
+      "beta": 1.4,
+      "quality": 0.78,
+      "earn_quality": 0.72,
+      "dominance": 0.45,
+      "capex_elastic": 0.7,
+      "permanence": 0.4,
+      "kind": "stock",
+      "theme": "AI-powered CRM software",
+      "group": "AI-platform",
+      "role": "HubSpot provides an integrated CRM and marketing software platform for SMBs with embedded AI (Breeze) features; recurring subscription revenue and sticky customers give it durability, but it competes in a fragmented CRM market dominated by larger players, so it sits as a mid-quality AI-platform name",
       "ticker": ""
     }
   }

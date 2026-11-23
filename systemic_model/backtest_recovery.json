@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-16",
+ "as_of": "2026-11-23",
  "since": "2008",
  "n_names": 25,
  "n_episodes": 176,
@@ -25,11 +25,11 @@
   "36": 157
  },
  "predicted": {
-  "6": 0.067,
-  "12": 0.217,
+  "6": 0.068,
+  "12": 0.218,
   "18": 0.317,
-  "24": 0.381,
-  "36": 0.466
+  "24": 0.38,
+  "36": 0.464
  },
  "names": [
   "NVIDIA",
@@ -66,6 +66,12 @@
    "censored": false
   },
   {
+   "name": "Applied Optoelectronics",
+   "depth": 0.852,
+   "recovery_months": null,
+   "censored": true
+  },
+  {
    "name": "AMD",
    "depth": 0.841,
    "recovery_months": 16.4,
@@ -82,12 +88,6 @@
    "depth": 0.809,
    "recovery_months": 10.7,
    "censored": false
-  },
-  {
-   "name": "Applied Optoelectronics",
-   "depth": 0.79,
-   "recovery_months": null,
-   "censored": true
   },
   {
    "name": "AMD",
@@ -138,6 +138,12 @@
    "censored": false
   },
   {
+   "name": "Oracle",
+   "depth": 0.692,
+   "recovery_months": null,
+   "censored": true
+  },
+  {
    "name": "Marvell",
    "depth": 0.684,
    "recovery_months": 58.8,
@@ -168,8 +174,8 @@
    "censored": false
   },
   {
-   "name": "Oracle",
-   "depth": 0.65,
+   "name": "ARM",
+   "depth": 0.654,
    "recovery_months": null,
    "censored": true
   },
@@ -210,8 +216,8 @@
    "censored": false
   },
   {
-   "name": "ARM",
-   "depth": 0.621,
+   "name": "Marvell",
+   "depth": 0.614,
    "recovery_months": null,
    "censored": true
   },
@@ -258,6 +264,12 @@
    "censored": false
   },
   {
+   "name": "Lumentum",
+   "depth": 0.594,
+   "recovery_months": null,
+   "censored": true
+  },
+  {
    "name": "Vertiv",
    "depth": 0.586,
    "recovery_months": 2.5,
@@ -276,12 +288,6 @@
    "censored": false
   },
   {
-   "name": "Marvell",
-   "depth": 0.578,
-   "recovery_months": null,
-   "censored": true
-  },
-  {
    "name": "Microsoft",
    "depth": 0.572,
    "recovery_months": 50.8,
@@ -291,12 +297,6 @@
    "name": "NVIDIA",
    "depth": 0.561,
    "recovery_months": 13.7,
-   "censored": false
-  },
-  {
-   "name": "IBM",
-   "depth": 0.561,
-   "recovery_months": 53.6,
    "censored": false
   }
  ],

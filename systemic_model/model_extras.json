@@ -747,22 +747,6 @@
    "solvency_hazard": 0.0252
   },
   "ASML Holding": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.41070000000000007,
-     "TAM": 0.42500000000000004,
-     "moat-.15": 0.41070000000000007,
-     "margin": 0.4557,
-     "rate+input": 0.41070000000000007
-    },
-    "worst": 0.4557,
-    "tier": "3  gated / fragile"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Monolithic Power Systems": {
@@ -2324,22 +2308,6 @@
    "solvency_hazard": 0.0252
   },
   "Powell Industries": {
-   "tier_panel": {
-    "fragility": {
-     "base": 0.32111,
-     "TAM": 0.32499999999999996,
-     "moat-.15": 0.32111,
-     "margin": 0.36610999999999994,
-     "rate+input": 0.32111
-    },
-    "worst": 0.36610999999999994,
-    "tier": "2  ownable, watch"
-   },
-   "confidence": {
-    "pnever": "Medium",
-    "option": "Low",
-    "anchor": "Low"
-   },
    "solvency_hazard": 0.0252
   },
   "Centrus Energy": {
@@ -2948,6 +2916,188 @@
     "option": "Low",
     "anchor": "Low"
    },
+   "solvency_hazard": 0.0252
+  },
+  "Nvidia supplier / Vishay Intertechnology": {
+   "solvency_hazard": 0.0252
+  },
+  "Microchip Technology": {
+   "solvency_hazard": 0.0252
+  },
+  "NXP Semiconductors": {
+   "solvency_hazard": 0.0252
+  },
+  "Analog Devices": {
+   "solvency_hazard": 0.0252
+  },
+  "ON Semiconductor": {
+   "solvency_hazard": 0.0252
+  },
+  "GlobalFoundries": {
+   "solvency_hazard": 0.0252
+  },
+  "United Microelectronics": {
+   "solvency_hazard": 0.0252
+  },
+  "Entegris": {
+   "solvency_hazard": 0.0252
+  },
+  "Applied Materials": {
+   "solvency_hazard": 0.0252
+  },
+  "Cadence Design Systems": {
+   "solvency_hazard": 0.0252
+  },
+  "Synopsys": {
+   "solvency_hazard": 0.0252
+  },
+  "Lattice Semiconductor": {
+   "solvency_hazard": 0.0252
+  },
+  "Power Integrations": {
+   "solvency_hazard": 0.0252
+  },
+  "Allegro MicroSystems": {
+   "solvency_hazard": 0.0252
+  },
+  "Cirrus Logic": {
+   "solvency_hazard": 0.0252
+  },
+  "Skyworks Solutions": {
+   "solvency_hazard": 0.0252
+  },
+  "Qorvo": {
+   "solvency_hazard": 0.0252
+  },
+  "Wolfspeed": {
+   "solvency_hazard": 0.0252
+  },
+  "indie Semiconductor": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.7036401793002914,
+     "TAM": 0.7185714285714285,
+     "moat-.15": 0.7036401793002914,
+     "margin": 0.7486401793002915,
+     "rate+input": 0.7036401793002914
+    },
+    "worst": 0.7486401793002915,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Aehr Test Systems": {
+   "solvency_hazard": 0.0252
+  },
+  "FormFactor": {
+   "solvency_hazard": 0.0252
+  },
+  "Photronics": {
+   "solvency_hazard": 0.0252
+  },
+  "MKS Instruments": {
+   "solvency_hazard": 0.0252
+  },
+  "Axcelis Technologies": {
+   "solvency_hazard": 0.0252
+  },
+  "Veeco Instruments": {
+   "solvency_hazard": 0.0252
+  },
+  "Ultra Clean Holdings": {
+   "solvency_hazard": 0.0252
+  },
+  "Cohu": {
+   "solvency_hazard": 0.0252
+  },
+  "Advanced Energy Industries": {
+   "solvency_hazard": 0.0252
+  },
+  "Pure Storage": {
+   "solvency_hazard": 0.0252
+  },
+  "NetApp": {
+   "solvency_hazard": 0.0252
+  },
+  "Juniper Networks": {
+   "solvency_hazard": 0.0252
+  },
+  "Digital Realty Trust": {
+   "solvency_hazard": 0.0252
+  },
+  "Equinix": {
+   "solvency_hazard": 0.0252
+  },
+  "Eaton": {
+   "solvency_hazard": 0.0252
+  },
+  "Quanta Services": {
+   "solvency_hazard": 0.0252
+  },
+  "GE Vernova": {
+   "solvency_hazard": 0.0252
+  },
+  "Constellation Energy": {
+   "solvency_hazard": 0.0252
+  },
+  "Vistra": {
+   "solvency_hazard": 0.0252
+  },
+  "NRG Energy": {
+   "solvency_hazard": 0.0252
+  },
+  "Oklo": {
+   "solvency_hazard": 0.0252
+  },
+  "Johnson Controls": {
+   "solvency_hazard": 0.0252
+  },
+  "nVent Electric": {
+   "solvency_hazard": 0.0252
+  },
+  "Trane Technologies": {
+   "solvency_hazard": 0.0252
+  },
+  "Twilio": {
+   "solvency_hazard": 0.0252
+  },
+  "HubSpot": {
+   "tier_panel": {
+    "fragility": {
+     "base": 0.5124745922077922,
+     "TAM": 0.5430909090909091,
+     "moat-.15": 0.5124745922077922,
+     "margin": 0.5574745922077923,
+     "rate+input": 0.5124745922077922
+    },
+    "worst": 0.5574745922077923,
+    "tier": "3  gated / fragile"
+   },
+   "confidence": {
+    "pnever": "Medium",
+    "option": "Low",
+    "anchor": "Low"
+   },
+   "solvency_hazard": 0.0252
+  },
+  "Salesforce": {
+   "solvency_hazard": 0.0252
+  },
+  "Adobe": {
+   "solvency_hazard": 0.0252
+  },
+  "Fortinet": {
+   "solvency_hazard": 0.0252
+  },
+  "Okta": {
+   "solvency_hazard": 0.0252
+  },
+  "Palo Alto Networks": {
    "solvency_hazard": 0.0252
   },
   "ARKK (ARK Innovation)": {
